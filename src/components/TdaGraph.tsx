@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Graph from "graphology";
 import { mockEdges, mockNodes } from "@/src/data/mockGraph";
 
 interface Props {
@@ -9,54 +7,55 @@ interface Props {
   onSelect: (id: string) => void;
 }
 
-const colors = { normal: "#00E5FF", warning: "#FFD600", anomaly: "#FF3D00" } as const;
+const palette = { normal: "#00e5ff", warning: "#ffd600", anomaly: "#ff3d00" } as const;
+
+const project = (x: number, y: number) => ({ x: 300 + x * 95, y: 225 + y * 75 });
 
 export function TdaGraph({ selectedId, onSelect }: Props) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const selected = mockNodes.find((n) => n.id === selectedId) ?? mockNodes[0];
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-    const graph = new Graph();
+  return (
+    <div className="relative h-full w-full overflow-hidden rounded-xl bg-[#080f11]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(0,218,243,0.16),transparent_45%),radial-gradient(circle_at_85%_5%,rgba(124,77,255,0.16),transparent_45%)]" />
+      <svg viewBox="0 0 600 450" className="h-full w-full">
+        <defs>
+          <filter id="node-glow"><feGaussianBlur stdDeviation="2.5" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+        </defs>
+        {mockEdges.map((edge) => {
+          const a = mockNodes.find((n) => n.id === edge.source)!;
+          const b = mockNodes.find((n) => n.id === edge.target)!;
+          const p1 = project(a.x, a.y);
+          const p2 = project(b.x, b.y);
+          const selectedEdge = edge.source === selectedId || edge.target === selectedId;
+          return <line key={edge.id} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke={selectedEdge ? "#9defff" : "#355068"} strokeWidth={selectedEdge ? 3 : Math.max(1.5, edge.weight * 3)} strokeOpacity={selectedEdge ? 0.95 : 0.8} />;
+        })}
 
-    for (const node of mockNodes) {
-      graph.addNode(node.id, {
-        label: node.label,
-        x: node.x,
-        y: node.y,
-        size: node.id === selectedId ? node.size + 5 : node.size,
-        color: node.validated ? "#00C853" : colors[node.type],
-      });
-    }
-
-    for (const edge of mockEdges) {
-      graph.addEdge(edge.source, edge.target, {
-        size: edge.weight * 4,
-        color: edge.source === selectedId || edge.target === selectedId ? "#b0f6ff" : "#355068",
-      });
-    }
-
-    let renderer: { kill: () => void; on: (event: "clickNode", cb: ({ node }: { node: string }) => void) => unknown } | null = null;
-    let disposed = false;
-
-    (async () => {
-      try {
-        const { default: Sigma } = await import("sigma");
-        if (disposed || !containerRef.current) return;
-        renderer = new Sigma(graph, containerRef.current, { renderLabels: false, labelColor: { color: "#fff" } }) as unknown as { kill: () => void; on: (event: "clickNode", cb: ({ node }: { node: string }) => void) => unknown };
-        renderer.on("clickNode", ({ node }) => onSelect(node));
-      } catch (error) {
-        if (containerRef.current) {
-          containerRef.current.innerHTML = `<div style="display:flex;height:100%;align-items:center;justify-content:center;color:#FFD600;font-size:14px">Graph renderer unavailable. Falling back to static mode.</div>`;
-        }
-        console.error("Sigma init failed", error);
-      }
-    })();
-
-    return () => {
-      disposed = true;
-      renderer?.kill();
-    };
-  }, [onSelect, selectedId]);
-
-  return <div ref={containerRef} className="h-full w-full rounded-xl bg-[#0B0F14]" aria-label="TDA graph canvas" />;
+        {mockNodes.map((node) => {
+          const p = project(node.x, node.y);
+          const color = palette[node.type];
+          const isSelected = node.id === selectedId;
+          return (
+            <g key={node.id} onClick={() => onSelect(node.id)} className="cursor-pointer">
+              {node.type === "anomaly" && <circle cx={p.x} cy={p.y} r={node.size + 13} fill="#93000a" fillOpacity={0.22} />}
+              <circle cx={p.x} cy={p.y} r={node.size + 8} fill={color} fillOpacity={0.12} />
+              <circle cx={p.x} cy={p.y} r={node.size} fill={color} filter="url(#node-glow)" />
+              {node.validated && <circle cx={p.x} cy={p.y} r={node.size + 4} fill="none" stroke="#00c853" strokeWidth="2" />}
+              {isSelected && <circle cx={p.x} cy={p.y} r={node.size + 10} fill="none" stroke="#dce4e5" strokeDasharray="3 4" />}
+              <text x={p.x} y={p.y + node.size + 16} textAnchor="middle" fill="#dce4e5" fontSize="11" className="font-tech">{node.id.toUpperCase()}</text>
+            </g>
+          );
+        })}
+      </svg>
+      <div className="absolute bottom-3 left-3 grid grid-cols-2 gap-2 text-[10px]">
+        <span className="rounded border border-red-400/35 bg-red-900/20 px-2 py-1 text-[#ff8a65]">Severe anomaly</span>
+        <span className="rounded border border-yellow-400/35 bg-yellow-900/20 px-2 py-1 text-[#ffd866]">Warning</span>
+        <span className="rounded border border-cyan-400/35 bg-cyan-900/20 px-2 py-1 text-[#7fefff]">Normal</span>
+        <span className="rounded border border-green-400/35 bg-green-900/20 px-2 py-1 text-[#6dff9f]">Validated ring</span>
+      </div>
+      <div className="absolute right-3 top-3 rounded-lg border border-slate-600 bg-black/35 px-3 py-2 text-xs text-[#bac9cc]">
+        <p className="font-tech text-[11px] text-white">Selected: {selected.label}</p>
+        <p>Signals: {selected.signals.length}</p>
+      </div>
+    </div>
+  );
 }
