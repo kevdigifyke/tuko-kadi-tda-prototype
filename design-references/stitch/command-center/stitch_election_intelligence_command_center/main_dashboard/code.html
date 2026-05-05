@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#004f58",
+                        "tertiary-container": "#fec931",
+                        "on-background": "#dce4e5",
+                        "surface-container-highest": "#2e3638",
+                        "surface-container-high": "#242b2d",
+                        "background": "#0d1516",
+                        "error": "#ffb4ab",
+                        "on-tertiary": "#3e2e00",
+                        "on-surface-variant": "#bac9cc",
+                        "on-surface": "#dce4e5",
+                        "secondary-fixed-dim": "#cdbdff",
+                        "tertiary": "#ffeac0",
+                        "surface-bright": "#333a3c",
+                        "on-secondary-fixed-variant": "#4f00d0",
+                        "outline-variant": "#3b494c",
+                        "surface-tint": "#00daf3",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#9cf0ff",
+                        "surface-container-low": "#151d1e",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "surface-dim": "#0d1516",
+                        "on-primary": "#00363d",
+                        "primary": "#c3f5ff",
+                        "on-primary-fixed": "#001f24",
+                        "on-secondary": "#370096",
+                        "primary-container": "#00e5ff",
+                        "outline": "#849396",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#2a3233",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-variant": "#2e3638",
+                        "on-secondary-container": "#c0acff",
+                        "secondary-container": "#5203d5",
+                        "surface": "#0d1516",
+                        "tertiary-fixed": "#ffdf96",
+                        "on-tertiary-container": "#6f5500",
+                        "inverse-primary": "#006875",
+                        "on-secondary-fixed": "#20005f",
+                        "on-primary-container": "#00626e",
+                        "surface-container-lowest": "#080f11",
+                        "secondary-fixed": "#e8deff",
+                        "secondary": "#cdbdff",
+                        "inverse-surface": "#dce4e5",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#192122",
+                        "primary-fixed-dim": "#00daf3",
+                        "tertiary-fixed-dim": "#f3bf26"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "margin": "32px",
+                        "xs": "4px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-main": ["Inter"],
+                        "data-md": ["IBM Plex Mono"],
+                        "label-caps": ["IBM Plex Mono"],
+                        "h1-display": ["Inter"],
+                        "data-lg": ["IBM Plex Mono"],
+                        "h2-headline": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-main": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "data-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}],
+                        "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "h1-display": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "data-lg": ["20px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "h2-headline": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(18, 25, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .cyan-glow {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+        }
+        .anomaly-pulse {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(255, 180, 171, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 180, 171, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 180, 171, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-main selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full h-[72px] z-50 bg-[#0B0F14]/90 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex justify-between items-center px-8 w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black tracking-tighter text-cyan-400 font-mono">INTEL_OS</span>
+<div class="hidden md:flex gap-6">
+<nav class="flex gap-6 font-inter tracking-tight uppercase text-xs font-semibold">
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">LIVE STATUS</a>
+<a class="text-slate-500 hover:text-slate-300 transition-colors" href="#">PROJECTION</a>
+<a class="text-slate-500 hover:text-slate-300 transition-colors" href="#">RESOURCES</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 px-3 py-1.5 bg-white/5 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-cyan-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-[11px] font-label-caps text-slate-300 w-48 placeholder:text-slate-600" placeholder="QUERY WARD ID..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-cyan-400 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications_active</span>
+</button>
+<button class="text-slate-400 hover:text-cyan-400 transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-cyan-400/30 p-0.5">
+<img alt="Lead Intelligence Officer Avatar" class="w-full h-full rounded-full object-cover" data-alt="A cinematic close-up of a high-ranking intelligence officer's professional headshot. The lighting is dramatic with cool blue and cyan rim lights reflecting off the subject's face, creating a tech-focused atmosphere. The background is a blurred command center with soft bokeh of glowing data screens, maintaining a dark and professional aesthetic consistent with a futuristic interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV80yZuV7tCu_mpZtcVW0Jms3jtYSFkBEmohffqzDkaHKOTrF9yGe53Di7n34VhKbVms3ipb_DCxahH_AotpqvVbuvVSFAweKSrmPKGO7TBxDKCEx_lktMhMNxzDDHdvP5lfbPxMLExvx9-LpAxF51HYRHMPDXcuvhG6Ob41qgxHCf1VQG2l3vh3DXvpPymws0KJnfDGlzCTb8aWW503XzU1dVePAAmfnez51pryU9cJa9ODC3ob56GfZXrQlZI2USBsqfirhkWg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[240px] z-40 bg-[#121922]/95 backdrop-blur-2xl border-r border-white/5 shadow-2xl shadow-cyan-900/10 flex flex-col pt-[88px] pb-8 px-4">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center border border-cyan-500/20">
+<span class="material-symbols-outlined text-cyan-400" data-weight="fill">security</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-cyan-400 font-mono tracking-widest leading-none">ELECT_INTEL</h2>
+<p class="text-[10px] text-slate-500 font-label-caps mt-1">V.2.04-STABLE</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded bg-cyan-500/10 text-cyan-400 border-l-2 border-cyan-400 shadow-[inset_4px_0_15px_rgba(0,229,255,0.1)] font-inter text-[13px] font-medium tracking-wide active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all font-inter text-[13px] font-medium tracking-wide active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">map</span>
+<span>Maps</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all font-inter text-[13px] font-medium tracking-wide active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">warning</span>
+<span>Anomalies</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all font-inter text-[13px] font-medium tracking-wide active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all font-inter text-[13px] font-medium tracking-wide active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined text-lg">support_agent</span>
+<span>Agents</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-white/5 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-slate-500 hover:text-slate-300 transition-colors font-inter text-[13px] font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined text-lg">terminal</span>
+<span>System Logs</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-slate-500 hover:text-slate-300 transition-colors font-inter text-[13px] font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined text-lg">help_center</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-[240px] pt-[72px] min-h-screen">
+<div class="p-margin grid grid-cols-12 gap-gutter">
+<!-- Left: Interactive Map -->
+<div class="col-span-12 lg:col-span-7 xl:col-span-8 flex flex-col gap-gutter">
+<div class="glass-panel rounded-xl overflow-hidden relative h-[580px] flex flex-col group">
+<div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
+<div class="bg-background/80 backdrop-blur-md border border-white/10 px-3 py-2 rounded-lg">
+<p class="font-label-caps text-[10px] text-slate-400 mb-1">DATA STATUS</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(0,229,255,0.8)]"></span>
+<span class="font-data-md text-cyan-400">STREAMING_LIVE</span>
+</div>
+</div>
+</div>
+<div class="absolute top-4 right-4 z-10 flex gap-2">
+<button class="w-10 h-10 glass-panel rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-10 h-10 glass-panel rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="w-10 h-10 glass-panel rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+<!-- Map Image Representation -->
+<div class="flex-1 bg-surface-container-low relative cursor-crosshair">
+<img alt="Regional Election Map" class="w-full h-full object-cover opacity-50 grayscale contrast-125" data-alt="A highly detailed topographical map rendered in a dark futuristic HUD style. The map features glowing cyan-colored regional boundaries and data points that pulse with light. Various translucent overlays show vote density in neon violet and orange. The overall atmosphere is technical and atmospheric, with sharp lines, monospaced text labels, and a deep charcoal and navy color palette." data-location="Washington DC" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmIhqmFDDUr0RMG7BY3IAt_pbHwHV6E0ftLwJlD_jVzEovra1jNlOg4Pw7oD8BKJ1MtuFdiczf8GnG8b7Vg7KX0hGgTFo-2hbXJaZFELT0U1j53r_2iV-XiQX3j22Cz7Ihos1hRXyTLWgVMrHPi77hazO4lDLSnrcy14O06Gua_IQO8A_gUs93GRxkd-v196fKyK9sZA6VABJExI0OTBBBeLZl_pRLx-WHkOXLwvh086ny8GzMA1bnXvSzGnqE0-arktehKEAvOQ"/>
+<!-- Mock Map Tooltip -->
+<div class="absolute top-1/2 left-1/3 bg-background/95 border border-cyan-500/50 p-4 rounded-lg shadow-2xl z-20 w-64 backdrop-blur-xl transition-all group-hover:scale-105">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="font-label-caps text-[10px] text-slate-400">WARD SECTOR</h4>
+<p class="font-h2-headline text-lg text-on-surface">Central</p>
+</div>
+<div class="bg-cyan-500/20 px-2 py-1 rounded">
+<p class="font-data-md text-[12px] text-cyan-400">98% CONF.</p>
+</div>
+</div>
+<div class="space-y-2 border-t border-white/5 pt-3">
+<div class="flex justify-between">
+<span class="text-xs text-slate-500">Votes</span>
+<span class="font-data-md text-xs text-on-surface">12,482</span>
+</div>
+<div class="flex justify-between">
+<span class="text-xs text-slate-500">Leading</span>
+<span class="font-data-md text-xs text-cyan-400">Candidate A</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-cyan-400 w-[68%]" style="box-shadow: 0 0 10px rgba(0,229,255,0.5)"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-white/5 bg-background/40 flex items-center justify-between">
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-sm bg-cyan-500/50 border border-cyan-400"></div>
+<span class="text-[10px] font-label-caps text-slate-400 uppercase">Liberal Bloc</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-sm bg-secondary-container/50 border border-secondary"></div>
+<span class="text-[10px] font-label-caps text-slate-400 uppercase">Conservative Bloc</span>
+</div>
+</div>
+<div class="text-[10px] font-data-md text-slate-500">
+                            COORD: 38.8951° N, 77.0364° W | UPDATED 2s AGO
+                        </div>
+</div>
+</div>
+</div>
+<!-- Right: Stats & Cards -->
+<div class="col-span-12 lg:col-span-5 xl:col-span-4 flex flex-col gap-gutter">
+<!-- Anomaly Counter -->
+<div class="glass-panel rounded-xl p-6 border-l-4 border-l-error anomaly-pulse">
+<div class="flex justify-between items-center">
+<div>
+<h3 class="font-label-caps text-[11px] text-error/80 mb-1">CRITICAL ANOMALIES</h3>
+<div class="flex items-baseline gap-2">
+<span class="font-h1-display text-4xl text-error tracking-tighter">14</span>
+<span class="font-data-md text-sm text-error/60">+3 since last min</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-4xl text-error/30">warning</span>
+</div>
+</div>
+<!-- Leading Candidates -->
+<div class="glass-panel rounded-xl p-6 flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h3 class="font-label-caps text-[11px] text-slate-400">LEADING CANDIDATES</h3>
+<span class="material-symbols-outlined text-slate-500 text-lg">leaderboard</span>
+</div>
+<div class="space-y-5">
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-body-main font-semibold text-on-surface">Candidate A</span>
+<span class="font-data-md text-cyan-400">48.2%</span>
+</div>
+<div class="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-cyan-400 rounded-full" style="width: 48.2%; box-shadow: 0 0 12px rgba(0,229,255,0.4)"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-body-main font-semibold text-on-surface">Candidate B</span>
+<span class="font-data-md text-secondary">41.7%</span>
+</div>
+<div class="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 41.7%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="font-body-main font-semibold text-on-surface">Candidate C</span>
+<span class="font-data-md text-slate-400">10.1%</span>
+</div>
+<div class="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-slate-600 rounded-full" style="width: 10.1%"></div>
+</div>
+</div>
+</div>
+<button class="w-full py-2 border border-cyan-400/30 bg-cyan-400/5 rounded text-cyan-400 font-label-caps text-[10px] hover:bg-cyan-400/10 transition-all">
+                        VIEW FULL PROJECTIONS
+                    </button>
+</div>
+<!-- Live Activity Feed -->
+<div class="glass-panel rounded-xl flex-1 flex flex-col overflow-hidden max-h-[280px]">
+<div class="p-4 border-b border-white/5 flex justify-between items-center bg-white/2">
+<h3 class="font-label-caps text-[11px] text-slate-400">LIVE VOTE FEED</h3>
+<div class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-2 space-y-1">
+<div class="flex items-center gap-3 p-2 hover:bg-white/5 rounded transition-colors group">
+<span class="font-data-md text-[10px] text-slate-500">14:22:01</span>
+<div class="flex-1">
+<p class="text-[12px] text-on-surface-variant"><span class="text-cyan-400">+142</span> votes reported in Sector 7-G</p>
+</div>
+<span class="material-symbols-outlined text-[14px] text-slate-600 group-hover:text-cyan-400">arrow_forward</span>
+</div>
+<div class="flex items-center gap-3 p-2 hover:bg-white/5 rounded transition-colors group">
+<span class="font-data-md text-[10px] text-slate-500">14:21:48</span>
+<div class="flex-1">
+<p class="text-[12px] text-on-surface-variant"><span class="text-secondary">+88</span> votes reported in West Ward</p>
+</div>
+<span class="material-symbols-outlined text-[14px] text-slate-600 group-hover:text-cyan-400">arrow_forward</span>
+</div>
+<div class="flex items-center gap-3 p-2 hover:bg-white/5 rounded transition-colors group border-l-2 border-l-error">
+<span class="font-data-md text-[10px] text-slate-500">14:21:30</span>
+<div class="flex-1">
+<p class="text-[12px] text-error font-medium">DISCREPANCY DETECTED: Sector 12</p>
+</div>
+<span class="material-symbols-outlined text-[14px] text-error">priority_high</span>
+</div>
+<div class="flex items-center gap-3 p-2 hover:bg-white/5 rounded transition-colors group">
+<span class="font-data-md text-[10px] text-slate-500">14:20:55</span>
+<div class="flex-1">
+<p class="text-[12px] text-on-surface-variant"><span class="text-cyan-400">+1,102</span> votes reported in City South</p>
+</div>
+<span class="material-symbols-outlined text-[14px] text-slate-600 group-hover:text-cyan-400">arrow_forward</span>
+</div>
+<div class="flex items-center gap-3 p-2 hover:bg-white/5 rounded transition-colors group">
+<span class="font-data-md text-[10px] text-slate-500">14:20:41</span>
+<div class="flex-1">
+<p class="text-[12px] text-on-surface-variant"><span class="text-secondary">+512</span> votes reported in Harbor View</p>
+</div>
+<span class="material-symbols-outlined text-[14px] text-slate-600 group-hover:text-cyan-400">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Strip: Secondary Charts -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-gutter mt-2">
+<!-- Turnout (Line) -->
+<div class="glass-panel rounded-xl p-5 h-40 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-caps text-[10px] text-slate-500 mb-1">AGGREGATE TURNOUT</p>
+<h4 class="font-data-lg text-on-surface">64.2%</h4>
+</div>
+<div class="text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded text-[10px] font-data-md">+2.1% YOY</div>
+</div>
+<div class="flex items-end gap-1 h-12 w-full">
+<div class="flex-1 bg-cyan-400/20 h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-cyan-400/20 h-[45%] rounded-t-sm"></div>
+<div class="flex-1 bg-cyan-400/20 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-cyan-400/20 h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-cyan-400/20 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-cyan-400/20 h-[65%] rounded-t-sm"></div>
+<div class="flex-1 bg-cyan-400/40 h-[85%] rounded-t-sm shadow-[0_0_8px_rgba(0,229,255,0.3)]"></div>
+</div>
+</div>
+<!-- Validation (Pie) -->
+<div class="glass-panel rounded-xl p-5 h-40 flex items-center justify-between">
+<div class="flex flex-col justify-between h-full">
+<div>
+<p class="font-label-caps text-[10px] text-slate-500 mb-1">VALIDATION STATUS</p>
+<h4 class="font-data-lg text-on-surface">VERIFIED</h4>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
+<span class="text-[10px] text-slate-400">89% Authenticated</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary"></div>
+<span class="text-[10px] text-slate-400">11% Pending Review</span>
+</div>
+</div>
+</div>
+<div class="relative w-24 h-24">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-cyan-400" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="25.1" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-data-md text-xs text-on-surface">89%</span>
+</div>
+</div>
+</div>
+<!-- Regional Stats (Bar) -->
+<div class="glass-panel rounded-xl p-5 h-40 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<p class="font-label-caps text-[10px] text-slate-500 mb-1">REGIONAL SYNC</p>
+<span class="material-symbols-outlined text-slate-500 text-sm">sync</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-label-caps text-slate-400 w-12">NORTH</span>
+<div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[92%]"></div>
+</div>
+<span class="text-[10px] font-data-md text-slate-300">SYNCED</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-label-caps text-slate-400 w-12">SOUTH</span>
+<div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-cyan-400 w-[78%]"></div>
+</div>
+<span class="text-[10px] font-data-md text-slate-300">SYNCED</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[10px] font-label-caps text-slate-400 w-12">METRO</span>
+<div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container w-[45%]"></div>
+</div>
+<span class="text-[10px] font-data-md text-tertiary">PENDING</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only on main dashboard) -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary-container text-on-primary-container rounded-full shadow-[0_0_25px_rgba(0,229,255,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50 group">
+<span class="material-symbols-outlined text-3xl" data-weight="fill">analytics</span>
+<div class="absolute right-20 bg-background/90 backdrop-blur-md border border-cyan-400/30 px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+<p class="text-[11px] font-label-caps text-cyan-400">GENERATE INTELLIGENCE REPORT</p>
+</div>
+</button>
+</body></html>

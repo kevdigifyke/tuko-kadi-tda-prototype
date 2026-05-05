@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#004f58",
+                    "tertiary-container": "#fec931",
+                    "on-background": "#dce4e5",
+                    "surface-container-highest": "#2e3638",
+                    "surface-container-high": "#242b2d",
+                    "background": "#0d1516",
+                    "error": "#ffb4ab",
+                    "on-tertiary": "#3e2e00",
+                    "on-surface-variant": "#bac9cc",
+                    "on-surface": "#dce4e5",
+                    "secondary-fixed-dim": "#cdbdff",
+                    "tertiary": "#ffeac0",
+                    "surface-bright": "#333a3c",
+                    "on-secondary-fixed-variant": "#4f00d0",
+                    "outline-variant": "#3b494c",
+                    "surface-tint": "#00daf3",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#9cf0ff",
+                    "surface-container-low": "#151d1e",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "surface-dim": "#0d1516",
+                    "on-primary": "#00363d",
+                    "primary": "#c3f5ff",
+                    "on-primary-fixed": "#001f24",
+                    "on-secondary": "#370096",
+                    "primary-container": "#00e5ff",
+                    "outline": "#849396",
+                    "on-error": "#690005",
+                    "inverse-on-surface": "#2a3233",
+                    "on-tertiary-fixed": "#251a00",
+                    "surface-variant": "#2e3638",
+                    "on-secondary-container": "#c0acff",
+                    "secondary-container": "#5203d5",
+                    "surface": "#0d1516",
+                    "tertiary-fixed": "#ffdf96",
+                    "on-tertiary-container": "#6f5500",
+                    "inverse-primary": "#006875",
+                    "on-secondary-fixed": "#20005f",
+                    "on-primary-container": "#00626e",
+                    "surface-container-lowest": "#080f11",
+                    "secondary-fixed": "#e8deff",
+                    "secondary": "#cdbdff",
+                    "inverse-surface": "#dce4e5",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#192122",
+                    "primary-fixed-dim": "#00daf3",
+                    "tertiary-fixed-dim": "#f3bf26"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "base": "8px",
+                    "lg": "24px",
+                    "margin": "32px",
+                    "xs": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "body-main": ["Inter"],
+                    "data-md": ["IBM Plex Mono"],
+                    "label-caps": ["IBM Plex Mono"],
+                    "h1-display": ["Inter"],
+                    "data-lg": ["IBM Plex Mono"],
+                    "h2-headline": ["Inter"]
+            },
+            "fontSize": {
+                    "body-main": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "data-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h1-display": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-lg": ["20px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "h2-headline": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(18, 25, 34, 0.9);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .data-grid-border {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .warning-strip {
+            border-left: 2px solid #ffb4ab;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #00daf3;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-main selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 left-0 w-full h-[72px] z-50 bg-[#0B0F14]/90 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-8 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black tracking-tighter text-cyan-400 font-mono">INTEL_OS</span>
+<nav class="hidden md:flex gap-6">
+<span class="font-inter tracking-tight uppercase text-xs font-semibold text-cyan-400 border-b-2 border-cyan-400 pb-1 cursor-pointer">Maps</span>
+<span class="font-inter tracking-tight uppercase text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors cursor-pointer">Analytics</span>
+<span class="font-inter tracking-tight uppercase text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors cursor-pointer">Agents</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="px-3 py-1 border border-cyan-400/30 rounded-sm bg-cyan-400/5 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+<span class="font-inter tracking-tight uppercase text-xs font-semibold text-cyan-400">LIVE STATUS</span>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded transition-all cursor-pointer">notifications_active</span>
+<span class="material-symbols-outlined text-slate-400 hover:bg-white/5 p-2 rounded transition-all cursor-pointer">settings</span>
+</div>
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center overflow-hidden border border-white/10">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A cinematic, high-detail portrait of a senior intelligence officer in a dark, atmospheric control room. The lighting is low-key with sharp cyan rim lighting reflecting off the glass of his tactical eyewear. The style is futuristic minimalism with a shallow depth of field, focusing on his stern expression and digital reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxHx8xFzP3SU_MclDzPAyzPw5LqavDMlNwnpFVie8CaErugAwi4ynLdducIV9A7pDPCF2Up6thovgFcE0JBBYy9wX9n9JpIQKod1ljXTQimC64A0aLH8stLkBr-CQsxTwlQ_hPnkw4E4LdJuS_zZBKOu1bTjkxlsdvO7kgOs8JFQH0xjqIS1F8mSvbW5iolpXpF3TfuQYtkeVSqx7M1jBKniJUlYaNDlVUvelomEWKFoNDxTUpHGR-riHnZbd8bs6RBbzT99rF7g"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[240px] z-40 bg-[#121922]/95 backdrop-blur-2xl border-r border-white/5 flex flex-col pt-[88px] pb-8 px-4 shadow-2xl shadow-cyan-900/10">
+<div class="mb-8 px-2">
+<h2 class="text-lg font-bold text-cyan-400 font-mono tracking-widest">ELECT_INTEL</h2>
+<p class="font-inter text-[13px] font-medium tracking-wide text-slate-500">V.2.04-STABLE</p>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center gap-3 px-3 py-2.5 rounded font-inter text-[13px] font-medium tracking-wide text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded font-inter text-[13px] font-medium tracking-wide bg-cyan-500/10 text-cyan-400 border-l-2 border-cyan-400 shadow-[inset_4px_0_15px_rgba(0,229,255,0.1)] active:translate-x-1 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">map</span>
+<span>Maps</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded font-inter text-[13px] font-medium tracking-wide text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all cursor-pointer">
+<span class="material-symbols-outlined">warning</span>
+<span>Anomalies</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded font-inter text-[13px] font-medium tracking-wide text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all cursor-pointer">
+<span class="material-symbols-outlined">insights</span>
+<span>Analytics</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded font-inter text-[13px] font-medium tracking-wide text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all cursor-pointer">
+<span class="material-symbols-outlined">support_agent</span>
+<span>Agents</span>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5 space-y-1">
+<div class="flex items-center gap-3 px-3 py-2.5 rounded font-inter text-[13px] font-medium tracking-wide text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all cursor-pointer">
+<span class="material-symbols-outlined">terminal</span>
+<span>System Logs</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded font-inter text-[13px] font-medium tracking-wide text-slate-400 hover:bg-white/5 hover:text-slate-200 transition-all cursor-pointer">
+<span class="material-symbols-outlined">help_center</span>
+<span>Support</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas (Background Dashboard) -->
+<main class="ml-[240px] mt-[72px] p-margin grid grid-cols-12 gap-gutter relative">
+<!-- Background Map Placeholder -->
+<div class="col-span-12 h-[calc(100vh-136px)] rounded-xl bg-surface-container overflow-hidden relative">
+<div class="absolute inset-0 opacity-40 mix-blend-luminosity">
+<img class="w-full h-full object-cover" data-alt="A dark, high-contrast digital map interface showing the Chicago city grid in monochromatic navy and black tones. Neon cyan lines highlight major transit arteries and electoral precinct borders. Soft glowing points of interest represent real-time polling data in a futuristic head-up display aesthetic." data-location="Chicago, IL" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjvDJz3YnSzOXeWlWPHAWCIRjpeE5qq1cZ6LlxXL6f3o61MPF78AxvcbvlGqQWFSiLSk32G268YHMYaSwxdetfcWKcpAPYZyDpHKPr610gGfNBYQYsMtrOM2QzB7S5owBRCMmCTyy-TXH4ouORSKUslpo91OqDhQj9YItGlQXq0Zp06O_xN19GowLKt5nY_Jxod9od4lqW5EeeVsYsc6kNFyCgIPAU1ga4hO3A8P2MJOlFkkMh4yt5B3xLBzOTG0w2LbpPBrPPfw"/>
+</div>
+<!-- Background Widgets (Mock Dashboard items) -->
+<div class="absolute top-8 left-8 space-y-4">
+<div class="p-4 bg-background/80 backdrop-blur-md rounded border border-white/10 w-64 shadow-xl">
+<span class="block font-label-caps text-label-caps text-cyan-400 mb-2">GLOBAL TURNOUT</span>
+<span class="block font-data-lg text-data-lg text-on-surface">64.2%</span>
+<div class="w-full h-1 bg-white/5 mt-2 rounded-full overflow-hidden">
+<div class="w-[64%] h-full bg-cyan-400"></div>
+</div>
+</div>
+<div class="p-4 bg-background/80 backdrop-blur-md rounded border border-white/10 w-64 shadow-xl">
+<span class="block font-label-caps text-label-caps text-cyan-400 mb-2">ACTIVE AGENTS</span>
+<span class="block font-data-lg text-data-lg text-on-surface">1,402</span>
+</div>
+</div>
+</div>
+<!-- Slide-in Detail Panel -->
+<div class="fixed top-[72px] right-0 bottom-0 w-[480px] glass-panel z-50 flex flex-col shadow-[-20px_0_40px_rgba(0,0,0,0.6)]">
+<!-- Header -->
+<div class="p-lg border-b border-white/10">
+<div class="flex justify-between items-start mb-2">
+<h1 class="font-h2-headline text-h2-headline text-primary-fixed">City Center - Ward 14</h1>
+<button class="material-symbols-outlined text-slate-400 hover:text-white transition-colors">close</button>
+</div>
+<div class="flex items-center gap-2 text-slate-500 font-data-md text-data-md">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>41.8781° N, 87.6298° W</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-lg space-y-8">
+<!-- Image Viewer -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-caps text-label-caps text-cyan-400">RESULT FORM UPLOAD (FORM EC8A)</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+</div>
+<div class="aspect-[3/4] bg-surface-container-highest rounded-lg overflow-hidden border border-white/10 relative group">
+<img class="w-full h-full object-cover" data-alt="A high-resolution document scan of an official electoral results sheet. The paper shows handwritten numbers in black ink, official blue rubber stamps, and several security holograms reflecting a cyan spectrum. The lighting is flat and neutral to ensure maximum legibility, framed within a dark futuristic UI portal with technical telemetry overlays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkDaE1rSa8IrS4SMNFb7T-XltaZ793dP6C86B_g0gCUXXQUayetFU1Iu6aWlq4rx__T4qQqN_dVIFyQ1YSFp_Q1llcaNTHxYdvCcUPLEw5fhaPKqjktrS66PyibQsz1Kls3qQgNdc9sv1PvLnRpzMtUj0OLPoTdCRlAetZcSzqnG0m9wAAu0kYfq5FikGIWNZGQJcmLAMUBrcH-8Qx6tuvg2OQspbNVJrdu3OQCM2MDWjX2mOQP9ZhwGSG7PiXuqS3sAG8qzgmIQ"/>
+<div class="absolute inset-0 bg-cyan-400/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-zoom-in">
+<span class="bg-background/80 px-4 py-2 rounded border border-cyan-400/30 text-cyan-400 font-label-caps text-[10px]">SCAN VERIFIED</span>
+</div>
+</div>
+</section>
+<!-- Data Table -->
+<section>
+<span class="block font-label-caps text-label-caps text-cyan-400 mb-4">TABULATED AGGREGATE</span>
+<div class="space-y-px">
+<div class="flex justify-between items-center p-3 bg-white/5 border border-white/5 rounded-t">
+<span class="text-slate-400 text-sm">Registered Voters</span>
+<span class="font-data-md text-data-md text-on-surface">12,450</span>
+</div>
+<div class="grid grid-cols-2 gap-px">
+<div class="p-4 bg-white/5 border border-white/5">
+<span class="block text-[10px] text-slate-500 font-label-caps mb-1">PRESIDENTIAL</span>
+<span class="block font-data-lg text-data-lg text-primary-fixed">8,912</span>
+</div>
+<div class="p-4 bg-white/5 border border-white/5">
+<span class="block text-[10px] text-slate-500 font-label-caps mb-1">GOVERNOR</span>
+<span class="block font-data-lg text-data-lg text-primary-fixed">8,845</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-3 bg-white/5 border border-white/5 rounded-b">
+<span class="text-slate-400 text-sm">Turnout Rate</span>
+<span class="font-data-md text-data-md text-cyan-400">71.58%</span>
+</div>
+</div>
+</section>
+<!-- Validation & Confidence -->
+<section>
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-caps text-label-caps text-cyan-400">DATA CONFIDENCE</span>
+<span class="font-data-md text-data-md text-primary-container">89%</span>
+</div>
+<div class="w-full h-2 bg-white/10 rounded-full overflow-hidden mb-6">
+<div class="w-[89%] h-full bg-gradient-to-r from-primary-container to-cyan-500 shadow-[0_0_10px_rgba(0,229,255,0.4)]"></div>
+</div>
+<span class="block font-label-caps text-label-caps text-error mb-3">ANOMALY LOGS (02)</span>
+<div class="space-y-3">
+<div class="p-3 bg-error-container/10 warning-strip flex gap-3">
+<span class="material-symbols-outlined text-error text-[20px]">warning</span>
+<div>
+<p class="text-sm font-semibold text-on-error-container">Inconsistent Tally</p>
+<p class="text-[12px] text-on-error-container/70">Sum of candidates (8,912) exceeds total valid votes recorded in EC8A by +7.</p>
+</div>
+</div>
+<div class="p-3 bg-tertiary-container/10 border-l-2 border-tertiary flex gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px]">error_outline</span>
+<div>
+<p class="text-sm font-semibold text-on-tertiary-container">OCR Blur Detection</p>
+<p class="text-[12px] text-on-tertiary-container/70">Signatures in Section 4 are partially obscured. Manual review recommended.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<div class="p-lg bg-surface-container-low border-t border-white/10 flex gap-4">
+<button class="flex-1 py-3 px-4 border border-cyan-400/30 bg-cyan-400/10 text-cyan-400 rounded font-label-caps text-[12px] tracking-widest hover:bg-cyan-400/20 transition-all active:scale-95 duration-200">
+                    APPROVE RECORD
+                </button>
+<button class="w-14 h-[44px] flex items-center justify-center border border-white/10 bg-white/5 text-slate-400 rounded hover:text-white transition-all">
+<span class="material-symbols-outlined">flag</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

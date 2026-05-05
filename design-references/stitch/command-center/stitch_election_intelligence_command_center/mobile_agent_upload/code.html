@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#004f58",
+                    "tertiary-container": "#fec931",
+                    "on-background": "#dce4e5",
+                    "surface-container-highest": "#2e3638",
+                    "surface-container-high": "#242b2d",
+                    "background": "#0d1516",
+                    "error": "#ffb4ab",
+                    "on-tertiary": "#3e2e00",
+                    "on-surface-variant": "#bac9cc",
+                    "on-surface": "#dce4e5",
+                    "secondary-fixed-dim": "#cdbdff",
+                    "tertiary": "#ffeac0",
+                    "surface-bright": "#333a3c",
+                    "on-secondary-fixed-variant": "#4f00d0",
+                    "outline-variant": "#3b494c",
+                    "surface-tint": "#00daf3",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#9cf0ff",
+                    "surface-container-low": "#151d1e",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "surface-dim": "#0d1516",
+                    "on-primary": "#00363d",
+                    "primary": "#c3f5ff",
+                    "on-primary-fixed": "#001f24",
+                    "on-secondary": "#370096",
+                    "primary-container": "#00e5ff",
+                    "outline": "#849396",
+                    "on-error": "#690005",
+                    "inverse-on-surface": "#2a3233",
+                    "on-tertiary-fixed": "#251a00",
+                    "surface-variant": "#2e3638",
+                    "on-secondary-container": "#c0acff",
+                    "secondary-container": "#5203d5",
+                    "surface": "#0d1516",
+                    "tertiary-fixed": "#ffdf96",
+                    "on-tertiary-container": "#6f5500",
+                    "inverse-primary": "#006875",
+                    "on-secondary-fixed": "#20005f",
+                    "on-primary-container": "#00626e",
+                    "surface-container-lowest": "#080f11",
+                    "secondary-fixed": "#e8deff",
+                    "secondary": "#cdbdff",
+                    "inverse-surface": "#dce4e5",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#192122",
+                    "primary-fixed-dim": "#00daf3",
+                    "tertiary-fixed-dim": "#f3bf26"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "base": "8px",
+                    "lg": "24px",
+                    "margin": "32px",
+                    "xs": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "body-main": ["Inter"],
+                    "data-md": ["IBM Plex Mono"],
+                    "label-caps": ["IBM Plex Mono"],
+                    "h1-display": ["Inter"],
+                    "data-lg": ["IBM Plex Mono"],
+                    "h2-headline": ["Inter"]
+            },
+            "fontSize": {
+                    "body-main": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "data-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500"}],
+                    "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h1-display": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "data-lg": ["20px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "h2-headline": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(18, 25, 34, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .upload-dashed {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%2300E5FF' stroke-width='2' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-main selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Frame Container (390x844 simulated) -->
+<div class="relative mx-auto w-[390px] h-[844px] bg-background overflow-hidden border border-white/5 flex flex-col shadow-2xl">
+<!-- TopAppBar Navigation -->
+<header class="fixed top-0 left-0 w-full h-[72px] z-50 bg-[#0B0F14]/90 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-8 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-400" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="text-xl font-black tracking-tighter text-cyan-400 font-mono">INTEL_OS</span>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-500 hover:text-slate-300 transition-colors cursor-pointer">notifications_active</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-slate-300 transition-colors cursor-pointer">settings</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-[72px] p-margin overflow-y-auto pb-[120px]">
+<!-- Page Header Section -->
+<div class="mb-lg">
+<p class="font-label-caps text-label-caps text-primary-container mb-xs uppercase tracking-widest">Operation: Field Report</p>
+<h1 class="font-h2-headline text-h2-headline text-white font-bold tracking-tight">Agent Upload</h1>
+</div>
+<!-- Upload Result Form Button (Dashed Border) -->
+<button class="w-full aspect-square rounded-lg mb-lg upload-dashed flex flex-col items-center justify-center gap-md bg-cyan-500/5 hover:bg-cyan-500/10 transition-all active:scale-95 group">
+<div class="w-16 h-16 rounded-full border border-cyan-400/30 flex items-center justify-center bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-all">
+<span class="material-symbols-outlined text-cyan-400 text-3xl">add_a_photo</span>
+</div>
+<div class="text-center">
+<p class="font-data-md text-data-md text-cyan-400">UPLOAD RESULT FORM</p>
+<p class="text-[10px] font-label-caps text-slate-500 mt-xs">MAX SIZE 12MB .RAW/JPG</p>
+</div>
+</button>
+<!-- Image Preview Area (Simulated State) -->
+<div class="mb-lg glass-panel rounded-lg overflow-hidden border-l-2 border-cyan-400 relative">
+<img alt="Form Preview" class="w-full h-40 object-cover opacity-60 grayscale hover:grayscale-0 transition-all" data-alt="A high-contrast document scan of an official governmental tally sheet lying on a dark textured surface. The document features handwritten numerical data and official stamps. The lighting is cold and clinical with cyan color grading, emphasizing a high-stakes intelligence or surveillance aesthetic. The image is captured from a top-down perspective, highlighting the surgical precision of the report." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxIP67QSFZtiMdLTlPuBfdUO_8GSW8r_g4cihYrD5FUZNd5rzoE4_DeGRXDHAOgmiHhJb8KWtxksXRkhaAdl-BBCWf8-fy0t2nhk6eK5v0Jn6NbuF_g1GGvlqviFdHLrMA00t9KtVIKAn8-m3_lBPnYiP1ANLXdUSKWEAviPKlW4nr8oRpdYxlzywond-6MkjqqupXKFM0QuqWG9T9LlOQlki8qepjb2DP3TSS9SmY65HnmF7AObLED0I_9rllhNGxWnJvchjX3A"/>
+<div class="absolute bottom-0 left-0 right-0 p-sm bg-gradient-to-t from-black/80 to-transparent flex justify-between items-center">
+<span class="font-label-caps text-white text-[10px] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        LIVE_SCAN_PROCESSED.PNG
+                    </span>
+<button class="text-error font-label-caps text-[10px] bg-error-container/20 px-2 py-1 rounded">REPLACE</button>
+</div>
+</div>
+<!-- Polling Station Selector -->
+<div class="space-y-sm mb-lg">
+<label class="font-label-caps text-label-caps text-slate-400 uppercase">Polling Station Identity</label>
+<div class="relative">
+<select class="w-full h-14 bg-surface-container-low border border-white/10 rounded-lg px-md text-on-surface font-body-main appearance-none focus:ring-1 focus:ring-cyan-400 focus:border-cyan-400 transition-all">
+<option>UNIT 042 - LAGOS DISTRICT</option>
+<option>UNIT 108 - ABUJA METRO</option>
+<option>UNIT 055 - KANO NORTH</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Auto-detected Location Label -->
+<div class="glass-panel p-md rounded-lg flex items-center justify-between border-l-2 border-tertiary-container">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-tertiary-container">location_on</span>
+<div>
+<p class="font-label-caps text-[10px] text-slate-500">AUTO-DETECTED LOCATION</p>
+<p class="font-data-md text-data-md text-on-surface">6.52°N, 3.37°E</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-data-md text-cyan-400">SECURE_LINK</span>
+<span class="text-[8px] font-label-caps text-slate-600">ACCURACY: 98%</span>
+</div>
+</div>
+</main>
+<!-- Footer Submission Area -->
+<footer class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-background via-background/95 to-transparent">
+<button class="w-full h-14 bg-primary-container text-on-primary-container font-label-caps text-sm font-black rounded-lg shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-md tracking-widest">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+                SUBMIT SECURELY
+            </button>
+</footer>
+<!-- SideNavBar - Background Overlay Simulation (Hidden initially) -->
+<!-- In a real mobile app, this would be a slide-in menu. Here we keep it as a design reference or bottom nav pivot -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-[64px] bg-[#121922]/95 backdrop-blur-2xl border-t border-white/5 flex justify-around items-center px-4 z-50">
+<div class="flex flex-col items-center gap-1 text-cyan-400">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-label-caps">HOME</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-label-caps">MAPS</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<div class="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center -translate-y-4 shadow-[0_4px_15px_rgba(0,229,255,0.4)] border-4 border-background">
+<span class="material-symbols-outlined text-on-primary-container">upload</span>
+</div>
+<span class="text-[10px] font-label-caps -translate-y-2 text-cyan-400">UPLOAD</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[10px] font-label-caps">DATA</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="text-[10px] font-label-caps">AGENTS</span>
+</div>
+</nav>
+</div>
+</body></html>
