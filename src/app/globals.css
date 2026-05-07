@@ -1,49 +1,5 @@
 @import "tailwindcss";
-
-:root {
-  --bg-main: #061014;
-  --text-main: #e5f6f8;
-  --text-muted: #7e8d9a;
-}
-
-body {
-  color: var(--text-main);
-  font-family: var(--font-inter), Inter, sans-serif;
-  background: linear-gradient(180deg, #061014 0%, #0b0f14 100%);
-}
-
-.font-ui { font-family: var(--font-space), Inter, sans-serif; }
+body { background:#0B0F14; color:#dce4e5; font-family:var(--font-inter),sans-serif; }
 .font-mono { font-family: var(--font-mono), monospace; }
-
-.panel-kicker {
-  font-family: var(--font-space), Inter, sans-serif;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 700;
-}
-
-.floating-panel {
-  border: 1px solid rgba(0, 229, 255, 0.22);
-  background: rgba(12, 22, 29, 0.86);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(6px);
-}
-
-.floating-dock {
-  display: flex;
-  align-items: center;
-  border: 1px solid rgba(0, 229, 255, 0.26);
-  background: rgba(12, 22, 29, 0.92);
-  border-radius: 12px;
-  padding: 18px;
-}
-
-.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(0, 229, 255, 0.25); background: rgba(0, 229, 255, 0.09); border-radius: 8px; padding: 8px 10px; color: #d5f6ff; }
-.icon-chip { border: 1px solid rgba(126,141,154,.45); border-radius: 8px; padding: 8px; color: #9cb1bf; }
-.cta-btn { width: 100%; padding: 11px; border: 1px solid rgba(121,142,160,.5); background: #1b2a3a; font-family: var(--font-space); font-size: 14px; font-weight: 700; }
-.cta-btn-alert { width: 100%; padding: 11px; background: #ffa39e; color: #381515; font-family: var(--font-space); font-size: 14px; font-weight: 700; }
-
-@media (max-width: 1279px) {
-  main { overflow-y: auto; }
-}
+.panel-kicker { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+*{box-sizing:border-box}
