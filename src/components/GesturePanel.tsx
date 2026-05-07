@@ -1,8 +1,8 @@
 export function GesturePanel() {
   return (
-    <section className="floating-panel w-[300px] p-4">
+    <section className="floating-panel w-full max-w-[300px] p-4 xl:max-h-[340px]">
       <h2 className="panel-kicker text-[#00e5ff]">Gesture Control HUD</h2>
-      <div className="mt-4 h-36 rounded-md border border-cyan-400/35 bg-[radial-gradient(circle_at_60%_30%,rgba(0,229,255,0.24),transparent_45%),linear-gradient(120deg,#02070c,#0b1620)]" />
+      <div className="mt-4 h-28 rounded-md border border-cyan-400/35 bg-[radial-gradient(circle_at_60%_30%,rgba(0,229,255,0.24),transparent_45%),linear-gradient(120deg,#02070c,#0b1620)] xl:h-32" />
       <div className="mt-3 border-b border-slate-700 pb-2">
         <p className="text-xs text-[#7e8d9a]">Current Gesture</p>
         <div className="flex items-center justify-between">
