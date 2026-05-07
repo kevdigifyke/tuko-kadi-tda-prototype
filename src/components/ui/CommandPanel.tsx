@@ -1,0 +1,1 @@
+export function CommandPanel({ title, children }: { title: string; children: React.ReactNode }) { return <section className="rounded-xl border border-white/10 bg-[#151d1e] p-4"><h3 className="text-[11px] tracking-[0.1em] font-bold uppercase text-cyan-300">{title}</h3><div className="mt-3">{children}</div></section>; }
