@@ -2,7 +2,7 @@ import { ClusterNode } from "@/src/types/graph";
 
 export function EvidencePanel({ cluster }: { cluster: ClusterNode }) {
   return (
-    <section className="floating-panel w-[360px] p-5">
+    <section className="w-full rounded-2xl border border-white/12 bg-[linear-gradient(180deg,rgba(23,32,34,.72),rgba(10,16,19,.93))] p-5 shadow-[0_20px_45px_rgba(0,0,0,.35)] backdrop-blur xl:w-[360px] xl:max-h-[calc(100vh-360px)] xl:overflow-y-auto">
       <h2 className="panel-kicker text-[#ffa39e]">Cluster Details // Nairobi East Pattern 04</h2>
       <div className="mt-4 grid grid-cols-2 gap-3">
         <div><p className="panel-kicker text-[#7e8d9a]">Severity</p><p className="font-ui text-4xl font-bold text-[#ffa39e]">{cluster.severity}%</p></div>
