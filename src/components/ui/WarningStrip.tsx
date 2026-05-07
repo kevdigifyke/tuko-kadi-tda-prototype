@@ -1,1 +1,1 @@
-export function WarningStrip() { return <p className="text-xs text-[#bac9cc]">Synthetic demo data. Not official election results.</p>; }
+export function WarningStrip({ text='Human review recommended' }: { text?: string }) { return <p className="rounded-md border border-[#93000a]/40 bg-[#93000a]/25 px-3 py-2 text-sm text-[#ffb4ab] border-l-2 border-l-[#ffb4ab]">{text}</p>; }
