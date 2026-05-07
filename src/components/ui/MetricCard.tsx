@@ -1,0 +1,1 @@
+export function MetricCard({ title, value }: { title: string; value: string }) { return <div className="rounded-xl border border-white/10 bg-[#192122] p-4"><p className="text-[11px] tracking-[0.1em] font-bold text-[#bac9cc] uppercase">{title}</p><p className="mt-2 font-mono text-3xl text-[#00e5ff]">{value}</p></div>; }

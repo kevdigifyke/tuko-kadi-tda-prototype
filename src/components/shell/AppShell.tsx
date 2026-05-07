@@ -1,0 +1,2 @@
+import { MobileBottomNav } from "./MobileBottomNav";import { MobileTopBar } from "./MobileTopBar";import { Sidebar } from "./Sidebar";import { TopCommandBar } from "./TopCommandBar";
+export function AppShell({children}:{children:React.ReactNode}){return <div className="min-h-screen bg-[#0B0F14] text-[#dce4e5]"><div className="flex min-h-screen"><Sidebar/><div className="flex-1 min-w-0"><MobileTopBar/><TopCommandBar/><main className="p-4 pb-20 md:pb-4">{children}</main></div></div><MobileBottomNav/></div>}
