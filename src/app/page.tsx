@@ -1,56 +1,8 @@
-"use client";
+import { AppShell } from "@/src/components/shell/AppShell";
+import { candidates, liveFeed } from "@/src/data/demoElectionData";
+import { aggregateStats } from "@/src/lib/demoAggregates";
+import { CommandPanel } from "@/src/components/ui/CommandPanel";
+import { StatusChip } from "@/src/components/ui/StatusChip";
+import { WarningStrip } from "@/src/components/ui/WarningStrip";
 
-import { useEffect, useMemo, useState } from "react";
-import { TopHud } from "@/src/components/TopHud";
-import { GesturePanel } from "@/src/components/GesturePanel";
-import { TdaGraph } from "@/src/components/TdaGraph";
-import { EvidencePanel } from "@/src/components/EvidencePanel";
-import { TimelineScrubber } from "@/src/components/TimelineScrubber";
-import { Sidebar } from "@/src/components/Sidebar";
-import { mockNodes } from "@/src/data/mockGraph";
-
-export default function Home() {
-  const [selectedId, setSelectedId] = useState("ne-04");
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [lastUpdated, setLastUpdated] = useState("");
-
-  const selectedCluster = useMemo(() => mockNodes.find((n) => n.id === selectedId) ?? mockNodes[0], [selectedId]);
-
-  useEffect(() => {
-    const syncClock = () => setLastUpdated(new Date().toLocaleTimeString());
-    syncClock();
-    const interval = setInterval(syncClock, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.code === "Space") {
-        event.preventDefault();
-        setIsPlaying((prev) => !prev);
-      }
-      if (event.key.toLowerCase() === "r") setSelectedId("ne-04");
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
-
-  return (
-    <main className="h-screen overflow-hidden bg-[#061014] text-[#e5f6f8]">
-      <div className="grid h-full grid-cols-1 md:grid-cols-[250px_1fr]">
-        <Sidebar />
-        <section className="relative h-full min-h-0">
-          <TopHud lastUpdated={lastUpdated} />
-          <div className="relative h-[calc(100%-4rem)]">
-            <TdaGraph selectedId={selectedId} onSelect={setSelectedId} />
-            <div className="absolute inset-0 z-10 hidden xl:block">
-              <div className="absolute left-6 top-40"><GesturePanel /></div>
-              <div className="absolute right-8 top-40"><EvidencePanel cluster={selectedCluster} /></div>
-              <div className="absolute bottom-8 left-6 right-6"><TimelineScrubber isPlaying={isPlaying} onToggle={() => setIsPlaying((s) => !s)} /></div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-  );
-}
+export default function Page(){return <AppShell><div className="space-y-6"><div className="flex items-center justify-between"><h1 className="text-display">Election Intelligence Dashboard</h1><StatusChip label="STREAMING_LIVE"/></div><div className="grid gap-4 xl:grid-cols-[1fr_360px]"><CommandPanel title="Live constituency map" active><div className="relative h-[430px] overflow-hidden rounded-xl border border-cyan-300/20 bg-[#080f11]"><div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,229,255,.12),transparent_35%),radial-gradient(circle_at_70%_60%,rgba(124,77,255,.14),transparent_40%),repeating-linear-gradient(0deg,transparent,transparent_19px,rgba(255,255,255,.04)_20px)]"/><svg className="absolute inset-0 h-full w-full opacity-50" viewBox="0 0 600 360"><path d="M40 320 L100 120 L220 160 L340 80 L520 140" stroke="#00e5ff" fill="none"/><path d="M80 280 L220 240 L310 270 L500 220" stroke="#7c4dff" fill="none"/></svg><div className="absolute left-5 top-5 rounded-lg border border-white/10 bg-black/45 p-3"><p className="panel-kicker text-cyan-200">Ward focus</p><p className="text-h2 mt-1">Ward 7-C</p><p className="text-data-md text-[#bac9cc]">Constituency North-East</p></div></div></CommandPanel><div className="space-y-4"><CommandPanel title="Critical anomalies"><WarningStrip text="Cross-race mismatch detected in 3 polling stations"/><WarningStrip text="Late upload spike in Ward 2-A"/></CommandPanel><CommandPanel title="Leading candidates">{candidates.slice(0,3).map(c=><div key={c.id} className="mb-3"><div className="flex justify-between text-sm"><span>{c.name}</span><span className="text-data-md">{c.percentage}%</span></div><div className="mt-1 h-2 rounded bg-white/10"><div className="h-2 rounded bg-cyan-300" style={{width:`${c.percentage}%`}}/></div></div>)}</CommandPanel><CommandPanel title="Live vote feed">{liveFeed.slice(0,4).map(f=><p key={f.id} className="flex justify-between border-b border-white/5 py-1.5 text-sm"><span>{f.text}</span><span className="text-data-md text-[#bac9cc]">{f.time}</span></p>)}<div className="mt-3"><WarningStrip text="Source mismatch: Requires review"/></div></CommandPanel></div></div><div className="grid gap-4 md:grid-cols-3"><CommandPanel title="Aggregate turnout"><p className="text-data-lg text-cyan-200">{aggregateStats.turnout}%</p><div className="mt-3 h-20 rounded bg-[linear-gradient(180deg,rgba(0,229,255,.25),transparent)]"/></CommandPanel><CommandPanel title="Validation status"><div className="mx-auto grid size-28 place-items-center rounded-full border-[10px] border-cyan-300/25 border-t-cyan-300"><span className="text-data-md">{aggregateStats.validated}%</span></div></CommandPanel><CommandPanel title="Regional sync"><div className="space-y-2">{['North','Central','South'].map((r,i)=><div key={r}><div className="flex justify-between text-sm"><span>{r}</span><span className="text-data-md">{90-i*7}%</span></div><div className="h-2 rounded bg-white/10"><div className="h-2 rounded" style={{width:`${90-i*7}%`,background:i===2?'#fec931':'#00C853'}}/></div></div>)}</div></CommandPanel></div></div></AppShell>}
