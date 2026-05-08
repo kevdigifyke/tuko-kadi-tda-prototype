@@ -81,8 +81,21 @@ export function useHandTracking(videoRef: RefObject<HTMLVideoElement | null>, ca
       const loop = () => {
         if (cancelled || !videoRef.current || !detectorRef.current) return;
 
+        const video = videoRef.current;
+        if (!video || video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA || video.videoWidth <= 0 || video.videoHeight <= 0) {
+          rafRef.current = requestAnimationFrame(loop);
+          return;
+        }
+
         const now = performance.now();
-        const result = detectorRef.current.detectForVideo(videoRef.current, now);
+        let result: any = null;
+
+        try {
+          result = detectorRef.current.detectForVideo(video, now);
+        } catch {
+          rafRef.current = requestAnimationFrame(loop);
+          return;
+        }
 
         if (result?.landmarks?.length) {
           const points = result.landmarks[0] as Point3[];

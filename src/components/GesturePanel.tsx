@@ -6,7 +6,7 @@ import { useHandTracking } from "@/src/hooks/useHandTracking";
 import { useWebcam } from "@/src/hooks/useWebcam";
 
 export function GesturePanel() {
-  const { videoRef, cameraStatus, startCamera } = useWebcam();
+  const { videoRef, cameraStatus, startCamera, stopCamera } = useWebcam();
   const { landmarks, confidence, currentGesture, isTrackingAvailable } = useHandTracking(videoRef, cameraStatus);
   const { command } = useGestureCommands(currentGesture);
 
@@ -17,18 +17,25 @@ export function GesturePanel() {
         ? "Camera: Denied"
         : cameraStatus === "unavailable"
           ? "Camera: Unavailable"
-          : "Camera: Simulated";
+          : cameraStatus === "stopped"
+            ? "Camera: Stopped"
+            : "Camera: Simulated";
 
   return (
     <section className="floating-panel w-full max-w-[300px] p-4">
       <h2 className="panel-kicker text-[#00daf3]">Gesture Control HUD</h2>
 
       <div className="mt-3 rounded-md border border-cyan-300/30 bg-[#0b1417] p-2">
-        <div className="relative h-32 overflow-hidden rounded border border-cyan-300/40 bg-[radial-gradient(circle_at_62%_34%,rgba(0,229,255,0.28),transparent_42%),radial-gradient(circle_at_34%_68%,rgba(124,77,255,0.2),transparent_40%),linear-gradient(130deg,#061017,#10222e)]">
+        <div className="relative h-32 overflow-hidden rounded border border-cyan-300/40 bg-[#061017]">
           {cameraStatus === "active" ? (
             <>
-              <video ref={videoRef} className="h-full w-full object-cover" autoPlay playsInline muted />
-              <HandLandmarkOverlay landmarks={landmarks} />
+              <video ref={videoRef} className="absolute inset-0 h-full w-full object-cover opacity-100" autoPlay playsInline muted />
+              <div className="pointer-events-none absolute right-1 top-1 rounded bg-black/45 px-1.5 py-0.5 font-mono text-[10px] text-cyan-100/80">
+                {`ready:${videoRef.current?.readyState ?? 0} ${videoRef.current?.videoWidth ?? 0}x${videoRef.current?.videoHeight ?? 0}`}
+              </div>
+              <div className="pointer-events-none absolute inset-0">
+                <HandLandmarkOverlay landmarks={landmarks} />
+              </div>
             </>
           ) : (
             <div className="flex h-full items-center justify-center text-xs text-[#bac9cc]">Simulated sensor feed</div>
@@ -37,16 +44,29 @@ export function GesturePanel() {
       </div>
 
       <div className="mt-3 flex items-center justify-between gap-2">
-        <button
-          type="button"
-          onClick={startCamera}
-          disabled={cameraStatus === "requesting" || cameraStatus === "active"}
-          className="rounded border border-cyan-300/40 bg-cyan-400/10 px-2 py-1 text-xs font-semibold text-[#00e5ff] disabled:opacity-60"
-        >
-          {cameraStatus === "requesting" ? "Requesting…" : cameraStatus === "active" ? "Camera Enabled" : "Enable Camera"}
-        </button>
+        {cameraStatus === "active" ? (
+          <button
+            type="button"
+            onClick={stopCamera}
+            className="rounded border border-rose-300/40 bg-rose-400/10 px-2 py-1 text-xs font-semibold text-rose-200"
+          >
+            Stop Camera
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={startCamera}
+            disabled={cameraStatus === "requesting"}
+            className="rounded border border-cyan-300/40 bg-cyan-400/10 px-2 py-1 text-xs font-semibold text-[#00e5ff] disabled:opacity-60"
+          >
+            {cameraStatus === "requesting" ? "Requesting…" : "Enable Camera"}
+          </button>
+        )}
         <p className="text-xs text-[#bac9cc]">{cameraLabel}</p>
       </div>
+      {cameraStatus === "denied" && (
+        <p className="mt-2 text-[10px] text-[#ffb4ab]">Camera access denied. Use the browser camera icon/site settings to allow access, then press Enable Camera again.</p>
+      )}
 
       <div className="mt-3 border-b border-white/10 pb-2">
         <p className="text-xs text-[#bac9cc]">Current Gesture</p>
