@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-export type CameraStatus = "idle" | "requesting" | "active" | "denied" | "unavailable";
+export type CameraStatus = "idle" | "requesting" | "active" | "denied" | "unavailable" | "stopped";
 
 export function useWebcam() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -20,13 +20,18 @@ export function useWebcam() {
       videoRef.current.srcObject = null;
     }
 
-    setCameraStatus((current) => (current === "active" ? "idle" : current));
+    setCameraStatus((current) => (current === "active" || current === "requesting" ? "stopped" : current));
   }, []);
 
   const startCamera = useCallback(async () => {
     if (typeof navigator === "undefined" || !navigator.mediaDevices?.getUserMedia) {
       setCameraStatus("unavailable");
       return;
+    }
+
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
     }
 
     setCameraStatus("requesting");
