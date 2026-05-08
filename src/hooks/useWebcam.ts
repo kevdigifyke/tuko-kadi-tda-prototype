@@ -62,7 +62,7 @@ export function useWebcam() {
       video.srcObject = stream;
 
       await new Promise<void>((resolve) => {
-        if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+        if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA && video.videoWidth > 0 && video.videoHeight > 0) {
           resolve();
           return;
         }
