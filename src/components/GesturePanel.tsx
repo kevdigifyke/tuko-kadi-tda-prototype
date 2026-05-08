@@ -6,8 +6,8 @@ import { useHandTracking } from "@/src/hooks/useHandTracking";
 import { useWebcam } from "@/src/hooks/useWebcam";
 
 export function GesturePanel() {
-  const { videoRef, cameraStatus, startCamera, stopCamera } = useWebcam();
-  const { landmarks, confidence, currentGesture, isTrackingAvailable } = useHandTracking(videoRef, cameraStatus);
+  const { videoRef, cameraStatus, videoReady, videoDimensions, cameraError, startCamera, stopCamera } = useWebcam();
+  const { landmarks, confidence, currentGesture, isTrackingAvailable } = useHandTracking(videoRef, cameraStatus, videoReady);
   const { command } = useGestureCommands(currentGesture);
 
   const cameraLabel =
@@ -27,18 +27,26 @@ export function GesturePanel() {
 
       <div className="mt-3 rounded-md border border-cyan-300/30 bg-[#0b1417] p-2">
         <div className="relative h-32 overflow-hidden rounded border border-cyan-300/40 bg-[#061017]">
-          {cameraStatus === "active" ? (
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-[#0b1417] to-[#061017]" />
+          {(cameraStatus === "active" || cameraStatus === "requesting") && (
             <>
-              <video ref={videoRef} className="absolute inset-0 h-full w-full object-cover opacity-100" autoPlay playsInline muted />
-              <div className="pointer-events-none absolute right-1 top-1 rounded bg-black/45 px-1.5 py-0.5 font-mono text-[10px] text-cyan-100/80">
-                {`ready:${videoRef.current?.readyState ?? 0} ${videoRef.current?.videoWidth ?? 0}x${videoRef.current?.videoHeight ?? 0}`}
-              </div>
+              <video
+                ref={videoRef}
+                autoPlay
+                playsInline
+                muted
+                className="absolute inset-0 h-full w-full object-cover opacity-100"
+              />
               <div className="pointer-events-none absolute inset-0">
                 <HandLandmarkOverlay landmarks={landmarks} />
               </div>
             </>
-          ) : (
-            <div className="flex h-full items-center justify-center text-xs text-[#bac9cc]">Simulated sensor feed</div>
+          )}
+          {cameraStatus !== "active" && cameraStatus !== "requesting" && (
+            <div className="absolute inset-0 flex items-center justify-center text-xs text-[#bac9cc]">Simulated sensor feed</div>
+          )}
+          {!videoReady && (cameraStatus === "active" || cameraStatus === "requesting") && (
+            <p className="pointer-events-none absolute bottom-1 left-2 font-mono text-[10px] text-cyan-100/80">Waiting for camera frame...</p>
           )}
         </div>
       </div>
@@ -51,6 +59,14 @@ export function GesturePanel() {
             className="rounded border border-rose-300/40 bg-rose-400/10 px-2 py-1 text-xs font-semibold text-rose-200"
           >
             Stop Camera
+          </button>
+        ) : cameraStatus === "denied" ? (
+          <button
+            type="button"
+            onClick={startCamera}
+            className="rounded border border-amber-300/40 bg-amber-400/10 px-2 py-1 text-xs font-semibold text-amber-200"
+          >
+            Retry Camera
           </button>
         ) : (
           <button
@@ -67,6 +83,10 @@ export function GesturePanel() {
       {cameraStatus === "denied" && (
         <p className="mt-2 text-[10px] text-[#ffb4ab]">Camera access denied. Use the browser camera icon/site settings to allow access, then press Enable Camera again.</p>
       )}
+      {cameraError && cameraStatus !== "denied" && <p className="mt-2 text-[10px] text-[#ffb4ab]">{cameraError}</p>}
+      <p className="mt-2 font-mono text-[10px] text-[#7da3a9]">
+        cam:{cameraStatus} ready:{String(videoReady)} dim:{videoDimensions.width}x{videoDimensions.height}
+      </p>
 
       <div className="mt-3 border-b border-white/10 pb-2">
         <p className="text-xs text-[#bac9cc]">Current Gesture</p>
