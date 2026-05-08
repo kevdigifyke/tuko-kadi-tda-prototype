@@ -8,6 +8,9 @@ export function useWebcam() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const [cameraStatus, setCameraStatus] = useState<CameraStatus>("idle");
+  const [videoReady, setVideoReady] = useState(false);
+  const [videoDimensions, setVideoDimensions] = useState({ width: 0, height: 0 });
+  const [cameraError, setCameraError] = useState<string | null>(null);
 
   const stopCamera = useCallback(() => {
     if (streamRef.current) {
@@ -20,7 +23,10 @@ export function useWebcam() {
       videoRef.current.srcObject = null;
     }
 
-    setCameraStatus("stopped");
+    setVideoReady(false);
+    setVideoDimensions({ width: 0, height: 0 });
+    setCameraError(null);
+    setCameraStatus("idle");
   }, []);
 
   const startCamera = useCallback(async () => {
@@ -29,11 +35,17 @@ export function useWebcam() {
       return;
     }
 
+    stopCamera();
+    setCameraError(null);
     setCameraStatus("requesting");
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "user" },
+        video: {
+          facingMode: "user",
+          width: { ideal: 640 },
+          height: { ideal: 480 },
+        },
         audio: false,
       });
 
@@ -65,22 +77,43 @@ export function useWebcam() {
         video.addEventListener("canplay", onReady, { once: true });
       });
 
-      await video.play();
+      try {
+        await video.play();
+      } catch {
+        setCameraError("Unable to start video playback. Try reloading the page and enabling camera again.");
+        setCameraStatus("unavailable");
+        stream.getTracks().forEach((track) => track.stop());
+        streamRef.current = null;
+        video.srcObject = null;
+        setVideoReady(false);
+        setVideoDimensions({ width: 0, height: 0 });
+        return;
+      }
+
+      setVideoDimensions({ width: video.videoWidth, height: video.videoHeight });
+      setVideoReady(video.videoWidth > 0 && video.videoHeight > 0);
       setCameraStatus("active");
     } catch (error) {
+      setVideoReady(false);
+      setVideoDimensions({ width: 0, height: 0 });
       if (error instanceof DOMException && (error.name === "NotAllowedError" || error.name === "SecurityError")) {
         setCameraStatus("denied");
+        setCameraError("Camera permission was denied.");
       } else {
         setCameraStatus("unavailable");
+        setCameraError("Camera is unavailable on this device or browser.");
       }
     }
-  }, []);
+  }, [stopCamera]);
 
   useEffect(() => () => stopCamera(), [stopCamera]);
 
   return {
     videoRef,
     cameraStatus,
+    videoReady,
+    videoDimensions,
+    cameraError,
     startCamera,
     stopCamera,
   };
