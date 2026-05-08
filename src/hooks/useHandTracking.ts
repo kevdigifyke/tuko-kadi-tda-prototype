@@ -67,6 +67,8 @@ export function useHandTracking(
 
     async function setup() {
       if (cameraStatus !== "active" || !videoRef.current) return;
+      setIsTrackingAvailable(true);
+      setTrackingStatus("warming_up");
 
       try {
         const vision = await import("@mediapipe/tasks-vision");
@@ -90,7 +92,8 @@ export function useHandTracking(
         if (cancelled || !videoRef.current || !detectorRef.current) return;
 
         const video = videoRef.current;
-        if (!video || !videoReady || video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA || video.videoWidth <= 0 || video.videoHeight <= 0) {
+        const hasUsableFrame = videoReady || video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA;
+        if (!video || !hasUsableFrame || video.videoWidth <= 0 || video.videoHeight <= 0) {
           setTrackingStatus("warming_up");
           rafRef.current = requestAnimationFrame(loop);
           return;
