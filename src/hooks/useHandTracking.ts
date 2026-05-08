@@ -45,20 +45,33 @@ function classifyGesture(landmarks: Point3[], movementX: number) {
 }
 
 export function useHandTracking(videoRef: RefObject<HTMLVideoElement | null>, cameraStatus: CameraStatus) {
+  const [trackingStatus, setTrackingStatus] = useState<"idle" | "loading" | "warming_up" | "tracking" | "no_hand" | "unavailable" | "error">("idle");
   const [landmarks, setLandmarks] = useState<Point3[] | null>(null);
   const [confidence, setConfidence] = useState<number | null>(null);
   const [currentGesture, setCurrentGesture] = useState("Tracking");
-  const [isTrackingAvailable, setIsTrackingAvailable] = useState(true);
 
   const rafRef = useRef<number | null>(null);
   const detectorRef = useRef<any>(null);
   const lastXRef = useRef<number | null>(null);
+  const errorCountRef = useRef(0);
 
   useEffect(() => {
     let cancelled = false;
+    const MAX_TRACKING_ERRORS = 5;
+    const cleanupRaf = () => {
+      if (rafRef.current != null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
 
     async function setup() {
-      if (cameraStatus !== "active" || !videoRef.current) return;
+      if (cameraStatus !== "active" || !videoRef.current) {
+        setTrackingStatus("idle");
+        return;
+      }
+
+      setTrackingStatus("loading");
 
       try {
         const vision = await import("@mediapipe/tasks-vision");
@@ -74,33 +87,61 @@ export function useHandTracking(videoRef: RefObject<HTMLVideoElement | null>, ca
           minTrackingConfidence: 0.4,
         });
       } catch {
-        setIsTrackingAvailable(false);
+        setTrackingStatus("unavailable");
         return;
       }
 
+      setTrackingStatus("warming_up");
+
       const loop = () => {
-        if (cancelled || !videoRef.current || !detectorRef.current) return;
+        if (cancelled || cameraStatus !== "active" || !videoRef.current || !detectorRef.current) {
+          cleanupRaf();
+          return;
+        }
 
-        const now = performance.now();
-        const result = detectorRef.current.detectForVideo(videoRef.current, now);
+        const video = videoRef.current;
+        if (video.readyState < 2 || video.videoWidth <= 0 || video.videoHeight <= 0) {
+          setTrackingStatus("warming_up");
+          rafRef.current = requestAnimationFrame(loop);
+          return;
+        }
 
-        if (result?.landmarks?.length) {
-          const points = result.landmarks[0] as Point3[];
-          const score = result.handednesses?.[0]?.[0]?.score ?? null;
-          const indexX = points[8]?.x ?? null;
-          const movementX = indexX != null && lastXRef.current != null ? indexX - lastXRef.current : 0;
+        try {
+          const now = performance.now();
+          const result = detectorRef.current.detectForVideo(video, now);
+          errorCountRef.current = 0;
 
-          setLandmarks(points);
-          setConfidence(score);
-          setCurrentGesture(classifyGesture(points, movementX));
+          if (result?.landmarks?.length) {
+            const points = result.landmarks[0] as Point3[];
+            const score = result.handednesses?.[0]?.[0]?.score ?? null;
+            const indexX = points[8]?.x ?? null;
+            const movementX = indexX != null && lastXRef.current != null ? indexX - lastXRef.current : 0;
 
-          if (indexX != null) {
-            lastXRef.current = indexX;
+            setLandmarks(points);
+            setConfidence(score);
+            setCurrentGesture(classifyGesture(points, movementX));
+            setTrackingStatus("tracking");
+
+            if (indexX != null) {
+              lastXRef.current = indexX;
+            }
+          } else {
+            setLandmarks(null);
+            setConfidence(null);
+            setCurrentGesture("Tracking");
+            setTrackingStatus("no_hand");
           }
-        } else {
+        } catch {
+          errorCountRef.current += 1;
           setLandmarks(null);
           setConfidence(null);
           setCurrentGesture("Tracking");
+          if (errorCountRef.current >= MAX_TRACKING_ERRORS) {
+            setTrackingStatus("unavailable");
+            cleanupRaf();
+            return;
+          }
+          setTrackingStatus("warming_up");
         }
 
         rafRef.current = requestAnimationFrame(loop);
@@ -113,7 +154,7 @@ export function useHandTracking(videoRef: RefObject<HTMLVideoElement | null>, ca
 
     return () => {
       cancelled = true;
-      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      cleanupRaf();
       if (detectorRef.current && typeof detectorRef.current.close === "function") {
         detectorRef.current.close();
       }
@@ -121,12 +162,14 @@ export function useHandTracking(videoRef: RefObject<HTMLVideoElement | null>, ca
       setLandmarks(null);
       setConfidence(null);
       setCurrentGesture("Tracking");
+      setTrackingStatus("idle");
       lastXRef.current = null;
+      errorCountRef.current = 0;
     };
   }, [cameraStatus, videoRef]);
 
   return useMemo(
-    () => ({ landmarks, confidence, currentGesture, isTrackingAvailable }),
-    [landmarks, confidence, currentGesture, isTrackingAvailable],
+    () => ({ landmarks, confidence, currentGesture, trackingStatus }),
+    [landmarks, confidence, currentGesture, trackingStatus],
   );
 }

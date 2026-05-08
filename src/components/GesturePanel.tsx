@@ -6,8 +6,8 @@ import { useHandTracking } from "@/src/hooks/useHandTracking";
 import { useWebcam } from "@/src/hooks/useWebcam";
 
 export function GesturePanel() {
-  const { videoRef, cameraStatus, startCamera } = useWebcam();
-  const { landmarks, confidence, currentGesture, isTrackingAvailable } = useHandTracking(videoRef, cameraStatus);
+  const { videoRef, cameraStatus, startCamera, stopCamera } = useWebcam();
+  const { landmarks, confidence, currentGesture, trackingStatus } = useHandTracking(videoRef, cameraStatus);
   const { command } = useGestureCommands(currentGesture);
 
   const cameraLabel =
@@ -17,7 +17,24 @@ export function GesturePanel() {
         ? "Camera: Denied"
         : cameraStatus === "unavailable"
           ? "Camera: Unavailable"
-          : "Camera: Simulated";
+          : cameraStatus === "stopped"
+            ? "Camera: Stopped"
+            : "Camera: Simulated";
+
+  const trackingLabel =
+    trackingStatus === "loading"
+      ? "Tracking: Loading"
+      : trackingStatus === "warming_up"
+        ? "Tracking: Warming Up"
+        : trackingStatus === "tracking"
+          ? "Tracking: Tracking"
+          : trackingStatus === "no_hand"
+            ? "Tracking: No hand detected"
+            : trackingStatus === "unavailable"
+              ? "Tracking: Unavailable"
+              : trackingStatus === "error"
+                ? "Tracking: Error"
+                : "Tracking: Idle";
 
   return (
     <section className="floating-panel w-full max-w-[300px] p-4">
@@ -37,16 +54,27 @@ export function GesturePanel() {
       </div>
 
       <div className="mt-3 flex items-center justify-between gap-2">
-        <button
-          type="button"
-          onClick={startCamera}
-          disabled={cameraStatus === "requesting" || cameraStatus === "active"}
-          className="rounded border border-cyan-300/40 bg-cyan-400/10 px-2 py-1 text-xs font-semibold text-[#00e5ff] disabled:opacity-60"
-        >
-          {cameraStatus === "requesting" ? "Requesting…" : cameraStatus === "active" ? "Camera Enabled" : "Enable Camera"}
-        </button>
+        {cameraStatus === "active" ? (
+          <button
+            type="button"
+            onClick={stopCamera}
+            className="rounded border border-cyan-300/40 bg-cyan-400/10 px-2 py-1 text-xs font-semibold text-[#00e5ff]"
+          >
+            Stop Camera
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={startCamera}
+            disabled={cameraStatus === "requesting"}
+            className="rounded border border-cyan-300/40 bg-cyan-400/10 px-2 py-1 text-xs font-semibold text-[#00e5ff] disabled:opacity-60"
+          >
+            {cameraStatus === "requesting" ? "Requesting…" : "Enable Camera"}
+          </button>
+        )}
         <p className="text-xs text-[#bac9cc]">{cameraLabel}</p>
       </div>
+      <p className="mt-1 text-xs text-[#bac9cc]">{trackingLabel}</p>
 
       <div className="mt-3 border-b border-white/10 pb-2">
         <p className="text-xs text-[#bac9cc]">Current Gesture</p>
@@ -56,7 +84,9 @@ export function GesturePanel() {
             {confidence != null ? `${Math.round(confidence * 100)}% CONF` : "--"}
           </p>
         </div>
-        {!isTrackingAvailable && <p className="mt-1 text-[10px] text-[#ffb4ab]">Tracking unavailable; webcam preview remains active.</p>}
+        {trackingStatus === "unavailable" && (
+          <p className="mt-1 text-[10px] text-[#ffb4ab]">Tracking unavailable; webcam preview remains active.</p>
+        )}
       </div>
 
       <p className="panel-kicker mt-3 text-[#bac9cc]">Gesture Library</p>
