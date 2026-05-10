@@ -1,0 +1,6387 @@
+{
+  "generatedAt": "2026-05-10T15:14:13.566Z",
+  "stationCount": 55393,
+  "totalRegisteredVoters": 44799679,
+  "totalBallotsCast": 31350512,
+  "turnoutPercent": 69.98,
+  "candidateTotals": [
+    {
+      "candidateId": "pres-rma",
+      "votes": 7808570,
+      "percent": 25.16
+    },
+    {
+      "candidateId": "pres-nmc",
+      "votes": 7765608,
+      "percent": 25.02
+    },
+    {
+      "candidateId": "pres-upf",
+      "votes": 7731166,
+      "percent": 24.91
+    },
+    {
+      "candidateId": "pres-ind",
+      "votes": 7729597,
+      "percent": 24.91
+    }
+  ],
+  "counties": [
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi",
+      "ward": "Nairobi",
+      "stations": 6926,
+      "registeredVoters": 5608266,
+      "ballotsCast": 3925660,
+      "turnoutPercent": 70,
+      "anomalyCount": 1267,
+      "level": "county"
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa",
+      "ward": "Mombasa",
+      "stations": 6925,
+      "registeredVoters": 5603960,
+      "ballotsCast": 3925007,
+      "turnoutPercent": 70.04,
+      "anomalyCount": 1274,
+      "level": "county"
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu",
+      "ward": "Kisumu",
+      "stations": 6925,
+      "registeredVoters": 5586944,
+      "ballotsCast": 3913365,
+      "turnoutPercent": 70.04,
+      "anomalyCount": 1238,
+      "level": "county"
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu",
+      "ward": "Uasin Gishu",
+      "stations": 6925,
+      "registeredVoters": 5646551,
+      "ballotsCast": 3945195,
+      "turnoutPercent": 69.87,
+      "anomalyCount": 1281,
+      "level": "county"
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru",
+      "ward": "Nakuru",
+      "stations": 6925,
+      "registeredVoters": 5604634,
+      "ballotsCast": 3926395,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 1308,
+      "level": "county"
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos",
+      "ward": "Machakos",
+      "stations": 6925,
+      "registeredVoters": 5622008,
+      "ballotsCast": 3930312,
+      "turnoutPercent": 69.91,
+      "anomalyCount": 1278,
+      "level": "county"
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu",
+      "ward": "Kiambu",
+      "stations": 6925,
+      "registeredVoters": 5551328,
+      "ballotsCast": 3889445,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 1226,
+      "level": "county"
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega",
+      "ward": "Kakamega",
+      "stations": 6925,
+      "registeredVoters": 5584220,
+      "ballotsCast": 3900848,
+      "turnoutPercent": 69.85,
+      "anomalyCount": 1221,
+      "level": "county"
+    }
+  ],
+  "constituencies": [
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Nairobi Constituency 01",
+      "stations": 2310,
+      "registeredVoters": 1877779,
+      "ballotsCast": 1306635,
+      "turnoutPercent": 69.58,
+      "anomalyCount": 420,
+      "level": "constituency"
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Mombasa Constituency 02",
+      "stations": 2309,
+      "registeredVoters": 1883324,
+      "ballotsCast": 1325449,
+      "turnoutPercent": 70.38,
+      "anomalyCount": 430,
+      "level": "constituency"
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Kisumu Constituency 03",
+      "stations": 2309,
+      "registeredVoters": 1867592,
+      "ballotsCast": 1308459,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 385,
+      "level": "constituency"
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Uasin Gishu Constituency 04",
+      "stations": 2309,
+      "registeredVoters": 1870938,
+      "ballotsCast": 1301220,
+      "turnoutPercent": 69.55,
+      "anomalyCount": 388,
+      "level": "constituency"
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Nakuru Constituency 05",
+      "stations": 2309,
+      "registeredVoters": 1866398,
+      "ballotsCast": 1306519,
+      "turnoutPercent": 70,
+      "anomalyCount": 413,
+      "level": "constituency"
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Machakos Constituency 06",
+      "stations": 2309,
+      "registeredVoters": 1882649,
+      "ballotsCast": 1315453,
+      "turnoutPercent": 69.87,
+      "anomalyCount": 427,
+      "level": "constituency"
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Kiambu Constituency 07",
+      "stations": 2309,
+      "registeredVoters": 1837133,
+      "ballotsCast": 1276205,
+      "turnoutPercent": 69.47,
+      "anomalyCount": 419,
+      "level": "constituency"
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Kakamega Constituency 08",
+      "stations": 2309,
+      "registeredVoters": 1845406,
+      "ballotsCast": 1288303,
+      "turnoutPercent": 69.81,
+      "anomalyCount": 392,
+      "level": "constituency"
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Nairobi Constituency 09",
+      "stations": 2309,
+      "registeredVoters": 1854451,
+      "ballotsCast": 1300295,
+      "turnoutPercent": 70.12,
+      "anomalyCount": 432,
+      "level": "constituency"
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Mombasa Constituency 10",
+      "stations": 2309,
+      "registeredVoters": 1868965,
+      "ballotsCast": 1298398,
+      "turnoutPercent": 69.47,
+      "anomalyCount": 396,
+      "level": "constituency"
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Kisumu Constituency 11",
+      "stations": 2309,
+      "registeredVoters": 1862039,
+      "ballotsCast": 1300928,
+      "turnoutPercent": 69.87,
+      "anomalyCount": 436,
+      "level": "constituency"
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Uasin Gishu Constituency 12",
+      "stations": 2309,
+      "registeredVoters": 1889488,
+      "ballotsCast": 1317911,
+      "turnoutPercent": 69.75,
+      "anomalyCount": 463,
+      "level": "constituency"
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Nakuru Constituency 01",
+      "stations": 2309,
+      "registeredVoters": 1877485,
+      "ballotsCast": 1310578,
+      "turnoutPercent": 69.8,
+      "anomalyCount": 451,
+      "level": "constituency"
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Machakos Constituency 02",
+      "stations": 2309,
+      "registeredVoters": 1885393,
+      "ballotsCast": 1320311,
+      "turnoutPercent": 70.03,
+      "anomalyCount": 429,
+      "level": "constituency"
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Kiambu Constituency 03",
+      "stations": 2309,
+      "registeredVoters": 1873870,
+      "ballotsCast": 1319889,
+      "turnoutPercent": 70.44,
+      "anomalyCount": 403,
+      "level": "constituency"
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Kakamega Constituency 04",
+      "stations": 2309,
+      "registeredVoters": 1874679,
+      "ballotsCast": 1307826,
+      "turnoutPercent": 69.76,
+      "anomalyCount": 413,
+      "level": "constituency"
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Nairobi Constituency 05",
+      "stations": 2309,
+      "registeredVoters": 1876935,
+      "ballotsCast": 1319274,
+      "turnoutPercent": 70.29,
+      "anomalyCount": 415,
+      "level": "constituency"
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Mombasa Constituency 06",
+      "stations": 2309,
+      "registeredVoters": 1853064,
+      "ballotsCast": 1301858,
+      "turnoutPercent": 70.25,
+      "anomalyCount": 448,
+      "level": "constituency"
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Kisumu Constituency 07",
+      "stations": 2309,
+      "registeredVoters": 1858992,
+      "ballotsCast": 1304938,
+      "turnoutPercent": 70.2,
+      "anomalyCount": 417,
+      "level": "constituency"
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Uasin Gishu Constituency 08",
+      "stations": 2309,
+      "registeredVoters": 1888612,
+      "ballotsCast": 1328193,
+      "turnoutPercent": 70.33,
+      "anomalyCount": 431,
+      "level": "constituency"
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Nakuru Constituency 09",
+      "stations": 2309,
+      "registeredVoters": 1862722,
+      "ballotsCast": 1310391,
+      "turnoutPercent": 70.35,
+      "anomalyCount": 446,
+      "level": "constituency"
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Machakos Constituency 10",
+      "stations": 2309,
+      "registeredVoters": 1855176,
+      "ballotsCast": 1295592,
+      "turnoutPercent": 69.84,
+      "anomalyCount": 424,
+      "level": "constituency"
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Kiambu Constituency 11",
+      "stations": 2309,
+      "registeredVoters": 1841830,
+      "ballotsCast": 1294417,
+      "turnoutPercent": 70.28,
+      "anomalyCount": 404,
+      "level": "constituency"
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Kakamega Constituency 12",
+      "stations": 2309,
+      "registeredVoters": 1865554,
+      "ballotsCast": 1305850,
+      "turnoutPercent": 70,
+      "anomalyCount": 417,
+      "level": "constituency"
+    }
+  ],
+  "wards": [
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 01",
+      "stations": 93,
+      "registeredVoters": 75317,
+      "ballotsCast": 53217,
+      "turnoutPercent": 70.66,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 02",
+      "stations": 93,
+      "registeredVoters": 78365,
+      "ballotsCast": 54451,
+      "turnoutPercent": 69.48,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 03",
+      "stations": 93,
+      "registeredVoters": 75019,
+      "ballotsCast": 52438,
+      "turnoutPercent": 69.9,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 04",
+      "stations": 93,
+      "registeredVoters": 75711,
+      "ballotsCast": 53505,
+      "turnoutPercent": 70.67,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 05",
+      "stations": 93,
+      "registeredVoters": 69536,
+      "ballotsCast": 47555,
+      "turnoutPercent": 68.39,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 06",
+      "stations": 93,
+      "registeredVoters": 78061,
+      "ballotsCast": 52773,
+      "turnoutPercent": 67.6,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 07",
+      "stations": 93,
+      "registeredVoters": 76726,
+      "ballotsCast": 52163,
+      "turnoutPercent": 67.99,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 08",
+      "stations": 93,
+      "registeredVoters": 74812,
+      "ballotsCast": 52087,
+      "turnoutPercent": 69.62,
+      "anomalyCount": 9
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 09",
+      "stations": 93,
+      "registeredVoters": 69693,
+      "ballotsCast": 49620,
+      "turnoutPercent": 71.2,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 10",
+      "stations": 93,
+      "registeredVoters": 74521,
+      "ballotsCast": 52478,
+      "turnoutPercent": 70.42,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 11",
+      "stations": 93,
+      "registeredVoters": 75796,
+      "ballotsCast": 55877,
+      "turnoutPercent": 73.72,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 12",
+      "stations": 93,
+      "registeredVoters": 73760,
+      "ballotsCast": 51734,
+      "turnoutPercent": 70.14,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 13",
+      "stations": 93,
+      "registeredVoters": 80121,
+      "ballotsCast": 56293,
+      "turnoutPercent": 70.26,
+      "anomalyCount": 26
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 14",
+      "stations": 93,
+      "registeredVoters": 77153,
+      "ballotsCast": 55546,
+      "turnoutPercent": 71.99,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 15",
+      "stations": 93,
+      "registeredVoters": 72165,
+      "ballotsCast": 51821,
+      "turnoutPercent": 71.81,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 16",
+      "stations": 93,
+      "registeredVoters": 71018,
+      "ballotsCast": 50054,
+      "turnoutPercent": 70.48,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 17",
+      "stations": 93,
+      "registeredVoters": 78601,
+      "ballotsCast": 53222,
+      "turnoutPercent": 67.71,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 18",
+      "stations": 93,
+      "registeredVoters": 70386,
+      "ballotsCast": 49419,
+      "turnoutPercent": 70.21,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 19",
+      "stations": 93,
+      "registeredVoters": 80427,
+      "ballotsCast": 57324,
+      "turnoutPercent": 71.27,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 20",
+      "stations": 93,
+      "registeredVoters": 80282,
+      "ballotsCast": 56388,
+      "turnoutPercent": 70.24,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 21",
+      "stations": 93,
+      "registeredVoters": 72108,
+      "ballotsCast": 50439,
+      "turnoutPercent": 69.95,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 22",
+      "stations": 93,
+      "registeredVoters": 72999,
+      "ballotsCast": 50870,
+      "turnoutPercent": 69.69,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 23",
+      "stations": 93,
+      "registeredVoters": 69472,
+      "ballotsCast": 48601,
+      "turnoutPercent": 69.96,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 24",
+      "stations": 93,
+      "registeredVoters": 77888,
+      "ballotsCast": 55488,
+      "turnoutPercent": 71.24,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 25",
+      "stations": 93,
+      "registeredVoters": 76478,
+      "ballotsCast": 54507,
+      "turnoutPercent": 71.27,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 26",
+      "stations": 93,
+      "registeredVoters": 75839,
+      "ballotsCast": 53450,
+      "turnoutPercent": 70.48,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 27",
+      "stations": 93,
+      "registeredVoters": 75526,
+      "ballotsCast": 52147,
+      "turnoutPercent": 69.05,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 28",
+      "stations": 93,
+      "registeredVoters": 76147,
+      "ballotsCast": 53431,
+      "turnoutPercent": 70.17,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 29",
+      "stations": 93,
+      "registeredVoters": 74513,
+      "ballotsCast": 51069,
+      "turnoutPercent": 68.54,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 30",
+      "stations": 93,
+      "registeredVoters": 75706,
+      "ballotsCast": 53627,
+      "turnoutPercent": 70.84,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 31",
+      "stations": 93,
+      "registeredVoters": 70188,
+      "ballotsCast": 49068,
+      "turnoutPercent": 69.91,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 32",
+      "stations": 93,
+      "registeredVoters": 71574,
+      "ballotsCast": 50405,
+      "turnoutPercent": 70.42,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 33",
+      "stations": 93,
+      "registeredVoters": 75604,
+      "ballotsCast": 51870,
+      "turnoutPercent": 68.61,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 34",
+      "stations": 93,
+      "registeredVoters": 72266,
+      "ballotsCast": 50072,
+      "turnoutPercent": 69.29,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 35",
+      "stations": 93,
+      "registeredVoters": 77078,
+      "ballotsCast": 53762,
+      "turnoutPercent": 69.75,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 36",
+      "stations": 93,
+      "registeredVoters": 78562,
+      "ballotsCast": 54476,
+      "turnoutPercent": 69.34,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 37",
+      "stations": 93,
+      "registeredVoters": 73717,
+      "ballotsCast": 51485,
+      "turnoutPercent": 69.84,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 38",
+      "stations": 93,
+      "registeredVoters": 75864,
+      "ballotsCast": 51811,
+      "turnoutPercent": 68.29,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 39",
+      "stations": 93,
+      "registeredVoters": 78819,
+      "ballotsCast": 55153,
+      "turnoutPercent": 69.97,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 40",
+      "stations": 93,
+      "registeredVoters": 75778,
+      "ballotsCast": 54073,
+      "turnoutPercent": 71.36,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 41",
+      "stations": 93,
+      "registeredVoters": 67125,
+      "ballotsCast": 49326,
+      "turnoutPercent": 73.48,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 42",
+      "stations": 93,
+      "registeredVoters": 72108,
+      "ballotsCast": 49806,
+      "turnoutPercent": 69.07,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 43",
+      "stations": 93,
+      "registeredVoters": 73611,
+      "ballotsCast": 50431,
+      "turnoutPercent": 68.51,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 44",
+      "stations": 93,
+      "registeredVoters": 70189,
+      "ballotsCast": 48204,
+      "turnoutPercent": 68.68,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 45",
+      "stations": 93,
+      "registeredVoters": 78291,
+      "ballotsCast": 56758,
+      "turnoutPercent": 72.5,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 46",
+      "stations": 93,
+      "registeredVoters": 77782,
+      "ballotsCast": 53157,
+      "turnoutPercent": 68.34,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 47",
+      "stations": 93,
+      "registeredVoters": 76019,
+      "ballotsCast": 52694,
+      "turnoutPercent": 69.32,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 48",
+      "stations": 93,
+      "registeredVoters": 68891,
+      "ballotsCast": 49736,
+      "turnoutPercent": 72.2,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 49",
+      "stations": 93,
+      "registeredVoters": 75972,
+      "ballotsCast": 52615,
+      "turnoutPercent": 69.26,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 50",
+      "stations": 93,
+      "registeredVoters": 75607,
+      "ballotsCast": 52236,
+      "turnoutPercent": 69.09,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 01",
+      "stations": 93,
+      "registeredVoters": 73758,
+      "ballotsCast": 51203,
+      "turnoutPercent": 69.42,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 02",
+      "stations": 93,
+      "registeredVoters": 68135,
+      "ballotsCast": 47536,
+      "turnoutPercent": 69.77,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 03",
+      "stations": 93,
+      "registeredVoters": 71686,
+      "ballotsCast": 49164,
+      "turnoutPercent": 68.58,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 04",
+      "stations": 93,
+      "registeredVoters": 80591,
+      "ballotsCast": 57207,
+      "turnoutPercent": 70.98,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 05",
+      "stations": 93,
+      "registeredVoters": 78087,
+      "ballotsCast": 52656,
+      "turnoutPercent": 67.43,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 06",
+      "stations": 93,
+      "registeredVoters": 68697,
+      "ballotsCast": 49044,
+      "turnoutPercent": 71.39,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 07",
+      "stations": 93,
+      "registeredVoters": 75514,
+      "ballotsCast": 52429,
+      "turnoutPercent": 69.43,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 08",
+      "stations": 93,
+      "registeredVoters": 75250,
+      "ballotsCast": 49941,
+      "turnoutPercent": 66.37,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 09",
+      "stations": 93,
+      "registeredVoters": 75703,
+      "ballotsCast": 54735,
+      "turnoutPercent": 72.3,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 10",
+      "stations": 93,
+      "registeredVoters": 76881,
+      "ballotsCast": 53886,
+      "turnoutPercent": 70.09,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 11",
+      "stations": 93,
+      "registeredVoters": 78562,
+      "ballotsCast": 58472,
+      "turnoutPercent": 74.43,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 12",
+      "stations": 93,
+      "registeredVoters": 81432,
+      "ballotsCast": 55673,
+      "turnoutPercent": 68.37,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 13",
+      "stations": 93,
+      "registeredVoters": 68419,
+      "ballotsCast": 44446,
+      "turnoutPercent": 64.96,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 14",
+      "stations": 93,
+      "registeredVoters": 81108,
+      "ballotsCast": 55858,
+      "turnoutPercent": 68.87,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 15",
+      "stations": 93,
+      "registeredVoters": 73942,
+      "ballotsCast": 51538,
+      "turnoutPercent": 69.7,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 16",
+      "stations": 93,
+      "registeredVoters": 72453,
+      "ballotsCast": 50348,
+      "turnoutPercent": 69.49,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 17",
+      "stations": 93,
+      "registeredVoters": 81660,
+      "ballotsCast": 57346,
+      "turnoutPercent": 70.23,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 18",
+      "stations": 93,
+      "registeredVoters": 84126,
+      "ballotsCast": 59084,
+      "turnoutPercent": 70.23,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 19",
+      "stations": 93,
+      "registeredVoters": 78277,
+      "ballotsCast": 54210,
+      "turnoutPercent": 69.25,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 20",
+      "stations": 93,
+      "registeredVoters": 74626,
+      "ballotsCast": 51425,
+      "turnoutPercent": 68.91,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 21",
+      "stations": 93,
+      "registeredVoters": 71940,
+      "ballotsCast": 49679,
+      "turnoutPercent": 69.06,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 22",
+      "stations": 93,
+      "registeredVoters": 75714,
+      "ballotsCast": 53187,
+      "turnoutPercent": 70.25,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 23",
+      "stations": 93,
+      "registeredVoters": 75981,
+      "ballotsCast": 51828,
+      "turnoutPercent": 68.21,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 24",
+      "stations": 93,
+      "registeredVoters": 75904,
+      "ballotsCast": 53677,
+      "turnoutPercent": 70.72,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 25",
+      "stations": 93,
+      "registeredVoters": 74108,
+      "ballotsCast": 52411,
+      "turnoutPercent": 70.72,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 26",
+      "stations": 93,
+      "registeredVoters": 70207,
+      "ballotsCast": 47973,
+      "turnoutPercent": 68.33,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 27",
+      "stations": 93,
+      "registeredVoters": 72176,
+      "ballotsCast": 50712,
+      "turnoutPercent": 70.26,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 28",
+      "stations": 93,
+      "registeredVoters": 75029,
+      "ballotsCast": 52486,
+      "turnoutPercent": 69.95,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 29",
+      "stations": 93,
+      "registeredVoters": 74165,
+      "ballotsCast": 50848,
+      "turnoutPercent": 68.56,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 30",
+      "stations": 93,
+      "registeredVoters": 77317,
+      "ballotsCast": 53629,
+      "turnoutPercent": 69.36,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 31",
+      "stations": 93,
+      "registeredVoters": 72083,
+      "ballotsCast": 50605,
+      "turnoutPercent": 70.2,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 32",
+      "stations": 93,
+      "registeredVoters": 77169,
+      "ballotsCast": 52268,
+      "turnoutPercent": 67.73,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 33",
+      "stations": 93,
+      "registeredVoters": 71304,
+      "ballotsCast": 51475,
+      "turnoutPercent": 72.19,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 34",
+      "stations": 93,
+      "registeredVoters": 78831,
+      "ballotsCast": 54443,
+      "turnoutPercent": 69.06,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 35",
+      "stations": 93,
+      "registeredVoters": 78332,
+      "ballotsCast": 54660,
+      "turnoutPercent": 69.78,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 36",
+      "stations": 93,
+      "registeredVoters": 77710,
+      "ballotsCast": 53594,
+      "turnoutPercent": 68.97,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 37",
+      "stations": 93,
+      "registeredVoters": 77436,
+      "ballotsCast": 55168,
+      "turnoutPercent": 71.24,
+      "anomalyCount": 26
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 38",
+      "stations": 93,
+      "registeredVoters": 77790,
+      "ballotsCast": 54381,
+      "turnoutPercent": 69.91,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 39",
+      "stations": 93,
+      "registeredVoters": 79418,
+      "ballotsCast": 56753,
+      "turnoutPercent": 71.46,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 40",
+      "stations": 93,
+      "registeredVoters": 69615,
+      "ballotsCast": 49682,
+      "turnoutPercent": 71.37,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 41",
+      "stations": 93,
+      "registeredVoters": 72950,
+      "ballotsCast": 52013,
+      "turnoutPercent": 71.3,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 42",
+      "stations": 93,
+      "registeredVoters": 75996,
+      "ballotsCast": 57646,
+      "turnoutPercent": 75.85,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 43",
+      "stations": 93,
+      "registeredVoters": 76200,
+      "ballotsCast": 54177,
+      "turnoutPercent": 71.1,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 44",
+      "stations": 93,
+      "registeredVoters": 75690,
+      "ballotsCast": 52878,
+      "turnoutPercent": 69.86,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 45",
+      "stations": 93,
+      "registeredVoters": 72785,
+      "ballotsCast": 51284,
+      "turnoutPercent": 70.46,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 46",
+      "stations": 93,
+      "registeredVoters": 74500,
+      "ballotsCast": 51447,
+      "turnoutPercent": 69.06,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 47",
+      "stations": 93,
+      "registeredVoters": 75070,
+      "ballotsCast": 53415,
+      "turnoutPercent": 71.15,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 48",
+      "stations": 93,
+      "registeredVoters": 73585,
+      "ballotsCast": 53145,
+      "turnoutPercent": 72.22,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 49",
+      "stations": 93,
+      "registeredVoters": 74799,
+      "ballotsCast": 54376,
+      "turnoutPercent": 72.7,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 50",
+      "stations": 93,
+      "registeredVoters": 73129,
+      "ballotsCast": 51590,
+      "turnoutPercent": 70.55,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 01",
+      "stations": 93,
+      "registeredVoters": 80834,
+      "ballotsCast": 56999,
+      "turnoutPercent": 70.51,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 02",
+      "stations": 93,
+      "registeredVoters": 78506,
+      "ballotsCast": 55003,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 03",
+      "stations": 93,
+      "registeredVoters": 74165,
+      "ballotsCast": 52283,
+      "turnoutPercent": 70.5,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 04",
+      "stations": 93,
+      "registeredVoters": 74757,
+      "ballotsCast": 52961,
+      "turnoutPercent": 70.84,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 05",
+      "stations": 93,
+      "registeredVoters": 67274,
+      "ballotsCast": 46170,
+      "turnoutPercent": 68.63,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 06",
+      "stations": 93,
+      "registeredVoters": 74856,
+      "ballotsCast": 52593,
+      "turnoutPercent": 70.26,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 07",
+      "stations": 93,
+      "registeredVoters": 75742,
+      "ballotsCast": 52676,
+      "turnoutPercent": 69.55,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 08",
+      "stations": 93,
+      "registeredVoters": 73378,
+      "ballotsCast": 50489,
+      "turnoutPercent": 68.81,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 09",
+      "stations": 93,
+      "registeredVoters": 72798,
+      "ballotsCast": 50670,
+      "turnoutPercent": 69.6,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 10",
+      "stations": 93,
+      "registeredVoters": 75253,
+      "ballotsCast": 52065,
+      "turnoutPercent": 69.19,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 11",
+      "stations": 93,
+      "registeredVoters": 75814,
+      "ballotsCast": 53994,
+      "turnoutPercent": 71.22,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 12",
+      "stations": 93,
+      "registeredVoters": 76958,
+      "ballotsCast": 53202,
+      "turnoutPercent": 69.13,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 13",
+      "stations": 93,
+      "registeredVoters": 79045,
+      "ballotsCast": 54026,
+      "turnoutPercent": 68.35,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 14",
+      "stations": 93,
+      "registeredVoters": 78375,
+      "ballotsCast": 54445,
+      "turnoutPercent": 69.47,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 15",
+      "stations": 93,
+      "registeredVoters": 73892,
+      "ballotsCast": 54082,
+      "turnoutPercent": 73.19,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 16",
+      "stations": 93,
+      "registeredVoters": 72020,
+      "ballotsCast": 52547,
+      "turnoutPercent": 72.96,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 17",
+      "stations": 93,
+      "registeredVoters": 75329,
+      "ballotsCast": 52249,
+      "turnoutPercent": 69.36,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 18",
+      "stations": 93,
+      "registeredVoters": 71058,
+      "ballotsCast": 49992,
+      "turnoutPercent": 70.35,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 19",
+      "stations": 93,
+      "registeredVoters": 75252,
+      "ballotsCast": 52274,
+      "turnoutPercent": 69.47,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 20",
+      "stations": 93,
+      "registeredVoters": 79192,
+      "ballotsCast": 53536,
+      "turnoutPercent": 67.6,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 21",
+      "stations": 93,
+      "registeredVoters": 73598,
+      "ballotsCast": 51151,
+      "turnoutPercent": 69.5,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 22",
+      "stations": 93,
+      "registeredVoters": 71487,
+      "ballotsCast": 51843,
+      "turnoutPercent": 72.52,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 23",
+      "stations": 93,
+      "registeredVoters": 80977,
+      "ballotsCast": 55647,
+      "turnoutPercent": 68.72,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 24",
+      "stations": 93,
+      "registeredVoters": 82152,
+      "ballotsCast": 57013,
+      "turnoutPercent": 69.4,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 25",
+      "stations": 93,
+      "registeredVoters": 82506,
+      "ballotsCast": 58035,
+      "turnoutPercent": 70.34,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 26",
+      "stations": 93,
+      "registeredVoters": 75483,
+      "ballotsCast": 54099,
+      "turnoutPercent": 71.67,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 27",
+      "stations": 93,
+      "registeredVoters": 70969,
+      "ballotsCast": 49497,
+      "turnoutPercent": 69.74,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 28",
+      "stations": 93,
+      "registeredVoters": 73665,
+      "ballotsCast": 53314,
+      "turnoutPercent": 72.37,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 29",
+      "stations": 93,
+      "registeredVoters": 79480,
+      "ballotsCast": 56380,
+      "turnoutPercent": 70.94,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 30",
+      "stations": 93,
+      "registeredVoters": 85320,
+      "ballotsCast": 58658,
+      "turnoutPercent": 68.75,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 31",
+      "stations": 93,
+      "registeredVoters": 74229,
+      "ballotsCast": 50487,
+      "turnoutPercent": 68.02,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 32",
+      "stations": 93,
+      "registeredVoters": 76795,
+      "ballotsCast": 55255,
+      "turnoutPercent": 71.95,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 33",
+      "stations": 93,
+      "registeredVoters": 72825,
+      "ballotsCast": 50930,
+      "turnoutPercent": 69.93,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 34",
+      "stations": 93,
+      "registeredVoters": 71294,
+      "ballotsCast": 51304,
+      "turnoutPercent": 71.96,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 35",
+      "stations": 93,
+      "registeredVoters": 75970,
+      "ballotsCast": 54079,
+      "turnoutPercent": 71.18,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 36",
+      "stations": 93,
+      "registeredVoters": 78836,
+      "ballotsCast": 55826,
+      "turnoutPercent": 70.81,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 37",
+      "stations": 93,
+      "registeredVoters": 74619,
+      "ballotsCast": 51030,
+      "turnoutPercent": 68.39,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 38",
+      "stations": 93,
+      "registeredVoters": 69464,
+      "ballotsCast": 50126,
+      "turnoutPercent": 72.16,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 39",
+      "stations": 93,
+      "registeredVoters": 74592,
+      "ballotsCast": 51512,
+      "turnoutPercent": 69.06,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 40",
+      "stations": 93,
+      "registeredVoters": 75164,
+      "ballotsCast": 53358,
+      "turnoutPercent": 70.99,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 41",
+      "stations": 93,
+      "registeredVoters": 69043,
+      "ballotsCast": 49724,
+      "turnoutPercent": 72.02,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 42",
+      "stations": 93,
+      "registeredVoters": 73279,
+      "ballotsCast": 53055,
+      "turnoutPercent": 72.4,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 43",
+      "stations": 93,
+      "registeredVoters": 74130,
+      "ballotsCast": 50447,
+      "turnoutPercent": 68.05,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 44",
+      "stations": 93,
+      "registeredVoters": 76204,
+      "ballotsCast": 52678,
+      "turnoutPercent": 69.13,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 45",
+      "stations": 93,
+      "registeredVoters": 78145,
+      "ballotsCast": 54527,
+      "turnoutPercent": 69.78,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 46",
+      "stations": 93,
+      "registeredVoters": 76510,
+      "ballotsCast": 54720,
+      "turnoutPercent": 71.52,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 47",
+      "stations": 93,
+      "registeredVoters": 74603,
+      "ballotsCast": 51526,
+      "turnoutPercent": 69.07,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 48",
+      "stations": 93,
+      "registeredVoters": 78067,
+      "ballotsCast": 53207,
+      "turnoutPercent": 68.16,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 49",
+      "stations": 93,
+      "registeredVoters": 72705,
+      "ballotsCast": 49364,
+      "turnoutPercent": 67.9,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 50",
+      "stations": 93,
+      "registeredVoters": 78265,
+      "ballotsCast": 55602,
+      "turnoutPercent": 71.04,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 01",
+      "stations": 93,
+      "registeredVoters": 76886,
+      "ballotsCast": 54839,
+      "turnoutPercent": 71.33,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 02",
+      "stations": 93,
+      "registeredVoters": 78026,
+      "ballotsCast": 53837,
+      "turnoutPercent": 69,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 03",
+      "stations": 93,
+      "registeredVoters": 71550,
+      "ballotsCast": 50623,
+      "turnoutPercent": 70.75,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 04",
+      "stations": 93,
+      "registeredVoters": 75058,
+      "ballotsCast": 53444,
+      "turnoutPercent": 71.2,
+      "anomalyCount": 9
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 05",
+      "stations": 93,
+      "registeredVoters": 76674,
+      "ballotsCast": 53720,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 06",
+      "stations": 93,
+      "registeredVoters": 73100,
+      "ballotsCast": 50438,
+      "turnoutPercent": 69,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 07",
+      "stations": 93,
+      "registeredVoters": 68935,
+      "ballotsCast": 48865,
+      "turnoutPercent": 70.89,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 08",
+      "stations": 93,
+      "registeredVoters": 78290,
+      "ballotsCast": 55036,
+      "turnoutPercent": 70.3,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 09",
+      "stations": 93,
+      "registeredVoters": 81825,
+      "ballotsCast": 58641,
+      "turnoutPercent": 71.67,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 10",
+      "stations": 93,
+      "registeredVoters": 83709,
+      "ballotsCast": 57781,
+      "turnoutPercent": 69.03,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 11",
+      "stations": 93,
+      "registeredVoters": 77684,
+      "ballotsCast": 55228,
+      "turnoutPercent": 71.09,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 12",
+      "stations": 93,
+      "registeredVoters": 74879,
+      "ballotsCast": 53260,
+      "turnoutPercent": 71.13,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 13",
+      "stations": 93,
+      "registeredVoters": 73826,
+      "ballotsCast": 52741,
+      "turnoutPercent": 71.44,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 14",
+      "stations": 93,
+      "registeredVoters": 74279,
+      "ballotsCast": 52773,
+      "turnoutPercent": 71.05,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 15",
+      "stations": 93,
+      "registeredVoters": 73276,
+      "ballotsCast": 52962,
+      "turnoutPercent": 72.28,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 16",
+      "stations": 93,
+      "registeredVoters": 71327,
+      "ballotsCast": 48044,
+      "turnoutPercent": 67.36,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 17",
+      "stations": 93,
+      "registeredVoters": 76843,
+      "ballotsCast": 54110,
+      "turnoutPercent": 70.42,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 18",
+      "stations": 93,
+      "registeredVoters": 78559,
+      "ballotsCast": 55597,
+      "turnoutPercent": 70.77,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 19",
+      "stations": 93,
+      "registeredVoters": 79939,
+      "ballotsCast": 53202,
+      "turnoutPercent": 66.55,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 20",
+      "stations": 93,
+      "registeredVoters": 72069,
+      "ballotsCast": 51418,
+      "turnoutPercent": 71.35,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 21",
+      "stations": 93,
+      "registeredVoters": 70803,
+      "ballotsCast": 51204,
+      "turnoutPercent": 72.32,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 22",
+      "stations": 93,
+      "registeredVoters": 78230,
+      "ballotsCast": 54682,
+      "turnoutPercent": 69.9,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 23",
+      "stations": 93,
+      "registeredVoters": 76771,
+      "ballotsCast": 54035,
+      "turnoutPercent": 70.38,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 24",
+      "stations": 93,
+      "registeredVoters": 77615,
+      "ballotsCast": 54102,
+      "turnoutPercent": 69.71,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 25",
+      "stations": 93,
+      "registeredVoters": 75453,
+      "ballotsCast": 51366,
+      "turnoutPercent": 68.08,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 26",
+      "stations": 93,
+      "registeredVoters": 75499,
+      "ballotsCast": 54031,
+      "turnoutPercent": 71.57,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 27",
+      "stations": 93,
+      "registeredVoters": 74048,
+      "ballotsCast": 49560,
+      "turnoutPercent": 66.93,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 28",
+      "stations": 93,
+      "registeredVoters": 78349,
+      "ballotsCast": 53846,
+      "turnoutPercent": 68.73,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 29",
+      "stations": 93,
+      "registeredVoters": 73764,
+      "ballotsCast": 49940,
+      "turnoutPercent": 67.7,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 30",
+      "stations": 93,
+      "registeredVoters": 78332,
+      "ballotsCast": 53839,
+      "turnoutPercent": 68.73,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 31",
+      "stations": 93,
+      "registeredVoters": 73470,
+      "ballotsCast": 50099,
+      "turnoutPercent": 68.19,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 32",
+      "stations": 93,
+      "registeredVoters": 78112,
+      "ballotsCast": 52574,
+      "turnoutPercent": 67.31,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 33",
+      "stations": 93,
+      "registeredVoters": 71564,
+      "ballotsCast": 49911,
+      "turnoutPercent": 69.74,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 34",
+      "stations": 93,
+      "registeredVoters": 78293,
+      "ballotsCast": 54444,
+      "turnoutPercent": 69.54,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 35",
+      "stations": 93,
+      "registeredVoters": 74709,
+      "ballotsCast": 52671,
+      "turnoutPercent": 70.5,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 36",
+      "stations": 93,
+      "registeredVoters": 76064,
+      "ballotsCast": 53287,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 37",
+      "stations": 93,
+      "registeredVoters": 76901,
+      "ballotsCast": 54316,
+      "turnoutPercent": 70.63,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 38",
+      "stations": 93,
+      "registeredVoters": 69517,
+      "ballotsCast": 47821,
+      "turnoutPercent": 68.79,
+      "anomalyCount": 28
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 39",
+      "stations": 93,
+      "registeredVoters": 79881,
+      "ballotsCast": 57496,
+      "turnoutPercent": 71.98,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 40",
+      "stations": 93,
+      "registeredVoters": 77124,
+      "ballotsCast": 53557,
+      "turnoutPercent": 69.44,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 41",
+      "stations": 93,
+      "registeredVoters": 75869,
+      "ballotsCast": 54981,
+      "turnoutPercent": 72.47,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 42",
+      "stations": 93,
+      "registeredVoters": 72740,
+      "ballotsCast": 51860,
+      "turnoutPercent": 71.3,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 43",
+      "stations": 93,
+      "registeredVoters": 73856,
+      "ballotsCast": 51824,
+      "turnoutPercent": 70.17,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 70399,
+      "ballotsCast": 47479,
+      "turnoutPercent": 67.44,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 71875,
+      "ballotsCast": 50433,
+      "turnoutPercent": 70.17,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 75513,
+      "ballotsCast": 52592,
+      "turnoutPercent": 69.65,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 72633,
+      "ballotsCast": 51335,
+      "turnoutPercent": 70.68,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 68087,
+      "ballotsCast": 47220,
+      "turnoutPercent": 69.35,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 76377,
+      "ballotsCast": 53067,
+      "turnoutPercent": 69.48,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 72604,
+      "ballotsCast": 49197,
+      "turnoutPercent": 67.76,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 01",
+      "stations": 92,
+      "registeredVoters": 73104,
+      "ballotsCast": 52993,
+      "turnoutPercent": 72.49,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 02",
+      "stations": 92,
+      "registeredVoters": 74665,
+      "ballotsCast": 52713,
+      "turnoutPercent": 70.6,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 03",
+      "stations": 92,
+      "registeredVoters": 76188,
+      "ballotsCast": 54078,
+      "turnoutPercent": 70.98,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 04",
+      "stations": 92,
+      "registeredVoters": 76361,
+      "ballotsCast": 54234,
+      "turnoutPercent": 71.02,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 05",
+      "stations": 92,
+      "registeredVoters": 76705,
+      "ballotsCast": 53871,
+      "turnoutPercent": 70.23,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 06",
+      "stations": 92,
+      "registeredVoters": 74652,
+      "ballotsCast": 53662,
+      "turnoutPercent": 71.88,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 07",
+      "stations": 92,
+      "registeredVoters": 75406,
+      "ballotsCast": 53463,
+      "turnoutPercent": 70.9,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 08",
+      "stations": 92,
+      "registeredVoters": 79762,
+      "ballotsCast": 54810,
+      "turnoutPercent": 68.72,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 09",
+      "stations": 92,
+      "registeredVoters": 81434,
+      "ballotsCast": 56203,
+      "turnoutPercent": 69.02,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 10",
+      "stations": 92,
+      "registeredVoters": 78276,
+      "ballotsCast": 56220,
+      "turnoutPercent": 71.82,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 11",
+      "stations": 92,
+      "registeredVoters": 68955,
+      "ballotsCast": 49026,
+      "turnoutPercent": 71.1,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 12",
+      "stations": 92,
+      "registeredVoters": 73153,
+      "ballotsCast": 52119,
+      "turnoutPercent": 71.25,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 13",
+      "stations": 92,
+      "registeredVoters": 70842,
+      "ballotsCast": 50941,
+      "turnoutPercent": 71.91,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 14",
+      "stations": 92,
+      "registeredVoters": 76084,
+      "ballotsCast": 53203,
+      "turnoutPercent": 69.93,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 15",
+      "stations": 92,
+      "registeredVoters": 72047,
+      "ballotsCast": 50397,
+      "turnoutPercent": 69.95,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 16",
+      "stations": 92,
+      "registeredVoters": 72502,
+      "ballotsCast": 52331,
+      "turnoutPercent": 72.18,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 17",
+      "stations": 92,
+      "registeredVoters": 66068,
+      "ballotsCast": 46267,
+      "turnoutPercent": 70.03,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 18",
+      "stations": 92,
+      "registeredVoters": 77940,
+      "ballotsCast": 54334,
+      "turnoutPercent": 69.71,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 19",
+      "stations": 92,
+      "registeredVoters": 78412,
+      "ballotsCast": 56254,
+      "turnoutPercent": 71.74,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 20",
+      "stations": 92,
+      "registeredVoters": 71588,
+      "ballotsCast": 49555,
+      "turnoutPercent": 69.22,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 21",
+      "stations": 92,
+      "registeredVoters": 78636,
+      "ballotsCast": 56939,
+      "turnoutPercent": 72.41,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 22",
+      "stations": 92,
+      "registeredVoters": 72553,
+      "ballotsCast": 50991,
+      "turnoutPercent": 70.28,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 23",
+      "stations": 92,
+      "registeredVoters": 74751,
+      "ballotsCast": 52756,
+      "turnoutPercent": 70.58,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 24",
+      "stations": 92,
+      "registeredVoters": 72631,
+      "ballotsCast": 51457,
+      "turnoutPercent": 70.85,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 25",
+      "stations": 92,
+      "registeredVoters": 73352,
+      "ballotsCast": 51000,
+      "turnoutPercent": 69.53,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 26",
+      "stations": 92,
+      "registeredVoters": 68345,
+      "ballotsCast": 47517,
+      "turnoutPercent": 69.53,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 27",
+      "stations": 92,
+      "registeredVoters": 69965,
+      "ballotsCast": 48529,
+      "turnoutPercent": 69.36,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 28",
+      "stations": 92,
+      "registeredVoters": 78360,
+      "ballotsCast": 54891,
+      "turnoutPercent": 70.05,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 29",
+      "stations": 92,
+      "registeredVoters": 74647,
+      "ballotsCast": 50658,
+      "turnoutPercent": 67.86,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 30",
+      "stations": 92,
+      "registeredVoters": 73151,
+      "ballotsCast": 49279,
+      "turnoutPercent": 67.37,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 31",
+      "stations": 92,
+      "registeredVoters": 71244,
+      "ballotsCast": 49129,
+      "turnoutPercent": 68.96,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 32",
+      "stations": 92,
+      "registeredVoters": 67705,
+      "ballotsCast": 46673,
+      "turnoutPercent": 68.94,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 33",
+      "stations": 92,
+      "registeredVoters": 73157,
+      "ballotsCast": 51541,
+      "turnoutPercent": 70.45,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 34",
+      "stations": 92,
+      "registeredVoters": 75756,
+      "ballotsCast": 51882,
+      "turnoutPercent": 68.49,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 35",
+      "stations": 92,
+      "registeredVoters": 74327,
+      "ballotsCast": 52783,
+      "turnoutPercent": 71.01,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 36",
+      "stations": 92,
+      "registeredVoters": 72662,
+      "ballotsCast": 51922,
+      "turnoutPercent": 71.46,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 37",
+      "stations": 92,
+      "registeredVoters": 77335,
+      "ballotsCast": 54413,
+      "turnoutPercent": 70.36,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 38",
+      "stations": 92,
+      "registeredVoters": 72879,
+      "ballotsCast": 52599,
+      "turnoutPercent": 72.17,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 39",
+      "stations": 92,
+      "registeredVoters": 74677,
+      "ballotsCast": 52420,
+      "turnoutPercent": 70.2,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 40",
+      "stations": 92,
+      "registeredVoters": 75414,
+      "ballotsCast": 53729,
+      "turnoutPercent": 71.25,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 41",
+      "stations": 92,
+      "registeredVoters": 73538,
+      "ballotsCast": 50275,
+      "turnoutPercent": 68.37,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 42",
+      "stations": 92,
+      "registeredVoters": 73466,
+      "ballotsCast": 50987,
+      "turnoutPercent": 69.4,
+      "anomalyCount": 9
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 43",
+      "stations": 92,
+      "registeredVoters": 76777,
+      "ballotsCast": 51919,
+      "turnoutPercent": 67.62,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 73619,
+      "ballotsCast": 50535,
+      "turnoutPercent": 68.64,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 78258,
+      "ballotsCast": 53582,
+      "turnoutPercent": 68.47,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 77055,
+      "ballotsCast": 52546,
+      "turnoutPercent": 68.19,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 75834,
+      "ballotsCast": 53807,
+      "turnoutPercent": 70.95,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 66489,
+      "ballotsCast": 47219,
+      "turnoutPercent": 71.02,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 75321,
+      "ballotsCast": 51559,
+      "turnoutPercent": 68.45,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 74806,
+      "ballotsCast": 51837,
+      "turnoutPercent": 69.3,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 01",
+      "stations": 92,
+      "registeredVoters": 71832,
+      "ballotsCast": 49100,
+      "turnoutPercent": 68.35,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 02",
+      "stations": 92,
+      "registeredVoters": 76932,
+      "ballotsCast": 53510,
+      "turnoutPercent": 69.55,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 03",
+      "stations": 92,
+      "registeredVoters": 79437,
+      "ballotsCast": 52366,
+      "turnoutPercent": 65.92,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 04",
+      "stations": 92,
+      "registeredVoters": 72222,
+      "ballotsCast": 50042,
+      "turnoutPercent": 69.29,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 05",
+      "stations": 92,
+      "registeredVoters": 74638,
+      "ballotsCast": 53104,
+      "turnoutPercent": 71.15,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 06",
+      "stations": 92,
+      "registeredVoters": 70322,
+      "ballotsCast": 47857,
+      "turnoutPercent": 68.05,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 07",
+      "stations": 92,
+      "registeredVoters": 78911,
+      "ballotsCast": 54492,
+      "turnoutPercent": 69.06,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 08",
+      "stations": 92,
+      "registeredVoters": 74611,
+      "ballotsCast": 54189,
+      "turnoutPercent": 72.63,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 09",
+      "stations": 92,
+      "registeredVoters": 73724,
+      "ballotsCast": 51906,
+      "turnoutPercent": 70.41,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 10",
+      "stations": 92,
+      "registeredVoters": 77625,
+      "ballotsCast": 52320,
+      "turnoutPercent": 67.4,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 11",
+      "stations": 92,
+      "registeredVoters": 76798,
+      "ballotsCast": 55328,
+      "turnoutPercent": 72.04,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 12",
+      "stations": 92,
+      "registeredVoters": 72184,
+      "ballotsCast": 51123,
+      "turnoutPercent": 70.82,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 13",
+      "stations": 92,
+      "registeredVoters": 71721,
+      "ballotsCast": 49936,
+      "turnoutPercent": 69.63,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 14",
+      "stations": 92,
+      "registeredVoters": 76779,
+      "ballotsCast": 54227,
+      "turnoutPercent": 70.63,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 15",
+      "stations": 92,
+      "registeredVoters": 79547,
+      "ballotsCast": 54467,
+      "turnoutPercent": 68.47,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 16",
+      "stations": 92,
+      "registeredVoters": 78707,
+      "ballotsCast": 54591,
+      "turnoutPercent": 69.36,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 17",
+      "stations": 92,
+      "registeredVoters": 76819,
+      "ballotsCast": 53536,
+      "turnoutPercent": 69.69,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 18",
+      "stations": 92,
+      "registeredVoters": 77035,
+      "ballotsCast": 53429,
+      "turnoutPercent": 69.36,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 19",
+      "stations": 92,
+      "registeredVoters": 76776,
+      "ballotsCast": 56752,
+      "turnoutPercent": 73.92,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 20",
+      "stations": 92,
+      "registeredVoters": 75765,
+      "ballotsCast": 51698,
+      "turnoutPercent": 68.23,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 21",
+      "stations": 92,
+      "registeredVoters": 70599,
+      "ballotsCast": 48516,
+      "turnoutPercent": 68.72,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 22",
+      "stations": 92,
+      "registeredVoters": 70852,
+      "ballotsCast": 49747,
+      "turnoutPercent": 70.21,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 23",
+      "stations": 92,
+      "registeredVoters": 76276,
+      "ballotsCast": 52669,
+      "turnoutPercent": 69.05,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 24",
+      "stations": 92,
+      "registeredVoters": 73044,
+      "ballotsCast": 50897,
+      "turnoutPercent": 69.68,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 25",
+      "stations": 92,
+      "registeredVoters": 77487,
+      "ballotsCast": 53955,
+      "turnoutPercent": 69.63,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 26",
+      "stations": 92,
+      "registeredVoters": 76177,
+      "ballotsCast": 53606,
+      "turnoutPercent": 70.37,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 27",
+      "stations": 92,
+      "registeredVoters": 67350,
+      "ballotsCast": 46453,
+      "turnoutPercent": 68.97,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 28",
+      "stations": 92,
+      "registeredVoters": 72848,
+      "ballotsCast": 51219,
+      "turnoutPercent": 70.31,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 29",
+      "stations": 92,
+      "registeredVoters": 81523,
+      "ballotsCast": 57506,
+      "turnoutPercent": 70.54,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 30",
+      "stations": 92,
+      "registeredVoters": 67087,
+      "ballotsCast": 47745,
+      "turnoutPercent": 71.17,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 31",
+      "stations": 92,
+      "registeredVoters": 75841,
+      "ballotsCast": 54593,
+      "turnoutPercent": 71.98,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 32",
+      "stations": 92,
+      "registeredVoters": 76041,
+      "ballotsCast": 55481,
+      "turnoutPercent": 72.96,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 33",
+      "stations": 92,
+      "registeredVoters": 73980,
+      "ballotsCast": 51816,
+      "turnoutPercent": 70.04,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 34",
+      "stations": 92,
+      "registeredVoters": 76983,
+      "ballotsCast": 52872,
+      "turnoutPercent": 68.68,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 35",
+      "stations": 92,
+      "registeredVoters": 77906,
+      "ballotsCast": 55439,
+      "turnoutPercent": 71.16,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 36",
+      "stations": 92,
+      "registeredVoters": 70591,
+      "ballotsCast": 49697,
+      "turnoutPercent": 70.4,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 37",
+      "stations": 92,
+      "registeredVoters": 69375,
+      "ballotsCast": 47674,
+      "turnoutPercent": 68.72,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 38",
+      "stations": 92,
+      "registeredVoters": 71662,
+      "ballotsCast": 50347,
+      "turnoutPercent": 70.26,
+      "anomalyCount": 26
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 39",
+      "stations": 92,
+      "registeredVoters": 74518,
+      "ballotsCast": 52642,
+      "turnoutPercent": 70.64,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 40",
+      "stations": 92,
+      "registeredVoters": 72623,
+      "ballotsCast": 52635,
+      "turnoutPercent": 72.48,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 41",
+      "stations": 92,
+      "registeredVoters": 75081,
+      "ballotsCast": 51000,
+      "turnoutPercent": 67.93,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 42",
+      "stations": 92,
+      "registeredVoters": 69036,
+      "ballotsCast": 48683,
+      "turnoutPercent": 70.52,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 43",
+      "stations": 92,
+      "registeredVoters": 71711,
+      "ballotsCast": 51268,
+      "turnoutPercent": 71.49,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 73144,
+      "ballotsCast": 51852,
+      "turnoutPercent": 70.89,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 71837,
+      "ballotsCast": 50616,
+      "turnoutPercent": 70.46,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 75149,
+      "ballotsCast": 53112,
+      "turnoutPercent": 70.68,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 77498,
+      "ballotsCast": 53480,
+      "turnoutPercent": 69.01,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 77648,
+      "ballotsCast": 54389,
+      "turnoutPercent": 70.05,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 73167,
+      "ballotsCast": 51263,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 73852,
+      "ballotsCast": 48815,
+      "turnoutPercent": 66.1,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 01",
+      "stations": 92,
+      "registeredVoters": 80245,
+      "ballotsCast": 56078,
+      "turnoutPercent": 69.88,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 02",
+      "stations": 92,
+      "registeredVoters": 73885,
+      "ballotsCast": 52079,
+      "turnoutPercent": 70.49,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 03",
+      "stations": 92,
+      "registeredVoters": 73908,
+      "ballotsCast": 50778,
+      "turnoutPercent": 68.7,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 04",
+      "stations": 92,
+      "registeredVoters": 75110,
+      "ballotsCast": 53274,
+      "turnoutPercent": 70.93,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 05",
+      "stations": 92,
+      "registeredVoters": 75078,
+      "ballotsCast": 53265,
+      "turnoutPercent": 70.95,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 06",
+      "stations": 92,
+      "registeredVoters": 77095,
+      "ballotsCast": 51564,
+      "turnoutPercent": 66.88,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 07",
+      "stations": 92,
+      "registeredVoters": 73038,
+      "ballotsCast": 51079,
+      "turnoutPercent": 69.93,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 08",
+      "stations": 92,
+      "registeredVoters": 75637,
+      "ballotsCast": 51562,
+      "turnoutPercent": 68.17,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 09",
+      "stations": 92,
+      "registeredVoters": 76218,
+      "ballotsCast": 53591,
+      "turnoutPercent": 70.31,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 10",
+      "stations": 92,
+      "registeredVoters": 72086,
+      "ballotsCast": 51213,
+      "turnoutPercent": 71.04,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 11",
+      "stations": 92,
+      "registeredVoters": 74216,
+      "ballotsCast": 53164,
+      "turnoutPercent": 71.63,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 12",
+      "stations": 92,
+      "registeredVoters": 74792,
+      "ballotsCast": 53907,
+      "turnoutPercent": 72.08,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 13",
+      "stations": 92,
+      "registeredVoters": 71763,
+      "ballotsCast": 50799,
+      "turnoutPercent": 70.79,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 14",
+      "stations": 92,
+      "registeredVoters": 77619,
+      "ballotsCast": 55433,
+      "turnoutPercent": 71.42,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 15",
+      "stations": 92,
+      "registeredVoters": 77623,
+      "ballotsCast": 53423,
+      "turnoutPercent": 68.82,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 16",
+      "stations": 92,
+      "registeredVoters": 72856,
+      "ballotsCast": 50380,
+      "turnoutPercent": 69.15,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 17",
+      "stations": 92,
+      "registeredVoters": 81686,
+      "ballotsCast": 56328,
+      "turnoutPercent": 68.96,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 18",
+      "stations": 92,
+      "registeredVoters": 66620,
+      "ballotsCast": 46153,
+      "turnoutPercent": 69.28,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 19",
+      "stations": 92,
+      "registeredVoters": 77567,
+      "ballotsCast": 53699,
+      "turnoutPercent": 69.23,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 20",
+      "stations": 92,
+      "registeredVoters": 77184,
+      "ballotsCast": 52472,
+      "turnoutPercent": 67.98,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 21",
+      "stations": 92,
+      "registeredVoters": 65090,
+      "ballotsCast": 45149,
+      "turnoutPercent": 69.36,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 22",
+      "stations": 92,
+      "registeredVoters": 72488,
+      "ballotsCast": 50555,
+      "turnoutPercent": 69.74,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 23",
+      "stations": 92,
+      "registeredVoters": 75047,
+      "ballotsCast": 51231,
+      "turnoutPercent": 68.27,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 24",
+      "stations": 92,
+      "registeredVoters": 71950,
+      "ballotsCast": 51101,
+      "turnoutPercent": 71.02,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 25",
+      "stations": 92,
+      "registeredVoters": 74708,
+      "ballotsCast": 51311,
+      "turnoutPercent": 68.68,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 26",
+      "stations": 92,
+      "registeredVoters": 75351,
+      "ballotsCast": 52726,
+      "turnoutPercent": 69.97,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 27",
+      "stations": 92,
+      "registeredVoters": 77066,
+      "ballotsCast": 53951,
+      "turnoutPercent": 70.01,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 28",
+      "stations": 92,
+      "registeredVoters": 73141,
+      "ballotsCast": 51502,
+      "turnoutPercent": 70.41,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 29",
+      "stations": 92,
+      "registeredVoters": 75929,
+      "ballotsCast": 53907,
+      "turnoutPercent": 71,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 30",
+      "stations": 92,
+      "registeredVoters": 72941,
+      "ballotsCast": 52579,
+      "turnoutPercent": 72.08,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 31",
+      "stations": 92,
+      "registeredVoters": 74150,
+      "ballotsCast": 49290,
+      "turnoutPercent": 66.47,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 32",
+      "stations": 92,
+      "registeredVoters": 69124,
+      "ballotsCast": 48293,
+      "turnoutPercent": 69.86,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 33",
+      "stations": 92,
+      "registeredVoters": 74525,
+      "ballotsCast": 49899,
+      "turnoutPercent": 66.96,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 34",
+      "stations": 92,
+      "registeredVoters": 70025,
+      "ballotsCast": 49454,
+      "turnoutPercent": 70.62,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 35",
+      "stations": 92,
+      "registeredVoters": 76608,
+      "ballotsCast": 53429,
+      "turnoutPercent": 69.74,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 36",
+      "stations": 92,
+      "registeredVoters": 71103,
+      "ballotsCast": 49188,
+      "turnoutPercent": 69.18,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 37",
+      "stations": 92,
+      "registeredVoters": 78136,
+      "ballotsCast": 55229,
+      "turnoutPercent": 70.68,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 38",
+      "stations": 92,
+      "registeredVoters": 72646,
+      "ballotsCast": 50443,
+      "turnoutPercent": 69.44,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 39",
+      "stations": 92,
+      "registeredVoters": 69085,
+      "ballotsCast": 47568,
+      "turnoutPercent": 68.85,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 40",
+      "stations": 92,
+      "registeredVoters": 72333,
+      "ballotsCast": 50912,
+      "turnoutPercent": 70.39,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 41",
+      "stations": 92,
+      "registeredVoters": 76201,
+      "ballotsCast": 53626,
+      "turnoutPercent": 70.37,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 42",
+      "stations": 92,
+      "registeredVoters": 81449,
+      "ballotsCast": 56623,
+      "turnoutPercent": 69.52,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 43",
+      "stations": 92,
+      "registeredVoters": 73826,
+      "ballotsCast": 50931,
+      "turnoutPercent": 68.99,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 69821,
+      "ballotsCast": 49948,
+      "turnoutPercent": 71.54,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 76020,
+      "ballotsCast": 53128,
+      "turnoutPercent": 69.89,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 73132,
+      "ballotsCast": 52842,
+      "turnoutPercent": 72.26,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 76639,
+      "ballotsCast": 55561,
+      "turnoutPercent": 72.5,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 78714,
+      "ballotsCast": 54891,
+      "turnoutPercent": 69.73,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 74983,
+      "ballotsCast": 53480,
+      "turnoutPercent": 71.32,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 79632,
+      "ballotsCast": 59082,
+      "turnoutPercent": 74.19,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 01",
+      "stations": 92,
+      "registeredVoters": 68650,
+      "ballotsCast": 48505,
+      "turnoutPercent": 70.66,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 02",
+      "stations": 92,
+      "registeredVoters": 75595,
+      "ballotsCast": 52742,
+      "turnoutPercent": 69.77,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 03",
+      "stations": 92,
+      "registeredVoters": 75915,
+      "ballotsCast": 53269,
+      "turnoutPercent": 70.17,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 04",
+      "stations": 92,
+      "registeredVoters": 74813,
+      "ballotsCast": 51620,
+      "turnoutPercent": 69,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 05",
+      "stations": 92,
+      "registeredVoters": 75571,
+      "ballotsCast": 53393,
+      "turnoutPercent": 70.65,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 06",
+      "stations": 92,
+      "registeredVoters": 81388,
+      "ballotsCast": 59310,
+      "turnoutPercent": 72.87,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 07",
+      "stations": 92,
+      "registeredVoters": 71500,
+      "ballotsCast": 50327,
+      "turnoutPercent": 70.39,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 08",
+      "stations": 92,
+      "registeredVoters": 79624,
+      "ballotsCast": 56703,
+      "turnoutPercent": 71.21,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 09",
+      "stations": 92,
+      "registeredVoters": 76071,
+      "ballotsCast": 53634,
+      "turnoutPercent": 70.51,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 10",
+      "stations": 92,
+      "registeredVoters": 80727,
+      "ballotsCast": 55230,
+      "turnoutPercent": 68.42,
+      "anomalyCount": 26
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 11",
+      "stations": 92,
+      "registeredVoters": 70763,
+      "ballotsCast": 48397,
+      "turnoutPercent": 68.39,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 12",
+      "stations": 92,
+      "registeredVoters": 77400,
+      "ballotsCast": 55180,
+      "turnoutPercent": 71.29,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 13",
+      "stations": 92,
+      "registeredVoters": 73348,
+      "ballotsCast": 53142,
+      "turnoutPercent": 72.45,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 14",
+      "stations": 92,
+      "registeredVoters": 74358,
+      "ballotsCast": 51439,
+      "turnoutPercent": 69.18,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 15",
+      "stations": 92,
+      "registeredVoters": 74768,
+      "ballotsCast": 53561,
+      "turnoutPercent": 71.64,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 16",
+      "stations": 92,
+      "registeredVoters": 78290,
+      "ballotsCast": 55862,
+      "turnoutPercent": 71.35,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 17",
+      "stations": 92,
+      "registeredVoters": 69412,
+      "ballotsCast": 49396,
+      "turnoutPercent": 71.16,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 18",
+      "stations": 92,
+      "registeredVoters": 75096,
+      "ballotsCast": 52644,
+      "turnoutPercent": 70.1,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 19",
+      "stations": 92,
+      "registeredVoters": 77196,
+      "ballotsCast": 54877,
+      "turnoutPercent": 71.09,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 20",
+      "stations": 92,
+      "registeredVoters": 77678,
+      "ballotsCast": 53083,
+      "turnoutPercent": 68.34,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 21",
+      "stations": 92,
+      "registeredVoters": 71635,
+      "ballotsCast": 49650,
+      "turnoutPercent": 69.31,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 22",
+      "stations": 92,
+      "registeredVoters": 75026,
+      "ballotsCast": 51494,
+      "turnoutPercent": 68.63,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 23",
+      "stations": 92,
+      "registeredVoters": 77567,
+      "ballotsCast": 55768,
+      "turnoutPercent": 71.9,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 24",
+      "stations": 92,
+      "registeredVoters": 75096,
+      "ballotsCast": 50220,
+      "turnoutPercent": 66.87,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 25",
+      "stations": 92,
+      "registeredVoters": 74426,
+      "ballotsCast": 53766,
+      "turnoutPercent": 72.24,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 26",
+      "stations": 92,
+      "registeredVoters": 73420,
+      "ballotsCast": 50481,
+      "turnoutPercent": 68.76,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 27",
+      "stations": 92,
+      "registeredVoters": 70649,
+      "ballotsCast": 48953,
+      "turnoutPercent": 69.29,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 28",
+      "stations": 92,
+      "registeredVoters": 78033,
+      "ballotsCast": 55526,
+      "turnoutPercent": 71.16,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 29",
+      "stations": 92,
+      "registeredVoters": 76238,
+      "ballotsCast": 53060,
+      "turnoutPercent": 69.6,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 30",
+      "stations": 92,
+      "registeredVoters": 78538,
+      "ballotsCast": 53256,
+      "turnoutPercent": 67.81,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 31",
+      "stations": 92,
+      "registeredVoters": 74111,
+      "ballotsCast": 52846,
+      "turnoutPercent": 71.31,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 32",
+      "stations": 92,
+      "registeredVoters": 80472,
+      "ballotsCast": 56190,
+      "turnoutPercent": 69.83,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 33",
+      "stations": 92,
+      "registeredVoters": 72883,
+      "ballotsCast": 50901,
+      "turnoutPercent": 69.84,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 34",
+      "stations": 92,
+      "registeredVoters": 70111,
+      "ballotsCast": 47102,
+      "turnoutPercent": 67.18,
+      "anomalyCount": 9
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 35",
+      "stations": 92,
+      "registeredVoters": 76655,
+      "ballotsCast": 53272,
+      "turnoutPercent": 69.5,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 36",
+      "stations": 92,
+      "registeredVoters": 77771,
+      "ballotsCast": 53346,
+      "turnoutPercent": 68.59,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 37",
+      "stations": 92,
+      "registeredVoters": 73633,
+      "ballotsCast": 52539,
+      "turnoutPercent": 71.35,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 38",
+      "stations": 92,
+      "registeredVoters": 72768,
+      "ballotsCast": 49505,
+      "turnoutPercent": 68.03,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 39",
+      "stations": 92,
+      "registeredVoters": 74751,
+      "ballotsCast": 50450,
+      "turnoutPercent": 67.49,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 40",
+      "stations": 92,
+      "registeredVoters": 75885,
+      "ballotsCast": 53214,
+      "turnoutPercent": 70.12,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 41",
+      "stations": 92,
+      "registeredVoters": 70599,
+      "ballotsCast": 48119,
+      "turnoutPercent": 68.16,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 42",
+      "stations": 92,
+      "registeredVoters": 73177,
+      "ballotsCast": 51730,
+      "turnoutPercent": 70.69,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 43",
+      "stations": 92,
+      "registeredVoters": 76657,
+      "ballotsCast": 55846,
+      "turnoutPercent": 72.85,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 77401,
+      "ballotsCast": 52158,
+      "turnoutPercent": 67.39,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 70784,
+      "ballotsCast": 50215,
+      "turnoutPercent": 70.94,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 74976,
+      "ballotsCast": 53443,
+      "turnoutPercent": 71.28,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 71406,
+      "ballotsCast": 49382,
+      "turnoutPercent": 69.16,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 78634,
+      "ballotsCast": 54239,
+      "turnoutPercent": 68.98,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 82991,
+      "ballotsCast": 57244,
+      "turnoutPercent": 68.98,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 69622,
+      "ballotsCast": 49555,
+      "turnoutPercent": 71.18,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 01",
+      "stations": 92,
+      "registeredVoters": 76335,
+      "ballotsCast": 53274,
+      "turnoutPercent": 69.79,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 02",
+      "stations": 92,
+      "registeredVoters": 67077,
+      "ballotsCast": 45984,
+      "turnoutPercent": 68.55,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 03",
+      "stations": 92,
+      "registeredVoters": 70711,
+      "ballotsCast": 49271,
+      "turnoutPercent": 69.68,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 04",
+      "stations": 92,
+      "registeredVoters": 76723,
+      "ballotsCast": 53122,
+      "turnoutPercent": 69.24,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 05",
+      "stations": 92,
+      "registeredVoters": 68739,
+      "ballotsCast": 48436,
+      "turnoutPercent": 70.46,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 06",
+      "stations": 92,
+      "registeredVoters": 75147,
+      "ballotsCast": 51496,
+      "turnoutPercent": 68.53,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 07",
+      "stations": 92,
+      "registeredVoters": 70403,
+      "ballotsCast": 48989,
+      "turnoutPercent": 69.58,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 08",
+      "stations": 92,
+      "registeredVoters": 74108,
+      "ballotsCast": 53481,
+      "turnoutPercent": 72.17,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 09",
+      "stations": 92,
+      "registeredVoters": 74474,
+      "ballotsCast": 52200,
+      "turnoutPercent": 70.09,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 10",
+      "stations": 92,
+      "registeredVoters": 75974,
+      "ballotsCast": 54458,
+      "turnoutPercent": 71.68,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 11",
+      "stations": 92,
+      "registeredVoters": 69460,
+      "ballotsCast": 48793,
+      "turnoutPercent": 70.25,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 12",
+      "stations": 92,
+      "registeredVoters": 75234,
+      "ballotsCast": 52078,
+      "turnoutPercent": 69.22,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 13",
+      "stations": 92,
+      "registeredVoters": 66283,
+      "ballotsCast": 46238,
+      "turnoutPercent": 69.76,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 14",
+      "stations": 92,
+      "registeredVoters": 79869,
+      "ballotsCast": 55128,
+      "turnoutPercent": 69.02,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 15",
+      "stations": 92,
+      "registeredVoters": 74162,
+      "ballotsCast": 50997,
+      "turnoutPercent": 68.76,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 16",
+      "stations": 92,
+      "registeredVoters": 78251,
+      "ballotsCast": 55493,
+      "turnoutPercent": 70.92,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 17",
+      "stations": 92,
+      "registeredVoters": 72111,
+      "ballotsCast": 51098,
+      "turnoutPercent": 70.86,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 18",
+      "stations": 92,
+      "registeredVoters": 68205,
+      "ballotsCast": 48669,
+      "turnoutPercent": 71.36,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 19",
+      "stations": 92,
+      "registeredVoters": 77268,
+      "ballotsCast": 53842,
+      "turnoutPercent": 69.68,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 20",
+      "stations": 92,
+      "registeredVoters": 71356,
+      "ballotsCast": 48388,
+      "turnoutPercent": 67.81,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 21",
+      "stations": 92,
+      "registeredVoters": 70154,
+      "ballotsCast": 48567,
+      "turnoutPercent": 69.23,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 22",
+      "stations": 92,
+      "registeredVoters": 69619,
+      "ballotsCast": 48900,
+      "turnoutPercent": 70.24,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 23",
+      "stations": 92,
+      "registeredVoters": 74440,
+      "ballotsCast": 51517,
+      "turnoutPercent": 69.21,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 24",
+      "stations": 92,
+      "registeredVoters": 79572,
+      "ballotsCast": 55213,
+      "turnoutPercent": 69.39,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 25",
+      "stations": 92,
+      "registeredVoters": 70252,
+      "ballotsCast": 48471,
+      "turnoutPercent": 69,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 26",
+      "stations": 92,
+      "registeredVoters": 73951,
+      "ballotsCast": 51074,
+      "turnoutPercent": 69.06,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 27",
+      "stations": 92,
+      "registeredVoters": 69794,
+      "ballotsCast": 48650,
+      "turnoutPercent": 69.71,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 28",
+      "stations": 92,
+      "registeredVoters": 73766,
+      "ballotsCast": 52641,
+      "turnoutPercent": 71.36,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 29",
+      "stations": 92,
+      "registeredVoters": 76182,
+      "ballotsCast": 55068,
+      "turnoutPercent": 72.28,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 30",
+      "stations": 92,
+      "registeredVoters": 75929,
+      "ballotsCast": 52085,
+      "turnoutPercent": 68.6,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 31",
+      "stations": 92,
+      "registeredVoters": 75787,
+      "ballotsCast": 52884,
+      "turnoutPercent": 69.78,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 32",
+      "stations": 92,
+      "registeredVoters": 74961,
+      "ballotsCast": 52931,
+      "turnoutPercent": 70.61,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 33",
+      "stations": 92,
+      "registeredVoters": 78464,
+      "ballotsCast": 54184,
+      "turnoutPercent": 69.06,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 34",
+      "stations": 92,
+      "registeredVoters": 76652,
+      "ballotsCast": 52839,
+      "turnoutPercent": 68.93,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 35",
+      "stations": 92,
+      "registeredVoters": 72243,
+      "ballotsCast": 50894,
+      "turnoutPercent": 70.45,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 36",
+      "stations": 92,
+      "registeredVoters": 74594,
+      "ballotsCast": 52185,
+      "turnoutPercent": 69.96,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 37",
+      "stations": 92,
+      "registeredVoters": 71875,
+      "ballotsCast": 50639,
+      "turnoutPercent": 70.45,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 38",
+      "stations": 92,
+      "registeredVoters": 67771,
+      "ballotsCast": 46941,
+      "turnoutPercent": 69.26,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 39",
+      "stations": 92,
+      "registeredVoters": 72424,
+      "ballotsCast": 48833,
+      "turnoutPercent": 67.43,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 40",
+      "stations": 92,
+      "registeredVoters": 78846,
+      "ballotsCast": 54553,
+      "turnoutPercent": 69.19,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 41",
+      "stations": 92,
+      "registeredVoters": 74852,
+      "ballotsCast": 53850,
+      "turnoutPercent": 71.94,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 42",
+      "stations": 92,
+      "registeredVoters": 74265,
+      "ballotsCast": 51821,
+      "turnoutPercent": 69.78,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 43",
+      "stations": 92,
+      "registeredVoters": 73406,
+      "ballotsCast": 51270,
+      "turnoutPercent": 69.84,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 75933,
+      "ballotsCast": 51010,
+      "turnoutPercent": 67.18,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 71277,
+      "ballotsCast": 49718,
+      "turnoutPercent": 69.75,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 75869,
+      "ballotsCast": 53904,
+      "turnoutPercent": 71.05,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 76584,
+      "ballotsCast": 53658,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 75198,
+      "ballotsCast": 53117,
+      "turnoutPercent": 70.64,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 80780,
+      "ballotsCast": 55562,
+      "turnoutPercent": 68.78,
+      "anomalyCount": 5
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 70023,
+      "ballotsCast": 50538,
+      "turnoutPercent": 72.17,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 01",
+      "stations": 92,
+      "registeredVoters": 72561,
+      "ballotsCast": 50504,
+      "turnoutPercent": 69.6,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 02",
+      "stations": 92,
+      "registeredVoters": 75689,
+      "ballotsCast": 52930,
+      "turnoutPercent": 69.93,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 03",
+      "stations": 92,
+      "registeredVoters": 71033,
+      "ballotsCast": 47580,
+      "turnoutPercent": 66.98,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 04",
+      "stations": 92,
+      "registeredVoters": 76693,
+      "ballotsCast": 52788,
+      "turnoutPercent": 68.83,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 05",
+      "stations": 92,
+      "registeredVoters": 76864,
+      "ballotsCast": 53866,
+      "turnoutPercent": 70.08,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 06",
+      "stations": 92,
+      "registeredVoters": 73649,
+      "ballotsCast": 49804,
+      "turnoutPercent": 67.62,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 07",
+      "stations": 92,
+      "registeredVoters": 76163,
+      "ballotsCast": 55307,
+      "turnoutPercent": 72.62,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 08",
+      "stations": 92,
+      "registeredVoters": 77293,
+      "ballotsCast": 54581,
+      "turnoutPercent": 70.62,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 09",
+      "stations": 92,
+      "registeredVoters": 70335,
+      "ballotsCast": 50456,
+      "turnoutPercent": 71.74,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 10",
+      "stations": 92,
+      "registeredVoters": 72609,
+      "ballotsCast": 51147,
+      "turnoutPercent": 70.44,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 11",
+      "stations": 92,
+      "registeredVoters": 69257,
+      "ballotsCast": 48343,
+      "turnoutPercent": 69.8,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 12",
+      "stations": 92,
+      "registeredVoters": 76237,
+      "ballotsCast": 52291,
+      "turnoutPercent": 68.59,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 13",
+      "stations": 92,
+      "registeredVoters": 70038,
+      "ballotsCast": 48599,
+      "turnoutPercent": 69.39,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 14",
+      "stations": 92,
+      "registeredVoters": 70578,
+      "ballotsCast": 49009,
+      "turnoutPercent": 69.44,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 15",
+      "stations": 92,
+      "registeredVoters": 72980,
+      "ballotsCast": 52506,
+      "turnoutPercent": 71.95,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 16",
+      "stations": 92,
+      "registeredVoters": 77361,
+      "ballotsCast": 52152,
+      "turnoutPercent": 67.41,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 17",
+      "stations": 92,
+      "registeredVoters": 73151,
+      "ballotsCast": 50920,
+      "turnoutPercent": 69.61,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 18",
+      "stations": 92,
+      "registeredVoters": 82234,
+      "ballotsCast": 57211,
+      "turnoutPercent": 69.57,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 19",
+      "stations": 92,
+      "registeredVoters": 74137,
+      "ballotsCast": 52682,
+      "turnoutPercent": 71.06,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 20",
+      "stations": 92,
+      "registeredVoters": 76278,
+      "ballotsCast": 53405,
+      "turnoutPercent": 70.01,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 21",
+      "stations": 92,
+      "registeredVoters": 77782,
+      "ballotsCast": 55622,
+      "turnoutPercent": 71.51,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 22",
+      "stations": 92,
+      "registeredVoters": 78760,
+      "ballotsCast": 55092,
+      "turnoutPercent": 69.95,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 23",
+      "stations": 92,
+      "registeredVoters": 74652,
+      "ballotsCast": 53662,
+      "turnoutPercent": 71.88,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 24",
+      "stations": 92,
+      "registeredVoters": 74985,
+      "ballotsCast": 52581,
+      "turnoutPercent": 70.12,
+      "anomalyCount": 9
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 25",
+      "stations": 92,
+      "registeredVoters": 75722,
+      "ballotsCast": 54280,
+      "turnoutPercent": 71.68,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 26",
+      "stations": 92,
+      "registeredVoters": 75364,
+      "ballotsCast": 53294,
+      "turnoutPercent": 70.72,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 27",
+      "stations": 92,
+      "registeredVoters": 76949,
+      "ballotsCast": 52619,
+      "turnoutPercent": 68.38,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 28",
+      "stations": 92,
+      "registeredVoters": 74268,
+      "ballotsCast": 54630,
+      "turnoutPercent": 73.56,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 29",
+      "stations": 92,
+      "registeredVoters": 73949,
+      "ballotsCast": 51294,
+      "turnoutPercent": 69.36,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 30",
+      "stations": 92,
+      "registeredVoters": 78242,
+      "ballotsCast": 53452,
+      "turnoutPercent": 68.32,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 31",
+      "stations": 92,
+      "registeredVoters": 73798,
+      "ballotsCast": 49616,
+      "turnoutPercent": 67.23,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 32",
+      "stations": 92,
+      "registeredVoters": 79577,
+      "ballotsCast": 55916,
+      "turnoutPercent": 70.27,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 33",
+      "stations": 92,
+      "registeredVoters": 77734,
+      "ballotsCast": 54738,
+      "turnoutPercent": 70.42,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 34",
+      "stations": 92,
+      "registeredVoters": 79656,
+      "ballotsCast": 54462,
+      "turnoutPercent": 68.37,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 35",
+      "stations": 92,
+      "registeredVoters": 66876,
+      "ballotsCast": 49164,
+      "turnoutPercent": 73.52,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 36",
+      "stations": 92,
+      "registeredVoters": 74273,
+      "ballotsCast": 51371,
+      "turnoutPercent": 69.17,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 37",
+      "stations": 92,
+      "registeredVoters": 74568,
+      "ballotsCast": 53858,
+      "turnoutPercent": 72.23,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 38",
+      "stations": 92,
+      "registeredVoters": 74237,
+      "ballotsCast": 50535,
+      "turnoutPercent": 68.07,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 39",
+      "stations": 92,
+      "registeredVoters": 78662,
+      "ballotsCast": 55081,
+      "turnoutPercent": 70.02,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 40",
+      "stations": 92,
+      "registeredVoters": 73574,
+      "ballotsCast": 52052,
+      "turnoutPercent": 70.75,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 41",
+      "stations": 92,
+      "registeredVoters": 72800,
+      "ballotsCast": 50995,
+      "turnoutPercent": 70.05,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 42",
+      "stations": 92,
+      "registeredVoters": 69210,
+      "ballotsCast": 48045,
+      "turnoutPercent": 69.42,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 43",
+      "stations": 92,
+      "registeredVoters": 79677,
+      "ballotsCast": 56081,
+      "turnoutPercent": 70.39,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 77788,
+      "ballotsCast": 54516,
+      "turnoutPercent": 70.08,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 71422,
+      "ballotsCast": 50538,
+      "turnoutPercent": 70.76,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 74739,
+      "ballotsCast": 51472,
+      "turnoutPercent": 68.87,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 70083,
+      "ballotsCast": 49039,
+      "turnoutPercent": 69.97,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 70653,
+      "ballotsCast": 49302,
+      "turnoutPercent": 69.78,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 69309,
+      "ballotsCast": 49655,
+      "turnoutPercent": 71.64,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 79144,
+      "ballotsCast": 54553,
+      "turnoutPercent": 68.93,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 01",
+      "stations": 92,
+      "registeredVoters": 77766,
+      "ballotsCast": 54347,
+      "turnoutPercent": 69.89,
+      "anomalyCount": 25
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 02",
+      "stations": 92,
+      "registeredVoters": 72261,
+      "ballotsCast": 48729,
+      "turnoutPercent": 67.43,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 03",
+      "stations": 92,
+      "registeredVoters": 69347,
+      "ballotsCast": 48441,
+      "turnoutPercent": 69.85,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 04",
+      "stations": 92,
+      "registeredVoters": 73051,
+      "ballotsCast": 49545,
+      "turnoutPercent": 67.82,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 05",
+      "stations": 92,
+      "registeredVoters": 73266,
+      "ballotsCast": 50229,
+      "turnoutPercent": 68.56,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 06",
+      "stations": 92,
+      "registeredVoters": 73263,
+      "ballotsCast": 51152,
+      "turnoutPercent": 69.82,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 07",
+      "stations": 92,
+      "registeredVoters": 76716,
+      "ballotsCast": 51821,
+      "turnoutPercent": 67.55,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 08",
+      "stations": 92,
+      "registeredVoters": 76001,
+      "ballotsCast": 52057,
+      "turnoutPercent": 68.5,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 09",
+      "stations": 92,
+      "registeredVoters": 72635,
+      "ballotsCast": 50243,
+      "turnoutPercent": 69.17,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 10",
+      "stations": 92,
+      "registeredVoters": 69525,
+      "ballotsCast": 47227,
+      "turnoutPercent": 67.93,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 11",
+      "stations": 92,
+      "registeredVoters": 73520,
+      "ballotsCast": 50545,
+      "turnoutPercent": 68.75,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 12",
+      "stations": 92,
+      "registeredVoters": 74623,
+      "ballotsCast": 50759,
+      "turnoutPercent": 68.02,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 13",
+      "stations": 92,
+      "registeredVoters": 72048,
+      "ballotsCast": 50531,
+      "turnoutPercent": 70.14,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 14",
+      "stations": 92,
+      "registeredVoters": 73044,
+      "ballotsCast": 51148,
+      "turnoutPercent": 70.02,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 15",
+      "stations": 92,
+      "registeredVoters": 76893,
+      "ballotsCast": 51955,
+      "turnoutPercent": 67.57,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 16",
+      "stations": 92,
+      "registeredVoters": 74142,
+      "ballotsCast": 51945,
+      "turnoutPercent": 70.06,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 17",
+      "stations": 92,
+      "registeredVoters": 75174,
+      "ballotsCast": 52135,
+      "turnoutPercent": 69.35,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 18",
+      "stations": 92,
+      "registeredVoters": 77199,
+      "ballotsCast": 54396,
+      "turnoutPercent": 70.46,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 19",
+      "stations": 92,
+      "registeredVoters": 76236,
+      "ballotsCast": 54922,
+      "turnoutPercent": 72.04,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 20",
+      "stations": 92,
+      "registeredVoters": 76089,
+      "ballotsCast": 52578,
+      "turnoutPercent": 69.1,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 21",
+      "stations": 92,
+      "registeredVoters": 76062,
+      "ballotsCast": 53666,
+      "turnoutPercent": 70.56,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 22",
+      "stations": 92,
+      "registeredVoters": 73464,
+      "ballotsCast": 51252,
+      "turnoutPercent": 69.76,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 23",
+      "stations": 92,
+      "registeredVoters": 77433,
+      "ballotsCast": 55610,
+      "turnoutPercent": 71.82,
+      "anomalyCount": 10
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 24",
+      "stations": 92,
+      "registeredVoters": 72241,
+      "ballotsCast": 51076,
+      "turnoutPercent": 70.7,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 25",
+      "stations": 92,
+      "registeredVoters": 73581,
+      "ballotsCast": 49296,
+      "turnoutPercent": 67,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 26",
+      "stations": 92,
+      "registeredVoters": 71489,
+      "ballotsCast": 48619,
+      "turnoutPercent": 68.01,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 27",
+      "stations": 92,
+      "registeredVoters": 69121,
+      "ballotsCast": 49306,
+      "turnoutPercent": 71.33,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 28",
+      "stations": 92,
+      "registeredVoters": 75672,
+      "ballotsCast": 51824,
+      "turnoutPercent": 68.49,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 29",
+      "stations": 92,
+      "registeredVoters": 76646,
+      "ballotsCast": 53311,
+      "turnoutPercent": 69.55,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 30",
+      "stations": 92,
+      "registeredVoters": 74737,
+      "ballotsCast": 53430,
+      "turnoutPercent": 71.49,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 31",
+      "stations": 92,
+      "registeredVoters": 76279,
+      "ballotsCast": 54412,
+      "turnoutPercent": 71.33,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 32",
+      "stations": 92,
+      "registeredVoters": 77934,
+      "ballotsCast": 53636,
+      "turnoutPercent": 68.82,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 33",
+      "stations": 92,
+      "registeredVoters": 78130,
+      "ballotsCast": 53912,
+      "turnoutPercent": 69,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 34",
+      "stations": 92,
+      "registeredVoters": 74119,
+      "ballotsCast": 54249,
+      "turnoutPercent": 73.19,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 35",
+      "stations": 92,
+      "registeredVoters": 70362,
+      "ballotsCast": 48606,
+      "turnoutPercent": 69.08,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 36",
+      "stations": 92,
+      "registeredVoters": 70312,
+      "ballotsCast": 47383,
+      "turnoutPercent": 67.39,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 37",
+      "stations": 92,
+      "registeredVoters": 77059,
+      "ballotsCast": 54123,
+      "turnoutPercent": 70.24,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 38",
+      "stations": 92,
+      "registeredVoters": 73832,
+      "ballotsCast": 50737,
+      "turnoutPercent": 68.72,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 39",
+      "stations": 92,
+      "registeredVoters": 75759,
+      "ballotsCast": 51869,
+      "turnoutPercent": 68.47,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 40",
+      "stations": 92,
+      "registeredVoters": 76197,
+      "ballotsCast": 53956,
+      "turnoutPercent": 70.81,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 41",
+      "stations": 92,
+      "registeredVoters": 76548,
+      "ballotsCast": 52895,
+      "turnoutPercent": 69.1,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 42",
+      "stations": 92,
+      "registeredVoters": 76519,
+      "ballotsCast": 54622,
+      "turnoutPercent": 71.38,
+      "anomalyCount": 9
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 43",
+      "stations": 92,
+      "registeredVoters": 69992,
+      "ballotsCast": 49857,
+      "turnoutPercent": 71.23,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 68995,
+      "ballotsCast": 47483,
+      "turnoutPercent": 68.82,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 70933,
+      "ballotsCast": 49911,
+      "turnoutPercent": 70.36,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 74502,
+      "ballotsCast": 53326,
+      "turnoutPercent": 71.58,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 74806,
+      "ballotsCast": 50054,
+      "turnoutPercent": 66.91,
+      "anomalyCount": 14
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 73777,
+      "ballotsCast": 51801,
+      "turnoutPercent": 70.21,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 75447,
+      "ballotsCast": 53616,
+      "turnoutPercent": 71.06,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 73081,
+      "ballotsCast": 51384,
+      "turnoutPercent": 70.31,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 01",
+      "stations": 92,
+      "registeredVoters": 71862,
+      "ballotsCast": 51434,
+      "turnoutPercent": 71.57,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 02",
+      "stations": 92,
+      "registeredVoters": 76247,
+      "ballotsCast": 52598,
+      "turnoutPercent": 68.98,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 03",
+      "stations": 92,
+      "registeredVoters": 74787,
+      "ballotsCast": 52530,
+      "turnoutPercent": 70.24,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 04",
+      "stations": 92,
+      "registeredVoters": 72025,
+      "ballotsCast": 51057,
+      "turnoutPercent": 70.89,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 05",
+      "stations": 92,
+      "registeredVoters": 72241,
+      "ballotsCast": 50800,
+      "turnoutPercent": 70.32,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 06",
+      "stations": 92,
+      "registeredVoters": 74813,
+      "ballotsCast": 54554,
+      "turnoutPercent": 72.92,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 07",
+      "stations": 92,
+      "registeredVoters": 75854,
+      "ballotsCast": 51344,
+      "turnoutPercent": 67.69,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 08",
+      "stations": 92,
+      "registeredVoters": 75224,
+      "ballotsCast": 52732,
+      "turnoutPercent": 70.1,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 09",
+      "stations": 92,
+      "registeredVoters": 70055,
+      "ballotsCast": 47632,
+      "turnoutPercent": 67.99,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 10",
+      "stations": 92,
+      "registeredVoters": 75339,
+      "ballotsCast": 51201,
+      "turnoutPercent": 67.96,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 11",
+      "stations": 92,
+      "registeredVoters": 75654,
+      "ballotsCast": 51420,
+      "turnoutPercent": 67.97,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 12",
+      "stations": 92,
+      "registeredVoters": 73857,
+      "ballotsCast": 52324,
+      "turnoutPercent": 70.85,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 13",
+      "stations": 92,
+      "registeredVoters": 74210,
+      "ballotsCast": 51366,
+      "turnoutPercent": 69.22,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 14",
+      "stations": 92,
+      "registeredVoters": 72843,
+      "ballotsCast": 52007,
+      "turnoutPercent": 71.4,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 15",
+      "stations": 92,
+      "registeredVoters": 75253,
+      "ballotsCast": 52615,
+      "turnoutPercent": 69.92,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 16",
+      "stations": 92,
+      "registeredVoters": 69270,
+      "ballotsCast": 48711,
+      "turnoutPercent": 70.32,
+      "anomalyCount": 22
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 17",
+      "stations": 92,
+      "registeredVoters": 67451,
+      "ballotsCast": 48157,
+      "turnoutPercent": 71.4,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 18",
+      "stations": 92,
+      "registeredVoters": 72664,
+      "ballotsCast": 50234,
+      "turnoutPercent": 69.13,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 19",
+      "stations": 92,
+      "registeredVoters": 71355,
+      "ballotsCast": 52001,
+      "turnoutPercent": 72.88,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 20",
+      "stations": 92,
+      "registeredVoters": 74930,
+      "ballotsCast": 53038,
+      "turnoutPercent": 70.78,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 21",
+      "stations": 92,
+      "registeredVoters": 76936,
+      "ballotsCast": 53912,
+      "turnoutPercent": 70.07,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 22",
+      "stations": 92,
+      "registeredVoters": 73606,
+      "ballotsCast": 51453,
+      "turnoutPercent": 69.9,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 23",
+      "stations": 92,
+      "registeredVoters": 71103,
+      "ballotsCast": 50624,
+      "turnoutPercent": 71.2,
+      "anomalyCount": 24
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 24",
+      "stations": 92,
+      "registeredVoters": 72707,
+      "ballotsCast": 51521,
+      "turnoutPercent": 70.86,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 25",
+      "stations": 92,
+      "registeredVoters": 78426,
+      "ballotsCast": 55490,
+      "turnoutPercent": 70.75,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 26",
+      "stations": 92,
+      "registeredVoters": 71051,
+      "ballotsCast": 52907,
+      "turnoutPercent": 74.46,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 01",
+      "ward": "Ward 27",
+      "stations": 92,
+      "registeredVoters": 74327,
+      "ballotsCast": 51195,
+      "turnoutPercent": 68.88,
+      "anomalyCount": 23
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 02",
+      "ward": "Ward 28",
+      "stations": 92,
+      "registeredVoters": 75237,
+      "ballotsCast": 52075,
+      "turnoutPercent": 69.21,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 03",
+      "ward": "Ward 29",
+      "stations": 92,
+      "registeredVoters": 79273,
+      "ballotsCast": 55170,
+      "turnoutPercent": 69.59,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 04",
+      "ward": "Ward 30",
+      "stations": 92,
+      "registeredVoters": 77920,
+      "ballotsCast": 54220,
+      "turnoutPercent": 69.58,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 05",
+      "ward": "Ward 31",
+      "stations": 92,
+      "registeredVoters": 78018,
+      "ballotsCast": 55136,
+      "turnoutPercent": 70.67,
+      "anomalyCount": 13
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 06",
+      "ward": "Ward 32",
+      "stations": 92,
+      "registeredVoters": 76289,
+      "ballotsCast": 53829,
+      "turnoutPercent": 70.56,
+      "anomalyCount": 16
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 07",
+      "ward": "Ward 33",
+      "stations": 92,
+      "registeredVoters": 73599,
+      "ballotsCast": 52691,
+      "turnoutPercent": 71.59,
+      "anomalyCount": 8
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 08",
+      "ward": "Ward 34",
+      "stations": 92,
+      "registeredVoters": 74660,
+      "ballotsCast": 51516,
+      "turnoutPercent": 69,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 09",
+      "ward": "Ward 35",
+      "stations": 92,
+      "registeredVoters": 74964,
+      "ballotsCast": 53519,
+      "turnoutPercent": 71.39,
+      "anomalyCount": 20
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 10",
+      "ward": "Ward 36",
+      "stations": 92,
+      "registeredVoters": 72150,
+      "ballotsCast": 49865,
+      "turnoutPercent": 69.11,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 11",
+      "ward": "Ward 37",
+      "stations": 92,
+      "registeredVoters": 75191,
+      "ballotsCast": 52244,
+      "turnoutPercent": 69.48,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 12",
+      "ward": "Ward 38",
+      "stations": 92,
+      "registeredVoters": 74420,
+      "ballotsCast": 53737,
+      "turnoutPercent": 72.21,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 01",
+      "ward": "Ward 39",
+      "stations": 92,
+      "registeredVoters": 78747,
+      "ballotsCast": 54617,
+      "turnoutPercent": 69.36,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 02",
+      "ward": "Ward 40",
+      "stations": 92,
+      "registeredVoters": 71885,
+      "ballotsCast": 51375,
+      "turnoutPercent": 71.47,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 03",
+      "ward": "Ward 41",
+      "stations": 92,
+      "registeredVoters": 77527,
+      "ballotsCast": 54579,
+      "turnoutPercent": 70.4,
+      "anomalyCount": 19
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 04",
+      "ward": "Ward 42",
+      "stations": 92,
+      "registeredVoters": 72677,
+      "ballotsCast": 51824,
+      "turnoutPercent": 71.31,
+      "anomalyCount": 21
+    },
+    {
+      "county": "Nairobi",
+      "constituency": "Nairobi Constituency 05",
+      "ward": "Ward 43",
+      "stations": 92,
+      "registeredVoters": 73888,
+      "ballotsCast": 53336,
+      "turnoutPercent": 72.18,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Mombasa",
+      "constituency": "Mombasa Constituency 06",
+      "ward": "Ward 44",
+      "stations": 92,
+      "registeredVoters": 81857,
+      "ballotsCast": 54970,
+      "turnoutPercent": 67.15,
+      "anomalyCount": 18
+    },
+    {
+      "county": "Kisumu",
+      "constituency": "Kisumu Constituency 07",
+      "ward": "Ward 45",
+      "stations": 92,
+      "registeredVoters": 72526,
+      "ballotsCast": 50137,
+      "turnoutPercent": 69.13,
+      "anomalyCount": 17
+    },
+    {
+      "county": "Uasin Gishu",
+      "constituency": "Uasin Gishu Constituency 08",
+      "ward": "Ward 46",
+      "stations": 92,
+      "registeredVoters": 80298,
+      "ballotsCast": 56786,
+      "turnoutPercent": 70.72,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Nakuru",
+      "constituency": "Nakuru Constituency 09",
+      "ward": "Ward 47",
+      "stations": 92,
+      "registeredVoters": 69021,
+      "ballotsCast": 47340,
+      "turnoutPercent": 68.59,
+      "anomalyCount": 12
+    },
+    {
+      "county": "Machakos",
+      "constituency": "Machakos Constituency 10",
+      "ward": "Ward 48",
+      "stations": 92,
+      "registeredVoters": 74948,
+      "ballotsCast": 50467,
+      "turnoutPercent": 67.34,
+      "anomalyCount": 15
+    },
+    {
+      "county": "Kiambu",
+      "constituency": "Kiambu Constituency 11",
+      "ward": "Ward 49",
+      "stations": 92,
+      "registeredVoters": 75230,
+      "ballotsCast": 56402,
+      "turnoutPercent": 74.97,
+      "anomalyCount": 11
+    },
+    {
+      "county": "Kakamega",
+      "constituency": "Kakamega Constituency 12",
+      "ward": "Ward 50",
+      "stations": 92,
+      "registeredVoters": 71107,
+      "ballotsCast": 49142,
+      "turnoutPercent": 69.11,
+      "anomalyCount": 25
+    }
+  ]
+}
