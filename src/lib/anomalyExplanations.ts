@@ -11,7 +11,7 @@ export const primaryIssueFromType = (type: AnomalyType): PrimaryIssueType => {
 };
 
 export const buildAnomalyExplanation = (issue: PrimaryIssueType, features: AnomalyFeatureVector): string => {
-  if (issue === "cross-race mismatch") return `Presidential totals diverge from governor/MP/MCA patterns beyond expected variance (gaps ${features.presidentialGovernorGap}% / ${features.presidentialMpGap}% / ${features.presidentialMcaGap}%).`;
+  if (issue === "cross-race mismatch") return `Cross-race mismatch flagged: Presidential vs MCA gap ${features.presidentialMcaGap}% (max gap ${features.maxCrossRaceGap}%, average ${features.averageCrossRaceGap}%). Multiple race totals may require station-level form comparison.`;
   if (issue === "late upload spike") return `Multiple reports from this ward arrived outside the expected reporting window with upload delays near ${features.uploadDelayMinutes} minutes.`;
   if (issue === "source disagreement") return `Independent submissions disagree on one or more result fields and source consensus is ${features.sourceConsensus}%.`;
   if (issue === "low OCR confidence") return `Form image extraction confidence is below the review threshold at ${features.ocrConfidence}%.`;
