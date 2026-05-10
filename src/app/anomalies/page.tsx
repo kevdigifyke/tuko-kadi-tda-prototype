@@ -6,16 +6,89 @@ import { GesturePanel } from "@/src/components/GesturePanel";
 import { TdaGraph } from "@/src/components/TdaGraph";
 import { TimelineScrubber } from "@/src/components/TimelineScrubber";
 import { mockNodes } from "@/src/data/mockGraph";
-import { useEffect, useMemo, useState } from "react";
+import type { GestureCommandEvent } from "@/src/hooks/useGestureCommands";
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+type ForensicMode = "Live Pulse" | "Forensic Cluster" | "Time Machine";
+
+const FORENSIC_MODES: ForensicMode[] = [
+  "Live Pulse",
+  "Forensic Cluster",
+  "Time Machine",
+];
 
 export default function Anomalies() {
   const [selectedId, setSelectedId] = useState("ne-04");
   const [isPlaying, setIsPlaying] = useState(true);
+  const [currentMode, setCurrentMode] = useState<ForensicMode>("Forensic Cluster");
+  const [gestureModeActive, setGestureModeActive] = useState(false);
+  const [frozen, setFrozen] = useState(false);
+  const [commandFeedback, setCommandFeedback] = useState("");
 
   const selected = useMemo(
     () => mockNodes.find((node) => node.id === selectedId) ?? mockNodes[0],
     [selectedId],
   );
+
+  const selectNextCluster = useCallback(() => {
+    setSelectedId((prev) => {
+      const currentIndex = mockNodes.findIndex((node) => node.id === prev);
+      const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % mockNodes.length : 0;
+      return mockNodes[nextIndex].id;
+    });
+  }, []);
+
+  const switchNextMode = useCallback(() => {
+    setCurrentMode((prev) => {
+      const currentIndex = FORENSIC_MODES.indexOf(prev);
+      const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % FORENSIC_MODES.length : 0;
+      return FORENSIC_MODES[nextIndex];
+    });
+  }, []);
+
+  const resetView = useCallback(() => {
+    setSelectedId("ne-04");
+    setCurrentMode("Forensic Cluster");
+    setFrozen(false);
+  }, []);
+
+  const onGestureCommand = useCallback((event: GestureCommandEvent) => {
+    setCommandFeedback(event.label);
+
+    switch (event.command) {
+      case "GESTURE_MODE_ACTIVE":
+        setGestureModeActive(true);
+        break;
+      case "GRAPH_SELECT_NEXT":
+        selectNextCluster();
+        break;
+      case "MODE_SWITCH_NEXT":
+        switchNextMode();
+        break;
+      case "FREEZE_VIEW_TOGGLE":
+        setFrozen((prev) => !prev);
+        break;
+      case "RESET_VIEW":
+        resetView();
+        break;
+      case "TIMELINE_PLAY_PAUSE":
+        setIsPlaying((prev) => !prev);
+        break;
+      case "NONE":
+      default:
+        break;
+    }
+  }, [resetView, selectNextCluster, switchNextMode]);
+
+  useEffect(() => {
+    if (!commandFeedback) return;
+
+    const timer = window.setTimeout(() => {
+      setCommandFeedback("");
+    }, 1800);
+
+    return () => window.clearTimeout(timer);
+  }, [commandFeedback]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -24,14 +97,28 @@ export default function Anomalies() {
         setIsPlaying((prev) => !prev);
       }
 
-      if (event.key.toLowerCase() === "r") {
-        setSelectedId("ne-04");
+      const key = event.key.toLowerCase();
+
+      if (key === "r") {
+        resetView();
+      }
+
+      if (key === "m") {
+        switchNextMode();
+      }
+
+      if (key === "f") {
+        setFrozen((prev) => !prev);
+      }
+
+      if (event.key === "ArrowRight") {
+        selectNextCluster();
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [resetView, selectNextCluster, switchNextMode]);
 
   return (
     <AppShell>
@@ -42,10 +129,28 @@ export default function Anomalies() {
               Anomalies // Forensic Command Stage
             </p>
             <h1 className="sr-only">Anomaly Network Command</h1>
+            <p className="mt-1 text-sm text-[#bac9cc]">Mode: {currentMode}</p>
           </div>
 
-          <div className="rounded-md border border-[#ffb4ab]/45 bg-[#93000a]/30 px-4 py-2 text-sm font-semibold text-[#ffdad6]">
-            Human review recommended
+          <div className="flex items-center gap-2">
+            {gestureModeActive && (
+              <span className="rounded border border-cyan-300/50 bg-cyan-400/15 px-2 py-1 text-xs font-semibold text-cyan-100">
+                Gesture Mode Active
+              </span>
+            )}
+            {frozen && (
+              <span className="rounded border border-amber-300/50 bg-amber-400/10 px-2 py-1 text-xs font-semibold text-amber-100">
+                Frozen View
+              </span>
+            )}
+            {commandFeedback && (
+              <span className="rounded border border-white/20 bg-[#151d1e]/95 px-2 py-1 text-xs text-[#dce4e5]">
+                {commandFeedback}
+              </span>
+            )}
+            <div className="rounded-md border border-[#ffb4ab]/45 bg-[#93000a]/30 px-4 py-2 text-sm font-semibold text-[#ffdad6]">
+              Human review recommended
+            </div>
           </div>
         </div>
 
@@ -54,18 +159,14 @@ export default function Anomalies() {
 
           <div className="relative z-10 flex min-h-[calc(100svh-128px)] flex-col gap-3 p-3 md:min-h-[calc(100svh-144px)] md:p-4 xl:hidden">
             <div className="w-full rounded-md border-l-4 border-[#ffb4ab] bg-[#151d1e]/95 p-3">
-              <p className="panel-kicker text-[#ffb4ab]">
-                Live Anomaly Detected
-              </p>
+              <p className="panel-kicker text-[#ffb4ab]">Live Anomaly Detected</p>
               <p className="font-mono text-4xl font-bold leading-none text-[#dce4e5]">
                 14
               </p>
-              <p className="text-sm text-[#bac9cc]">
-                Forensic Cluster View Active
-              </p>
+              <p className="text-sm text-[#bac9cc]">Mode: {currentMode}</p>
             </div>
 
-            <GesturePanel />
+            <GesturePanel onGestureCommand={onGestureCommand} />
             <EvidencePanel cluster={selected} />
 
             <div className="mt-auto">
@@ -78,19 +179,32 @@ export default function Anomalies() {
 
           <div className="absolute inset-0 z-10 hidden xl:block">
             <div className="absolute left-6 top-6 w-[245px] border-l-4 border-[#ffb4ab] bg-[#151d1e]/92 p-4 backdrop-blur">
-              <p className="panel-kicker text-[#ffb4ab]">
-                Live Anomaly Detected
-              </p>
+              <p className="panel-kicker text-[#ffb4ab]">Live Anomaly Detected</p>
               <p className="font-mono text-5xl font-bold leading-none text-[#dce4e5]">
                 14
               </p>
-              <p className="mt-1 text-sm text-[#bac9cc]">
-                Forensic Cluster View Active
-              </p>
+              <p className="mt-1 text-sm text-[#bac9cc]">Mode: {currentMode}</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {gestureModeActive && (
+                  <span className="rounded border border-cyan-300/50 bg-cyan-400/15 px-2 py-1 text-[10px] font-semibold text-cyan-100">
+                    Gesture Mode Active
+                  </span>
+                )}
+                {frozen && (
+                  <span className="rounded border border-amber-300/50 bg-amber-400/10 px-2 py-1 text-[10px] font-semibold text-amber-100">
+                    Frozen View
+                  </span>
+                )}
+                {commandFeedback && (
+                  <span className="rounded border border-white/20 bg-[#151d1e]/95 px-2 py-1 text-[10px] text-[#dce4e5]">
+                    {commandFeedback}
+                  </span>
+                )}
+              </div>
             </div>
 
             <div className="absolute left-6 top-40">
-              <GesturePanel />
+              <GesturePanel onGestureCommand={onGestureCommand} />
             </div>
 
             <div className="absolute right-6 top-20">

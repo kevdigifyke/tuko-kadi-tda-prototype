@@ -1,11 +1,19 @@
 "use client";
 
 import { HandLandmarkOverlay } from "@/src/components/HandLandmarkOverlay";
-import { useGestureCommands } from "@/src/hooks/useGestureCommands";
+import {
+  type GestureCommandEvent,
+  useGestureCommands,
+} from "@/src/hooks/useGestureCommands";
 import { useHandTracking } from "@/src/hooks/useHandTracking";
 import { useWebcam } from "@/src/hooks/useWebcam";
+import { useEffect } from "react";
 
-export function GesturePanel() {
+type GesturePanelProps = {
+  onGestureCommand?: (commandEvent: GestureCommandEvent) => void;
+};
+
+export function GesturePanel({ onGestureCommand }: GesturePanelProps) {
   const {
     videoRef,
     cameraStatus,
@@ -25,7 +33,22 @@ export function GesturePanel() {
     trackingStatus,
   } = useHandTracking(videoRef, cameraStatus, videoReady);
 
-  const { command } = useGestureCommands(currentGesture);
+  const { command, commandLabel, commandPulseId } = useGestureCommands(currentGesture);
+
+
+
+  useEffect(() => {
+    if (!onGestureCommand || command === "NONE" || commandPulseId === 0) {
+      return;
+    }
+
+    onGestureCommand({
+      command,
+      label: commandLabel,
+      gesture: currentGesture,
+      timestamp: commandPulseId,
+    });
+  }, [command, commandLabel, commandPulseId, currentGesture, onGestureCommand]);
 
   const cameraLabel =
     cameraStatus === "active"
@@ -177,7 +200,7 @@ export function GesturePanel() {
       </div>
 
       <p className="mt-2 font-mono text-[10px] text-[#7da3a9]">
-        Command: {command}
+        Command: {command} · {commandLabel}
       </p>
     </section>
   );
