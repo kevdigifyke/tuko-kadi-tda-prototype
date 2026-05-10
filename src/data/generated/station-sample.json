@@ -1,0 +1,1187 @@
+[
+  {
+    "stationId": "PS-00001",
+    "stationCode": "STN000001",
+    "stationName": "Polling Station 1",
+    "county": "Nairobi",
+    "constituency": "Nairobi Constituency 01",
+    "ward": "Ward 01",
+    "registeredVoters": 510,
+    "ballotsCast": 429,
+    "rejectedBallots": 8,
+    "turnoutPercent": 84.12,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 53,
+        "percent": 12.59
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 184,
+        "percent": 43.71
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 53,
+        "percent": 12.59
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 131,
+        "percent": 31.12
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "late-upload",
+        "severity": 57,
+        "confidence": 74,
+        "note": "Delayed electronic transmission."
+      }
+    ],
+    "reportedAt": "2025-08-09T17:33:29.000Z",
+    "nearestStations": [
+      "PS-00002",
+      "PS-00003"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00002",
+    "stationCode": "STN000002",
+    "stationName": "Polling Station 2",
+    "county": "Mombasa",
+    "constituency": "Mombasa Constituency 02",
+    "ward": "Ward 02",
+    "registeredVoters": 629,
+    "ballotsCast": 573,
+    "rejectedBallots": 6,
+    "turnoutPercent": 91.1,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 66,
+        "percent": 11.64
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 123,
+        "percent": 21.69
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 236,
+        "percent": 41.62
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 142,
+        "percent": 25.04
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T17:33:36.000Z",
+    "nearestStations": [
+      "PS-00001",
+      "PS-00003",
+      "PS-00004"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00003",
+    "stationCode": "STN000003",
+    "stationName": "Polling Station 3",
+    "county": "Kisumu",
+    "constituency": "Kisumu Constituency 03",
+    "ward": "Ward 03",
+    "registeredVoters": 1065,
+    "ballotsCast": 609,
+    "rejectedBallots": 7,
+    "turnoutPercent": 57.18,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 235,
+        "percent": 39.04
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 231,
+        "percent": 38.37
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 48,
+        "percent": 7.97
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 88,
+        "percent": 14.62
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T08:43:28.000Z",
+    "nearestStations": [
+      "PS-00001",
+      "PS-00002",
+      "PS-00004",
+      "PS-00005"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00004",
+    "stationCode": "STN000004",
+    "stationName": "Polling Station 4",
+    "county": "Uasin Gishu",
+    "constituency": "Uasin Gishu Constituency 04",
+    "ward": "Ward 04",
+    "registeredVoters": 1293,
+    "ballotsCast": 914,
+    "rejectedBallots": 12,
+    "turnoutPercent": 70.69,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 236,
+        "percent": 26.16
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 142,
+        "percent": 15.74
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 183,
+        "percent": 20.29
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 341,
+        "percent": 37.8
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "form-mismatch",
+        "severity": 88,
+        "confidence": 85,
+        "note": "Digitized totals differ from source form."
+      }
+    ],
+    "reportedAt": "2025-08-09T17:19:39.000Z",
+    "nearestStations": [
+      "PS-00002",
+      "PS-00003",
+      "PS-00005",
+      "PS-00006"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00005",
+    "stationCode": "STN000005",
+    "stationName": "Polling Station 5",
+    "county": "Nakuru",
+    "constituency": "Nakuru Constituency 05",
+    "ward": "Ward 05",
+    "registeredVoters": 1323,
+    "ballotsCast": 726,
+    "rejectedBallots": 5,
+    "turnoutPercent": 54.88,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 187,
+        "percent": 25.94
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 179,
+        "percent": 24.83
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 126,
+        "percent": 17.48
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 229,
+        "percent": 31.76
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T18:49:52.000Z",
+    "nearestStations": [
+      "PS-00003",
+      "PS-00004",
+      "PS-00006",
+      "PS-00007"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00006",
+    "stationCode": "STN000006",
+    "stationName": "Polling Station 6",
+    "county": "Machakos",
+    "constituency": "Machakos Constituency 06",
+    "ward": "Ward 06",
+    "registeredVoters": 1238,
+    "ballotsCast": 627,
+    "rejectedBallots": 8,
+    "turnoutPercent": 50.65,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 182,
+        "percent": 29.4
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 152,
+        "percent": 24.56
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 207,
+        "percent": 33.44
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 78,
+        "percent": 12.6
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "form-mismatch",
+        "severity": 88,
+        "confidence": 77,
+        "note": "Digitized totals differ from source form."
+      }
+    ],
+    "reportedAt": "2025-08-09T08:43:01.000Z",
+    "nearestStations": [
+      "PS-00004",
+      "PS-00005",
+      "PS-00007",
+      "PS-00008"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00007",
+    "stationCode": "STN000007",
+    "stationName": "Polling Station 7",
+    "county": "Kiambu",
+    "constituency": "Kiambu Constituency 07",
+    "ward": "Ward 07",
+    "registeredVoters": 964,
+    "ballotsCast": 817,
+    "rejectedBallots": 12,
+    "turnoutPercent": 84.75,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 319,
+        "percent": 39.63
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 306,
+        "percent": 38.01
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 140,
+        "percent": 17.39
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 40,
+        "percent": 4.97
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T13:09:49.000Z",
+    "nearestStations": [
+      "PS-00005",
+      "PS-00006",
+      "PS-00008",
+      "PS-00009"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00008",
+    "stationCode": "STN000008",
+    "stationName": "Polling Station 8",
+    "county": "Kakamega",
+    "constituency": "Kakamega Constituency 08",
+    "ward": "Ward 08",
+    "registeredVoters": 1210,
+    "ballotsCast": 1020,
+    "rejectedBallots": 11,
+    "turnoutPercent": 84.3,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 332,
+        "percent": 32.9
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 53,
+        "percent": 5.25
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 285,
+        "percent": 28.25
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 339,
+        "percent": 33.6
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T10:35:38.000Z",
+    "nearestStations": [
+      "PS-00006",
+      "PS-00007",
+      "PS-00009",
+      "PS-00010"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00009",
+    "stationCode": "STN000009",
+    "stationName": "Polling Station 9",
+    "county": "Nairobi",
+    "constituency": "Nairobi Constituency 09",
+    "ward": "Ward 09",
+    "registeredVoters": 361,
+    "ballotsCast": 209,
+    "rejectedBallots": 6,
+    "turnoutPercent": 57.89,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 20,
+        "percent": 9.85
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 51,
+        "percent": 25.12
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 118,
+        "percent": 58.13
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 14,
+        "percent": 6.9
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T11:25:35.000Z",
+    "nearestStations": [
+      "PS-00007",
+      "PS-00008",
+      "PS-00010",
+      "PS-00011"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00010",
+    "stationCode": "STN000010",
+    "stationName": "Polling Station 10",
+    "county": "Mombasa",
+    "constituency": "Mombasa Constituency 10",
+    "ward": "Ward 10",
+    "registeredVoters": 681,
+    "ballotsCast": 339,
+    "rejectedBallots": 10,
+    "turnoutPercent": 49.78,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 98,
+        "percent": 29.79
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 88,
+        "percent": 26.75
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 16,
+        "percent": 4.86
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 127,
+        "percent": 38.6
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T07:18:32.000Z",
+    "nearestStations": [
+      "PS-00008",
+      "PS-00009",
+      "PS-00011",
+      "PS-00012"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00011",
+    "stationCode": "STN000011",
+    "stationName": "Polling Station 11",
+    "county": "Kisumu",
+    "constituency": "Kisumu Constituency 11",
+    "ward": "Ward 11",
+    "registeredVoters": 327,
+    "ballotsCast": 213,
+    "rejectedBallots": 0,
+    "turnoutPercent": 65.14,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 36,
+        "percent": 16.9
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 11,
+        "percent": 5.16
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 79,
+        "percent": 37.09
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 87,
+        "percent": 40.85
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T10:00:04.000Z",
+    "nearestStations": [
+      "PS-00009",
+      "PS-00010",
+      "PS-00012",
+      "PS-00013"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00012",
+    "stationCode": "STN000012",
+    "stationName": "Polling Station 12",
+    "county": "Uasin Gishu",
+    "constituency": "Uasin Gishu Constituency 12",
+    "ward": "Ward 12",
+    "registeredVoters": 1166,
+    "ballotsCast": 1067,
+    "rejectedBallots": 9,
+    "turnoutPercent": 91.51,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 331,
+        "percent": 31.29
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 170,
+        "percent": 16.07
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 199,
+        "percent": 18.81
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 358,
+        "percent": 33.84
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "late-upload",
+        "severity": 45,
+        "confidence": 69,
+        "note": "Delayed electronic transmission."
+      }
+    ],
+    "reportedAt": "2025-08-09T17:35:59.000Z",
+    "nearestStations": [
+      "PS-00010",
+      "PS-00011",
+      "PS-00013",
+      "PS-00014"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00013",
+    "stationCode": "STN000013",
+    "stationName": "Polling Station 13",
+    "county": "Nakuru",
+    "constituency": "Nakuru Constituency 01",
+    "ward": "Ward 13",
+    "registeredVoters": 710,
+    "ballotsCast": 427,
+    "rejectedBallots": 11,
+    "turnoutPercent": 60.14,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 137,
+        "percent": 32.93
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 109,
+        "percent": 26.2
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 36,
+        "percent": 8.65
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 134,
+        "percent": 32.21
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "form-mismatch",
+        "severity": 93,
+        "confidence": 76,
+        "note": "Digitized totals differ from source form."
+      }
+    ],
+    "reportedAt": "2025-08-09T12:10:54.000Z",
+    "nearestStations": [
+      "PS-00011",
+      "PS-00012",
+      "PS-00014",
+      "PS-00015"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00014",
+    "stationCode": "STN000014",
+    "stationName": "Polling Station 14",
+    "county": "Machakos",
+    "constituency": "Machakos Constituency 02",
+    "ward": "Ward 14",
+    "registeredVoters": 387,
+    "ballotsCast": 331,
+    "rejectedBallots": 3,
+    "turnoutPercent": 85.53,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 76,
+        "percent": 23.17
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 47,
+        "percent": 14.33
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 94,
+        "percent": 28.66
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 111,
+        "percent": 33.84
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "turnout-spike",
+        "severity": 80,
+        "confidence": 70,
+        "note": "Turnout trend exceeds ward baseline."
+      }
+    ],
+    "reportedAt": "2025-08-09T05:04:04.000Z",
+    "nearestStations": [
+      "PS-00012",
+      "PS-00013",
+      "PS-00015",
+      "PS-00016"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00015",
+    "stationCode": "STN000015",
+    "stationName": "Polling Station 15",
+    "county": "Kiambu",
+    "constituency": "Kiambu Constituency 03",
+    "ward": "Ward 15",
+    "registeredVoters": 572,
+    "ballotsCast": 380,
+    "rejectedBallots": 2,
+    "turnoutPercent": 66.43,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 44,
+        "percent": 11.64
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 74,
+        "percent": 19.58
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 112,
+        "percent": 29.63
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 148,
+        "percent": 39.15
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T13:33:09.000Z",
+    "nearestStations": [
+      "PS-00013",
+      "PS-00014",
+      "PS-00016",
+      "PS-00017"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00016",
+    "stationCode": "STN000016",
+    "stationName": "Polling Station 16",
+    "county": "Kakamega",
+    "constituency": "Kakamega Constituency 04",
+    "ward": "Ward 16",
+    "registeredVoters": 731,
+    "ballotsCast": 555,
+    "rejectedBallots": 6,
+    "turnoutPercent": 75.92,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 204,
+        "percent": 37.16
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 49,
+        "percent": 8.93
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 233,
+        "percent": 42.44
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 63,
+        "percent": 11.48
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T11:20:16.000Z",
+    "nearestStations": [
+      "PS-00014",
+      "PS-00015",
+      "PS-00017",
+      "PS-00018"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00017",
+    "stationCode": "STN000017",
+    "stationName": "Polling Station 17",
+    "county": "Nairobi",
+    "constituency": "Nairobi Constituency 05",
+    "ward": "Ward 17",
+    "registeredVoters": 538,
+    "ballotsCast": 335,
+    "rejectedBallots": 1,
+    "turnoutPercent": 62.27,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 86,
+        "percent": 25.75
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 91,
+        "percent": 27.25
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 90,
+        "percent": 26.95
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 67,
+        "percent": 20.06
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T09:41:20.000Z",
+    "nearestStations": [
+      "PS-00015",
+      "PS-00016",
+      "PS-00018",
+      "PS-00019"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00018",
+    "stationCode": "STN000018",
+    "stationName": "Polling Station 18",
+    "county": "Mombasa",
+    "constituency": "Mombasa Constituency 06",
+    "ward": "Ward 18",
+    "registeredVoters": 712,
+    "ballotsCast": 359,
+    "rejectedBallots": 0,
+    "turnoutPercent": 50.42,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 47,
+        "percent": 13.09
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 96,
+        "percent": 26.74
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 108,
+        "percent": 30.08
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 108,
+        "percent": 30.08
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T19:16:22.000Z",
+    "nearestStations": [
+      "PS-00016",
+      "PS-00017",
+      "PS-00019",
+      "PS-00020"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00019",
+    "stationCode": "STN000019",
+    "stationName": "Polling Station 19",
+    "county": "Kisumu",
+    "constituency": "Kisumu Constituency 07",
+    "ward": "Ward 19",
+    "registeredVoters": 1352,
+    "ballotsCast": 747,
+    "rejectedBallots": 1,
+    "turnoutPercent": 55.25,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 227,
+        "percent": 30.43
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 204,
+        "percent": 27.35
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 252,
+        "percent": 33.78
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 63,
+        "percent": 8.45
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T14:12:34.000Z",
+    "nearestStations": [
+      "PS-00017",
+      "PS-00018",
+      "PS-00020",
+      "PS-00021"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00020",
+    "stationCode": "STN000020",
+    "stationName": "Polling Station 20",
+    "county": "Uasin Gishu",
+    "constituency": "Uasin Gishu Constituency 08",
+    "ward": "Ward 20",
+    "registeredVoters": 1321,
+    "ballotsCast": 1062,
+    "rejectedBallots": 2,
+    "turnoutPercent": 80.39,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 169,
+        "percent": 15.94
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 278,
+        "percent": 26.23
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 224,
+        "percent": 21.13
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 389,
+        "percent": 36.7
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T19:26:41.000Z",
+    "nearestStations": [
+      "PS-00018",
+      "PS-00019",
+      "PS-00021",
+      "PS-00022"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00021",
+    "stationCode": "STN000021",
+    "stationName": "Polling Station 21",
+    "county": "Nakuru",
+    "constituency": "Nakuru Constituency 09",
+    "ward": "Ward 21",
+    "registeredVoters": 1261,
+    "ballotsCast": 666,
+    "rejectedBallots": 10,
+    "turnoutPercent": 52.82,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 85,
+        "percent": 12.96
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 201,
+        "percent": 30.64
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 267,
+        "percent": 40.7
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 103,
+        "percent": 15.7
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "turnout-spike",
+        "severity": 90,
+        "confidence": 75,
+        "note": "Turnout trend exceeds ward baseline."
+      }
+    ],
+    "reportedAt": "2025-08-09T08:15:28.000Z",
+    "nearestStations": [
+      "PS-00019",
+      "PS-00020",
+      "PS-00022",
+      "PS-00023"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00022",
+    "stationCode": "STN000022",
+    "stationName": "Polling Station 22",
+    "county": "Machakos",
+    "constituency": "Machakos Constituency 10",
+    "ward": "Ward 22",
+    "registeredVoters": 823,
+    "ballotsCast": 713,
+    "rejectedBallots": 3,
+    "turnoutPercent": 86.63,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 86,
+        "percent": 12.11
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 279,
+        "percent": 39.3
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 149,
+        "percent": 20.99
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 196,
+        "percent": 27.61
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "late-upload",
+        "severity": 47,
+        "confidence": 66,
+        "note": "Delayed electronic transmission."
+      }
+    ],
+    "reportedAt": "2025-08-09T04:53:39.000Z",
+    "nearestStations": [
+      "PS-00020",
+      "PS-00021",
+      "PS-00023",
+      "PS-00024"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00023",
+    "stationCode": "STN000023",
+    "stationName": "Polling Station 23",
+    "county": "Kiambu",
+    "constituency": "Kiambu Constituency 11",
+    "ward": "Ward 23",
+    "registeredVoters": 933,
+    "ballotsCast": 686,
+    "rejectedBallots": 1,
+    "turnoutPercent": 73.53,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 138,
+        "percent": 20.15
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 64,
+        "percent": 9.34
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 332,
+        "percent": 48.47
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 151,
+        "percent": 22.04
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T08:33:21.000Z",
+    "nearestStations": [
+      "PS-00021",
+      "PS-00022",
+      "PS-00024",
+      "PS-00025"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  },
+  {
+    "stationId": "PS-00024",
+    "stationCode": "STN000024",
+    "stationName": "Polling Station 24",
+    "county": "Kakamega",
+    "constituency": "Kakamega Constituency 12",
+    "ward": "Ward 24",
+    "registeredVoters": 688,
+    "ballotsCast": 576,
+    "rejectedBallots": 1,
+    "turnoutPercent": 83.72,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 24,
+        "percent": 4.17
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 194,
+        "percent": 33.74
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 174,
+        "percent": 30.26
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 183,
+        "percent": 31.83
+      }
+    ],
+    "anomalyFlags": [
+      {
+        "type": "late-upload",
+        "severity": 61,
+        "confidence": 68,
+        "note": "Delayed electronic transmission."
+      }
+    ],
+    "reportedAt": "2025-08-09T07:58:28.000Z",
+    "nearestStations": [
+      "PS-00022",
+      "PS-00023",
+      "PS-00025",
+      "PS-00026"
+    ],
+    "notes": [
+      "Station flagged for manual review."
+    ]
+  },
+  {
+    "stationId": "PS-00025",
+    "stationCode": "STN000025",
+    "stationName": "Polling Station 25",
+    "county": "Nairobi",
+    "constituency": "Nairobi Constituency 01",
+    "ward": "Ward 25",
+    "registeredVoters": 747,
+    "ballotsCast": 400,
+    "rejectedBallots": 6,
+    "turnoutPercent": 53.55,
+    "results": [
+      {
+        "candidateId": "pres-upf",
+        "votes": 37,
+        "percent": 9.39
+      },
+      {
+        "candidateId": "pres-nmc",
+        "votes": 48,
+        "percent": 12.18
+      },
+      {
+        "candidateId": "pres-rma",
+        "votes": 209,
+        "percent": 53.05
+      },
+      {
+        "candidateId": "pres-ind",
+        "votes": 100,
+        "percent": 25.38
+      }
+    ],
+    "anomalyFlags": [],
+    "reportedAt": "2025-08-09T16:31:02.000Z",
+    "nearestStations": [
+      "PS-00023",
+      "PS-00024",
+      "PS-00026",
+      "PS-00027"
+    ],
+    "notes": [
+      "Station transmission validated."
+    ]
+  }
+]
