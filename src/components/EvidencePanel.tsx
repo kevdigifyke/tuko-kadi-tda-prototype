@@ -17,6 +17,12 @@ export function EvidencePanel({ cluster }: { cluster: ClusterNode }) {
         <p><span className="text-[#dce4e5]">Affected wards:</span> {cluster.wards}</p>
         <p><span className="text-[#dce4e5]">Reviewer status:</span> {cluster.reviewerStatus}</p>
       </div>
+      <div className="mt-4 rounded border border-[#ffb4ab]/35 bg-[#22090d]/55 p-3 text-sm text-[#ffd9d3]">
+        <p className="panel-kicker text-[#ffb4ab]">Cross-race consistency</p>
+        <p className="mt-1">Top mismatch: {cluster.featureSummary.find((item) => item.includes("Max cross-race gap")) ?? "Cross-race mismatch requires review."}</p>
+        <p className="mt-1">MCA anchor comparison: {cluster.featureSummary.find((item) => item.includes("MCA turnout anchor")) ?? "MCA turnout anchor not available."}</p>
+        <p className="mt-1">Review recommendation: Compare all race forms from this station before escalation.</p>
+      </div>
 
       <p className="panel-kicker mt-4 text-[#bac9cc]">Feature summary</p>
       <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[#bac9cc]">{cluster.featureSummary.map((item) => <li key={item}>{item}</li>)}</ul>

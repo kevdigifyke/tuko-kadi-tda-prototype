@@ -31,6 +31,32 @@ export type PollingStationRecord = {
   registeredVoters: number;
   ballotsCast: number;
   rejectedBallots: number;
+  raceTotals: {
+    presidential: number;
+    governor: number;
+    mp: number;
+    mca: number;
+    womanRep: number;
+    senator?: number;
+  };
+  raceSpoiltVotes: {
+    presidential: number;
+    governor: number;
+    mp: number;
+    mca: number;
+    womanRep: number;
+    senator?: number;
+  };
+  crossRaceVariance: number;
+  turnoutAnchorRace: "mca";
+  mcaTurnoutSignal: number;
+  raceMismatchDetails: Array<{
+    race: "presidential" | "governor" | "mp" | "mca" | "womanRep" | "senator";
+    voteGapFromMca: number;
+    percentGapFromMca: number;
+    riskLevel: ClusterRiskLevel;
+    explanation: string;
+  }>;
   turnoutPercent: number;
   results: CandidateResult[];
   anomalyFlags: AnomalyFlag[];
