@@ -1,6 +1,22 @@
 import { AppShell } from "@/src/components/shell/AppShell";
-import { MetricCard } from "@/src/components/ui/MetricCard";
 import { CommandPanel } from "@/src/components/ui/CommandPanel";
-import { getElectionSummary } from "@/src/lib/generatedElectionData";
+import { MetricCard } from "@/src/components/ui/MetricCard";
+import { getClusterGraph, getElectionSummary } from "@/src/lib/generatedElectionData";
 
-export default function Analytics(){const summary=getElectionSummary(); const anomalyCount=summary.counties.reduce((a,c)=>a+c.anomalyCount,0); const validated=Math.max(85,Math.round(100-(anomalyCount/Math.max(summary.stationCount,1))*4)); const efficiency=summary.wards.slice(0,3).map((w,i)=>[w.ward,`${2+i}m ${14+i*18}s`]); return <AppShell><div className="space-y-4"><h1 className="text-display">Election Analytics</h1><p className="text-body text-[#bac9cc]">Network analytics across wards and polling station result forms.</p><p className="text-xs text-[#bac9cc]">Synthetic demo data. Not official election results.</p><div className="grid gap-4 md:grid-cols-4"><MetricCard title="Total votes" value={summary.totalBallotsCast.toLocaleString()}/><MetricCard title="Turnout %" value={`${summary.turnoutPercent}%`}/><MetricCard title="Validated %" value={`${validated}%`} tone="green"/><MetricCard title="Anomaly count" value={`${anomalyCount}`} tone="salmon"/></div><CommandPanel title="Votes over time" active><div className="h-64 rounded-xl border border-white/5 bg-[#0d1516] p-4"><div className="mb-2 flex gap-4 text-xs"><span className="text-cyan-200">■ Confirmed</span><span className="text-purple-300">■ Projected</span></div><svg viewBox="0 0 700 220" className="h-full w-full"><polyline points="20,180 120,150 220,130 320,110 420,90 520,70 620,58" fill="none" stroke="#00e5ff" strokeWidth="4"/><polyline points="20,190 120,168 220,148 320,124 420,108 520,92 620,78" fill="none" stroke="#7c4dff" strokeWidth="3"/></svg></div></CommandPanel><div className="grid gap-4 xl:grid-cols-3"><CommandPanel title="Regional volume">{summary.counties.slice(0,3).map((r)=><div key={r.county} className="mb-3"><div className="flex justify-between text-sm"><span>{r.county}</span><span className="text-data-md">{r.turnoutPercent}%</span></div><div className="h-2 rounded bg-white/10"><div className="h-2 rounded bg-cyan-300" style={{width:`${r.turnoutPercent}%`}}/></div></div>)}</CommandPanel><CommandPanel title="Verification status"><div className="mx-auto grid size-32 place-items-center rounded-full border-[12px] border-white/10 border-t-cyan-300 border-r-green-400"><span className="text-data-md">{validated}% verified</span></div></CommandPanel><CommandPanel title="Efficiency ranking"><table className="w-full text-sm"><tbody>{efficiency.map(r=><tr key={r[0]} className="border-b border-white/10"><td className="py-2">{r[0]}</td><td className="py-2 text-right text-data-md">{r[1]}</td></tr>)}</tbody></table></CommandPanel></div></div></AppShell>}
+export default function Analytics() {
+  const summary = getElectionSummary();
+  const anomalyCount = summary.counties.reduce((a, c) => a + c.anomalyCount, 0);
+  const graph = getClusterGraph();
+  const issueCounts = graph.nodes.reduce(
+    (acc, node) => {
+      if (node.primaryIssue === "cross-race mismatch") acc.crossRace += 1;
+      if (node.primaryIssue === "late upload spike") acc.lateUpload += 1;
+      if (node.primaryIssue === "source disagreement") acc.sourceDisagreement += 1;
+      if (node.primaryIssue === "low OCR confidence") acc.lowOcr += 1;
+      return acc;
+    },
+    { crossRace: 0, lateUpload: 0, sourceDisagreement: 0, lowOcr: 0 },
+  );
+
+  return <AppShell><div className="space-y-4"><h1 className="text-display">Election Analytics</h1><p className="text-body text-[#bac9cc]">Synthetic anomaly analytics for review prioritization.</p><p className="text-xs text-[#bac9cc]">Synthetic demo data only. Flagged anomalies require human review.</p><div className="grid gap-4 md:grid-cols-4"><MetricCard title="Total votes" value={summary.totalBallotsCast.toLocaleString()} /><MetricCard title="Turnout %" value={`${summary.turnoutPercent}%`} /><MetricCard title="Clusters flagged" value={`${graph.nodes.length}`} tone="salmon" /><MetricCard title="Anomaly count" value={`${anomalyCount}`} tone="salmon" /></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4"><MetricCard title="Cross-race mismatch" value={`${issueCounts.crossRace}`} /><MetricCard title="Late upload spike" value={`${issueCounts.lateUpload}`} /><MetricCard title="Source disagreement" value={`${issueCounts.sourceDisagreement}`} /><MetricCard title="Low OCR confidence" value={`${issueCounts.lowOcr}`} /></div><CommandPanel title="Anomaly review posture" active><ul className="space-y-2 text-sm text-[#bac9cc]"><li>Flagged clusters remain synthetic and non-adjudicative.</li><li>Source mismatch and cross-race mismatch signals indicate irregularity only.</li><li>Human review recommended before any escalation decisions.</li></ul></CommandPanel></div></AppShell>;
+}
