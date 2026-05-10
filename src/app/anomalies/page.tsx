@@ -5,7 +5,7 @@ import { EvidencePanel } from "@/src/components/EvidencePanel";
 import { GesturePanel } from "@/src/components/GesturePanel";
 import { TdaGraph } from "@/src/components/TdaGraph";
 import { TimelineScrubber } from "@/src/components/TimelineScrubber";
-import { mockNodes } from "@/src/data/mockGraph";
+import { getClusterById, getClusterGraph, getDefaultCluster, getGraphEdges, getGraphNodes } from "@/src/lib/generatedElectionData";
 import type { GestureCommandEvent } from "@/src/hooks/useGestureCommands";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
@@ -18,7 +18,9 @@ const FORENSIC_MODES: ForensicMode[] = [
 ];
 
 export default function Anomalies() {
-  const [selectedId, setSelectedId] = useState("ne-04");
+  const graphNodes = useMemo(() => getGraphNodes(), []);
+  const graphEdges = useMemo(() => getGraphEdges(), []);
+  const [selectedId, setSelectedId] = useState(getDefaultCluster().id);
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentMode, setCurrentMode] = useState<ForensicMode>("Forensic Cluster");
   const [gestureModeActive, setGestureModeActive] = useState(false);
@@ -26,17 +28,17 @@ export default function Anomalies() {
   const [commandFeedback, setCommandFeedback] = useState("");
 
   const selected = useMemo(
-    () => mockNodes.find((node) => node.id === selectedId) ?? mockNodes[0],
+    () => getClusterById(selectedId),
     [selectedId],
   );
 
   const selectNextCluster = useCallback(() => {
     setSelectedId((prev) => {
-      const currentIndex = mockNodes.findIndex((node) => node.id === prev);
-      const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % mockNodes.length : 0;
-      return mockNodes[nextIndex].id;
+      const currentIndex = graphNodes.findIndex((node) => node.id === prev);
+      const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % graphNodes.length : 0;
+      return graphNodes[nextIndex].id;
     });
-  }, []);
+  }, [graphNodes]);
 
   const switchNextMode = useCallback(() => {
     setCurrentMode((prev) => {
@@ -47,7 +49,7 @@ export default function Anomalies() {
   }, []);
 
   const resetView = useCallback(() => {
-    setSelectedId("ne-04");
+    setSelectedId(getDefaultCluster().id);
     setCurrentMode("Forensic Cluster");
     setFrozen(false);
   }, []);
@@ -155,13 +157,13 @@ export default function Anomalies() {
         </div>
 
         <section className="relative min-h-[calc(100svh-128px)] overflow-hidden rounded-xl border border-white/10 bg-[#080f11] md:min-h-[calc(100svh-144px)] xl:min-h-[calc(100svh-150px)]">
-          <TdaGraph selectedId={selectedId} onSelect={setSelectedId} />
+          <TdaGraph selectedId={selectedId} onSelect={setSelectedId} nodes={graphNodes} edges={graphEdges} />
 
           <div className="relative z-10 flex min-h-[calc(100svh-128px)] flex-col gap-3 p-3 md:min-h-[calc(100svh-144px)] md:p-4 xl:hidden">
             <div className="w-full rounded-md border-l-4 border-[#ffb4ab] bg-[#151d1e]/95 p-3">
               <p className="panel-kicker text-[#ffb4ab]">Live Anomaly Detected</p>
               <p className="font-mono text-4xl font-bold leading-none text-[#dce4e5]">
-                14
+                {getClusterGraph().nodes.length}
               </p>
               <p className="text-sm text-[#bac9cc]">Mode: {currentMode}</p>
             </div>
@@ -181,7 +183,7 @@ export default function Anomalies() {
             <div className="absolute left-6 top-6 w-[245px] border-l-4 border-[#ffb4ab] bg-[#151d1e]/92 p-4 backdrop-blur">
               <p className="panel-kicker text-[#ffb4ab]">Live Anomaly Detected</p>
               <p className="font-mono text-5xl font-bold leading-none text-[#dce4e5]">
-                14
+                {getClusterGraph().nodes.length}
               </p>
               <p className="mt-1 text-sm text-[#bac9cc]">Mode: {currentMode}</p>
               <div className="mt-2 flex flex-wrap gap-2">
