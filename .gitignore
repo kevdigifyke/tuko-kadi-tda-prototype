@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Synthetic election generator outputs
+public/generated/full-stations.json
+src/data/generated/full-stations.json
+data/generated/full-stations.json
+data/generated/*.json
+
+!public/generated/election-summary.json
+!public/generated/cluster-graph.json
+!public/generated/station-sample.json
