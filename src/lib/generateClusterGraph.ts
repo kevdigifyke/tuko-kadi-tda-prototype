@@ -39,10 +39,11 @@ export const generateClusterGraph = (stations: PollingStationRecord[], maxNodes 
       riskLevel,
       featureSummary: [
         `Turnout ${features.turnoutRate}%`,
-        `OCR confidence ${features.ocrConfidence}%`,
-        `Source consensus ${features.sourceConsensus}%`,
+        `MCA turnout anchor ${station.mcaTurnoutSignal}`,
+        `Max cross-race gap ${features.maxCrossRaceGap}%`,
+        `Average cross-race gap ${features.averageCrossRaceGap}%`,
+        `Cross-race variance score ${features.crossRaceVarianceScore}`,
         `Upload delay ${features.uploadDelayMinutes}m`,
-        `Anomaly score ${features.anomalyScore}`,
       ],
       timelineEvents: [
         { timestamp: station.reportedAt, label: "Report received" },
