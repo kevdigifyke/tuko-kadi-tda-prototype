@@ -3,62 +3,28 @@ import { ClusterNode } from "@/src/types/graph";
 export function EvidencePanel({ cluster }: { cluster: ClusterNode }) {
   return (
     <section className="floating-panel w-full max-w-[380px] p-5 xl:max-h-[calc(100svh-300px)] xl:overflow-y-auto">
-      <h2 className="panel-kicker text-[#ffb4ab]">
-        Cluster Details // Nairobi East Pattern 04
-      </h2>
+      <h2 className="panel-kicker text-[#ffb4ab]">Cluster Intelligence</h2>
+      <p className="mt-2 text-sm text-[#bac9cc]">{cluster.explanation}</p>
 
       <div className="mt-4 grid grid-cols-2 gap-3">
-        <div>
-          <p className="panel-kicker text-[#bac9cc]">Severity</p>
-          <p className="font-mono text-4xl font-bold text-[#ffb4ab]">
-            {cluster.severity}%
-          </p>
-        </div>
-
-        <div>
-          <p className="panel-kicker text-[#bac9cc]">AI Confidence</p>
-          <p className="font-mono text-4xl font-bold text-[#dce4e5]">
-            {cluster.confidence}%
-          </p>
-        </div>
+        <div><p className="panel-kicker text-[#bac9cc]">Severity</p><p className="font-mono text-3xl font-bold text-[#ffb4ab]">{cluster.severity}%</p></div>
+        <div><p className="panel-kicker text-[#bac9cc]">AI Confidence</p><p className="font-mono text-3xl font-bold text-[#dce4e5]">{cluster.confidence}%</p></div>
       </div>
 
-      <p className="panel-kicker mt-5 text-[#bac9cc]">Active Signals</p>
-
-      <div className="mt-2 space-y-2 text-sm leading-relaxed">
-        <div className="border-l-2 border-[#ffb4ab] bg-[#2a1f2a]/60 p-3">
-          <p className="font-semibold text-[#dce4e5]">Mismatch Detected</p>
-          <p className="text-[#bac9cc]">{cluster.whyFlagged}</p>
-        </div>
-
-        <div className="border-l-2 border-[#fec931] bg-[#252819]/60 p-3">
-          <p className="font-semibold text-[#dce4e5]">Late Upload Spike</p>
-          <p className="text-[#bac9cc]">{cluster.issue}</p>
-        </div>
+      <div className="mt-4 space-y-1 text-sm text-[#bac9cc]">
+        <p><span className="text-[#dce4e5]">Primary issue:</span> {cluster.primaryIssue}</p>
+        <p><span className="text-[#dce4e5]">Affected stations:</span> {cluster.stations}</p>
+        <p><span className="text-[#dce4e5]">Affected wards:</span> {cluster.wards}</p>
+        <p><span className="text-[#dce4e5]">Reviewer status:</span> {cluster.reviewerStatus}</p>
       </div>
 
-      <div className="mt-5 space-y-2">
-        <button
-          type="button"
-          className="w-full rounded-md border border-cyan-300/40 bg-cyan-400/10 px-3 py-2 text-left text-sm font-semibold text-cyan-200 transition hover:bg-cyan-400/20"
-        >
-          Geospatial Review
-        </button>
+      <p className="panel-kicker mt-4 text-[#bac9cc]">Feature summary</p>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[#bac9cc]">{cluster.featureSummary.map((item) => <li key={item}>{item}</li>)}</ul>
 
-        <button
-          type="button"
-          className="w-full rounded-md border border-cyan-300/30 bg-[#151d1e] px-3 py-2 text-left text-sm font-semibold text-[#dce4e5] transition hover:border-cyan-300/60"
-        >
-          Expert Verification
-        </button>
+      <p className="panel-kicker mt-4 text-[#bac9cc]">Review recommendations</p>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[#bac9cc]">{cluster.reviewRecommendations.map((item) => <li key={item}>{item}</li>)}</ul>
 
-        <button
-          type="button"
-          className="w-full rounded-md border border-[#ffb4ab]/60 bg-[#93000a]/50 px-3 py-2 text-left text-sm font-semibold text-[#ffb4ab] transition hover:bg-[#93000a]/70"
-        >
-          Escalate to Command
-        </button>
-      </div>
+      {cluster.relatedClusterIds.length > 0 && <p className="mt-4 text-xs text-[#9eb2ba]">Related clusters: {cluster.relatedClusterIds.join(", ")}</p>}
     </section>
   );
 }
