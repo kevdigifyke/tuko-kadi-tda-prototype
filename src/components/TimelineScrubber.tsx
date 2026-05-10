@@ -5,11 +5,12 @@ import { Pause, Play } from "lucide-react";
 interface Props {
   isPlaying: boolean;
   onToggle: () => void;
+  events?: Array<{ timestamp: string; label: string }>;
 }
 
 const times = ["18:00", "20:00", "22:00", "NOW", "02:00", "04:00", "06:00"];
 
-export function TimelineScrubber({ isPlaying, onToggle }: Props) {
+export function TimelineScrubber({ isPlaying, onToggle, events = [] }: Props) {
   return (
     <section className="flex w-full flex-col gap-3 overflow-hidden rounded-2xl border border-cyan-300/35 bg-[linear-gradient(180deg,rgba(8,16,20,.96),rgba(10,18,22,.93))] px-4 py-3 shadow-[0_0_0_1px_rgba(0,229,255,.12),0_0_22px_rgba(0,229,255,.24)] xl:h-[96px] xl:flex-row xl:items-center xl:gap-4 xl:px-5 xl:py-0">
       <div className="shrink-0 xl:w-[112px]">
@@ -43,6 +44,7 @@ export function TimelineScrubber({ isPlaying, onToggle }: Props) {
             </span>
           ))}
         </div>
+        {events.length > 0 && <p className="mt-2 text-xs text-[#9ab8c8]">Markers: {events.slice(0, 3).map((event) => event.label).join(" • ")}</p>}
       </div>
 
       <p className="shrink-0 whitespace-nowrap text-left font-mono text-sm text-[#c5d4dc] xl:w-[112px] xl:text-right">

@@ -132,9 +132,12 @@ export default function Anomalies() {
             </p>
             <h1 className="sr-only">Anomaly Network Command</h1>
             <p className="mt-1 text-sm text-[#bac9cc]">Mode: {currentMode}</p>
+            <p className="mt-1 text-xs text-[#8fa6ad]">Risk: {selected.riskLevel} • Reviewer: {selected.reviewerStatus}</p>
           </div>
 
           <div className="flex items-center gap-2">
+            <span className="rounded border border-[#ffb4ab]/45 bg-[#93000a]/30 px-2 py-1 text-xs font-semibold text-[#ffdad6]">Risk {selected.riskLevel}</span>
+            <span className="rounded border border-white/20 bg-[#151d1e]/95 px-2 py-1 text-xs text-[#dce4e5]">{selected.reviewerStatus}</span>
             {gestureModeActive && (
               <span className="rounded border border-cyan-300/50 bg-cyan-400/15 px-2 py-1 text-xs font-semibold text-cyan-100">
                 Gesture Mode Active
@@ -175,6 +178,7 @@ export default function Anomalies() {
               <TimelineScrubber
                 isPlaying={isPlaying}
                 onToggle={() => setIsPlaying((state) => !state)}
+                events={selected.timelineEvents}
               />
             </div>
           </div>
@@ -186,6 +190,7 @@ export default function Anomalies() {
                 {getClusterGraph().nodes.length}
               </p>
               <p className="mt-1 text-sm text-[#bac9cc]">Mode: {currentMode}</p>
+            <p className="mt-1 text-xs text-[#8fa6ad]">Risk: {selected.riskLevel} • Reviewer: {selected.reviewerStatus}</p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {gestureModeActive && (
                   <span className="rounded border border-cyan-300/50 bg-cyan-400/15 px-2 py-1 text-[10px] font-semibold text-cyan-100">
@@ -217,6 +222,7 @@ export default function Anomalies() {
               <TimelineScrubber
                 isPlaying={isPlaying}
                 onToggle={() => setIsPlaying((state) => !state)}
+                events={selected.timelineEvents}
               />
             </div>
           </div>

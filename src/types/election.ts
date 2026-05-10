@@ -84,6 +84,9 @@ export type LiveFeedItem = {
   type: "info" | "warning" | "critical";
 };
 
+export type ClusterRiskLevel = "low" | "medium" | "high" | "critical";
+export type ReviewerStatus = "unreviewed" | "requires_review" | "in_review" | "cleared_demo";
+
 export type ClusterNode = {
   id: string;
   stationId: string;
@@ -91,6 +94,16 @@ export type ClusterNode = {
   county: string;
   ward: string;
   severity: number;
+  explanation: string;
+  reviewRecommendations: string[];
+  riskLevel: ClusterRiskLevel;
+  featureSummary: string[];
+  timelineEvents: Array<{ timestamp: string; label: string }>;
+  relatedClusterIds: string[];
+  reviewerStatus: ReviewerStatus;
+  primaryIssue: string;
+  affectedStations: number;
+  affectedWards: number;
 };
 
 export type ClusterEdge = {

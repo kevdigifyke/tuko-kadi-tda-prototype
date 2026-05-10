@@ -52,14 +52,12 @@ export function getStationSample(id?: string): StationDetailRecord {
   return stationSampleData.find((station) => station.stationId === id || station.stationCode === id) ?? stationSampleData[0];
 }
 
-function deriveSignalsFromSeverity(severity: number): string[] {
-  if (severity >= 90) return ["Form mismatch pattern", "Rapid upload spike", "Cross-source disagreement"];
-  if (severity >= 70) return ["Suspicious turnout drift", "Needs manual validation"];
-  return ["Low-priority irregularity"];
-}
 
 export function mapClusterNodeToGraphNode(node: ClusterGraph["nodes"][number], index: number): GraphClusterNode {
   const confidence = Math.max(55, 100 - Math.round((node.severity - 40) * 0.7));
+  const featureSummary = node.featureSummary ?? ["Synthetic feature summary unavailable"];
+  const reviewRecommendations = node.reviewRecommendations ?? ["Compare source forms", "Escalate to human verification"];
+  const timelineEvents = node.timelineEvents ?? [{ timestamp: summaryData.generatedAt, label: "Synthetic marker" }];
   return {
     id: node.id,
     label: `${node.county} ${node.ward}`,
@@ -70,11 +68,19 @@ export function mapClusterNodeToGraphNode(node: ClusterGraph["nodes"][number], i
     validated: node.severity < 70,
     severity: node.severity,
     confidence,
-    stations: 1,
-    wards: 1,
-    issue: node.severity >= 80 ? "High-severity cross-check mismatch" : "Turnout or timing irregularity",
-    whyFlagged: `${node.label} in ${node.ward} (${node.county}) is part of an anomaly-linked cluster path.`,
-    signals: deriveSignalsFromSeverity(node.severity),
+    stations: node.affectedStations ?? 1,
+    wards: node.affectedWards ?? 1,
+    issue: node.primaryIssue ?? "turnout variance",
+    whyFlagged: `${node.label} in ${node.ward} (${node.county}) requires review in this synthetic cluster model.`,
+    signals: featureSummary,
+    riskLevel: node.riskLevel ?? "medium",
+    reviewerStatus: node.reviewerStatus ?? "unreviewed",
+    explanation: node.explanation ?? `${node.label} requires synthetic demo review.`,
+    primaryIssue: node.primaryIssue ?? "turnout variance",
+    featureSummary,
+    reviewRecommendations,
+    relatedClusterIds: node.relatedClusterIds ?? [],
+    timelineEvents,
   };
 }
 
@@ -84,7 +90,7 @@ export function mapClusterEdgeToGraphEdge(edge: ClusterGraph["edges"][number]): 
 
 export function getDefaultCluster(): GraphClusterNode {
   const [first] = clusterGraphData.nodes;
-  return first ? mapClusterNodeToGraphNode(first, 0) : mapClusterNodeToGraphNode({ id: "fallback", stationId: "fallback", label: "Fallback", county: "Demo", ward: "Demo", severity: 50 }, 0);
+  return first ? mapClusterNodeToGraphNode(first, 0) : mapClusterNodeToGraphNode({ id: "fallback", stationId: "fallback", label: "Fallback", county: "Demo", ward: "Demo", severity: 50, explanation: "Synthetic fallback cluster.", reviewRecommendations: ["Compare source forms"], riskLevel: "low", featureSummary: ["No data"], timelineEvents: [{ timestamp: FALLBACK_SUMMARY.generatedAt, label: "No timeline" }], relatedClusterIds: [], reviewerStatus: "cleared_demo", primaryIssue: "turnout variance", affectedStations: 1, affectedWards: 1 }, 0);
 }
 
 export function getClusterById(id: string): GraphClusterNode {
