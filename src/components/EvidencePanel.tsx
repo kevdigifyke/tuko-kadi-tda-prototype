@@ -11,6 +11,15 @@ export function EvidencePanel({ cluster }: { cluster: ClusterNode }) {
         <div><p className="panel-kicker text-[#bac9cc]">AI Confidence</p><p className="font-mono text-3xl font-bold text-[#dce4e5]">{cluster.confidence}%</p></div>
       </div>
 
+
+      <div className="mt-4 rounded border border-[#ffb4ab]/35 bg-[#22090d]/45 p-3 text-sm text-[#ffd9d3]">
+        <p className="panel-kicker text-[#ffb4ab]">Gravity / Mass</p>
+        <p className="mt-1"><span className="text-[#ffe9e5]">Score:</span> {cluster.clusterMass} / 100</p>
+        <p><span className="text-[#ffe9e5]">Class:</span> {cluster.massLabel} gravity</p>
+        <p><span className="text-[#ffe9e5]">Reason:</span> {cluster.gravityReason}</p>
+        <p className="mt-1">Contributing factors: severity, confidence, affected stations, affected wards, and review status.</p>
+      </div>
+
       <div className="mt-4 space-y-1 text-sm text-[#bac9cc]">
         <p><span className="text-[#dce4e5]">Primary issue:</span> {cluster.primaryIssue}</p>
         <p><span className="text-[#dce4e5]">Affected stations:</span> {cluster.stations}</p>

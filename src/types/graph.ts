@@ -23,7 +23,13 @@ export interface ClusterNode {
   reviewRecommendations: string[];
   relatedClusterIds: string[];
   timelineEvents: Array<{ timestamp: string; label: string }>;
+  clusterMass: number;
+  massLabel: "low" | "moderate" | "high" | "critical";
+  gravityReason: string;
+  visualRadius: number;
+  glowStrength: number;
 }
+
 
 export interface ClusterEdge {
   id: string;
