@@ -3,6 +3,7 @@
 import { AppShell } from "@/src/components/shell/AppShell";
 import { EvidencePanel } from "@/src/components/EvidencePanel";
 import { GesturePanel } from "@/src/components/GesturePanel";
+import { GraphLegend } from "@/src/components/GraphLegend";
 import { TdaGraph } from "@/src/components/TdaGraph";
 import { TimelineScrubber } from "@/src/components/TimelineScrubber";
 import { getClusterById, getClusterGraph, getDefaultCluster, getGraphEdges, getGraphNodes } from "@/src/lib/generatedElectionData";
@@ -175,6 +176,7 @@ export default function Anomalies() {
             <p className="rounded border border-cyan-300/35 bg-[#0b1618]/90 px-2 py-1 text-[10px] text-cyan-100/90">
               Mouse inspection available. Gestures control modes and selection.
             </p>
+            <GraphLegend defaultOpen className="self-start" />
             <EvidencePanel cluster={selected} />
 
             <div className="mt-auto">
@@ -222,6 +224,10 @@ export default function Anomalies() {
 
             <div className="pointer-events-auto absolute right-6 top-20">
               <EvidencePanel cluster={selected} />
+            </div>
+
+            <div className="pointer-events-auto absolute bottom-36 left-6 z-20">
+              <GraphLegend />
             </div>
 
             <div className="pointer-events-auto absolute bottom-6 left-6 right-6 z-20">
