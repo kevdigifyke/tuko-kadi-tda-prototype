@@ -2,11 +2,12 @@
 
 import { useMemo, useRef, useState } from "react";
 import type { ClusterEdge, ClusterNode } from "@/src/types/graph";
+import type { TopologyMode } from "@/src/types/topology";
 
-interface Props { selectedId: string; onSelect: (id: string) => void; nodes: ClusterNode[]; edges: ClusterEdge[]; }
+interface Props { selectedId: string; onSelect: (id: string) => void; nodes: ClusterNode[]; edges: ClusterEdge[]; topologyMode: TopologyMode; }
 const project = (x: number, y: number) => ({ x: 800 + x * 260, y: 360 + y * 200 });
 
-export function TdaGraph({ selectedId, onSelect, nodes, edges }: Props) {
+export function TdaGraph({ selectedId, onSelect, nodes, edges, topologyMode }: Props) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -25,15 +26,16 @@ export function TdaGraph({ selectedId, onSelect, nodes, edges }: Props) {
     <div ref={containerRef} className="pointer-events-auto absolute inset-0 overflow-hidden bg-[#080f11]" onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}>
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_45%_40%,rgba(124,77,255,0.16),transparent_40%),radial-gradient(circle_at_66%_48%,rgba(255,180,171,0.2),transparent_24%),radial-gradient(circle_at_20%_15%,rgba(0,229,255,0.12),transparent_35%),linear-gradient(180deg,rgba(8,15,17,0.15),rgba(8,15,17,0.85))]" />
       <svg viewBox="0 0 1600 900" className="h-full w-full opacity-90 pointer-events-none">
-        {edges.map((edge) => { const a = nodes.find((n) => n.id === edge.source)!; const b = nodes.find((n) => n.id === edge.target)!; const p1 = project(a.x, a.y); const p2 = project(b.x, b.y); return <line key={edge.id} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke="#2e5f78" strokeWidth={1.5} strokeOpacity={0.45} />; })}
+        <title>{`Topology mode: ${topologyMode}`}</title>
+        {edges.map((edge) => { const a = nodes.find((n) => n.id === edge.source)!; const b = nodes.find((n) => n.id === edge.target)!; const p1 = project(a.x, a.y); const p2 = project(b.x, b.y); return <line key={edge.id} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke="#2e5f78" strokeWidth={topologyMode === "distributed" ? 2 : 1.5} strokeOpacity={topologyMode === "distributed" ? 0.65 : 0.45} className="transition-all duration-500" />; })}
         {nodes.map((node) => {
           const p = project(node.x, node.y); const isSelected = node.id === selectedId; const isHovered = node.id === hoveredId;
           const color = node.type === "anomaly" ? "#ffb4ab" : "#7defff";
           const glow = node.type === "anomaly" ? "rgba(255,120,104,0.6)" : node.type === "warning" ? "rgba(255,214,102,0.55)" : "rgba(125,239,255,0.45)";
           return <g key={node.id} onMouseEnter={() => setHoveredId(node.id)} onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })} onMouseLeave={() => setHoveredId(null)} onClick={() => onSelect(node.id)} className="pointer-events-auto cursor-pointer">
-            <circle cx={p.x} cy={p.y} r={node.size * 4.8} fill={glow} fillOpacity={isHovered || isSelected ? 0.18 : 0.08} />
-            <circle cx={p.x} cy={p.y} r={node.size * 3.5} fill={color} fillOpacity={node.type === "anomaly" ? 0.18 : 0.09} />
-            <circle cx={p.x} cy={p.y} r={node.size * 1.25} fill={color} fillOpacity={0.95} />
+            <circle cx={p.x} cy={p.y} r={node.size * 4.8} fill={glow} fillOpacity={isHovered || isSelected ? 0.18 : 0.08} className="transition-all duration-500" />
+            <circle cx={p.x} cy={p.y} r={node.size * 3.5} fill={color} fillOpacity={node.type === "anomaly" ? 0.18 : 0.09} className="transition-all duration-500" />
+            <circle cx={p.x} cy={p.y} r={node.size * 1.25} fill={color} fillOpacity={0.95} className="transition-all duration-500" />
             {isHovered && <circle cx={p.x} cy={p.y} r={node.size * 4.6} fill="none" stroke="#7defff" strokeWidth={2.4} />}
             {isSelected && <circle cx={p.x} cy={p.y} r={node.size * 5.4} fill="none" stroke="#ffb4ab" strokeDasharray="4 6" strokeWidth={2.2} />}
           </g>;
