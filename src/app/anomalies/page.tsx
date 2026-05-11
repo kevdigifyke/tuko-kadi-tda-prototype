@@ -172,6 +172,9 @@ export default function Anomalies() {
             </div>
 
             <GesturePanel onGestureCommand={onGestureCommand} />
+            <p className="rounded border border-cyan-300/35 bg-[#0b1618]/90 px-2 py-1 text-[10px] text-cyan-100/90">
+              Mouse inspection available. Gestures control modes and selection.
+            </p>
             <EvidencePanel cluster={selected} />
 
             <div className="mt-auto">
@@ -183,8 +186,8 @@ export default function Anomalies() {
             </div>
           </div>
 
-          <div className="absolute inset-0 z-10 hidden xl:block">
-            <div className="absolute left-6 top-6 w-[245px] border-l-4 border-[#ffb4ab] bg-[#151d1e]/92 p-4 backdrop-blur">
+          <div className="pointer-events-none absolute inset-0 z-10 hidden xl:block">
+            <div className="pointer-events-auto absolute left-6 top-6 w-[245px] border-l-4 border-[#ffb4ab] bg-[#151d1e]/92 p-4 backdrop-blur">
               <p className="panel-kicker text-[#ffb4ab]">Live Anomaly Detected</p>
               <p className="font-mono text-5xl font-bold leading-none text-[#dce4e5]">
                 {getClusterGraph().nodes.length}
@@ -210,15 +213,18 @@ export default function Anomalies() {
               </div>
             </div>
 
-            <div className="absolute left-6 top-40">
+            <div className="pointer-events-auto absolute left-6 top-40">
               <GesturePanel onGestureCommand={onGestureCommand} />
+              <p className="mt-2 rounded border border-cyan-300/35 bg-[#0b1618]/90 px-2 py-1 text-[10px] text-cyan-100/90">
+                Mouse inspection available. Gestures control modes and selection.
+              </p>
             </div>
 
-            <div className="absolute right-6 top-20">
+            <div className="pointer-events-auto absolute right-6 top-20">
               <EvidencePanel cluster={selected} />
             </div>
 
-            <div className="absolute bottom-6 left-6 right-6 z-20">
+            <div className="pointer-events-auto absolute bottom-6 left-6 right-6 z-20">
               <TimelineScrubber
                 isPlaying={isPlaying}
                 onToggle={() => setIsPlaying((state) => !state)}
