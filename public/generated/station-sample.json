@@ -9,6 +9,69 @@
     "registeredVoters": 510,
     "ballotsCast": 429,
     "rejectedBallots": 8,
+    "raceTotals": {
+      "presidential": 421,
+      "governor": 449,
+      "mp": 428,
+      "mca": 429,
+      "womanRep": 418,
+      "senator": 425
+    },
+    "raceSpoiltVotes": {
+      "presidential": 8,
+      "governor": 9,
+      "mp": 6,
+      "mca": 3,
+      "womanRep": 9,
+      "senator": 6
+    },
+    "crossRaceVariance": 1.71,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 429,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -8,
+        "percentGapFromMca": 1.86,
+        "riskLevel": "medium",
+        "explanation": "presidential total is below MCA turnout anchor by 8 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 20,
+        "percentGapFromMca": 4.66,
+        "riskLevel": "high",
+        "explanation": "governor total exceeds MCA turnout anchor by 20 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -1,
+        "percentGapFromMca": 0.23,
+        "riskLevel": "low",
+        "explanation": "mp total is below MCA turnout anchor by 1 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -11,
+        "percentGapFromMca": 2.56,
+        "riskLevel": "medium",
+        "explanation": "womanRep total is below MCA turnout anchor by 11 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -4,
+        "percentGapFromMca": 0.93,
+        "riskLevel": "low",
+        "explanation": "senator total is below MCA turnout anchor by 4 votes."
+      }
+    ],
     "turnoutPercent": 84.12,
     "results": [
       {
@@ -34,19 +97,31 @@
     ],
     "anomalyFlags": [
       {
-        "type": "late-upload",
-        "severity": 57,
+        "type": "result-disparity",
+        "severity": 40,
         "confidence": 74,
-        "note": "Delayed electronic transmission."
+        "note": "presidential vs MCA cross-race mismatch flagged (1.86%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 47,
+        "confidence": 79,
+        "note": "governor vs MCA cross-race mismatch flagged (4.66%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "womanRep vs MCA cross-race mismatch flagged (2.56%)."
       }
     ],
-    "reportedAt": "2025-08-09T17:33:29.000Z",
+    "reportedAt": "2025-08-09T11:17:49.000Z",
     "nearestStations": [
       "PS-00002",
       "PS-00003"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -56,41 +131,129 @@
     "county": "Mombasa",
     "constituency": "Mombasa Constituency 02",
     "ward": "Ward 02",
-    "registeredVoters": 629,
-    "ballotsCast": 573,
-    "rejectedBallots": 6,
-    "turnoutPercent": 91.1,
+    "registeredVoters": 880,
+    "ballotsCast": 658,
+    "rejectedBallots": 9,
+    "raceTotals": {
+      "presidential": 678,
+      "governor": 659,
+      "mp": 676,
+      "mca": 658,
+      "womanRep": 648,
+      "senator": 644
+    },
+    "raceSpoiltVotes": {
+      "presidential": 9,
+      "governor": 1,
+      "mp": 3,
+      "mca": 1,
+      "womanRep": 3,
+      "senator": 8
+    },
+    "crossRaceVariance": 1.6,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 658,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 20,
+        "percentGapFromMca": 3.04,
+        "riskLevel": "high",
+        "explanation": "presidential total exceeds MCA turnout anchor by 20 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 1,
+        "percentGapFromMca": 0.15,
+        "riskLevel": "low",
+        "explanation": "governor total exceeds MCA turnout anchor by 1 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 18,
+        "percentGapFromMca": 2.74,
+        "riskLevel": "medium",
+        "explanation": "mp total exceeds MCA turnout anchor by 18 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -10,
+        "percentGapFromMca": 1.52,
+        "riskLevel": "medium",
+        "explanation": "womanRep total is below MCA turnout anchor by 10 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -14,
+        "percentGapFromMca": 2.13,
+        "riskLevel": "medium",
+        "explanation": "senator total is below MCA turnout anchor by 14 votes."
+      }
+    ],
+    "turnoutPercent": 74.77,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 66,
-        "percent": 11.64
+        "votes": 67,
+        "percent": 10.32
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 123,
-        "percent": 21.69
+        "votes": 145,
+        "percent": 22.34
       },
       {
         "candidateId": "pres-rma",
-        "votes": 236,
-        "percent": 41.62
+        "votes": 221,
+        "percent": 34.05
       },
       {
         "candidateId": "pres-ind",
-        "votes": 142,
-        "percent": 25.04
+        "votes": 216,
+        "percent": 33.28
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T17:33:36.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 76,
+        "note": "presidential vs MCA cross-race mismatch flagged (3.04%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "mp vs MCA cross-race mismatch flagged (2.74%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "womanRep vs MCA cross-race mismatch flagged (1.52%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "senator vs MCA cross-race mismatch flagged (2.13%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T08:58:36.000Z",
     "nearestStations": [
       "PS-00001",
       "PS-00003",
       "PS-00004"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -100,34 +263,122 @@
     "county": "Kisumu",
     "constituency": "Kisumu Constituency 03",
     "ward": "Ward 03",
-    "registeredVoters": 1065,
-    "ballotsCast": 609,
-    "rejectedBallots": 7,
-    "turnoutPercent": 57.18,
+    "registeredVoters": 768,
+    "ballotsCast": 648,
+    "rejectedBallots": 4,
+    "raceTotals": {
+      "presidential": 668,
+      "governor": 667,
+      "mp": 665,
+      "mca": 652,
+      "womanRep": 638,
+      "senator": 656
+    },
+    "raceSpoiltVotes": {
+      "presidential": 4,
+      "governor": 6,
+      "mp": 6,
+      "mca": 3,
+      "womanRep": 8,
+      "senator": 1
+    },
+    "crossRaceVariance": 1.58,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 652,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 16,
+        "percentGapFromMca": 2.45,
+        "riskLevel": "medium",
+        "explanation": "presidential total exceeds MCA turnout anchor by 16 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 15,
+        "percentGapFromMca": 2.3,
+        "riskLevel": "medium",
+        "explanation": "governor total exceeds MCA turnout anchor by 15 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 13,
+        "percentGapFromMca": 1.99,
+        "riskLevel": "medium",
+        "explanation": "mp total exceeds MCA turnout anchor by 13 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -14,
+        "percentGapFromMca": 2.15,
+        "riskLevel": "medium",
+        "explanation": "womanRep total is below MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 4,
+        "percentGapFromMca": 0.61,
+        "riskLevel": "low",
+        "explanation": "senator total exceeds MCA turnout anchor by 4 votes."
+      }
+    ],
+    "turnoutPercent": 84.38,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 235,
-        "percent": 39.04
+        "votes": 188,
+        "percent": 29.19
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 231,
-        "percent": 38.37
+        "votes": 259,
+        "percent": 40.22
       },
       {
         "candidateId": "pres-rma",
-        "votes": 48,
-        "percent": 7.97
+        "votes": 64,
+        "percent": 9.94
       },
       {
         "candidateId": "pres-ind",
-        "votes": 88,
-        "percent": 14.62
+        "votes": 133,
+        "percent": 20.65
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T08:43:28.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 75,
+        "note": "presidential vs MCA cross-race mismatch flagged (2.45%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "governor vs MCA cross-race mismatch flagged (2.3%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "mp vs MCA cross-race mismatch flagged (1.99%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "womanRep vs MCA cross-race mismatch flagged (2.15%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T13:47:14.000Z",
     "nearestStations": [
       "PS-00001",
       "PS-00002",
@@ -135,7 +386,7 @@
       "PS-00005"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -145,41 +396,122 @@
     "county": "Uasin Gishu",
     "constituency": "Uasin Gishu Constituency 04",
     "ward": "Ward 04",
-    "registeredVoters": 1293,
-    "ballotsCast": 914,
-    "rejectedBallots": 12,
-    "turnoutPercent": 70.69,
+    "registeredVoters": 1363,
+    "ballotsCast": 1016,
+    "rejectedBallots": 1,
+    "raceTotals": {
+      "presidential": 992,
+      "governor": 1014,
+      "mp": 998,
+      "mca": 1010,
+      "womanRep": 1021,
+      "senator": 1021
+    },
+    "raceSpoiltVotes": {
+      "presidential": 1,
+      "governor": 9,
+      "mp": 10,
+      "mca": 7,
+      "womanRep": 8,
+      "senator": 3
+    },
+    "crossRaceVariance": 0.92,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 1010,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -18,
+        "percentGapFromMca": 1.78,
+        "riskLevel": "medium",
+        "explanation": "presidential total is below MCA turnout anchor by 18 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 4,
+        "percentGapFromMca": 0.4,
+        "riskLevel": "low",
+        "explanation": "governor total exceeds MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -12,
+        "percentGapFromMca": 1.19,
+        "riskLevel": "medium",
+        "explanation": "mp total is below MCA turnout anchor by 12 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 11,
+        "percentGapFromMca": 1.09,
+        "riskLevel": "medium",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 11 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 11,
+        "percentGapFromMca": 1.09,
+        "riskLevel": "medium",
+        "explanation": "senator total exceeds MCA turnout anchor by 11 votes."
+      }
+    ],
+    "turnoutPercent": 74.54,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 236,
-        "percent": 26.16
+        "votes": 194,
+        "percent": 19.11
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 142,
-        "percent": 15.74
+        "votes": 401,
+        "percent": 39.51
       },
       {
         "candidateId": "pres-rma",
-        "votes": 183,
-        "percent": 20.29
+        "votes": 61,
+        "percent": 6.01
       },
       {
         "candidateId": "pres-ind",
-        "votes": 341,
-        "percent": 37.8
+        "votes": 359,
+        "percent": 35.37
       }
     ],
     "anomalyFlags": [
       {
-        "type": "form-mismatch",
-        "severity": 88,
-        "confidence": 85,
-        "note": "Digitized totals differ from source form."
+        "type": "late-upload",
+        "severity": 66,
+        "confidence": 82,
+        "note": "Delayed electronic transmission."
+      },
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 74,
+        "note": "presidential vs MCA cross-race mismatch flagged (1.78%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 72,
+        "note": "mp vs MCA cross-race mismatch flagged (1.19%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 72,
+        "note": "womanRep vs MCA cross-race mismatch flagged (1.09%)."
       }
     ],
-    "reportedAt": "2025-08-09T17:19:39.000Z",
+    "reportedAt": "2025-08-09T03:34:42.000Z",
     "nearestStations": [
       "PS-00002",
       "PS-00003",
@@ -187,7 +519,7 @@
       "PS-00006"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -197,34 +529,110 @@
     "county": "Nakuru",
     "constituency": "Nakuru Constituency 05",
     "ward": "Ward 05",
-    "registeredVoters": 1323,
-    "ballotsCast": 726,
-    "rejectedBallots": 5,
-    "turnoutPercent": 54.88,
+    "registeredVoters": 331,
+    "ballotsCast": 216,
+    "rejectedBallots": 6,
+    "raceTotals": {
+      "presidential": 212,
+      "governor": 219,
+      "mp": 211,
+      "mca": 215,
+      "womanRep": 200,
+      "senator": 229
+    },
+    "raceSpoiltVotes": {
+      "presidential": 6,
+      "governor": 0,
+      "mp": 3,
+      "mca": 5,
+      "womanRep": 0,
+      "senator": 3
+    },
+    "crossRaceVariance": 3.1,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 215,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -3,
+        "percentGapFromMca": 1.4,
+        "riskLevel": "low",
+        "explanation": "presidential total is below MCA turnout anchor by 3 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 4,
+        "percentGapFromMca": 1.86,
+        "riskLevel": "low",
+        "explanation": "governor total exceeds MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -4,
+        "percentGapFromMca": 1.86,
+        "riskLevel": "low",
+        "explanation": "mp total is below MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -15,
+        "percentGapFromMca": 6.98,
+        "riskLevel": "high",
+        "explanation": "womanRep total is below MCA turnout anchor by 15 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 14,
+        "percentGapFromMca": 6.51,
+        "riskLevel": "high",
+        "explanation": "senator total exceeds MCA turnout anchor by 14 votes."
+      }
+    ],
+    "turnoutPercent": 65.26,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 187,
-        "percent": 25.94
+        "votes": 75,
+        "percent": 35.71
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 179,
-        "percent": 24.83
+        "votes": 23,
+        "percent": 10.95
       },
       {
         "candidateId": "pres-rma",
-        "votes": 126,
-        "percent": 17.48
+        "votes": 33,
+        "percent": 15.71
       },
       {
         "candidateId": "pres-ind",
-        "votes": 229,
-        "percent": 31.76
+        "votes": 79,
+        "percent": 37.62
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T18:49:52.000Z",
+    "anomalyFlags": [
+      {
+        "type": "turnout-spike",
+        "severity": 70,
+        "confidence": 84,
+        "note": "womanRep vs MCA cross-race mismatch flagged (6.98%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 65,
+        "confidence": 83,
+        "note": "senator vs MCA cross-race mismatch flagged (6.51%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T14:01:59.000Z",
     "nearestStations": [
       "PS-00003",
       "PS-00004",
@@ -232,7 +640,7 @@
       "PS-00007"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -242,41 +650,122 @@
     "county": "Machakos",
     "constituency": "Machakos Constituency 06",
     "ward": "Ward 06",
-    "registeredVoters": 1238,
-    "ballotsCast": 627,
-    "rejectedBallots": 8,
-    "turnoutPercent": 50.65,
+    "registeredVoters": 717,
+    "ballotsCast": 430,
+    "rejectedBallots": 3,
+    "raceTotals": {
+      "presidential": 405,
+      "governor": 411,
+      "mp": 440,
+      "mca": 429,
+      "womanRep": 445,
+      "senator": 436
+    },
+    "raceSpoiltVotes": {
+      "presidential": 3,
+      "governor": 3,
+      "mp": 0,
+      "mca": 6,
+      "womanRep": 8,
+      "senator": 1
+    },
+    "crossRaceVariance": 2.95,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 429,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -24,
+        "percentGapFromMca": 5.59,
+        "riskLevel": "high",
+        "explanation": "presidential total is below MCA turnout anchor by 24 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -18,
+        "percentGapFromMca": 4.2,
+        "riskLevel": "high",
+        "explanation": "governor total is below MCA turnout anchor by 18 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 11,
+        "percentGapFromMca": 2.56,
+        "riskLevel": "medium",
+        "explanation": "mp total exceeds MCA turnout anchor by 11 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 16,
+        "percentGapFromMca": 3.73,
+        "riskLevel": "high",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 16 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 7,
+        "percentGapFromMca": 1.63,
+        "riskLevel": "medium",
+        "explanation": "senator total exceeds MCA turnout anchor by 7 votes."
+      }
+    ],
+    "turnoutPercent": 59.97,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 182,
-        "percent": 29.4
+        "votes": 186,
+        "percent": 43.56
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 152,
-        "percent": 24.56
+        "votes": 56,
+        "percent": 13.11
       },
       {
         "candidateId": "pres-rma",
-        "votes": 207,
-        "percent": 33.44
+        "votes": 143,
+        "percent": 33.49
       },
       {
         "candidateId": "pres-ind",
-        "votes": 78,
-        "percent": 12.6
+        "votes": 42,
+        "percent": 9.84
       }
     ],
     "anomalyFlags": [
       {
-        "type": "form-mismatch",
-        "severity": 88,
+        "type": "result-disparity",
+        "severity": 56,
+        "confidence": 81,
+        "note": "presidential vs MCA cross-race mismatch flagged (5.59%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 42,
+        "confidence": 78,
+        "note": "governor vs MCA cross-race mismatch flagged (4.2%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "mp vs MCA cross-race mismatch flagged (2.56%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
         "confidence": 77,
-        "note": "Digitized totals differ from source form."
+        "note": "womanRep vs MCA cross-race mismatch flagged (3.73%)."
       }
     ],
-    "reportedAt": "2025-08-09T08:43:01.000Z",
+    "reportedAt": "2025-08-09T05:12:27.000Z",
     "nearestStations": [
       "PS-00004",
       "PS-00005",
@@ -284,7 +773,7 @@
       "PS-00008"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -294,34 +783,122 @@
     "county": "Kiambu",
     "constituency": "Kiambu Constituency 07",
     "ward": "Ward 07",
-    "registeredVoters": 964,
-    "ballotsCast": 817,
-    "rejectedBallots": 12,
-    "turnoutPercent": 84.75,
+    "registeredVoters": 1191,
+    "ballotsCast": 673,
+    "rejectedBallots": 2,
+    "raceTotals": {
+      "presidential": 703,
+      "governor": 691,
+      "mp": 663,
+      "mca": 679,
+      "womanRep": 680,
+      "senator": 668
+    },
+    "raceSpoiltVotes": {
+      "presidential": 2,
+      "governor": 3,
+      "mp": 9,
+      "mca": 8,
+      "womanRep": 8,
+      "senator": 2
+    },
+    "crossRaceVariance": 1.57,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 679,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 24,
+        "percentGapFromMca": 3.53,
+        "riskLevel": "high",
+        "explanation": "presidential total exceeds MCA turnout anchor by 24 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 12,
+        "percentGapFromMca": 1.77,
+        "riskLevel": "medium",
+        "explanation": "governor total exceeds MCA turnout anchor by 12 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -16,
+        "percentGapFromMca": 2.36,
+        "riskLevel": "medium",
+        "explanation": "mp total is below MCA turnout anchor by 16 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 1,
+        "percentGapFromMca": 0.15,
+        "riskLevel": "low",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 1 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -11,
+        "percentGapFromMca": 1.62,
+        "riskLevel": "medium",
+        "explanation": "senator total is below MCA turnout anchor by 11 votes."
+      }
+    ],
+    "turnoutPercent": 56.51,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 319,
-        "percent": 39.63
+        "votes": 188,
+        "percent": 28.02
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 306,
-        "percent": 38.01
+        "votes": 146,
+        "percent": 21.76
       },
       {
         "candidateId": "pres-rma",
-        "votes": 140,
-        "percent": 17.39
+        "votes": 228,
+        "percent": 33.98
       },
       {
         "candidateId": "pres-ind",
-        "votes": 40,
-        "percent": 4.97
+        "votes": 109,
+        "percent": 16.24
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T13:09:49.000Z",
+    "anomalyFlags": [
+      {
+        "type": "turnout-spike",
+        "severity": 64,
+        "confidence": 91,
+        "note": "Turnout trend exceeds ward baseline."
+      },
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 77,
+        "note": "presidential vs MCA cross-race mismatch flagged (3.53%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "governor vs MCA cross-race mismatch flagged (1.77%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "mp vs MCA cross-race mismatch flagged (2.36%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T07:25:13.000Z",
     "nearestStations": [
       "PS-00005",
       "PS-00006",
@@ -329,7 +906,7 @@
       "PS-00009"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -339,34 +916,110 @@
     "county": "Kakamega",
     "constituency": "Kakamega Constituency 08",
     "ward": "Ward 08",
-    "registeredVoters": 1210,
-    "ballotsCast": 1020,
-    "rejectedBallots": 11,
-    "turnoutPercent": 84.3,
+    "registeredVoters": 867,
+    "ballotsCast": 666,
+    "rejectedBallots": 12,
+    "raceTotals": {
+      "presidential": 670,
+      "governor": 679,
+      "mp": 652,
+      "mca": 664,
+      "womanRep": 667,
+      "senator": 666
+    },
+    "raceSpoiltVotes": {
+      "presidential": 12,
+      "governor": 0,
+      "mp": 3,
+      "mca": 3,
+      "womanRep": 1,
+      "senator": 2
+    },
+    "crossRaceVariance": 0.95,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 664,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 6,
+        "percentGapFromMca": 0.9,
+        "riskLevel": "low",
+        "explanation": "presidential total exceeds MCA turnout anchor by 6 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 15,
+        "percentGapFromMca": 2.26,
+        "riskLevel": "medium",
+        "explanation": "governor total exceeds MCA turnout anchor by 15 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -12,
+        "percentGapFromMca": 1.81,
+        "riskLevel": "medium",
+        "explanation": "mp total is below MCA turnout anchor by 12 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 3,
+        "percentGapFromMca": 0.45,
+        "riskLevel": "low",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 3 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 2,
+        "percentGapFromMca": 0.3,
+        "riskLevel": "low",
+        "explanation": "senator total exceeds MCA turnout anchor by 2 votes."
+      }
+    ],
+    "turnoutPercent": 76.82,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 332,
-        "percent": 32.9
+        "votes": 367,
+        "percent": 56.12
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 53,
-        "percent": 5.25
+        "votes": 71,
+        "percent": 10.86
       },
       {
         "candidateId": "pres-rma",
-        "votes": 285,
-        "percent": 28.25
+        "votes": 128,
+        "percent": 19.57
       },
       {
         "candidateId": "pres-ind",
-        "votes": 339,
-        "percent": 33.6
+        "votes": 88,
+        "percent": 13.46
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T10:35:38.000Z",
+    "anomalyFlags": [
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "governor vs MCA cross-race mismatch flagged (2.26%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "mp vs MCA cross-race mismatch flagged (1.81%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T10:38:27.000Z",
     "nearestStations": [
       "PS-00006",
       "PS-00007",
@@ -374,7 +1027,7 @@
       "PS-00010"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -384,34 +1037,122 @@
     "county": "Nairobi",
     "constituency": "Nairobi Constituency 09",
     "ward": "Ward 09",
-    "registeredVoters": 361,
-    "ballotsCast": 209,
-    "rejectedBallots": 6,
-    "turnoutPercent": 57.89,
+    "registeredVoters": 1063,
+    "ballotsCast": 555,
+    "rejectedBallots": 10,
+    "raceTotals": {
+      "presidential": 580,
+      "governor": 566,
+      "mp": 551,
+      "mca": 560,
+      "womanRep": 555,
+      "senator": 567
+    },
+    "raceSpoiltVotes": {
+      "presidential": 10,
+      "governor": 3,
+      "mp": 2,
+      "mca": 2,
+      "womanRep": 0,
+      "senator": 9
+    },
+    "crossRaceVariance": 1.4,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 560,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 20,
+        "percentGapFromMca": 3.57,
+        "riskLevel": "high",
+        "explanation": "presidential total exceeds MCA turnout anchor by 20 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 6,
+        "percentGapFromMca": 1.07,
+        "riskLevel": "medium",
+        "explanation": "governor total exceeds MCA turnout anchor by 6 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -9,
+        "percentGapFromMca": 1.61,
+        "riskLevel": "medium",
+        "explanation": "mp total is below MCA turnout anchor by 9 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -5,
+        "percentGapFromMca": 0.89,
+        "riskLevel": "low",
+        "explanation": "womanRep total is below MCA turnout anchor by 5 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 7,
+        "percentGapFromMca": 1.25,
+        "riskLevel": "medium",
+        "explanation": "senator total exceeds MCA turnout anchor by 7 votes."
+      }
+    ],
+    "turnoutPercent": 52.21,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 20,
-        "percent": 9.85
+        "votes": 70,
+        "percent": 12.84
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 51,
-        "percent": 25.12
+        "votes": 196,
+        "percent": 35.96
       },
       {
         "candidateId": "pres-rma",
-        "votes": 118,
-        "percent": 58.13
+        "votes": 159,
+        "percent": 29.17
       },
       {
         "candidateId": "pres-ind",
-        "votes": 14,
-        "percent": 6.9
+        "votes": 120,
+        "percent": 22.02
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T11:25:35.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 77,
+        "note": "presidential vs MCA cross-race mismatch flagged (3.57%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 72,
+        "note": "governor vs MCA cross-race mismatch flagged (1.07%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "mp vs MCA cross-race mismatch flagged (1.61%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "senator vs MCA cross-race mismatch flagged (1.25%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T10:03:01.000Z",
     "nearestStations": [
       "PS-00007",
       "PS-00008",
@@ -419,7 +1160,7 @@
       "PS-00011"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -429,34 +1170,116 @@
     "county": "Mombasa",
     "constituency": "Mombasa Constituency 10",
     "ward": "Ward 10",
-    "registeredVoters": 681,
-    "ballotsCast": 339,
-    "rejectedBallots": 10,
-    "turnoutPercent": 49.78,
+    "registeredVoters": 656,
+    "ballotsCast": 561,
+    "rejectedBallots": 12,
+    "raceTotals": {
+      "presidential": 583,
+      "governor": 550,
+      "mp": 568,
+      "mca": 564,
+      "womanRep": 568,
+      "senator": 554
+    },
+    "raceSpoiltVotes": {
+      "presidential": 12,
+      "governor": 4,
+      "mp": 10,
+      "mca": 1,
+      "womanRep": 0,
+      "senator": 8
+    },
+    "crossRaceVariance": 1.51,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 564,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 19,
+        "percentGapFromMca": 3.37,
+        "riskLevel": "high",
+        "explanation": "presidential total exceeds MCA turnout anchor by 19 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -14,
+        "percentGapFromMca": 2.48,
+        "riskLevel": "medium",
+        "explanation": "governor total is below MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 4,
+        "percentGapFromMca": 0.71,
+        "riskLevel": "low",
+        "explanation": "mp total exceeds MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 4,
+        "percentGapFromMca": 0.71,
+        "riskLevel": "low",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -10,
+        "percentGapFromMca": 1.77,
+        "riskLevel": "medium",
+        "explanation": "senator total is below MCA turnout anchor by 10 votes."
+      }
+    ],
+    "turnoutPercent": 85.52,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 98,
-        "percent": 29.79
+        "votes": 181,
+        "percent": 32.97
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 88,
-        "percent": 26.75
+        "votes": 134,
+        "percent": 24.41
       },
       {
         "candidateId": "pres-rma",
-        "votes": 16,
-        "percent": 4.86
+        "votes": 172,
+        "percent": 31.33
       },
       {
         "candidateId": "pres-ind",
-        "votes": 127,
-        "percent": 38.6
+        "votes": 62,
+        "percent": 11.29
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T07:18:32.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 77,
+        "note": "presidential vs MCA cross-race mismatch flagged (3.37%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "governor vs MCA cross-race mismatch flagged (2.48%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "senator vs MCA cross-race mismatch flagged (1.77%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T19:44:10.000Z",
     "nearestStations": [
       "PS-00008",
       "PS-00009",
@@ -464,7 +1287,7 @@
       "PS-00012"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -474,34 +1297,122 @@
     "county": "Kisumu",
     "constituency": "Kisumu Constituency 11",
     "ward": "Ward 11",
-    "registeredVoters": 327,
-    "ballotsCast": 213,
-    "rejectedBallots": 0,
-    "turnoutPercent": 65.14,
+    "registeredVoters": 633,
+    "ballotsCast": 482,
+    "rejectedBallots": 6,
+    "raceTotals": {
+      "presidential": 497,
+      "governor": 473,
+      "mp": 499,
+      "mca": 483,
+      "womanRep": 497,
+      "senator": 473
+    },
+    "raceSpoiltVotes": {
+      "presidential": 6,
+      "governor": 7,
+      "mp": 9,
+      "mca": 0,
+      "womanRep": 9,
+      "senator": 2
+    },
+    "crossRaceVariance": 2.21,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 483,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 14,
+        "percentGapFromMca": 2.9,
+        "riskLevel": "medium",
+        "explanation": "presidential total exceeds MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -10,
+        "percentGapFromMca": 2.07,
+        "riskLevel": "medium",
+        "explanation": "governor total is below MCA turnout anchor by 10 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 16,
+        "percentGapFromMca": 3.31,
+        "riskLevel": "high",
+        "explanation": "mp total exceeds MCA turnout anchor by 16 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 14,
+        "percentGapFromMca": 2.9,
+        "riskLevel": "medium",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -10,
+        "percentGapFromMca": 2.07,
+        "riskLevel": "medium",
+        "explanation": "senator total is below MCA turnout anchor by 10 votes."
+      }
+    ],
+    "turnoutPercent": 76.15,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 36,
-        "percent": 16.9
+        "votes": 173,
+        "percent": 36.34
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 11,
-        "percent": 5.16
+        "votes": 45,
+        "percent": 9.45
       },
       {
         "candidateId": "pres-rma",
-        "votes": 79,
-        "percent": 37.09
+        "votes": 167,
+        "percent": 35.08
       },
       {
         "candidateId": "pres-ind",
-        "votes": 87,
-        "percent": 40.85
+        "votes": 91,
+        "percent": 19.12
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T10:00:04.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 76,
+        "note": "presidential vs MCA cross-race mismatch flagged (2.9%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "governor vs MCA cross-race mismatch flagged (2.07%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 77,
+        "note": "mp vs MCA cross-race mismatch flagged (3.31%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 76,
+        "note": "womanRep vs MCA cross-race mismatch flagged (2.9%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T07:28:30.000Z",
     "nearestStations": [
       "PS-00009",
       "PS-00010",
@@ -509,7 +1420,7 @@
       "PS-00013"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -519,41 +1430,116 @@
     "county": "Uasin Gishu",
     "constituency": "Uasin Gishu Constituency 12",
     "ward": "Ward 12",
-    "registeredVoters": 1166,
-    "ballotsCast": 1067,
-    "rejectedBallots": 9,
-    "turnoutPercent": 91.51,
+    "registeredVoters": 1258,
+    "ballotsCast": 735,
+    "rejectedBallots": 2,
+    "raceTotals": {
+      "presidential": 740,
+      "governor": 719,
+      "mp": 730,
+      "mca": 736,
+      "womanRep": 723,
+      "senator": 752
+    },
+    "raceSpoiltVotes": {
+      "presidential": 2,
+      "governor": 2,
+      "mp": 0,
+      "mca": 0,
+      "womanRep": 9,
+      "senator": 7
+    },
+    "crossRaceVariance": 1.27,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 736,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 4,
+        "percentGapFromMca": 0.54,
+        "riskLevel": "low",
+        "explanation": "presidential total exceeds MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -17,
+        "percentGapFromMca": 2.31,
+        "riskLevel": "medium",
+        "explanation": "governor total is below MCA turnout anchor by 17 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -6,
+        "percentGapFromMca": 0.82,
+        "riskLevel": "low",
+        "explanation": "mp total is below MCA turnout anchor by 6 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -13,
+        "percentGapFromMca": 1.77,
+        "riskLevel": "medium",
+        "explanation": "womanRep total is below MCA turnout anchor by 13 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 16,
+        "percentGapFromMca": 2.17,
+        "riskLevel": "medium",
+        "explanation": "senator total exceeds MCA turnout anchor by 16 votes."
+      }
+    ],
+    "turnoutPercent": 58.43,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 331,
-        "percent": 31.29
+        "votes": 219,
+        "percent": 29.88
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 170,
-        "percent": 16.07
+        "votes": 116,
+        "percent": 15.83
       },
       {
         "candidateId": "pres-rma",
-        "votes": 199,
-        "percent": 18.81
+        "votes": 154,
+        "percent": 21.01
       },
       {
         "candidateId": "pres-ind",
-        "votes": 358,
-        "percent": 33.84
+        "votes": 244,
+        "percent": 33.29
       }
     ],
     "anomalyFlags": [
       {
-        "type": "late-upload",
-        "severity": 45,
-        "confidence": 69,
-        "note": "Delayed electronic transmission."
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "governor vs MCA cross-race mismatch flagged (2.31%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "womanRep vs MCA cross-race mismatch flagged (1.77%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "senator vs MCA cross-race mismatch flagged (2.17%)."
       }
     ],
-    "reportedAt": "2025-08-09T17:35:59.000Z",
+    "reportedAt": "2025-08-09T13:17:33.000Z",
     "nearestStations": [
       "PS-00010",
       "PS-00011",
@@ -561,7 +1547,7 @@
       "PS-00014"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -571,41 +1557,110 @@
     "county": "Nakuru",
     "constituency": "Nakuru Constituency 01",
     "ward": "Ward 13",
-    "registeredVoters": 710,
-    "ballotsCast": 427,
-    "rejectedBallots": 11,
-    "turnoutPercent": 60.14,
+    "registeredVoters": 643,
+    "ballotsCast": 421,
+    "rejectedBallots": 10,
+    "raceTotals": {
+      "presidential": 426,
+      "governor": 425,
+      "mp": 413,
+      "mca": 427,
+      "womanRep": 427,
+      "senator": 412
+    },
+    "raceSpoiltVotes": {
+      "presidential": 10,
+      "governor": 9,
+      "mp": 9,
+      "mca": 6,
+      "womanRep": 1,
+      "senator": 2
+    },
+    "crossRaceVariance": 1.25,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 427,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -1,
+        "percentGapFromMca": 0.23,
+        "riskLevel": "low",
+        "explanation": "presidential total is below MCA turnout anchor by 1 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -2,
+        "percentGapFromMca": 0.47,
+        "riskLevel": "low",
+        "explanation": "governor total is below MCA turnout anchor by 2 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -14,
+        "percentGapFromMca": 3.28,
+        "riskLevel": "high",
+        "explanation": "mp total is below MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -15,
+        "percentGapFromMca": 3.51,
+        "riskLevel": "high",
+        "explanation": "senator total is below MCA turnout anchor by 15 votes."
+      }
+    ],
+    "turnoutPercent": 65.47,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 137,
-        "percent": 32.93
+        "votes": 43,
+        "percent": 10.46
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 109,
-        "percent": 26.2
+        "votes": 22,
+        "percent": 5.35
       },
       {
         "candidateId": "pres-rma",
-        "votes": 36,
-        "percent": 8.65
+        "votes": 182,
+        "percent": 44.28
       },
       {
         "candidateId": "pres-ind",
-        "votes": 134,
-        "percent": 32.21
+        "votes": 164,
+        "percent": 39.9
       }
     ],
     "anomalyFlags": [
       {
-        "type": "form-mismatch",
-        "severity": 93,
-        "confidence": 76,
-        "note": "Digitized totals differ from source form."
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 77,
+        "note": "mp vs MCA cross-race mismatch flagged (3.28%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 77,
+        "note": "senator vs MCA cross-race mismatch flagged (3.51%)."
       }
     ],
-    "reportedAt": "2025-08-09T12:10:54.000Z",
+    "reportedAt": "2025-08-09T17:19:39.000Z",
     "nearestStations": [
       "PS-00011",
       "PS-00012",
@@ -613,7 +1668,7 @@
       "PS-00015"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -623,41 +1678,116 @@
     "county": "Machakos",
     "constituency": "Machakos Constituency 02",
     "ward": "Ward 14",
-    "registeredVoters": 387,
-    "ballotsCast": 331,
-    "rejectedBallots": 3,
-    "turnoutPercent": 85.53,
+    "registeredVoters": 1102,
+    "ballotsCast": 785,
+    "rejectedBallots": 0,
+    "raceTotals": {
+      "presidential": 803,
+      "governor": 794,
+      "mp": 782,
+      "mca": 785,
+      "womanRep": 783,
+      "senator": 771
+    },
+    "raceSpoiltVotes": {
+      "presidential": 0,
+      "governor": 9,
+      "mp": 5,
+      "mca": 3,
+      "womanRep": 9,
+      "senator": 1
+    },
+    "crossRaceVariance": 0.98,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 785,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 18,
+        "percentGapFromMca": 2.29,
+        "riskLevel": "medium",
+        "explanation": "presidential total exceeds MCA turnout anchor by 18 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 9,
+        "percentGapFromMca": 1.15,
+        "riskLevel": "medium",
+        "explanation": "governor total exceeds MCA turnout anchor by 9 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -3,
+        "percentGapFromMca": 0.38,
+        "riskLevel": "low",
+        "explanation": "mp total is below MCA turnout anchor by 3 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -2,
+        "percentGapFromMca": 0.25,
+        "riskLevel": "low",
+        "explanation": "womanRep total is below MCA turnout anchor by 2 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -14,
+        "percentGapFromMca": 1.78,
+        "riskLevel": "medium",
+        "explanation": "senator total is below MCA turnout anchor by 14 votes."
+      }
+    ],
+    "turnoutPercent": 71.23,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 76,
-        "percent": 23.17
+        "votes": 218,
+        "percent": 27.77
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 47,
-        "percent": 14.33
+        "votes": 238,
+        "percent": 30.32
       },
       {
         "candidateId": "pres-rma",
-        "votes": 94,
-        "percent": 28.66
+        "votes": 67,
+        "percent": 8.54
       },
       {
         "candidateId": "pres-ind",
-        "votes": 111,
-        "percent": 33.84
+        "votes": 262,
+        "percent": 33.38
       }
     ],
     "anomalyFlags": [
       {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 75,
+        "note": "presidential vs MCA cross-race mismatch flagged (2.29%)."
+      },
+      {
         "type": "turnout-spike",
-        "severity": 80,
-        "confidence": 70,
-        "note": "Turnout trend exceeds ward baseline."
+        "severity": 40,
+        "confidence": 72,
+        "note": "governor vs MCA cross-race mismatch flagged (1.15%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "senator vs MCA cross-race mismatch flagged (1.78%)."
       }
     ],
-    "reportedAt": "2025-08-09T05:04:04.000Z",
+    "reportedAt": "2025-08-09T19:12:14.000Z",
     "nearestStations": [
       "PS-00012",
       "PS-00013",
@@ -665,7 +1795,7 @@
       "PS-00016"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -675,34 +1805,116 @@
     "county": "Kiambu",
     "constituency": "Kiambu Constituency 03",
     "ward": "Ward 15",
-    "registeredVoters": 572,
-    "ballotsCast": 380,
-    "rejectedBallots": 2,
-    "turnoutPercent": 66.43,
+    "registeredVoters": 801,
+    "ballotsCast": 593,
+    "rejectedBallots": 0,
+    "raceTotals": {
+      "presidential": 615,
+      "governor": 579,
+      "mp": 587,
+      "mca": 591,
+      "womanRep": 593,
+      "senator": 597
+    },
+    "raceSpoiltVotes": {
+      "presidential": 0,
+      "governor": 1,
+      "mp": 5,
+      "mca": 1,
+      "womanRep": 5,
+      "senator": 0
+    },
+    "crossRaceVariance": 1.35,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 591,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 24,
+        "percentGapFromMca": 4.06,
+        "riskLevel": "high",
+        "explanation": "presidential total exceeds MCA turnout anchor by 24 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -12,
+        "percentGapFromMca": 2.03,
+        "riskLevel": "medium",
+        "explanation": "governor total is below MCA turnout anchor by 12 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -4,
+        "percentGapFromMca": 0.68,
+        "riskLevel": "low",
+        "explanation": "mp total is below MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 2,
+        "percentGapFromMca": 0.34,
+        "riskLevel": "low",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 2 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 6,
+        "percentGapFromMca": 1.02,
+        "riskLevel": "medium",
+        "explanation": "senator total exceeds MCA turnout anchor by 6 votes."
+      }
+    ],
+    "turnoutPercent": 74.03,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 44,
-        "percent": 11.64
+        "votes": 108,
+        "percent": 18.21
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 74,
-        "percent": 19.58
+        "votes": 189,
+        "percent": 31.87
       },
       {
         "candidateId": "pres-rma",
-        "votes": 112,
-        "percent": 29.63
+        "votes": 170,
+        "percent": 28.67
       },
       {
         "candidateId": "pres-ind",
-        "votes": 148,
-        "percent": 39.15
+        "votes": 126,
+        "percent": 21.25
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T13:33:09.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 41,
+        "confidence": 78,
+        "note": "presidential vs MCA cross-race mismatch flagged (4.06%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "governor vs MCA cross-race mismatch flagged (2.03%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 72,
+        "note": "senator vs MCA cross-race mismatch flagged (1.02%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T10:42:47.000Z",
     "nearestStations": [
       "PS-00013",
       "PS-00014",
@@ -710,7 +1922,7 @@
       "PS-00017"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -720,34 +1932,122 @@
     "county": "Kakamega",
     "constituency": "Kakamega Constituency 04",
     "ward": "Ward 16",
-    "registeredVoters": 731,
-    "ballotsCast": 555,
-    "rejectedBallots": 6,
-    "turnoutPercent": 75.92,
+    "registeredVoters": 1210,
+    "ballotsCast": 629,
+    "rejectedBallots": 2,
+    "raceTotals": {
+      "presidential": 616,
+      "governor": 647,
+      "mp": 617,
+      "mca": 630,
+      "womanRep": 624,
+      "senator": 638
+    },
+    "raceSpoiltVotes": {
+      "presidential": 2,
+      "governor": 7,
+      "mp": 10,
+      "mca": 5,
+      "womanRep": 3,
+      "senator": 3
+    },
+    "crossRaceVariance": 1.53,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 630,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -14,
+        "percentGapFromMca": 2.22,
+        "riskLevel": "medium",
+        "explanation": "presidential total is below MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 17,
+        "percentGapFromMca": 2.7,
+        "riskLevel": "medium",
+        "explanation": "governor total exceeds MCA turnout anchor by 17 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -13,
+        "percentGapFromMca": 2.06,
+        "riskLevel": "medium",
+        "explanation": "mp total is below MCA turnout anchor by 13 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -6,
+        "percentGapFromMca": 0.95,
+        "riskLevel": "low",
+        "explanation": "womanRep total is below MCA turnout anchor by 6 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 8,
+        "percentGapFromMca": 1.27,
+        "riskLevel": "medium",
+        "explanation": "senator total exceeds MCA turnout anchor by 8 votes."
+      }
+    ],
+    "turnoutPercent": 51.98,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 204,
-        "percent": 37.16
+        "votes": 86,
+        "percent": 13.72
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 49,
-        "percent": 8.93
+        "votes": 193,
+        "percent": 30.78
       },
       {
         "candidateId": "pres-rma",
-        "votes": 233,
-        "percent": 42.44
+        "votes": 205,
+        "percent": 32.7
       },
       {
         "candidateId": "pres-ind",
-        "votes": 63,
-        "percent": 11.48
+        "votes": 143,
+        "percent": 22.81
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T11:20:16.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 74,
+        "note": "presidential vs MCA cross-race mismatch flagged (2.22%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 75,
+        "note": "governor vs MCA cross-race mismatch flagged (2.7%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "mp vs MCA cross-race mismatch flagged (2.06%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "senator vs MCA cross-race mismatch flagged (1.27%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T10:05:29.000Z",
     "nearestStations": [
       "PS-00014",
       "PS-00015",
@@ -755,7 +2055,7 @@
       "PS-00018"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -765,34 +2065,116 @@
     "county": "Nairobi",
     "constituency": "Nairobi Constituency 05",
     "ward": "Ward 17",
-    "registeredVoters": 538,
-    "ballotsCast": 335,
-    "rejectedBallots": 1,
-    "turnoutPercent": 62.27,
+    "registeredVoters": 985,
+    "ballotsCast": 858,
+    "rejectedBallots": 9,
+    "raceTotals": {
+      "presidential": 844,
+      "governor": 859,
+      "mp": 854,
+      "mca": 862,
+      "womanRep": 872,
+      "senator": 872
+    },
+    "raceSpoiltVotes": {
+      "presidential": 9,
+      "governor": 1,
+      "mp": 1,
+      "mca": 8,
+      "womanRep": 0,
+      "senator": 5
+    },
+    "crossRaceVariance": 0.95,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 862,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -18,
+        "percentGapFromMca": 2.09,
+        "riskLevel": "medium",
+        "explanation": "presidential total is below MCA turnout anchor by 18 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -3,
+        "percentGapFromMca": 0.35,
+        "riskLevel": "low",
+        "explanation": "governor total is below MCA turnout anchor by 3 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -8,
+        "percentGapFromMca": 0.93,
+        "riskLevel": "low",
+        "explanation": "mp total is below MCA turnout anchor by 8 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 10,
+        "percentGapFromMca": 1.16,
+        "riskLevel": "medium",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 10 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 10,
+        "percentGapFromMca": 1.16,
+        "riskLevel": "medium",
+        "explanation": "senator total exceeds MCA turnout anchor by 10 votes."
+      }
+    ],
+    "turnoutPercent": 87.11,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 86,
-        "percent": 25.75
+        "votes": 284,
+        "percent": 33.45
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 91,
-        "percent": 27.25
+        "votes": 249,
+        "percent": 29.33
       },
       {
         "candidateId": "pres-rma",
-        "votes": 90,
-        "percent": 26.95
+        "votes": 92,
+        "percent": 10.84
       },
       {
         "candidateId": "pres-ind",
-        "votes": 67,
-        "percent": 20.06
+        "votes": 224,
+        "percent": 26.38
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T09:41:20.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 74,
+        "note": "presidential vs MCA cross-race mismatch flagged (2.09%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 72,
+        "note": "womanRep vs MCA cross-race mismatch flagged (1.16%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 72,
+        "note": "senator vs MCA cross-race mismatch flagged (1.16%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T05:38:10.000Z",
     "nearestStations": [
       "PS-00015",
       "PS-00016",
@@ -800,7 +2182,7 @@
       "PS-00019"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -810,34 +2192,116 @@
     "county": "Mombasa",
     "constituency": "Mombasa Constituency 06",
     "ward": "Ward 18",
-    "registeredVoters": 712,
-    "ballotsCast": 359,
-    "rejectedBallots": 0,
-    "turnoutPercent": 50.42,
+    "registeredVoters": 1156,
+    "ballotsCast": 951,
+    "rejectedBallots": 11,
+    "raceTotals": {
+      "presidential": 955,
+      "governor": 942,
+      "mp": 974,
+      "mca": 957,
+      "womanRep": 963,
+      "senator": 944
+    },
+    "raceSpoiltVotes": {
+      "presidential": 11,
+      "governor": 7,
+      "mp": 7,
+      "mca": 8,
+      "womanRep": 1,
+      "senator": 4
+    },
+    "crossRaceVariance": 0.93,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 957,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -2,
+        "percentGapFromMca": 0.21,
+        "riskLevel": "low",
+        "explanation": "presidential total is below MCA turnout anchor by 2 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -15,
+        "percentGapFromMca": 1.57,
+        "riskLevel": "medium",
+        "explanation": "governor total is below MCA turnout anchor by 15 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 17,
+        "percentGapFromMca": 1.78,
+        "riskLevel": "medium",
+        "explanation": "mp total exceeds MCA turnout anchor by 17 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": 6,
+        "percentGapFromMca": 0.63,
+        "riskLevel": "low",
+        "explanation": "womanRep total exceeds MCA turnout anchor by 6 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -13,
+        "percentGapFromMca": 1.36,
+        "riskLevel": "medium",
+        "explanation": "senator total is below MCA turnout anchor by 13 votes."
+      }
+    ],
+    "turnoutPercent": 82.27,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 47,
-        "percent": 13.09
+        "votes": 304,
+        "percent": 32.34
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 96,
-        "percent": 26.74
+        "votes": 101,
+        "percent": 10.74
       },
       {
         "candidateId": "pres-rma",
-        "votes": 108,
-        "percent": 30.08
+        "votes": 297,
+        "percent": 31.6
       },
       {
         "candidateId": "pres-ind",
-        "votes": 108,
-        "percent": 30.08
+        "votes": 238,
+        "percent": 25.32
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T19:16:22.000Z",
+    "anomalyFlags": [
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "governor vs MCA cross-race mismatch flagged (1.57%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "mp vs MCA cross-race mismatch flagged (1.78%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "senator vs MCA cross-race mismatch flagged (1.36%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T14:38:26.000Z",
     "nearestStations": [
       "PS-00016",
       "PS-00017",
@@ -845,7 +2309,7 @@
       "PS-00020"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -855,34 +2319,122 @@
     "county": "Kisumu",
     "constituency": "Kisumu Constituency 07",
     "ward": "Ward 19",
-    "registeredVoters": 1352,
-    "ballotsCast": 747,
-    "rejectedBallots": 1,
-    "turnoutPercent": 55.25,
+    "registeredVoters": 401,
+    "ballotsCast": 227,
+    "rejectedBallots": 5,
+    "raceTotals": {
+      "presidential": 206,
+      "governor": 223,
+      "mp": 231,
+      "mca": 230,
+      "womanRep": 217,
+      "senator": 244
+    },
+    "raceSpoiltVotes": {
+      "presidential": 5,
+      "governor": 6,
+      "mp": 3,
+      "mca": 5,
+      "womanRep": 6,
+      "senator": 6
+    },
+    "crossRaceVariance": 4.27,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 230,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -24,
+        "percentGapFromMca": 10.43,
+        "riskLevel": "high",
+        "explanation": "presidential total is below MCA turnout anchor by 24 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -7,
+        "percentGapFromMca": 3.04,
+        "riskLevel": "medium",
+        "explanation": "governor total is below MCA turnout anchor by 7 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 1,
+        "percentGapFromMca": 0.43,
+        "riskLevel": "low",
+        "explanation": "mp total exceeds MCA turnout anchor by 1 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -13,
+        "percentGapFromMca": 5.65,
+        "riskLevel": "high",
+        "explanation": "womanRep total is below MCA turnout anchor by 13 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 14,
+        "percentGapFromMca": 6.09,
+        "riskLevel": "high",
+        "explanation": "senator total exceeds MCA turnout anchor by 14 votes."
+      }
+    ],
+    "turnoutPercent": 56.61,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 227,
-        "percent": 30.43
+        "votes": 24,
+        "percent": 10.81
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 204,
-        "percent": 27.35
+        "votes": 74,
+        "percent": 33.33
       },
       {
         "candidateId": "pres-rma",
-        "votes": 252,
-        "percent": 33.78
+        "votes": 78,
+        "percent": 35.14
       },
       {
         "candidateId": "pres-ind",
-        "votes": 63,
-        "percent": 8.45
+        "votes": 46,
+        "percent": 20.72
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T14:12:34.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 99,
+        "confidence": 91,
+        "note": "presidential vs MCA cross-race mismatch flagged (10.43%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 76,
+        "note": "governor vs MCA cross-race mismatch flagged (3.04%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 57,
+        "confidence": 81,
+        "note": "womanRep vs MCA cross-race mismatch flagged (5.65%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 61,
+        "confidence": 82,
+        "note": "senator vs MCA cross-race mismatch flagged (6.09%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T14:14:43.000Z",
     "nearestStations": [
       "PS-00017",
       "PS-00018",
@@ -890,7 +2442,7 @@
       "PS-00021"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -900,34 +2452,122 @@
     "county": "Uasin Gishu",
     "constituency": "Uasin Gishu Constituency 08",
     "ward": "Ward 20",
-    "registeredVoters": 1321,
-    "ballotsCast": 1062,
-    "rejectedBallots": 2,
-    "turnoutPercent": 80.39,
+    "registeredVoters": 779,
+    "ballotsCast": 563,
+    "rejectedBallots": 4,
+    "raceTotals": {
+      "presidential": 570,
+      "governor": 577,
+      "mp": 585,
+      "mca": 568,
+      "womanRep": 552,
+      "senator": 557
+    },
+    "raceSpoiltVotes": {
+      "presidential": 4,
+      "governor": 5,
+      "mp": 9,
+      "mca": 0,
+      "womanRep": 8,
+      "senator": 7
+    },
+    "crossRaceVariance": 1.61,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 568,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 2,
+        "percentGapFromMca": 0.35,
+        "riskLevel": "low",
+        "explanation": "presidential total exceeds MCA turnout anchor by 2 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 9,
+        "percentGapFromMca": 1.58,
+        "riskLevel": "medium",
+        "explanation": "governor total exceeds MCA turnout anchor by 9 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 17,
+        "percentGapFromMca": 2.99,
+        "riskLevel": "medium",
+        "explanation": "mp total exceeds MCA turnout anchor by 17 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -16,
+        "percentGapFromMca": 2.82,
+        "riskLevel": "medium",
+        "explanation": "womanRep total is below MCA turnout anchor by 16 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -11,
+        "percentGapFromMca": 1.94,
+        "riskLevel": "medium",
+        "explanation": "senator total is below MCA turnout anchor by 11 votes."
+      }
+    ],
+    "turnoutPercent": 72.27,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 169,
-        "percent": 15.94
+        "votes": 147,
+        "percent": 26.3
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 278,
-        "percent": 26.23
+        "votes": 58,
+        "percent": 10.38
       },
       {
         "candidateId": "pres-rma",
-        "votes": 224,
-        "percent": 21.13
+        "votes": 172,
+        "percent": 30.77
       },
       {
         "candidateId": "pres-ind",
-        "votes": 389,
-        "percent": 36.7
+        "votes": 182,
+        "percent": 32.56
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T19:26:41.000Z",
+    "anomalyFlags": [
+      {
+        "type": "turnout-spike",
+        "severity": 92,
+        "confidence": 76,
+        "note": "Turnout trend exceeds ward baseline."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "governor vs MCA cross-race mismatch flagged (1.58%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 76,
+        "note": "mp vs MCA cross-race mismatch flagged (2.99%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 76,
+        "note": "womanRep vs MCA cross-race mismatch flagged (2.82%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T14:14:12.000Z",
     "nearestStations": [
       "PS-00018",
       "PS-00019",
@@ -935,7 +2575,7 @@
       "PS-00022"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -945,41 +2585,122 @@
     "county": "Nakuru",
     "constituency": "Nakuru Constituency 09",
     "ward": "Ward 21",
-    "registeredVoters": 1261,
-    "ballotsCast": 666,
-    "rejectedBallots": 10,
-    "turnoutPercent": 52.82,
+    "registeredVoters": 565,
+    "ballotsCast": 370,
+    "rejectedBallots": 5,
+    "raceTotals": {
+      "presidential": 364,
+      "governor": 350,
+      "mp": 374,
+      "mca": 368,
+      "womanRep": 362,
+      "senator": 356
+    },
+    "raceSpoiltVotes": {
+      "presidential": 5,
+      "governor": 9,
+      "mp": 10,
+      "mca": 1,
+      "womanRep": 0,
+      "senator": 1
+    },
+    "crossRaceVariance": 2.08,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 368,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -4,
+        "percentGapFromMca": 1.09,
+        "riskLevel": "low",
+        "explanation": "presidential total is below MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -18,
+        "percentGapFromMca": 4.89,
+        "riskLevel": "high",
+        "explanation": "governor total is below MCA turnout anchor by 18 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 6,
+        "percentGapFromMca": 1.63,
+        "riskLevel": "medium",
+        "explanation": "mp total exceeds MCA turnout anchor by 6 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -6,
+        "percentGapFromMca": 1.63,
+        "riskLevel": "medium",
+        "explanation": "womanRep total is below MCA turnout anchor by 6 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -12,
+        "percentGapFromMca": 3.26,
+        "riskLevel": "high",
+        "explanation": "senator total is below MCA turnout anchor by 12 votes."
+      }
+    ],
+    "turnoutPercent": 65.49,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 85,
-        "percent": 12.96
+        "votes": 101,
+        "percent": 27.67
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 201,
-        "percent": 30.64
+        "votes": 100,
+        "percent": 27.4
       },
       {
         "candidateId": "pres-rma",
-        "votes": 267,
-        "percent": 40.7
+        "votes": 73,
+        "percent": 20
       },
       {
         "candidateId": "pres-ind",
-        "votes": 103,
-        "percent": 15.7
+        "votes": 91,
+        "percent": 24.93
       }
     ],
     "anomalyFlags": [
       {
         "type": "turnout-spike",
-        "severity": 90,
-        "confidence": 75,
-        "note": "Turnout trend exceeds ward baseline."
+        "severity": 49,
+        "confidence": 80,
+        "note": "governor vs MCA cross-race mismatch flagged (4.89%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "mp vs MCA cross-race mismatch flagged (1.63%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "womanRep vs MCA cross-race mismatch flagged (1.63%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 77,
+        "note": "senator vs MCA cross-race mismatch flagged (3.26%)."
       }
     ],
-    "reportedAt": "2025-08-09T08:15:28.000Z",
+    "reportedAt": "2025-08-09T12:27:07.000Z",
     "nearestStations": [
       "PS-00019",
       "PS-00020",
@@ -987,7 +2708,7 @@
       "PS-00023"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -997,41 +2718,116 @@
     "county": "Machakos",
     "constituency": "Machakos Constituency 10",
     "ward": "Ward 22",
-    "registeredVoters": 823,
-    "ballotsCast": 713,
-    "rejectedBallots": 3,
-    "turnoutPercent": 86.63,
+    "registeredVoters": 1013,
+    "ballotsCast": 837,
+    "rejectedBallots": 6,
+    "raceTotals": {
+      "presidential": 829,
+      "governor": 836,
+      "mp": 817,
+      "mca": 832,
+      "womanRep": 825,
+      "senator": 847
+    },
+    "raceSpoiltVotes": {
+      "presidential": 6,
+      "governor": 8,
+      "mp": 1,
+      "mca": 6,
+      "womanRep": 3,
+      "senator": 9
+    },
+    "crossRaceVariance": 0.88,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 832,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -3,
+        "percentGapFromMca": 0.36,
+        "riskLevel": "low",
+        "explanation": "presidential total is below MCA turnout anchor by 3 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 4,
+        "percentGapFromMca": 0.48,
+        "riskLevel": "low",
+        "explanation": "governor total exceeds MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -15,
+        "percentGapFromMca": 1.8,
+        "riskLevel": "medium",
+        "explanation": "mp total is below MCA turnout anchor by 15 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -7,
+        "percentGapFromMca": 0.84,
+        "riskLevel": "low",
+        "explanation": "womanRep total is below MCA turnout anchor by 7 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 15,
+        "percentGapFromMca": 1.8,
+        "riskLevel": "medium",
+        "explanation": "senator total exceeds MCA turnout anchor by 15 votes."
+      }
+    ],
+    "turnoutPercent": 82.63,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 86,
-        "percent": 12.11
+        "votes": 62,
+        "percent": 7.46
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 279,
-        "percent": 39.3
+        "votes": 282,
+        "percent": 33.94
       },
       {
         "candidateId": "pres-rma",
-        "votes": 149,
-        "percent": 20.99
+        "votes": 323,
+        "percent": 38.87
       },
       {
         "candidateId": "pres-ind",
-        "votes": 196,
-        "percent": 27.61
+        "votes": 164,
+        "percent": 19.74
       }
     ],
     "anomalyFlags": [
       {
         "type": "late-upload",
-        "severity": 47,
-        "confidence": 66,
+        "severity": 56,
+        "confidence": 76,
         "note": "Delayed electronic transmission."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "mp vs MCA cross-race mismatch flagged (1.8%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "senator vs MCA cross-race mismatch flagged (1.8%)."
       }
     ],
-    "reportedAt": "2025-08-09T04:53:39.000Z",
+    "reportedAt": "2025-08-09T04:33:30.000Z",
     "nearestStations": [
       "PS-00020",
       "PS-00021",
@@ -1039,7 +2835,7 @@
       "PS-00024"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -1049,34 +2845,122 @@
     "county": "Kiambu",
     "constituency": "Kiambu Constituency 11",
     "ward": "Ward 23",
-    "registeredVoters": 933,
-    "ballotsCast": 686,
-    "rejectedBallots": 1,
-    "turnoutPercent": 73.53,
+    "registeredVoters": 704,
+    "ballotsCast": 342,
+    "rejectedBallots": 2,
+    "raceTotals": {
+      "presidential": 358,
+      "governor": 341,
+      "mp": 340,
+      "mca": 347,
+      "womanRep": 334,
+      "senator": 342
+    },
+    "raceSpoiltVotes": {
+      "presidential": 2,
+      "governor": 7,
+      "mp": 4,
+      "mca": 3,
+      "womanRep": 8,
+      "senator": 8
+    },
+    "crossRaceVariance": 2.02,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 347,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 11,
+        "percentGapFromMca": 3.17,
+        "riskLevel": "medium",
+        "explanation": "presidential total exceeds MCA turnout anchor by 11 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -6,
+        "percentGapFromMca": 1.73,
+        "riskLevel": "medium",
+        "explanation": "governor total is below MCA turnout anchor by 6 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -7,
+        "percentGapFromMca": 2.02,
+        "riskLevel": "medium",
+        "explanation": "mp total is below MCA turnout anchor by 7 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -13,
+        "percentGapFromMca": 3.75,
+        "riskLevel": "high",
+        "explanation": "womanRep total is below MCA turnout anchor by 13 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -5,
+        "percentGapFromMca": 1.44,
+        "riskLevel": "low",
+        "explanation": "senator total is below MCA turnout anchor by 5 votes."
+      }
+    ],
+    "turnoutPercent": 48.58,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 138,
-        "percent": 20.15
+        "votes": 40,
+        "percent": 11.76
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 64,
-        "percent": 9.34
+        "votes": 75,
+        "percent": 22.06
       },
       {
         "candidateId": "pres-rma",
-        "votes": 332,
-        "percent": 48.47
+        "votes": 104,
+        "percent": 30.59
       },
       {
         "candidateId": "pres-ind",
-        "votes": 151,
-        "percent": 22.04
+        "votes": 121,
+        "percent": 35.59
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T08:33:21.000Z",
+    "anomalyFlags": [
+      {
+        "type": "form-mismatch",
+        "severity": 72,
+        "confidence": 75,
+        "note": "Digitized totals differ from source form."
+      },
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 76,
+        "note": "presidential vs MCA cross-race mismatch flagged (3.17%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 73,
+        "note": "governor vs MCA cross-race mismatch flagged (1.73%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "mp vs MCA cross-race mismatch flagged (2.02%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T17:11:54.000Z",
     "nearestStations": [
       "PS-00021",
       "PS-00022",
@@ -1084,7 +2968,7 @@
       "PS-00025"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -1094,41 +2978,122 @@
     "county": "Kakamega",
     "constituency": "Kakamega Constituency 12",
     "ward": "Ward 24",
-    "registeredVoters": 688,
-    "ballotsCast": 576,
-    "rejectedBallots": 1,
-    "turnoutPercent": 83.72,
+    "registeredVoters": 376,
+    "ballotsCast": 252,
+    "rejectedBallots": 7,
+    "raceTotals": {
+      "presidential": 249,
+      "governor": 264,
+      "mp": 236,
+      "mca": 250,
+      "womanRep": 238,
+      "senator": 263
+    },
+    "raceSpoiltVotes": {
+      "presidential": 7,
+      "governor": 5,
+      "mp": 6,
+      "mca": 6,
+      "womanRep": 2,
+      "senator": 3
+    },
+    "crossRaceVariance": 3.6,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 250,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": -1,
+        "percentGapFromMca": 0.4,
+        "riskLevel": "low",
+        "explanation": "presidential total is below MCA turnout anchor by 1 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": 14,
+        "percentGapFromMca": 5.6,
+        "riskLevel": "high",
+        "explanation": "governor total exceeds MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": -14,
+        "percentGapFromMca": 5.6,
+        "riskLevel": "high",
+        "explanation": "mp total is below MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -12,
+        "percentGapFromMca": 4.8,
+        "riskLevel": "high",
+        "explanation": "womanRep total is below MCA turnout anchor by 12 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": 13,
+        "percentGapFromMca": 5.2,
+        "riskLevel": "high",
+        "explanation": "senator total exceeds MCA turnout anchor by 13 votes."
+      }
+    ],
+    "turnoutPercent": 67.02,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 24,
-        "percent": 4.17
+        "votes": 99,
+        "percent": 40.41
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 194,
-        "percent": 33.74
+        "votes": 50,
+        "percent": 20.41
       },
       {
         "candidateId": "pres-rma",
-        "votes": 174,
-        "percent": 30.26
+        "votes": 35,
+        "percent": 14.29
       },
       {
         "candidateId": "pres-ind",
-        "votes": 183,
-        "percent": 31.83
+        "votes": 61,
+        "percent": 24.9
       }
     ],
     "anomalyFlags": [
       {
-        "type": "late-upload",
-        "severity": 61,
-        "confidence": 68,
-        "note": "Delayed electronic transmission."
+        "type": "turnout-spike",
+        "severity": 56,
+        "confidence": 81,
+        "note": "governor vs MCA cross-race mismatch flagged (5.6%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 56,
+        "confidence": 81,
+        "note": "mp vs MCA cross-race mismatch flagged (5.6%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 48,
+        "confidence": 80,
+        "note": "womanRep vs MCA cross-race mismatch flagged (4.8%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 52,
+        "confidence": 80,
+        "note": "senator vs MCA cross-race mismatch flagged (5.2%)."
       }
     ],
-    "reportedAt": "2025-08-09T07:58:28.000Z",
+    "reportedAt": "2025-08-09T20:29:29.000Z",
     "nearestStations": [
       "PS-00022",
       "PS-00023",
@@ -1136,7 +3101,7 @@
       "PS-00026"
     ],
     "notes": [
-      "Station flagged for manual review."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   },
   {
@@ -1146,34 +3111,110 @@
     "county": "Nairobi",
     "constituency": "Nairobi Constituency 01",
     "ward": "Ward 25",
-    "registeredVoters": 747,
-    "ballotsCast": 400,
-    "rejectedBallots": 6,
-    "turnoutPercent": 53.55,
+    "registeredVoters": 911,
+    "ballotsCast": 766,
+    "rejectedBallots": 8,
+    "raceTotals": {
+      "presidential": 784,
+      "governor": 765,
+      "mp": 774,
+      "mca": 770,
+      "womanRep": 755,
+      "senator": 766
+    },
+    "raceSpoiltVotes": {
+      "presidential": 8,
+      "governor": 4,
+      "mp": 6,
+      "mca": 1,
+      "womanRep": 5,
+      "senator": 6
+    },
+    "crossRaceVariance": 0.91,
+    "turnoutAnchorRace": "mca",
+    "mcaTurnoutSignal": 770,
+    "raceMismatchDetails": [
+      {
+        "race": "presidential",
+        "voteGapFromMca": 14,
+        "percentGapFromMca": 1.82,
+        "riskLevel": "medium",
+        "explanation": "presidential total exceeds MCA turnout anchor by 14 votes."
+      },
+      {
+        "race": "governor",
+        "voteGapFromMca": -5,
+        "percentGapFromMca": 0.65,
+        "riskLevel": "low",
+        "explanation": "governor total is below MCA turnout anchor by 5 votes."
+      },
+      {
+        "race": "mp",
+        "voteGapFromMca": 4,
+        "percentGapFromMca": 0.52,
+        "riskLevel": "low",
+        "explanation": "mp total exceeds MCA turnout anchor by 4 votes."
+      },
+      {
+        "race": "mca",
+        "voteGapFromMca": 0,
+        "percentGapFromMca": 0,
+        "riskLevel": "low",
+        "explanation": "mca total exceeds MCA turnout anchor by 0 votes."
+      },
+      {
+        "race": "womanRep",
+        "voteGapFromMca": -15,
+        "percentGapFromMca": 1.95,
+        "riskLevel": "medium",
+        "explanation": "womanRep total is below MCA turnout anchor by 15 votes."
+      },
+      {
+        "race": "senator",
+        "voteGapFromMca": -4,
+        "percentGapFromMca": 0.52,
+        "riskLevel": "low",
+        "explanation": "senator total is below MCA turnout anchor by 4 votes."
+      }
+    ],
+    "turnoutPercent": 84.08,
     "results": [
       {
         "candidateId": "pres-upf",
-        "votes": 37,
-        "percent": 9.39
+        "votes": 199,
+        "percent": 26.25
       },
       {
         "candidateId": "pres-nmc",
-        "votes": 48,
-        "percent": 12.18
+        "votes": 227,
+        "percent": 29.95
       },
       {
         "candidateId": "pres-rma",
-        "votes": 209,
-        "percent": 53.05
+        "votes": 296,
+        "percent": 39.05
       },
       {
         "candidateId": "pres-ind",
-        "votes": 100,
-        "percent": 25.38
+        "votes": 36,
+        "percent": 4.75
       }
     ],
-    "anomalyFlags": [],
-    "reportedAt": "2025-08-09T16:31:02.000Z",
+    "anomalyFlags": [
+      {
+        "type": "result-disparity",
+        "severity": 40,
+        "confidence": 74,
+        "note": "presidential vs MCA cross-race mismatch flagged (1.82%)."
+      },
+      {
+        "type": "turnout-spike",
+        "severity": 40,
+        "confidence": 74,
+        "note": "womanRep vs MCA cross-race mismatch flagged (1.95%)."
+      }
+    ],
+    "reportedAt": "2025-08-09T06:36:35.000Z",
     "nearestStations": [
       "PS-00023",
       "PS-00024",
@@ -1181,7 +3222,7 @@
       "PS-00027"
     ],
     "notes": [
-      "Station transmission validated."
+      "Station flagged for anomaly review. Compare all race forms from this station before escalation."
     ]
   }
 ]
