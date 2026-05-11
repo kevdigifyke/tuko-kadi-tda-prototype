@@ -1,6 +1,6 @@
 import { ClusterEdge, ClusterNode } from "@/src/types/graph";
 
-const enrich = (node: Omit<ClusterNode, "riskLevel" | "reviewerStatus" | "explanation" | "primaryIssue" | "featureSummary" | "reviewRecommendations" | "relatedClusterIds" | "timelineEvents">): ClusterNode => ({
+const enrich = (node: Omit<ClusterNode, "riskLevel" | "reviewerStatus" | "explanation" | "primaryIssue" | "featureSummary" | "reviewRecommendations" | "relatedClusterIds" | "timelineEvents" | "clusterMass" | "massLabel" | "gravityReason" | "visualRadius" | "glowStrength">): ClusterNode => ({
   ...node,
   riskLevel: node.severity >= 85 ? "critical" : node.severity >= 70 ? "high" : node.severity >= 50 ? "medium" : "low",
   reviewerStatus: node.severity >= 80 ? "requires_review" : node.severity >= 60 ? "in_review" : "cleared_demo",
@@ -9,7 +9,12 @@ const enrich = (node: Omit<ClusterNode, "riskLevel" | "reviewerStatus" | "explan
   featureSummary: node.signals,
   reviewRecommendations: ["Compare source forms", "Check station-level tally breakdown", "Escalate to human verification"],
   relatedClusterIds: [],
-  timelineEvents: [{ timestamp: new Date().toISOString(), label: "Synthetic marker" }],
+  timelineEvents: [{ timestamp: "2026-01-01T00:00:00.000Z", label: "Synthetic marker" }],
+  clusterMass: node.severity,
+  massLabel: node.severity >= 80 ? "critical" : node.severity >= 60 ? "high" : node.severity >= 35 ? "moderate" : "low",
+  gravityReason: "high severity + affected stations + review signal",
+  visualRadius: 1 + node.severity / 16,
+  glowStrength: 0.15 + node.severity / 140,
 });
 
 export const mockNodes: ClusterNode[] = [

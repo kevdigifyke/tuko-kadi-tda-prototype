@@ -4,6 +4,7 @@ import type { ClusterNode as GraphClusterNode, ClusterEdge as GraphClusterEdge }
 import electionSummaryJson from "@/src/data/generated/election-summary.json";
 import clusterGraphJson from "@/src/data/generated/cluster-graph.json";
 import stationSampleJson from "@/src/data/generated/station-sample.json";
+import { buildGravityReason, calculateClusterMass, getClusterMassLabel, normalizeClusterMass } from "@/src/lib/clusterMass";
 
 const FALLBACK_SUMMARY: ElectionSummary = {
   generatedAt: "2026-01-01T00:00:00.000Z",
@@ -71,6 +72,9 @@ export function mapClusterNodeToGraphNode(node: ClusterGraph["nodes"][number], i
   const featureSummary = node.featureSummary ?? ["Synthetic feature summary unavailable"];
   const reviewRecommendations = node.reviewRecommendations ?? ["Compare source forms", "Escalate to human verification"];
   const timelineEvents = node.timelineEvents ?? [{ timestamp: summaryData.generatedAt, label: "Synthetic marker" }];
+  const clusterMass = calculateClusterMass(node);
+  const massLabel = getClusterMassLabel(clusterMass);
+  const gravityReason = buildGravityReason(node, clusterMass);
   return {
     id: node.id,
     label: `${node.county} ${node.ward}`,
@@ -94,6 +98,11 @@ export function mapClusterNodeToGraphNode(node: ClusterGraph["nodes"][number], i
     reviewRecommendations,
     relatedClusterIds: node.relatedClusterIds ?? [],
     timelineEvents,
+    clusterMass,
+    massLabel,
+    gravityReason,
+    visualRadius: 0,
+    glowStrength: 0,
   };
 }
 
@@ -113,7 +122,15 @@ export function getClusterById(id: string): GraphClusterNode {
 }
 
 export function getGraphNodes(): GraphClusterNode[] {
-  return clusterGraphData.nodes.map(mapClusterNodeToGraphNode);
+  const mapped = clusterGraphData.nodes.map(mapClusterNodeToGraphNode);
+  const normalizedMass = normalizeClusterMass(clusterGraphData.nodes);
+  return mapped.map((node, index) => ({
+    ...node,
+    clusterMass: normalizedMass[index],
+    massLabel: getClusterMassLabel(normalizedMass[index]),
+    visualRadius: 1 + normalizedMass[index] / 16,
+    glowStrength: 0.18 + normalizedMass[index] / 130,
+  }));
 }
 
 export function getGraphEdges(): GraphClusterEdge[] {

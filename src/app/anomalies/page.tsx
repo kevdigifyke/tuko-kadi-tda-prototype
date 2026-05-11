@@ -3,13 +3,16 @@
 import { AppShell } from "@/src/components/shell/AppShell";
 import { EvidencePanel } from "@/src/components/EvidencePanel";
 import { GesturePanel } from "@/src/components/GesturePanel";
+import { GraphLegend } from "@/src/components/GraphLegend";
 import { TdaGraph } from "@/src/components/TdaGraph";
 import { TimelineScrubber } from "@/src/components/TimelineScrubber";
 import { getClusterById, getClusterGraph, getDefaultCluster, getGraphEdges, getGraphNodes } from "@/src/lib/generatedElectionData";
 import type { GestureCommandEvent } from "@/src/hooks/useGestureCommands";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { applyTopologyLayout, TopologyMode } from "@/src/lib/topologyLayouts";
 
 type ForensicMode = "Live Pulse" | "Forensic Cluster" | "Time Machine";
+const TOPOLOGY_MODES: TopologyMode[] = ["Centralized", "Decentralized", "Distributed"];
 
 const FORENSIC_MODES: ForensicMode[] = [
   "Live Pulse",
@@ -26,6 +29,9 @@ export default function Anomalies() {
   const [gestureModeActive, setGestureModeActive] = useState(false);
   const [frozen, setFrozen] = useState(false);
   const [commandFeedback, setCommandFeedback] = useState("");
+  const [topologyMode, setTopologyMode] = useState<TopologyMode>("Centralized");
+  const layoutNodes = useMemo(() => applyTopologyLayout(graphNodes, graphEdges, topologyMode), [graphEdges, graphNodes, topologyMode]);
+  const gravityCenter = useMemo(() => layoutNodes.reduce((best, node) => node.clusterMass > best.clusterMass ? node : best, layoutNodes[0]), [layoutNodes]);
 
   const selected = useMemo(
     () => getClusterById(selectedId),
@@ -160,7 +166,7 @@ export default function Anomalies() {
         </div>
 
         <section className="relative min-h-[calc(100svh-128px)] overflow-hidden rounded-xl border border-white/10 bg-[#080f11] md:min-h-[calc(100svh-144px)] xl:min-h-[calc(100svh-150px)]">
-          <TdaGraph selectedId={selectedId} onSelect={setSelectedId} nodes={graphNodes} edges={graphEdges} />
+          <TdaGraph selectedId={selectedId} onSelect={setSelectedId} nodes={layoutNodes} edges={graphEdges} />
 
           <div className="relative z-10 flex min-h-[calc(100svh-128px)] flex-col gap-3 p-3 md:min-h-[calc(100svh-144px)] md:p-4 xl:hidden">
             <div className="w-full rounded-md border-l-4 border-[#ffb4ab] bg-[#151d1e]/95 p-3">
@@ -172,6 +178,10 @@ export default function Anomalies() {
             </div>
 
             <GesturePanel onGestureCommand={onGestureCommand} />
+            <div className="flex flex-wrap gap-2">
+              {TOPOLOGY_MODES.map((mode) => <button key={mode} className={`rounded border px-2 py-1 text-xs ${mode === topologyMode ? "border-cyan-300/80 bg-cyan-300/20 text-cyan-100" : "border-white/25 text-[#bac9cc]"}`} onClick={() => setTopologyMode(mode)}>{mode}</button>)}
+            </div>
+            <GraphLegend mode={topologyMode} gravityCenter={gravityCenter} />
             <p className="rounded border border-cyan-300/35 bg-[#0b1618]/90 px-2 py-1 text-[10px] text-cyan-100/90">
               Mouse inspection available. Gestures control modes and selection.
             </p>
@@ -215,6 +225,12 @@ export default function Anomalies() {
 
             <div className="pointer-events-auto absolute left-6 top-40">
               <GesturePanel onGestureCommand={onGestureCommand} />
+              <div className="mt-2 flex flex-wrap gap-2">
+                {TOPOLOGY_MODES.map((mode) => <button key={mode} className={`rounded border px-2 py-1 text-[10px] ${mode === topologyMode ? "border-cyan-300/80 bg-cyan-300/20 text-cyan-100" : "border-white/25 text-[#bac9cc]"}`} onClick={() => setTopologyMode(mode)}>{mode}</button>)}
+              </div>
+              <div className="mt-2">
+                <GraphLegend mode={topologyMode} gravityCenter={gravityCenter} />
+              </div>
               <p className="mt-2 rounded border border-cyan-300/35 bg-[#0b1618]/90 px-2 py-1 text-[10px] text-cyan-100/90">
                 Mouse inspection available. Gestures control modes and selection.
               </p>
