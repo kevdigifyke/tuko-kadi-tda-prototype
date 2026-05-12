@@ -1,0 +1,6 @@
+[
+  {"id":"upl-901","stationId":"st-041","stationCode":"04720041","county":"Nairobi","ward":"Kayole Central","submittedAt":"2026-05-12T19:42:00Z","agentId":"AG-882","fileName":"form34a_kayole_041.jpg","fileType":"Form 34A","ocrConfidence":0.91,"status":"pending"},
+  {"id":"upl-902","stationId":"st-137","stationCode":"01980137","county":"Kisumu","ward":"Railways","submittedAt":"2026-05-12T20:06:00Z","agentId":"AG-131","fileName":"tally_screen_137.png","fileType":"Tally Screenshot","ocrConfidence":0.62,"status":"flagged"},
+  {"id":"upl-903","stationId":"st-214","stationCode":"03110214","county":"Mombasa","ward":"Mvita","submittedAt":"2026-05-12T20:24:00Z","agentId":"AG-440","fileName":"station_evidence_mca214.jpeg","fileType":"Station Evidence","ocrConfidence":0.84,"status":"in_review"},
+  {"id":"upl-904","stationId":"st-318","stationCode":"02550318","county":"Uasin Gishu","ward":"Kapseret","submittedAt":"2026-05-12T23:17:00Z","agentId":"AG-017","fileName":"form34a_late318.jpg","fileType":"Form 34A","ocrConfidence":0.57,"status":"flagged"}
+]
