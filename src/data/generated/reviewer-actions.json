@@ -1,0 +1,6 @@
+[
+  {"id":"act-701","stationId":"st-041","at":"2026-05-12T19:50:00Z","reviewer":"ops-desk-2","action":"request_second_review","note":"Mismatch between presidential and MCA turnout anchor."},
+  {"id":"act-702","stationId":"st-137","at":"2026-05-12T20:13:00Z","reviewer":"ops-desk-1","action":"escalate","note":"Low OCR confidence and inflated turnout delta."},
+  {"id":"act-703","stationId":"st-214","at":"2026-05-12T20:35:00Z","reviewer":"ops-desk-3","action":"approve","note":"Duplicate upload likely due to weak connection retry."},
+  {"id":"act-704","stationId":"st-318","at":"2026-05-12T23:22:00Z","reviewer":"ops-supervisor","action":"reject","note":"Submission window anomaly and severe cross-race inconsistency."}
+]

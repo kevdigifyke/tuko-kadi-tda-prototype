@@ -1,0 +1,6 @@
+[
+  {"stationId":"st-041","clusterId":"cluster-2","priority":"high","reviewState":"pending","severity":0.78,"anomalyTypes":["presidential mismatch","cross-race inconsistency"],"recommendation":"request_second_review"},
+  {"stationId":"st-137","clusterId":"cluster-3","priority":"critical","reviewState":"flagged","severity":0.92,"anomalyTypes":["turnout inflation","low OCR confidence"],"recommendation":"escalate"},
+  {"stationId":"st-214","clusterId":"cluster-1","priority":"medium","reviewState":"in_review","severity":0.51,"anomalyTypes":["duplicate upload suspicion"],"recommendation":"approve_if_verified"},
+  {"stationId":"st-318","clusterId":"cluster-5","priority":"critical","reviewState":"flagged","severity":0.95,"anomalyTypes":["suspicious late submission","cross-race inconsistency","turnout inflation"],"recommendation":"escalate"}
+]
