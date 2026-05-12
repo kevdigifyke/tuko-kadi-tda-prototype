@@ -1,4 +1,5 @@
 export type ClusterType = "normal" | "warning" | "anomaly";
+export type ClusterEventState = "emerging" | "stabilizing" | "escalating" | "dissipating";
 
 export interface ClusterNode {
   id: string;
@@ -23,6 +24,8 @@ export interface ClusterNode {
   reviewRecommendations: string[];
   relatedClusterIds: string[];
   timelineEvents: Array<{ timestamp: string; label: string }>;
+  eventState?: ClusterEventState;
+  emergenceScore?: number;
 }
 
 export interface ClusterEdge {
@@ -31,3 +34,17 @@ export interface ClusterEdge {
   target: string;
   weight: number;
 }
+
+export type TimelineFrame = {
+  timestamp: string;
+  nodes: ClusterNode[];
+  edges: ClusterEdge[];
+  severityChanges: Record<string, number>;
+  confidenceChanges: Record<string, number>;
+  emergenceStates: Record<string, ClusterEventState>;
+  notableEvents: string[];
+  escalationSummary?: string;
+  clusterMerges?: string[];
+  reviewTriggers?: string[];
+  markers?: Array<{ timestamp: string; label: string }>;
+};

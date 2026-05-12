@@ -4,6 +4,7 @@ import type { ClusterNode as GraphClusterNode, ClusterEdge as GraphClusterEdge }
 import electionSummaryJson from "@/src/data/generated/election-summary.json";
 import clusterGraphJson from "@/src/data/generated/cluster-graph.json";
 import stationSampleJson from "@/src/data/generated/station-sample.json";
+import timelineFramesJson from "@/src/data/generated/timeline-frames.json";
 
 const FALLBACK_SUMMARY: ElectionSummary = {
   generatedAt: "2026-01-01T00:00:00.000Z",
@@ -118,4 +119,33 @@ export function getGraphNodes(): GraphClusterNode[] {
 
 export function getGraphEdges(): GraphClusterEdge[] {
   return clusterGraphData.edges.map(mapClusterEdgeToGraphEdge);
+}
+
+
+
+export function getTimelineFrames() {
+  const raw = (timelineFramesJson as unknown as { generatedAt: string; frames: Array<Record<string, unknown>> }).frames ?? [];
+  return raw.map((frame) => ({
+    ...(frame as object),
+    nodes: ((frame.nodes as import("@/src/types/graph").ClusterNode[]) ?? []).map((node) => ({
+      ...node,
+      whyFlagged: node.whyFlagged ?? node.explanation ?? "Synthetic replay signal",
+      riskLevel: node.riskLevel ?? "medium",
+      reviewerStatus: node.reviewerStatus ?? "requires_review",
+      explanation: node.explanation ?? "Synthetic replay node",
+      primaryIssue: node.primaryIssue ?? "turnout variance",
+      signals: node.signals ?? [],
+      featureSummary: node.featureSummary ?? [],
+      reviewRecommendations: node.reviewRecommendations ?? [],
+      relatedClusterIds: node.relatedClusterIds ?? [],
+      timelineEvents: node.timelineEvents ?? [],
+      type: node.type === "anomaly" || node.type === "warning" ? node.type : "normal",
+    })),
+    edges: (frame.edges as import("@/src/types/graph").ClusterEdge[]) ?? [],
+    severityChanges: (frame.severityChanges as Record<string, number>) ?? {},
+    confidenceChanges: (frame.confidenceChanges as Record<string, number>) ?? {},
+    emergenceStates: (frame.emergenceStates as Record<string, import("@/src/types/graph").ClusterEventState>) ?? {},
+    notableEvents: (frame.notableEvents as string[]) ?? [],
+    markers: (frame.markers as Array<{ timestamp: string; label: string }>) ?? [],
+  })) as import("@/src/types/graph").TimelineFrame[];
 }
