@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-05-12T00:00:00.000Z",
+  "modes": ["results", "turnout", "anomaly", "disagreement", "temporal"],
+  "partyPalette": {
+    "UDA": "#f4d13f",
+    "ODM": "#5aa7ff",
+    "WIPER": "#6be9b1",
+    "JUBILEE": "#f48d6a"
+  },
+  "timeSlices": [
+    { "id": "19:00", "label": "19:00" },
+    { "id": "21:00", "label": "21:00" },
+    { "id": "23:00", "label": "23:00" },
+    { "id": "01:00", "label": "01:00" },
+    { "id": "03:00", "label": "03:00" }
+  ],
+  "regions": [
+    {
+      "id": "alpha-county",
+      "name": "Alpha County",
+      "geometry": "M120,120 L280,90 L330,190 L250,280 L130,250 Z",
+      "constituencies": ["North Alpha", "Central Alpha"],
+      "wards": ["River Ward", "Market Ward", "Hills Ward"],
+      "pollingStationsAffected": 14,
+      "connectedClusters": ["cluster-001", "cluster-004"],
+      "reviewerNotes": "Vote packet delays correlate with late form uploads.",
+      "snapshots": [
+        { "time": "19:00", "winnerParty": "ODM", "turnout": 42, "anomalySeverity": 0.19, "disagreement": 0.25 },
+        { "time": "21:00", "winnerParty": "ODM", "turnout": 51, "anomalySeverity": 0.33, "disagreement": 0.37 },
+        { "time": "23:00", "winnerParty": "UDA", "turnout": 57, "anomalySeverity": 0.48, "disagreement": 0.45 },
+        { "time": "01:00", "winnerParty": "UDA", "turnout": 62, "anomalySeverity": 0.61, "disagreement": 0.62 },
+        { "time": "03:00", "winnerParty": "UDA", "turnout": 66, "anomalySeverity": 0.54, "disagreement": 0.38 }
+      ]
+    },
+    {
+      "id": "bravo-county",
+      "name": "Bravo County",
+      "geometry": "M340,125 L500,70 L620,120 L590,230 L470,260 L360,220 Z",
+      "constituencies": ["East Bravo", "Delta Bravo"],
+      "wards": ["Jetty Ward", "Quarry Ward", "Pipeline Ward"],
+      "pollingStationsAffected": 21,
+      "connectedClusters": ["cluster-002", "cluster-005", "cluster-007"],
+      "reviewerNotes": "Conflicting tallies between station and constituency forms.",
+      "snapshots": [
+        { "time": "19:00", "winnerParty": "UDA", "turnout": 47, "anomalySeverity": 0.27, "disagreement": 0.33 },
+        { "time": "21:00", "winnerParty": "UDA", "turnout": 58, "anomalySeverity": 0.35, "disagreement": 0.48 },
+        { "time": "23:00", "winnerParty": "UDA", "turnout": 63, "anomalySeverity": 0.52, "disagreement": 0.73 },
+        { "time": "01:00", "winnerParty": "ODM", "turnout": 69, "anomalySeverity": 0.64, "disagreement": 0.67 },
+        { "time": "03:00", "winnerParty": "ODM", "turnout": 72, "anomalySeverity": 0.57, "disagreement": 0.49 }
+      ]
+    },
+    {
+      "id": "charlie-county",
+      "name": "Charlie County",
+      "geometry": "M190,300 L350,290 L430,380 L290,450 L170,400 Z",
+      "constituencies": ["Lower Charlie", "Upper Charlie"],
+      "wards": ["Forest Ward", "Depot Ward", "Civic Ward"],
+      "pollingStationsAffected": 9,
+      "connectedClusters": ["cluster-003", "cluster-004"],
+      "reviewerNotes": "Turnout surge after midnight needs document trace.",
+      "snapshots": [
+        { "time": "19:00", "winnerParty": "WIPER", "turnout": 36, "anomalySeverity": 0.14, "disagreement": 0.19 },
+        { "time": "21:00", "winnerParty": "WIPER", "turnout": 43, "anomalySeverity": 0.28, "disagreement": 0.24 },
+        { "time": "23:00", "winnerParty": "ODM", "turnout": 49, "anomalySeverity": 0.42, "disagreement": 0.31 },
+        { "time": "01:00", "winnerParty": "ODM", "turnout": 58, "anomalySeverity": 0.53, "disagreement": 0.39 },
+        { "time": "03:00", "winnerParty": "ODM", "turnout": 61, "anomalySeverity": 0.44, "disagreement": 0.29 }
+      ]
+    }
+  ],
+  "clusters": [
+    { "id": "cluster-001", "label": "A1 Upload Lag", "severity": 0.62, "regionIds": ["alpha-county"] },
+    { "id": "cluster-002", "label": "B3 Tallies Drift", "severity": 0.79, "regionIds": ["bravo-county"] },
+    { "id": "cluster-003", "label": "C2 Overnight Spike", "severity": 0.55, "regionIds": ["charlie-county"] },
+    { "id": "cluster-004", "label": "A5 Chain Break", "severity": 0.68, "regionIds": ["alpha-county", "charlie-county"] },
+    { "id": "cluster-005", "label": "B7 Source Mismatch", "severity": 0.81, "regionIds": ["bravo-county"] },
+    { "id": "cluster-007", "label": "B9 Verification Gap", "severity": 0.49, "regionIds": ["bravo-county"] }
+  ]
+}
