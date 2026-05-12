@@ -20,18 +20,32 @@ export default function Anomalies() {
   const [gestureModeActive, setGestureModeActive] = useState(false);
   const [hudMessage, setHudMessage] = useState("");
   const [topologyMode, setTopologyMode] = useState<TopologyMode>("centralized");
+  const [simulationFrozen, setSimulationFrozen] = useState(false);
+  const [timelinePhase, setTimelinePhase] = useState(0.45);
   const selected = useMemo(() => getClusterById(selectedId), [selectedId]);
 
   useEffect(() => { const saved = localStorage.getItem(STORAGE_KEY) as TopologyMode | null; if (saved) setTopologyMode(saved); }, []);
   useEffect(() => { localStorage.setItem(STORAGE_KEY, topologyMode); }, [topologyMode]);
   useEffect(() => { if (!hudMessage) return; const t = window.setTimeout(() => setHudMessage(""), 1400); return () => window.clearTimeout(t); }, [hudMessage]);
 
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = window.setInterval(() => setTimelinePhase((v) => (v + 0.02) % 1), 120);
+    return () => window.clearInterval(timer);
+  }, [isPlaying]);
+
   const switchTopology = useCallback((next: TopologyMode) => { setTopologyMode(next); setHudMessage(`Topology: ${next[0].toUpperCase()}${next.slice(1)}`); }, []);
 
   const onGestureCommand = useCallback((event: GestureCommandEvent) => {
     if (event.command === "GESTURE_MODE_ACTIVE") { setGestureModeActive(true); switchTopology(cycleTopology(topologyMode, 1)); }
     if (event.command === "MODE_SWITCH_NEXT") switchTopology(cycleTopology(topologyMode, 1));
-  }, [switchTopology, topologyMode]);
+    if (event.command === "FREEZE_VIEW_TOGGLE" || event.command === "RESET_VIEW") setSimulationFrozen((s) => !s);
+    if (event.command === "GRAPH_SELECT_NEXT") {
+      const ids = graphNodes.map((node) => node.id);
+      const idx = Math.max(0, ids.indexOf(selectedId));
+      setSelectedId(ids[(idx + 1) % ids.length]);
+    }
+  }, [switchTopology, topologyMode, graphNodes, selectedId]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -46,7 +60,7 @@ export default function Anomalies() {
   }, [switchTopology, topologyMode]);
 
   return <AppShell><section className="relative min-h-[calc(100svh-120px)] overflow-hidden rounded-xl border border-white/10 bg-[#080f11]">
-    <TopologyGraph selectedId={selectedId} onSelect={setSelectedId} nodes={graphNodes} edges={graphEdges} topologyMode={topologyMode} />
+    <TopologyGraph selectedId={selectedId} onSelect={setSelectedId} nodes={graphNodes} edges={graphEdges} topologyMode={topologyMode} isPlaying={isPlaying} timelinePhase={timelinePhase} simulationFrozen={simulationFrozen} />
 
     <div className="pointer-events-none absolute left-0 top-0 z-20 flex h-full w-full">
       <div className="pointer-events-auto m-4 w-[290px]"><GesturePanel onGestureCommand={onGestureCommand} /></div>
