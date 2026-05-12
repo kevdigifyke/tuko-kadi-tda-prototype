@@ -9,12 +9,12 @@ import { getClusterById, getClusterGraph, getDefaultCluster, getGraphEdges, getG
 import type { GestureCommandEvent } from "@/src/hooks/useGestureCommands";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-type ForensicMode = "Live Pulse" | "Forensic Cluster" | "Time Machine";
+type ForensicMode = "Centralized" | "Decentralized" | "Distributed";
 
 const FORENSIC_MODES: ForensicMode[] = [
-  "Live Pulse",
-  "Forensic Cluster",
-  "Time Machine",
+  "Centralized",
+  "Decentralized",
+  "Distributed",
 ];
 
 export default function Anomalies() {
@@ -22,7 +22,7 @@ export default function Anomalies() {
   const graphEdges = useMemo(() => getGraphEdges(), []);
   const [selectedId, setSelectedId] = useState(getDefaultCluster().id);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [currentMode, setCurrentMode] = useState<ForensicMode>("Forensic Cluster");
+  const [currentMode, setCurrentMode] = useState<ForensicMode>("Centralized");
   const [gestureModeActive, setGestureModeActive] = useState(false);
   const [frozen, setFrozen] = useState(false);
   const [commandFeedback, setCommandFeedback] = useState("");
@@ -50,7 +50,7 @@ export default function Anomalies() {
 
   const resetView = useCallback(() => {
     setSelectedId(getDefaultCluster().id);
-    setCurrentMode("Forensic Cluster");
+    setCurrentMode("Centralized");
     setFrozen(false);
   }, []);
 
@@ -160,7 +160,7 @@ export default function Anomalies() {
         </div>
 
         <section className="relative min-h-[calc(100svh-128px)] overflow-hidden rounded-xl border border-white/10 bg-[#080f11] md:min-h-[calc(100svh-144px)] xl:min-h-[calc(100svh-150px)]">
-          <TdaGraph selectedId={selectedId} onSelect={setSelectedId} nodes={graphNodes} edges={graphEdges} />
+          <TdaGraph selectedId={selectedId} onSelect={setSelectedId} nodes={graphNodes} edges={graphEdges} topologyMode={currentMode.toLowerCase() as "centralized" | "decentralized" | "distributed"} />
 
           <div className="relative z-10 flex min-h-[calc(100svh-128px)] flex-col gap-3 p-3 md:min-h-[calc(100svh-144px)] md:p-4 xl:hidden">
             <div className="w-full rounded-md border-l-4 border-[#ffb4ab] bg-[#151d1e]/95 p-3">
