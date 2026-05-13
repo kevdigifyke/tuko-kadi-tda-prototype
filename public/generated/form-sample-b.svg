@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1200'>
+<rect width='900' height='1200' fill='#ebeff0'/><rect x='44' y='52' width='812' height='1092' rx='12' fill='white' stroke='#6d7f87' stroke-width='3'/>
+<text x='80' y='110' fill='#1b2d35' font-family='monospace' font-size='30'>FORM 34A RESULT SHEET</text>
+<g stroke='#90a7b0'><line x1='80' y1='180' x2='820' y2='180'/><line x1='80' y1='260' x2='820' y2='260'/><line x1='80' y1='340' x2='820' y2='340'/><line x1='80' y1='420' x2='820' y2='420'/></g>
+<text x='100' y='228' fill='#20363f' font-size='24' font-family='monospace'>Candidate A ......... 278</text>
+<text x='100' y='308' fill='#20363f' font-size='24' font-family='monospace'>Candidate B ......... 2?1</text>
+<text x='100' y='388' fill='#20363f' font-size='24' font-family='monospace'>Candidate C ......... 034</text>
+<text x='100' y='468' fill='#20363f' font-size='24' font-family='monospace'>Spoiled ............. 017</text>
+<rect x='260' y='275' width='200' height='54' fill='rgba(255,140,120,.2)' stroke='#ff7070' stroke-width='3' stroke-dasharray='8 6'/></svg>
