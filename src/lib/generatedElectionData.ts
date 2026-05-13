@@ -3,6 +3,7 @@ import type { ClusterNode as GraphClusterNode, ClusterEdge as GraphClusterEdge }
 
 import electionSummaryJson from "@/src/data/generated/election-summary.json";
 import clusterGraphJson from "@/src/data/generated/cluster-graph.json";
+import pythonTdaGraphJson from "@/src/data/generated/python-tda-graph.json";
 import stationSampleJson from "@/src/data/generated/station-sample.json";
 
 const FALLBACK_SUMMARY: ElectionSummary = {
@@ -49,7 +50,9 @@ const FALLBACK_STATION: StationDetailRecord = {
 };
 
 const summaryData = (electionSummaryJson as ElectionSummary) ?? FALLBACK_SUMMARY;
-const clusterGraphData = (clusterGraphJson as ClusterGraph) ?? { generatedAt: FALLBACK_SUMMARY.generatedAt, nodes: [], edges: [] };
+const fallbackClusterGraph = (clusterGraphJson as ClusterGraph) ?? { generatedAt: FALLBACK_SUMMARY.generatedAt, nodes: [], edges: [] };
+const pythonTdaGraphData = (pythonTdaGraphJson as ClusterGraph) ?? { generatedAt: FALLBACK_SUMMARY.generatedAt, nodes: [], edges: [] };
+const clusterGraphData = pythonTdaGraphData.nodes?.length ? pythonTdaGraphData : fallbackClusterGraph;
 const stationSampleData = (stationSampleJson as StationDetailRecord[]) ?? [];
 
 export function getElectionSummary(): ElectionSummary {
