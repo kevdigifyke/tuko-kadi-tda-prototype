@@ -2,6 +2,8 @@
 
 import { AppShell } from "@/src/components/shell/AppShell";
 import mapIntel from "@/src/data/generated/map-intelligence.json";
+import ocrResults from "@/src/data/generated/ocr-results.json";
+import documentConflicts from "@/src/data/generated/document-conflicts.json";
 import { useEffect, useMemo, useState } from "react";
 
 type ModeKey = "results" | "turnout" | "anomaly" | "disagreement" | "temporal";
@@ -40,6 +42,8 @@ export default function Maps() {
     if (!selectedCluster) return new Set<string>();
     return new Set(selectedCluster.regionIds);
   }, [selectedCluster]);
+
+  const ocrAlertCount = useMemo(() => ocrResults.documents.filter((d) => d.ocrConfidence < 0.65).length + documentConflicts.conflicts.length, []);
 
   const linkedClusterIds = useMemo(() => {
     if (!selectedRegion) return new Set<string>();
@@ -145,6 +149,7 @@ export default function Maps() {
                 );
               })()}
               <p className="mt-3 text-xs text-[#a8bac1]">{selectedRegion.reviewerNotes}</p>
+              <p className="mt-2 rounded border border-amber-300/35 bg-amber-300/10 px-2 py-1 text-xs text-amber-100">OCR low-confidence or conflicts influencing map state: {ocrAlertCount} stations flagged.</p>
             </section>
 
             <section className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">

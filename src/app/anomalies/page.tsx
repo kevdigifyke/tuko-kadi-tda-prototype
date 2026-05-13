@@ -8,6 +8,8 @@ import { TimelineScrubber } from "@/src/components/TimelineScrubber";
 import { getClusterById, getDefaultCluster, getGraphEdges, getGraphNodes } from "@/src/lib/generatedElectionData";
 import { TOPOLOGY_MODES, cycleTopology, type TopologyMode } from "@/src/lib/topologyModes";
 import type { GestureCommandEvent } from "@/src/hooks/useGestureCommands";
+import ocrResults from "@/src/data/generated/ocr-results.json";
+import documentConflicts from "@/src/data/generated/document-conflicts.json";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "tuko-topology-mode";
@@ -23,6 +25,7 @@ export default function Anomalies() {
   const [simulationFrozen, setSimulationFrozen] = useState(false);
   const [timelinePhase, setTimelinePhase] = useState(0.45);
   const selected = useMemo(() => getClusterById(selectedId), [selectedId]);
+  const ocrInstability = useMemo(() => ocrResults.documents.reduce((acc, d) => acc + (1 - d.ocrConfidence), 0) / ocrResults.documents.length + documentConflicts.conflicts.length * 0.1, []);
 
   useEffect(() => { const saved = localStorage.getItem(STORAGE_KEY) as TopologyMode | null; if (saved) setTopologyMode(saved); }, []);
   useEffect(() => { localStorage.setItem(STORAGE_KEY, topologyMode); }, [topologyMode]);
@@ -74,6 +77,7 @@ export default function Anomalies() {
     </div>
 
     {hudMessage && <div className="absolute left-1/2 top-20 z-30 -translate-x-1/2 rounded-md border border-cyan-300/50 bg-[#071315]/85 px-3 py-1 text-xs text-cyan-100">{hudMessage}</div>}
+    <div className="absolute right-4 top-4 z-30 rounded border border-amber-300/45 bg-amber-300/10 px-3 py-2 text-xs text-amber-100">OCR-linked cluster instability: +{ocrInstability.toFixed(2)}</div>
 
     <div className="absolute bottom-4 left-4 right-4 z-20"><TimelineScrubber isPlaying={isPlaying} onToggle={() => setIsPlaying((s) => !s)} events={selected.timelineEvents} /></div>
     {gestureModeActive && <div className="absolute left-4 top-4 z-30 rounded border border-cyan-300/40 bg-cyan-300/10 px-2 py-1 text-[10px] text-cyan-100">Gesture topology switching active</div>}

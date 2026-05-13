@@ -1,0 +1,31 @@
+{
+  "conflicts": [
+    {
+      "id": "conflict-dup-001",
+      "type": "duplicate_upload",
+      "stationCode": "KIAMBU-047-PS12",
+      "severity": "medium",
+      "description": "Two uploads share near-identical structure and metadata hash.",
+      "linkedDocuments": ["ocr-doc-kiambu-047-a", "ocr-doc-kiambu-047-a-copy"],
+      "status": "review_required"
+    },
+    {
+      "id": "conflict-total-004",
+      "type": "conflicting_totals",
+      "stationCode": "KISUMU-102-PS04",
+      "severity": "high",
+      "description": "Candidate B total differs by 30 votes between uploads.",
+      "linkedDocuments": ["ocr-doc-kisumu-102-b", "ocr-doc-kisumu-102-b-alt"],
+      "status": "open"
+    },
+    {
+      "id": "conflict-alter-006",
+      "type": "altered_image_suspicion",
+      "stationCode": "KISUMU-102-PS04",
+      "severity": "high",
+      "description": "Local contrast map indicates suspected overwrite strokes.",
+      "linkedDocuments": ["ocr-doc-kisumu-102-b"],
+      "status": "escalated"
+    }
+  ]
+}
