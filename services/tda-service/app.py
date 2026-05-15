@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from fastapi import FastAPI
+
+
+
 from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
@@ -15,7 +19,15 @@ from pydantic import BaseModel, Field
 from sklearn.preprocessing import StandardScaler
 from umap import UMAP
 
-app = FastAPI(title="Tuko Kadi TDA Service", version="0.1.0")
+app = FastAPI()
+
+@app.get("/")
+def root():
+    return {
+        "message": "TDA Service Running"
+    }
+
+
 
 ROOT = Path(__file__).resolve().parents[2]
 FRONTEND_GRAPH_PATH = ROOT / "src" / "data" / "generated" / "python-tda-graph.json"
