@@ -1,8 +1,22 @@
 "use client";
-import { AppShell } from "@/src/components/shell/AppShell";
-import { useMemo, useState } from "react";
-import { CommandPanel } from "@/src/components/ui/CommandPanel";
-import { getElectionSummary } from "@/src/lib/generatedElectionData";
-import { candidates } from "@/src/data/demoElectionData";
 
-export default function Maps(){const [m,setM]=useState('Results Map'); const summary=getElectionSummary(); const r=summary.wards[0] ?? summary.constituencies[0]; const leading=summary.candidateTotals[0]; const leadingName=useMemo(()=>candidates.find((c)=>c.id===leading?.candidateId)?.name ?? leading?.candidateId,[leading]); return <AppShell><div className="space-y-4"><h1 className="text-display">Map Intelligence</h1><p className="text-xs text-[#bac9cc]">Synthetic demo data. Not official election results.</p><div className="inline-flex rounded-xl border border-white/10 bg-[#151d1e] p-1">{['Results Map','Turnout Map','Anomaly Map'].map(v=><button key={v} onClick={()=>setM(v)} className={`rounded-lg px-4 py-2 text-sm ${m===v?'bg-cyan-400/20 text-cyan-200':'text-[#bac9cc]'}`}>{v}</button>)}</div><div className="grid gap-4 lg:grid-cols-[1fr_340px]"><div className="relative h-[520px] overflow-hidden rounded-xl border border-white/10 bg-[#080f11]"><svg className="absolute inset-0 h-full w-full opacity-40" viewBox="0 0 800 500"><path d="M20 120 L230 80 L420 140 L620 90 L760 180" stroke="#2a3a3d" fill="none"/><path d="M60 420 L220 310 L350 350 L580 260 L740 290" stroke="#2a3a3d" fill="none"/></svg><div className="absolute right-4 top-1/2 grid -translate-y-1/2 gap-2"><button className="rounded bg-black/50 px-3 py-2">+</button><button className="rounded bg-black/50 px-3 py-2">−</button></div><div className="absolute bottom-0 inset-x-0 flex flex-wrap items-center gap-4 border-t border-white/10 bg-black/40 p-3 text-xs"><span><i className="mr-1 inline-block size-2 rounded-full bg-cyan-300"/>Lead: {leadingName}</span><span>▴ Contested</span><span className="ml-auto">Show anomalies ⏽</span><span>Show turnout ⏽</span></div></div><CommandPanel title="District focus" active><p className="text-h2">{r?.ward ?? "Demo Ward"}</p><p className="text-body text-[#bac9cc]">{r?.constituency ?? "Demo Constituency"}</p><div className="mt-4 space-y-2 text-sm"><p>Leading candidate: <b>{leadingName}</b></p><p>Votes: <span className="text-data-md">{leading?.votes.toLocaleString()}</span></p><p>Turnout: <span className="text-data-md">{r?.turnoutPercent ?? 0}%</span></p><p>Confidence: <span className="text-data-md text-cyan-200">{Math.max(55, 100 - (r?.anomalyCount ?? 1))}%</span></p></div><button className="mt-5 w-full rounded-lg border border-cyan-300/50 bg-cyan-400/10 py-2 text-sm text-cyan-200">View full breakdown</button></CommandPanel></div></div></AppShell>}
+import dynamic from "next/dynamic";
+
+const IEBCBoundaryMap = dynamic(
+  () => import("../../components/maps/IEBCBoundaryMap"),
+  {
+    ssr: false,
+  }
+);
+
+export default function MapsPage() {
+  return (
+    <main className="p-4">
+      <h1 className="text-2xl font-bold mb-4">
+        IEBC Boundary Engine
+      </h1>
+
+      <IEBCBoundaryMap />
+    </main>
+  );
+}

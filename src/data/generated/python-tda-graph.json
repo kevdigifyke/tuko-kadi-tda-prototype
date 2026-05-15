@@ -1,0 +1,2837 @@
+{
+  "generatedAt": "2026-05-10T15:14:13.570Z",
+  "nodes": [
+    {
+      "id": "PS-00001",
+      "stationId": "PS-00001",
+      "label": "Polling Station 1",
+      "county": "Nairobi",
+      "ward": "Ward 01",
+      "severity": 57
+    },
+    {
+      "id": "PS-00004",
+      "stationId": "PS-00004",
+      "label": "Polling Station 4",
+      "county": "Uasin Gishu",
+      "ward": "Ward 04",
+      "severity": 88
+    },
+    {
+      "id": "PS-00006",
+      "stationId": "PS-00006",
+      "label": "Polling Station 6",
+      "county": "Machakos",
+      "ward": "Ward 06",
+      "severity": 88
+    },
+    {
+      "id": "PS-00012",
+      "stationId": "PS-00012",
+      "label": "Polling Station 12",
+      "county": "Uasin Gishu",
+      "ward": "Ward 12",
+      "severity": 45
+    },
+    {
+      "id": "PS-00013",
+      "stationId": "PS-00013",
+      "label": "Polling Station 13",
+      "county": "Nakuru",
+      "ward": "Ward 13",
+      "severity": 93
+    },
+    {
+      "id": "PS-00014",
+      "stationId": "PS-00014",
+      "label": "Polling Station 14",
+      "county": "Machakos",
+      "ward": "Ward 14",
+      "severity": 80
+    },
+    {
+      "id": "PS-00021",
+      "stationId": "PS-00021",
+      "label": "Polling Station 21",
+      "county": "Nakuru",
+      "ward": "Ward 21",
+      "severity": 90
+    },
+    {
+      "id": "PS-00022",
+      "stationId": "PS-00022",
+      "label": "Polling Station 22",
+      "county": "Machakos",
+      "ward": "Ward 22",
+      "severity": 47
+    },
+    {
+      "id": "PS-00024",
+      "stationId": "PS-00024",
+      "label": "Polling Station 24",
+      "county": "Kakamega",
+      "ward": "Ward 24",
+      "severity": 61
+    },
+    {
+      "id": "PS-00026",
+      "stationId": "PS-00026",
+      "label": "Polling Station 26",
+      "county": "Mombasa",
+      "ward": "Ward 26",
+      "severity": 63
+    },
+    {
+      "id": "PS-00031",
+      "stationId": "PS-00031",
+      "label": "Polling Station 31",
+      "county": "Kiambu",
+      "ward": "Ward 31",
+      "severity": 61
+    },
+    {
+      "id": "PS-00033",
+      "stationId": "PS-00033",
+      "label": "Polling Station 33",
+      "county": "Nairobi",
+      "ward": "Ward 33",
+      "severity": 47
+    },
+    {
+      "id": "PS-00035",
+      "stationId": "PS-00035",
+      "label": "Polling Station 35",
+      "county": "Kisumu",
+      "ward": "Ward 35",
+      "severity": 76
+    },
+    {
+      "id": "PS-00038",
+      "stationId": "PS-00038",
+      "label": "Polling Station 38",
+      "county": "Machakos",
+      "ward": "Ward 38",
+      "severity": 92
+    },
+    {
+      "id": "PS-00039",
+      "stationId": "PS-00039",
+      "label": "Polling Station 39",
+      "county": "Kiambu",
+      "ward": "Ward 39",
+      "severity": 68
+    },
+    {
+      "id": "PS-00044",
+      "stationId": "PS-00044",
+      "label": "Polling Station 44",
+      "county": "Uasin Gishu",
+      "ward": "Ward 44",
+      "severity": 72
+    },
+    {
+      "id": "PS-00056",
+      "stationId": "PS-00056",
+      "label": "Polling Station 56",
+      "county": "Kakamega",
+      "ward": "Ward 06",
+      "severity": 91
+    },
+    {
+      "id": "PS-00058",
+      "stationId": "PS-00058",
+      "label": "Polling Station 58",
+      "county": "Mombasa",
+      "ward": "Ward 08",
+      "severity": 70
+    },
+    {
+      "id": "PS-00072",
+      "stationId": "PS-00072",
+      "label": "Polling Station 72",
+      "county": "Kakamega",
+      "ward": "Ward 22",
+      "severity": 86
+    },
+    {
+      "id": "PS-00076",
+      "stationId": "PS-00076",
+      "label": "Polling Station 76",
+      "county": "Uasin Gishu",
+      "ward": "Ward 26",
+      "severity": 95
+    },
+    {
+      "id": "PS-00081",
+      "stationId": "PS-00081",
+      "label": "Polling Station 81",
+      "county": "Nairobi",
+      "ward": "Ward 31",
+      "severity": 70
+    },
+    {
+      "id": "PS-00087",
+      "stationId": "PS-00087",
+      "label": "Polling Station 87",
+      "county": "Kiambu",
+      "ward": "Ward 37",
+      "severity": 88
+    },
+    {
+      "id": "PS-00093",
+      "stationId": "PS-00093",
+      "label": "Polling Station 93",
+      "county": "Nakuru",
+      "ward": "Ward 43",
+      "severity": 49
+    },
+    {
+      "id": "PS-00098",
+      "stationId": "PS-00098",
+      "label": "Polling Station 98",
+      "county": "Mombasa",
+      "ward": "Ward 48",
+      "severity": 51
+    },
+    {
+      "id": "PS-00102",
+      "stationId": "PS-00102",
+      "label": "Polling Station 102",
+      "county": "Machakos",
+      "ward": "Ward 02",
+      "severity": 88
+    },
+    {
+      "id": "PS-00122",
+      "stationId": "PS-00122",
+      "label": "Polling Station 122",
+      "county": "Mombasa",
+      "ward": "Ward 22",
+      "severity": 40
+    },
+    {
+      "id": "PS-00133",
+      "stationId": "PS-00133",
+      "label": "Polling Station 133",
+      "county": "Nakuru",
+      "ward": "Ward 33",
+      "severity": 44
+    },
+    {
+      "id": "PS-00134",
+      "stationId": "PS-00134",
+      "label": "Polling Station 134",
+      "county": "Machakos",
+      "ward": "Ward 34",
+      "severity": 65
+    },
+    {
+      "id": "PS-00135",
+      "stationId": "PS-00135",
+      "label": "Polling Station 135",
+      "county": "Kiambu",
+      "ward": "Ward 35",
+      "severity": 85
+    },
+    {
+      "id": "PS-00138",
+      "stationId": "PS-00138",
+      "label": "Polling Station 138",
+      "county": "Mombasa",
+      "ward": "Ward 38",
+      "severity": 72
+    },
+    {
+      "id": "PS-00144",
+      "stationId": "PS-00144",
+      "label": "Polling Station 144",
+      "county": "Kakamega",
+      "ward": "Ward 44",
+      "severity": 78
+    },
+    {
+      "id": "PS-00146",
+      "stationId": "PS-00146",
+      "label": "Polling Station 146",
+      "county": "Mombasa",
+      "ward": "Ward 46",
+      "severity": 96
+    },
+    {
+      "id": "PS-00147",
+      "stationId": "PS-00147",
+      "label": "Polling Station 147",
+      "county": "Kisumu",
+      "ward": "Ward 47",
+      "severity": 93
+    },
+    {
+      "id": "PS-00148",
+      "stationId": "PS-00148",
+      "label": "Polling Station 148",
+      "county": "Uasin Gishu",
+      "ward": "Ward 48",
+      "severity": 84
+    },
+    {
+      "id": "PS-00152",
+      "stationId": "PS-00152",
+      "label": "Polling Station 152",
+      "county": "Kakamega",
+      "ward": "Ward 02",
+      "severity": 44
+    },
+    {
+      "id": "PS-00164",
+      "stationId": "PS-00164",
+      "label": "Polling Station 164",
+      "county": "Uasin Gishu",
+      "ward": "Ward 14",
+      "severity": 42
+    },
+    {
+      "id": "PS-00167",
+      "stationId": "PS-00167",
+      "label": "Polling Station 167",
+      "county": "Kiambu",
+      "ward": "Ward 17",
+      "severity": 68
+    },
+    {
+      "id": "PS-00172",
+      "stationId": "PS-00172",
+      "label": "Polling Station 172",
+      "county": "Uasin Gishu",
+      "ward": "Ward 22",
+      "severity": 94
+    },
+    {
+      "id": "PS-00180",
+      "stationId": "PS-00180",
+      "label": "Polling Station 180",
+      "county": "Uasin Gishu",
+      "ward": "Ward 30",
+      "severity": 57
+    },
+    {
+      "id": "PS-00185",
+      "stationId": "PS-00185",
+      "label": "Polling Station 185",
+      "county": "Nairobi",
+      "ward": "Ward 35",
+      "severity": 48
+    },
+    {
+      "id": "PS-00188",
+      "stationId": "PS-00188",
+      "label": "Polling Station 188",
+      "county": "Uasin Gishu",
+      "ward": "Ward 38",
+      "severity": 60
+    },
+    {
+      "id": "PS-00191",
+      "stationId": "PS-00191",
+      "label": "Polling Station 191",
+      "county": "Kiambu",
+      "ward": "Ward 41",
+      "severity": 74
+    },
+    {
+      "id": "PS-00201",
+      "stationId": "PS-00201",
+      "label": "Polling Station 201",
+      "county": "Nairobi",
+      "ward": "Ward 01",
+      "severity": 61
+    },
+    {
+      "id": "PS-00202",
+      "stationId": "PS-00202",
+      "label": "Polling Station 202",
+      "county": "Mombasa",
+      "ward": "Ward 02",
+      "severity": 63
+    },
+    {
+      "id": "PS-00205",
+      "stationId": "PS-00205",
+      "label": "Polling Station 205",
+      "county": "Nakuru",
+      "ward": "Ward 05",
+      "severity": 65
+    },
+    {
+      "id": "PS-00208",
+      "stationId": "PS-00208",
+      "label": "Polling Station 208",
+      "county": "Kakamega",
+      "ward": "Ward 08",
+      "severity": 96
+    },
+    {
+      "id": "PS-00212",
+      "stationId": "PS-00212",
+      "label": "Polling Station 212",
+      "county": "Uasin Gishu",
+      "ward": "Ward 12",
+      "severity": 76
+    },
+    {
+      "id": "PS-00216",
+      "stationId": "PS-00216",
+      "label": "Polling Station 216",
+      "county": "Kakamega",
+      "ward": "Ward 16",
+      "severity": 64
+    },
+    {
+      "id": "PS-00220",
+      "stationId": "PS-00220",
+      "label": "Polling Station 220",
+      "county": "Uasin Gishu",
+      "ward": "Ward 20",
+      "severity": 90
+    },
+    {
+      "id": "PS-00231",
+      "stationId": "PS-00231",
+      "label": "Polling Station 231",
+      "county": "Kiambu",
+      "ward": "Ward 31",
+      "severity": 78
+    },
+    {
+      "id": "PS-00241",
+      "stationId": "PS-00241",
+      "label": "Polling Station 241",
+      "county": "Nairobi",
+      "ward": "Ward 41",
+      "severity": 50
+    },
+    {
+      "id": "PS-00245",
+      "stationId": "PS-00245",
+      "label": "Polling Station 245",
+      "county": "Nakuru",
+      "ward": "Ward 45",
+      "severity": 87
+    },
+    {
+      "id": "PS-00246",
+      "stationId": "PS-00246",
+      "label": "Polling Station 246",
+      "county": "Machakos",
+      "ward": "Ward 46",
+      "severity": 40
+    },
+    {
+      "id": "PS-00248",
+      "stationId": "PS-00248",
+      "label": "Polling Station 248",
+      "county": "Kakamega",
+      "ward": "Ward 48",
+      "severity": 81
+    },
+    {
+      "id": "PS-00249",
+      "stationId": "PS-00249",
+      "label": "Polling Station 249",
+      "county": "Nairobi",
+      "ward": "Ward 49",
+      "severity": 83
+    },
+    {
+      "id": "PS-00259",
+      "stationId": "PS-00259",
+      "label": "Polling Station 259",
+      "county": "Kisumu",
+      "ward": "Ward 09",
+      "severity": 95
+    },
+    {
+      "id": "PS-00260",
+      "stationId": "PS-00260",
+      "label": "Polling Station 260",
+      "county": "Uasin Gishu",
+      "ward": "Ward 10",
+      "severity": 63
+    },
+    {
+      "id": "PS-00275",
+      "stationId": "PS-00275",
+      "label": "Polling Station 275",
+      "county": "Kisumu",
+      "ward": "Ward 25",
+      "severity": 59
+    },
+    {
+      "id": "PS-00276",
+      "stationId": "PS-00276",
+      "label": "Polling Station 276",
+      "county": "Uasin Gishu",
+      "ward": "Ward 26",
+      "severity": 70
+    },
+    {
+      "id": "PS-00283",
+      "stationId": "PS-00283",
+      "label": "Polling Station 283",
+      "county": "Kisumu",
+      "ward": "Ward 33",
+      "severity": 77
+    },
+    {
+      "id": "PS-00284",
+      "stationId": "PS-00284",
+      "label": "Polling Station 284",
+      "county": "Uasin Gishu",
+      "ward": "Ward 34",
+      "severity": 56
+    },
+    {
+      "id": "PS-00288",
+      "stationId": "PS-00288",
+      "label": "Polling Station 288",
+      "county": "Kakamega",
+      "ward": "Ward 38",
+      "severity": 95
+    },
+    {
+      "id": "PS-00290",
+      "stationId": "PS-00290",
+      "label": "Polling Station 290",
+      "county": "Mombasa",
+      "ward": "Ward 40",
+      "severity": 62
+    },
+    {
+      "id": "PS-00304",
+      "stationId": "PS-00304",
+      "label": "Polling Station 304",
+      "county": "Kakamega",
+      "ward": "Ward 04",
+      "severity": 71
+    },
+    {
+      "id": "PS-00309",
+      "stationId": "PS-00309",
+      "label": "Polling Station 309",
+      "county": "Nakuru",
+      "ward": "Ward 09",
+      "severity": 70
+    },
+    {
+      "id": "PS-00316",
+      "stationId": "PS-00316",
+      "label": "Polling Station 316",
+      "county": "Uasin Gishu",
+      "ward": "Ward 16",
+      "severity": 46
+    },
+    {
+      "id": "PS-00321",
+      "stationId": "PS-00321",
+      "label": "Polling Station 321",
+      "county": "Nairobi",
+      "ward": "Ward 21",
+      "severity": 44
+    },
+    {
+      "id": "PS-00329",
+      "stationId": "PS-00329",
+      "label": "Polling Station 329",
+      "county": "Nairobi",
+      "ward": "Ward 29",
+      "severity": 52
+    },
+    {
+      "id": "PS-00330",
+      "stationId": "PS-00330",
+      "label": "Polling Station 330",
+      "county": "Mombasa",
+      "ward": "Ward 30",
+      "severity": 64
+    },
+    {
+      "id": "PS-00334",
+      "stationId": "PS-00334",
+      "label": "Polling Station 334",
+      "county": "Machakos",
+      "ward": "Ward 34",
+      "severity": 64
+    },
+    {
+      "id": "PS-00335",
+      "stationId": "PS-00335",
+      "label": "Polling Station 335",
+      "county": "Kiambu",
+      "ward": "Ward 35",
+      "severity": 40
+    },
+    {
+      "id": "PS-00346",
+      "stationId": "PS-00346",
+      "label": "Polling Station 346",
+      "county": "Mombasa",
+      "ward": "Ward 46",
+      "severity": 95
+    },
+    {
+      "id": "PS-00351",
+      "stationId": "PS-00351",
+      "label": "Polling Station 351",
+      "county": "Kiambu",
+      "ward": "Ward 01",
+      "severity": 77
+    },
+    {
+      "id": "PS-00352",
+      "stationId": "PS-00352",
+      "label": "Polling Station 352",
+      "county": "Kakamega",
+      "ward": "Ward 02",
+      "severity": 78
+    },
+    {
+      "id": "PS-00359",
+      "stationId": "PS-00359",
+      "label": "Polling Station 359",
+      "county": "Kiambu",
+      "ward": "Ward 09",
+      "severity": 52
+    },
+    {
+      "id": "PS-00360",
+      "stationId": "PS-00360",
+      "label": "Polling Station 360",
+      "county": "Kakamega",
+      "ward": "Ward 10",
+      "severity": 78
+    },
+    {
+      "id": "PS-00363",
+      "stationId": "PS-00363",
+      "label": "Polling Station 363",
+      "county": "Kisumu",
+      "ward": "Ward 13",
+      "severity": 63
+    },
+    {
+      "id": "PS-00364",
+      "stationId": "PS-00364",
+      "label": "Polling Station 364",
+      "county": "Uasin Gishu",
+      "ward": "Ward 14",
+      "severity": 40
+    },
+    {
+      "id": "PS-00373",
+      "stationId": "PS-00373",
+      "label": "Polling Station 373",
+      "county": "Nakuru",
+      "ward": "Ward 23",
+      "severity": 68
+    },
+    {
+      "id": "PS-00376",
+      "stationId": "PS-00376",
+      "label": "Polling Station 376",
+      "county": "Kakamega",
+      "ward": "Ward 26",
+      "severity": 77
+    },
+    {
+      "id": "PS-00410",
+      "stationId": "PS-00410",
+      "label": "Polling Station 410",
+      "county": "Mombasa",
+      "ward": "Ward 10",
+      "severity": 46
+    },
+    {
+      "id": "PS-00412",
+      "stationId": "PS-00412",
+      "label": "Polling Station 412",
+      "county": "Uasin Gishu",
+      "ward": "Ward 12",
+      "severity": 89
+    },
+    {
+      "id": "PS-00421",
+      "stationId": "PS-00421",
+      "label": "Polling Station 421",
+      "county": "Nakuru",
+      "ward": "Ward 21",
+      "severity": 78
+    },
+    {
+      "id": "PS-00427",
+      "stationId": "PS-00427",
+      "label": "Polling Station 427",
+      "county": "Kisumu",
+      "ward": "Ward 27",
+      "severity": 47
+    },
+    {
+      "id": "PS-00439",
+      "stationId": "PS-00439",
+      "label": "Polling Station 439",
+      "county": "Kiambu",
+      "ward": "Ward 39",
+      "severity": 92
+    },
+    {
+      "id": "PS-00440",
+      "stationId": "PS-00440",
+      "label": "Polling Station 440",
+      "county": "Kakamega",
+      "ward": "Ward 40",
+      "severity": 49
+    },
+    {
+      "id": "PS-00448",
+      "stationId": "PS-00448",
+      "label": "Polling Station 448",
+      "county": "Kakamega",
+      "ward": "Ward 48",
+      "severity": 43
+    },
+    {
+      "id": "PS-00450",
+      "stationId": "PS-00450",
+      "label": "Polling Station 450",
+      "county": "Mombasa",
+      "ward": "Ward 50",
+      "severity": 50
+    },
+    {
+      "id": "PS-00452",
+      "stationId": "PS-00452",
+      "label": "Polling Station 452",
+      "county": "Uasin Gishu",
+      "ward": "Ward 02",
+      "severity": 67
+    },
+    {
+      "id": "PS-00453",
+      "stationId": "PS-00453",
+      "label": "Polling Station 453",
+      "county": "Nakuru",
+      "ward": "Ward 03",
+      "severity": 73
+    },
+    {
+      "id": "PS-00465",
+      "stationId": "PS-00465",
+      "label": "Polling Station 465",
+      "county": "Nairobi",
+      "ward": "Ward 15",
+      "severity": 61
+    },
+    {
+      "id": "PS-00472",
+      "stationId": "PS-00472",
+      "label": "Polling Station 472",
+      "county": "Kakamega",
+      "ward": "Ward 22",
+      "severity": 65
+    },
+    {
+      "id": "PS-00483",
+      "stationId": "PS-00483",
+      "label": "Polling Station 483",
+      "county": "Kisumu",
+      "ward": "Ward 33",
+      "severity": 44
+    },
+    {
+      "id": "PS-00491",
+      "stationId": "PS-00491",
+      "label": "Polling Station 491",
+      "county": "Kisumu",
+      "ward": "Ward 41",
+      "severity": 56
+    },
+    {
+      "id": "PS-00495",
+      "stationId": "PS-00495",
+      "label": "Polling Station 495",
+      "county": "Kiambu",
+      "ward": "Ward 45",
+      "severity": 57
+    },
+    {
+      "id": "PS-00496",
+      "stationId": "PS-00496",
+      "label": "Polling Station 496",
+      "county": "Kakamega",
+      "ward": "Ward 46",
+      "severity": 73
+    },
+    {
+      "id": "PS-00498",
+      "stationId": "PS-00498",
+      "label": "Polling Station 498",
+      "county": "Mombasa",
+      "ward": "Ward 48",
+      "severity": 85
+    },
+    {
+      "id": "PS-00503",
+      "stationId": "PS-00503",
+      "label": "Polling Station 503",
+      "county": "Kiambu",
+      "ward": "Ward 03",
+      "severity": 66
+    },
+    {
+      "id": "PS-00511",
+      "stationId": "PS-00511",
+      "label": "Polling Station 511",
+      "county": "Kiambu",
+      "ward": "Ward 11",
+      "severity": 70
+    },
+    {
+      "id": "PS-00516",
+      "stationId": "PS-00516",
+      "label": "Polling Station 516",
+      "county": "Uasin Gishu",
+      "ward": "Ward 16",
+      "severity": 62
+    },
+    {
+      "id": "PS-00524",
+      "stationId": "PS-00524",
+      "label": "Polling Station 524",
+      "county": "Uasin Gishu",
+      "ward": "Ward 24",
+      "severity": 58
+    },
+    {
+      "id": "PS-00527",
+      "stationId": "PS-00527",
+      "label": "Polling Station 527",
+      "county": "Kiambu",
+      "ward": "Ward 27",
+      "severity": 61
+    },
+    {
+      "id": "PS-00533",
+      "stationId": "PS-00533",
+      "label": "Polling Station 533",
+      "county": "Nakuru",
+      "ward": "Ward 33",
+      "severity": 43
+    },
+    {
+      "id": "PS-00542",
+      "stationId": "PS-00542",
+      "label": "Polling Station 542",
+      "county": "Machakos",
+      "ward": "Ward 42",
+      "severity": 74
+    },
+    {
+      "id": "PS-00548",
+      "stationId": "PS-00548",
+      "label": "Polling Station 548",
+      "county": "Uasin Gishu",
+      "ward": "Ward 48",
+      "severity": 71
+    },
+    {
+      "id": "PS-00550",
+      "stationId": "PS-00550",
+      "label": "Polling Station 550",
+      "county": "Machakos",
+      "ward": "Ward 50",
+      "severity": 50
+    },
+    {
+      "id": "PS-00551",
+      "stationId": "PS-00551",
+      "label": "Polling Station 551",
+      "county": "Kiambu",
+      "ward": "Ward 01",
+      "severity": 67
+    },
+    {
+      "id": "PS-00562",
+      "stationId": "PS-00562",
+      "label": "Polling Station 562",
+      "county": "Mombasa",
+      "ward": "Ward 12",
+      "severity": 56
+    },
+    {
+      "id": "PS-00563",
+      "stationId": "PS-00563",
+      "label": "Polling Station 563",
+      "county": "Kisumu",
+      "ward": "Ward 13",
+      "severity": 92
+    },
+    {
+      "id": "PS-00578",
+      "stationId": "PS-00578",
+      "label": "Polling Station 578",
+      "county": "Mombasa",
+      "ward": "Ward 28",
+      "severity": 43
+    },
+    {
+      "id": "PS-00592",
+      "stationId": "PS-00592",
+      "label": "Polling Station 592",
+      "county": "Kakamega",
+      "ward": "Ward 42",
+      "severity": 60
+    },
+    {
+      "id": "PS-00594",
+      "stationId": "PS-00594",
+      "label": "Polling Station 594",
+      "county": "Mombasa",
+      "ward": "Ward 44",
+      "severity": 96
+    },
+    {
+      "id": "PS-00600",
+      "stationId": "PS-00600",
+      "label": "Polling Station 600",
+      "county": "Kakamega",
+      "ward": "Ward 50",
+      "severity": 67
+    },
+    {
+      "id": "PS-00601",
+      "stationId": "PS-00601",
+      "label": "Polling Station 601",
+      "county": "Nairobi",
+      "ward": "Ward 01",
+      "severity": 86
+    },
+    {
+      "id": "PS-00603",
+      "stationId": "PS-00603",
+      "label": "Polling Station 603",
+      "county": "Kisumu",
+      "ward": "Ward 03",
+      "severity": 72
+    },
+    {
+      "id": "PS-00606",
+      "stationId": "PS-00606",
+      "label": "Polling Station 606",
+      "county": "Machakos",
+      "ward": "Ward 06",
+      "severity": 98
+    },
+    {
+      "id": "PS-00608",
+      "stationId": "PS-00608",
+      "label": "Polling Station 608",
+      "county": "Kakamega",
+      "ward": "Ward 08",
+      "severity": 83
+    },
+    {
+      "id": "PS-00610",
+      "stationId": "PS-00610",
+      "label": "Polling Station 610",
+      "county": "Mombasa",
+      "ward": "Ward 10",
+      "severity": 96
+    },
+    {
+      "id": "PS-00611",
+      "stationId": "PS-00611",
+      "label": "Polling Station 611",
+      "county": "Kisumu",
+      "ward": "Ward 11",
+      "severity": 48
+    },
+    {
+      "id": "PS-00617",
+      "stationId": "PS-00617",
+      "label": "Polling Station 617",
+      "county": "Nairobi",
+      "ward": "Ward 17",
+      "severity": 73
+    },
+    {
+      "id": "PS-00623",
+      "stationId": "PS-00623",
+      "label": "Polling Station 623",
+      "county": "Kiambu",
+      "ward": "Ward 23",
+      "severity": 57
+    },
+    {
+      "id": "PS-00624",
+      "stationId": "PS-00624",
+      "label": "Polling Station 624",
+      "county": "Kakamega",
+      "ward": "Ward 24",
+      "severity": 79
+    },
+    {
+      "id": "PS-00626",
+      "stationId": "PS-00626",
+      "label": "Polling Station 626",
+      "county": "Mombasa",
+      "ward": "Ward 26",
+      "severity": 46
+    },
+    {
+      "id": "PS-00627",
+      "stationId": "PS-00627",
+      "label": "Polling Station 627",
+      "county": "Kisumu",
+      "ward": "Ward 27",
+      "severity": 66
+    },
+    {
+      "id": "PS-00630",
+      "stationId": "PS-00630",
+      "label": "Polling Station 630",
+      "county": "Machakos",
+      "ward": "Ward 30",
+      "severity": 98
+    },
+    {
+      "id": "PS-00636",
+      "stationId": "PS-00636",
+      "label": "Polling Station 636",
+      "county": "Uasin Gishu",
+      "ward": "Ward 36",
+      "severity": 65
+    },
+    {
+      "id": "PS-00642",
+      "stationId": "PS-00642",
+      "label": "Polling Station 642",
+      "county": "Mombasa",
+      "ward": "Ward 42",
+      "severity": 72
+    },
+    {
+      "id": "PS-00646",
+      "stationId": "PS-00646",
+      "label": "Polling Station 646",
+      "county": "Machakos",
+      "ward": "Ward 46",
+      "severity": 73
+    },
+    {
+      "id": "PS-00647",
+      "stationId": "PS-00647",
+      "label": "Polling Station 647",
+      "county": "Kiambu",
+      "ward": "Ward 47",
+      "severity": 81
+    },
+    {
+      "id": "PS-00653",
+      "stationId": "PS-00653",
+      "label": "Polling Station 653",
+      "county": "Nakuru",
+      "ward": "Ward 03",
+      "severity": 68
+    },
+    {
+      "id": "PS-00658",
+      "stationId": "PS-00658",
+      "label": "Polling Station 658",
+      "county": "Mombasa",
+      "ward": "Ward 08",
+      "severity": 68
+    },
+    {
+      "id": "PS-00671",
+      "stationId": "PS-00671",
+      "label": "Polling Station 671",
+      "county": "Kiambu",
+      "ward": "Ward 21",
+      "severity": 53
+    },
+    {
+      "id": "PS-00680",
+      "stationId": "PS-00680",
+      "label": "Polling Station 680",
+      "county": "Kakamega",
+      "ward": "Ward 30",
+      "severity": 89
+    },
+    {
+      "id": "PS-00684",
+      "stationId": "PS-00684",
+      "label": "Polling Station 684",
+      "county": "Uasin Gishu",
+      "ward": "Ward 34",
+      "severity": 85
+    },
+    {
+      "id": "PS-00685",
+      "stationId": "PS-00685",
+      "label": "Polling Station 685",
+      "county": "Nakuru",
+      "ward": "Ward 35",
+      "severity": 65
+    },
+    {
+      "id": "PS-00691",
+      "stationId": "PS-00691",
+      "label": "Polling Station 691",
+      "county": "Kisumu",
+      "ward": "Ward 41",
+      "severity": 44
+    },
+    {
+      "id": "PS-00695",
+      "stationId": "PS-00695",
+      "label": "Polling Station 695",
+      "county": "Kiambu",
+      "ward": "Ward 45",
+      "severity": 77
+    },
+    {
+      "id": "PS-00704",
+      "stationId": "PS-00704",
+      "label": "Polling Station 704",
+      "county": "Kakamega",
+      "ward": "Ward 04",
+      "severity": 43
+    },
+    {
+      "id": "PS-00708",
+      "stationId": "PS-00708",
+      "label": "Polling Station 708",
+      "county": "Uasin Gishu",
+      "ward": "Ward 08",
+      "severity": 91
+    },
+    {
+      "id": "PS-00709",
+      "stationId": "PS-00709",
+      "label": "Polling Station 709",
+      "county": "Nakuru",
+      "ward": "Ward 09",
+      "severity": 50
+    },
+    {
+      "id": "PS-00710",
+      "stationId": "PS-00710",
+      "label": "Polling Station 710",
+      "county": "Machakos",
+      "ward": "Ward 10",
+      "severity": 48
+    },
+    {
+      "id": "PS-00711",
+      "stationId": "PS-00711",
+      "label": "Polling Station 711",
+      "county": "Kiambu",
+      "ward": "Ward 11",
+      "severity": 46
+    },
+    {
+      "id": "PS-00713",
+      "stationId": "PS-00713",
+      "label": "Polling Station 713",
+      "county": "Nairobi",
+      "ward": "Ward 13",
+      "severity": 92
+    },
+    {
+      "id": "PS-00716",
+      "stationId": "PS-00716",
+      "label": "Polling Station 716",
+      "county": "Uasin Gishu",
+      "ward": "Ward 16",
+      "severity": 74
+    },
+    {
+      "id": "PS-00723",
+      "stationId": "PS-00723",
+      "label": "Polling Station 723",
+      "county": "Kisumu",
+      "ward": "Ward 23",
+      "severity": 66
+    },
+    {
+      "id": "PS-00733",
+      "stationId": "PS-00733",
+      "label": "Polling Station 733",
+      "county": "Nakuru",
+      "ward": "Ward 33",
+      "severity": 79
+    },
+    {
+      "id": "PS-00745",
+      "stationId": "PS-00745",
+      "label": "Polling Station 745",
+      "county": "Nairobi",
+      "ward": "Ward 45",
+      "severity": 52
+    },
+    {
+      "id": "PS-00746",
+      "stationId": "PS-00746",
+      "label": "Polling Station 746",
+      "county": "Mombasa",
+      "ward": "Ward 46",
+      "severity": 78
+    },
+    {
+      "id": "PS-00748",
+      "stationId": "PS-00748",
+      "label": "Polling Station 748",
+      "county": "Uasin Gishu",
+      "ward": "Ward 48",
+      "severity": 91
+    },
+    {
+      "id": "PS-00760",
+      "stationId": "PS-00760",
+      "label": "Polling Station 760",
+      "county": "Kakamega",
+      "ward": "Ward 10",
+      "severity": 67
+    },
+    {
+      "id": "PS-00766",
+      "stationId": "PS-00766",
+      "label": "Polling Station 766",
+      "county": "Machakos",
+      "ward": "Ward 16",
+      "severity": 77
+    },
+    {
+      "id": "PS-00769",
+      "stationId": "PS-00769",
+      "label": "Polling Station 769",
+      "county": "Nairobi",
+      "ward": "Ward 19",
+      "severity": 86
+    },
+    {
+      "id": "PS-00780",
+      "stationId": "PS-00780",
+      "label": "Polling Station 780",
+      "county": "Uasin Gishu",
+      "ward": "Ward 30",
+      "severity": 75
+    },
+    {
+      "id": "PS-00791",
+      "stationId": "PS-00791",
+      "label": "Polling Station 791",
+      "county": "Kiambu",
+      "ward": "Ward 41",
+      "severity": 99
+    },
+    {
+      "id": "PS-00792",
+      "stationId": "PS-00792",
+      "label": "Polling Station 792",
+      "county": "Kakamega",
+      "ward": "Ward 42",
+      "severity": 41
+    },
+    {
+      "id": "PS-00797",
+      "stationId": "PS-00797",
+      "label": "Polling Station 797",
+      "county": "Nakuru",
+      "ward": "Ward 47",
+      "severity": 62
+    },
+    {
+      "id": "PS-00801",
+      "stationId": "PS-00801",
+      "label": "Polling Station 801",
+      "county": "Nairobi",
+      "ward": "Ward 01",
+      "severity": 84
+    },
+    {
+      "id": "PS-00813",
+      "stationId": "PS-00813",
+      "label": "Polling Station 813",
+      "county": "Nakuru",
+      "ward": "Ward 13",
+      "severity": 87
+    },
+    {
+      "id": "PS-00824",
+      "stationId": "PS-00824",
+      "label": "Polling Station 824",
+      "county": "Kakamega",
+      "ward": "Ward 24",
+      "severity": 57
+    },
+    {
+      "id": "PS-00834",
+      "stationId": "PS-00834",
+      "label": "Polling Station 834",
+      "county": "Mombasa",
+      "ward": "Ward 34",
+      "severity": 49
+    },
+    {
+      "id": "PS-00835",
+      "stationId": "PS-00835",
+      "label": "Polling Station 835",
+      "county": "Kisumu",
+      "ward": "Ward 35",
+      "severity": 80
+    },
+    {
+      "id": "PS-00837",
+      "stationId": "PS-00837",
+      "label": "Polling Station 837",
+      "county": "Nakuru",
+      "ward": "Ward 37",
+      "severity": 68
+    },
+    {
+      "id": "PS-00848",
+      "stationId": "PS-00848",
+      "label": "Polling Station 848",
+      "county": "Kakamega",
+      "ward": "Ward 48",
+      "severity": 87
+    },
+    {
+      "id": "PS-00851",
+      "stationId": "PS-00851",
+      "label": "Polling Station 851",
+      "county": "Kisumu",
+      "ward": "Ward 01",
+      "severity": 83
+    },
+    {
+      "id": "PS-00856",
+      "stationId": "PS-00856",
+      "label": "Polling Station 856",
+      "county": "Kakamega",
+      "ward": "Ward 06",
+      "severity": 77
+    },
+    {
+      "id": "PS-00859",
+      "stationId": "PS-00859",
+      "label": "Polling Station 859",
+      "county": "Kisumu",
+      "ward": "Ward 09",
+      "severity": 71
+    },
+    {
+      "id": "PS-00861",
+      "stationId": "PS-00861",
+      "label": "Polling Station 861",
+      "county": "Nakuru",
+      "ward": "Ward 11",
+      "severity": 55
+    },
+    {
+      "id": "PS-00873",
+      "stationId": "PS-00873",
+      "label": "Polling Station 873",
+      "county": "Nairobi",
+      "ward": "Ward 23",
+      "severity": 97
+    },
+    {
+      "id": "PS-00880",
+      "stationId": "PS-00880",
+      "label": "Polling Station 880",
+      "county": "Kakamega",
+      "ward": "Ward 30",
+      "severity": 71
+    },
+    {
+      "id": "PS-00882",
+      "stationId": "PS-00882",
+      "label": "Polling Station 882",
+      "county": "Mombasa",
+      "ward": "Ward 32",
+      "severity": 74
+    },
+    {
+      "id": "PS-00887",
+      "stationId": "PS-00887",
+      "label": "Polling Station 887",
+      "county": "Kiambu",
+      "ward": "Ward 37",
+      "severity": 74
+    },
+    {
+      "id": "PS-00889",
+      "stationId": "PS-00889",
+      "label": "Polling Station 889",
+      "county": "Nairobi",
+      "ward": "Ward 39",
+      "severity": 42
+    },
+    {
+      "id": "PS-00894",
+      "stationId": "PS-00894",
+      "label": "Polling Station 894",
+      "county": "Machakos",
+      "ward": "Ward 44",
+      "severity": 49
+    },
+    {
+      "id": "PS-00895",
+      "stationId": "PS-00895",
+      "label": "Polling Station 895",
+      "county": "Kiambu",
+      "ward": "Ward 45",
+      "severity": 41
+    },
+    {
+      "id": "PS-00898",
+      "stationId": "PS-00898",
+      "label": "Polling Station 898",
+      "county": "Mombasa",
+      "ward": "Ward 48",
+      "severity": 58
+    },
+    {
+      "id": "PS-00906",
+      "stationId": "PS-00906",
+      "label": "Polling Station 906",
+      "county": "Mombasa",
+      "ward": "Ward 06",
+      "severity": 64
+    },
+    {
+      "id": "PS-00910",
+      "stationId": "PS-00910",
+      "label": "Polling Station 910",
+      "county": "Machakos",
+      "ward": "Ward 10",
+      "severity": 70
+    },
+    {
+      "id": "PS-00918",
+      "stationId": "PS-00918",
+      "label": "Polling Station 918",
+      "county": "Machakos",
+      "ward": "Ward 18",
+      "severity": 58
+    },
+    {
+      "id": "PS-00931",
+      "stationId": "PS-00931",
+      "label": "Polling Station 931",
+      "county": "Kisumu",
+      "ward": "Ward 31",
+      "severity": 51
+    },
+    {
+      "id": "PS-00943",
+      "stationId": "PS-00943",
+      "label": "Polling Station 943",
+      "county": "Kiambu",
+      "ward": "Ward 43",
+      "severity": 79
+    },
+    {
+      "id": "PS-00948",
+      "stationId": "PS-00948",
+      "label": "Polling Station 948",
+      "county": "Uasin Gishu",
+      "ward": "Ward 48",
+      "severity": 99
+    },
+    {
+      "id": "PS-00951",
+      "stationId": "PS-00951",
+      "label": "Polling Station 951",
+      "county": "Kiambu",
+      "ward": "Ward 01",
+      "severity": 67
+    },
+    {
+      "id": "PS-00956",
+      "stationId": "PS-00956",
+      "label": "Polling Station 956",
+      "county": "Uasin Gishu",
+      "ward": "Ward 06",
+      "severity": 60
+    },
+    {
+      "id": "PS-00958",
+      "stationId": "PS-00958",
+      "label": "Polling Station 958",
+      "county": "Machakos",
+      "ward": "Ward 08",
+      "severity": 64
+    },
+    {
+      "id": "PS-00971",
+      "stationId": "PS-00971",
+      "label": "Polling Station 971",
+      "county": "Kisumu",
+      "ward": "Ward 21",
+      "severity": 45
+    },
+    {
+      "id": "PS-00978",
+      "stationId": "PS-00978",
+      "label": "Polling Station 978",
+      "county": "Mombasa",
+      "ward": "Ward 28",
+      "severity": 68
+    },
+    {
+      "id": "PS-00980",
+      "stationId": "PS-00980",
+      "label": "Polling Station 980",
+      "county": "Uasin Gishu",
+      "ward": "Ward 30",
+      "severity": 73
+    },
+    {
+      "id": "PS-00995",
+      "stationId": "PS-00995",
+      "label": "Polling Station 995",
+      "county": "Kisumu",
+      "ward": "Ward 45",
+      "severity": 69
+    },
+    {
+      "id": "PS-00997",
+      "stationId": "PS-00997",
+      "label": "Polling Station 997",
+      "county": "Nakuru",
+      "ward": "Ward 47",
+      "severity": 51
+    },
+    {
+      "id": "PS-01000",
+      "stationId": "PS-01000",
+      "label": "Polling Station 1000",
+      "county": "Kakamega",
+      "ward": "Ward 50",
+      "severity": 76
+    },
+    {
+      "id": "PS-01002",
+      "stationId": "PS-01002",
+      "label": "Polling Station 1002",
+      "county": "Mombasa",
+      "ward": "Ward 02",
+      "severity": 74
+    },
+    {
+      "id": "PS-01011",
+      "stationId": "PS-01011",
+      "label": "Polling Station 1011",
+      "county": "Kisumu",
+      "ward": "Ward 11",
+      "severity": 89
+    },
+    {
+      "id": "PS-01012",
+      "stationId": "PS-01012",
+      "label": "Polling Station 1012",
+      "county": "Uasin Gishu",
+      "ward": "Ward 12",
+      "severity": 47
+    },
+    {
+      "id": "PS-01021",
+      "stationId": "PS-01021",
+      "label": "Polling Station 1021",
+      "county": "Nakuru",
+      "ward": "Ward 21",
+      "severity": 54
+    },
+    {
+      "id": "PS-01023",
+      "stationId": "PS-01023",
+      "label": "Polling Station 1023",
+      "county": "Kiambu",
+      "ward": "Ward 23",
+      "severity": 79
+    },
+    {
+      "id": "PS-01043",
+      "stationId": "PS-01043",
+      "label": "Polling Station 1043",
+      "county": "Kisumu",
+      "ward": "Ward 43",
+      "severity": 57
+    },
+    {
+      "id": "PS-01046",
+      "stationId": "PS-01046",
+      "label": "Polling Station 1046",
+      "county": "Machakos",
+      "ward": "Ward 46",
+      "severity": 92
+    },
+    {
+      "id": "PS-01048",
+      "stationId": "PS-01048",
+      "label": "Polling Station 1048",
+      "county": "Kakamega",
+      "ward": "Ward 48",
+      "severity": 71
+    },
+    {
+      "id": "PS-01054",
+      "stationId": "PS-01054",
+      "label": "Polling Station 1054",
+      "county": "Machakos",
+      "ward": "Ward 04",
+      "severity": 74
+    },
+    {
+      "id": "PS-01055",
+      "stationId": "PS-01055",
+      "label": "Polling Station 1055",
+      "county": "Kiambu",
+      "ward": "Ward 05",
+      "severity": 50
+    },
+    {
+      "id": "PS-01057",
+      "stationId": "PS-01057",
+      "label": "Polling Station 1057",
+      "county": "Nairobi",
+      "ward": "Ward 07",
+      "severity": 58
+    },
+    {
+      "id": "PS-01073",
+      "stationId": "PS-01073",
+      "label": "Polling Station 1073",
+      "county": "Nairobi",
+      "ward": "Ward 23",
+      "severity": 63
+    },
+    {
+      "id": "PS-01078",
+      "stationId": "PS-01078",
+      "label": "Polling Station 1078",
+      "county": "Machakos",
+      "ward": "Ward 28",
+      "severity": 61
+    },
+    {
+      "id": "PS-01081",
+      "stationId": "PS-01081",
+      "label": "Polling Station 1081",
+      "county": "Nairobi",
+      "ward": "Ward 31",
+      "severity": 70
+    },
+    {
+      "id": "PS-01099",
+      "stationId": "PS-01099",
+      "label": "Polling Station 1099",
+      "county": "Kisumu",
+      "ward": "Ward 49",
+      "severity": 43
+    },
+    {
+      "id": "PS-01100",
+      "stationId": "PS-01100",
+      "label": "Polling Station 1100",
+      "county": "Uasin Gishu",
+      "ward": "Ward 50",
+      "severity": 87
+    },
+    {
+      "id": "PS-01112",
+      "stationId": "PS-01112",
+      "label": "Polling Station 1112",
+      "county": "Kakamega",
+      "ward": "Ward 12",
+      "severity": 88
+    },
+    {
+      "id": "PS-01117",
+      "stationId": "PS-01117",
+      "label": "Polling Station 1117",
+      "county": "Nakuru",
+      "ward": "Ward 17",
+      "severity": 88
+    },
+    {
+      "id": "PS-01127",
+      "stationId": "PS-01127",
+      "label": "Polling Station 1127",
+      "county": "Kiambu",
+      "ward": "Ward 27",
+      "severity": 84
+    },
+    {
+      "id": "PS-01130",
+      "stationId": "PS-01130",
+      "label": "Polling Station 1130",
+      "county": "Mombasa",
+      "ward": "Ward 30",
+      "severity": 68
+    },
+    {
+      "id": "PS-01131",
+      "stationId": "PS-01131",
+      "label": "Polling Station 1131",
+      "county": "Kisumu",
+      "ward": "Ward 31",
+      "severity": 50
+    },
+    {
+      "id": "PS-01143",
+      "stationId": "PS-01143",
+      "label": "Polling Station 1143",
+      "county": "Kiambu",
+      "ward": "Ward 43",
+      "severity": 47
+    },
+    {
+      "id": "PS-01146",
+      "stationId": "PS-01146",
+      "label": "Polling Station 1146",
+      "county": "Mombasa",
+      "ward": "Ward 46",
+      "severity": 74
+    },
+    {
+      "id": "PS-01168",
+      "stationId": "PS-01168",
+      "label": "Polling Station 1168",
+      "county": "Kakamega",
+      "ward": "Ward 18",
+      "severity": 74
+    },
+    {
+      "id": "PS-01172",
+      "stationId": "PS-01172",
+      "label": "Polling Station 1172",
+      "county": "Uasin Gishu",
+      "ward": "Ward 22",
+      "severity": 59
+    },
+    {
+      "id": "PS-01183",
+      "stationId": "PS-01183",
+      "label": "Polling Station 1183",
+      "county": "Kiambu",
+      "ward": "Ward 33",
+      "severity": 49
+    },
+    {
+      "id": "PS-01191",
+      "stationId": "PS-01191",
+      "label": "Polling Station 1191",
+      "county": "Kiambu",
+      "ward": "Ward 41",
+      "severity": 60
+    },
+    {
+      "id": "PS-01197",
+      "stationId": "PS-01197",
+      "label": "Polling Station 1197",
+      "county": "Nakuru",
+      "ward": "Ward 47",
+      "severity": 87
+    },
+    {
+      "id": "PS-01210",
+      "stationId": "PS-01210",
+      "label": "Polling Station 1210",
+      "county": "Mombasa",
+      "ward": "Ward 10",
+      "severity": 73
+    },
+    {
+      "id": "PS-01211",
+      "stationId": "PS-01211",
+      "label": "Polling Station 1211",
+      "county": "Kisumu",
+      "ward": "Ward 11",
+      "severity": 76
+    },
+    {
+      "id": "PS-01213",
+      "stationId": "PS-01213",
+      "label": "Polling Station 1213",
+      "county": "Nakuru",
+      "ward": "Ward 13",
+      "severity": 76
+    },
+    {
+      "id": "PS-01218",
+      "stationId": "PS-01218",
+      "label": "Polling Station 1218",
+      "county": "Mombasa",
+      "ward": "Ward 18",
+      "severity": 46
+    },
+    {
+      "id": "PS-01228",
+      "stationId": "PS-01228",
+      "label": "Polling Station 1228",
+      "county": "Uasin Gishu",
+      "ward": "Ward 28",
+      "severity": 62
+    },
+    {
+      "id": "PS-01231",
+      "stationId": "PS-01231",
+      "label": "Polling Station 1231",
+      "county": "Kiambu",
+      "ward": "Ward 31",
+      "severity": 64
+    },
+    {
+      "id": "PS-01236",
+      "stationId": "PS-01236",
+      "label": "Polling Station 1236",
+      "county": "Uasin Gishu",
+      "ward": "Ward 36",
+      "severity": 70
+    },
+    {
+      "id": "PS-01240",
+      "stationId": "PS-01240",
+      "label": "Polling Station 1240",
+      "county": "Kakamega",
+      "ward": "Ward 40",
+      "severity": 73
+    },
+    {
+      "id": "PS-01243",
+      "stationId": "PS-01243",
+      "label": "Polling Station 1243",
+      "county": "Kisumu",
+      "ward": "Ward 43",
+      "severity": 60
+    },
+    {
+      "id": "PS-01246",
+      "stationId": "PS-01246",
+      "label": "Polling Station 1246",
+      "county": "Machakos",
+      "ward": "Ward 46",
+      "severity": 66
+    },
+    {
+      "id": "PS-01247",
+      "stationId": "PS-01247",
+      "label": "Polling Station 1247",
+      "county": "Kiambu",
+      "ward": "Ward 47",
+      "severity": 49
+    },
+    {
+      "id": "PS-01249",
+      "stationId": "PS-01249",
+      "label": "Polling Station 1249",
+      "county": "Nairobi",
+      "ward": "Ward 49",
+      "severity": 67
+    },
+    {
+      "id": "PS-01253",
+      "stationId": "PS-01253",
+      "label": "Polling Station 1253",
+      "county": "Nakuru",
+      "ward": "Ward 03",
+      "severity": 85
+    },
+    {
+      "id": "PS-01254",
+      "stationId": "PS-01254",
+      "label": "Polling Station 1254",
+      "county": "Machakos",
+      "ward": "Ward 04",
+      "severity": 79
+    },
+    {
+      "id": "PS-01260",
+      "stationId": "PS-01260",
+      "label": "Polling Station 1260",
+      "county": "Uasin Gishu",
+      "ward": "Ward 10",
+      "severity": 53
+    },
+    {
+      "id": "PS-01263",
+      "stationId": "PS-01263",
+      "label": "Polling Station 1263",
+      "county": "Kiambu",
+      "ward": "Ward 13",
+      "severity": 68
+    },
+    {
+      "id": "PS-01266",
+      "stationId": "PS-01266",
+      "label": "Polling Station 1266",
+      "county": "Mombasa",
+      "ward": "Ward 16",
+      "severity": 71
+    },
+    {
+      "id": "PS-01267",
+      "stationId": "PS-01267",
+      "label": "Polling Station 1267",
+      "county": "Kisumu",
+      "ward": "Ward 17",
+      "severity": 40
+    },
+    {
+      "id": "PS-01268",
+      "stationId": "PS-01268",
+      "label": "Polling Station 1268",
+      "county": "Uasin Gishu",
+      "ward": "Ward 18",
+      "severity": 51
+    },
+    {
+      "id": "PS-01269",
+      "stationId": "PS-01269",
+      "label": "Polling Station 1269",
+      "county": "Nakuru",
+      "ward": "Ward 19",
+      "severity": 66
+    },
+    {
+      "id": "PS-01272",
+      "stationId": "PS-01272",
+      "label": "Polling Station 1272",
+      "county": "Kakamega",
+      "ward": "Ward 22",
+      "severity": 44
+    },
+    {
+      "id": "PS-01276",
+      "stationId": "PS-01276",
+      "label": "Polling Station 1276",
+      "county": "Uasin Gishu",
+      "ward": "Ward 26",
+      "severity": 53
+    }
+  ],
+  "edges": [
+    {
+      "id": "PS-00004-PS-00012",
+      "source": "PS-00004",
+      "target": "PS-00012",
+      "weight": 0.67,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00006-PS-00014",
+      "source": "PS-00006",
+      "target": "PS-00014",
+      "weight": 0.84,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00006-PS-00022",
+      "source": "PS-00006",
+      "target": "PS-00022",
+      "weight": 0.68,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00013-PS-00021",
+      "source": "PS-00013",
+      "target": "PS-00021",
+      "weight": 0.92,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00014-PS-00022",
+      "source": "PS-00014",
+      "target": "PS-00022",
+      "weight": 0.64,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00031-PS-00039",
+      "source": "PS-00031",
+      "target": "PS-00039",
+      "weight": 0.65,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00044-PS-00076",
+      "source": "PS-00044",
+      "target": "PS-00076",
+      "weight": 0.83,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00056-PS-00072",
+      "source": "PS-00056",
+      "target": "PS-00072",
+      "weight": 0.89,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00093-PS-00133",
+      "source": "PS-00093",
+      "target": "PS-00133",
+      "weight": 0.47,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00098-PS-00122",
+      "source": "PS-00098",
+      "target": "PS-00122",
+      "weight": 0.46,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00102-PS-00134",
+      "source": "PS-00102",
+      "target": "PS-00134",
+      "weight": 0.77,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00122-PS-00138",
+      "source": "PS-00122",
+      "target": "PS-00138",
+      "weight": 0.56,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00138-PS-00146",
+      "source": "PS-00138",
+      "target": "PS-00146",
+      "weight": 0.84,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00144-PS-00152",
+      "source": "PS-00144",
+      "target": "PS-00152",
+      "weight": 0.61,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00148-PS-00164",
+      "source": "PS-00148",
+      "target": "PS-00164",
+      "weight": 0.63,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00148-PS-00172",
+      "source": "PS-00148",
+      "target": "PS-00172",
+      "weight": 0.89,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00148-PS-00180",
+      "source": "PS-00148",
+      "target": "PS-00180",
+      "weight": 0.7,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00164-PS-00172",
+      "source": "PS-00164",
+      "target": "PS-00172",
+      "weight": 0.68,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00164-PS-00180",
+      "source": "PS-00164",
+      "target": "PS-00180",
+      "weight": 0.49,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00164-PS-00188",
+      "source": "PS-00164",
+      "target": "PS-00188",
+      "weight": 0.51,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00167-PS-00191",
+      "source": "PS-00167",
+      "target": "PS-00191",
+      "weight": 0.71,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00172-PS-00180",
+      "source": "PS-00172",
+      "target": "PS-00180",
+      "weight": 0.76,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00172-PS-00188",
+      "source": "PS-00172",
+      "target": "PS-00188",
+      "weight": 0.77,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00180-PS-00188",
+      "source": "PS-00180",
+      "target": "PS-00188",
+      "weight": 0.58,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00185-PS-00201",
+      "source": "PS-00185",
+      "target": "PS-00201",
+      "weight": 0.55,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00208-PS-00216",
+      "source": "PS-00208",
+      "target": "PS-00216",
+      "weight": 0.8,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00212-PS-00220",
+      "source": "PS-00212",
+      "target": "PS-00220",
+      "weight": 0.83,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00241-PS-00249",
+      "source": "PS-00241",
+      "target": "PS-00249",
+      "weight": 0.67,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00259-PS-00275",
+      "source": "PS-00259",
+      "target": "PS-00275",
+      "weight": 0.77,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00259-PS-00283",
+      "source": "PS-00259",
+      "target": "PS-00283",
+      "weight": 0.86,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00260-PS-00276",
+      "source": "PS-00260",
+      "target": "PS-00276",
+      "weight": 0.67,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00260-PS-00284",
+      "source": "PS-00260",
+      "target": "PS-00284",
+      "weight": 0.59,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00275-PS-00283",
+      "source": "PS-00275",
+      "target": "PS-00283",
+      "weight": 0.68,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00276-PS-00284",
+      "source": "PS-00276",
+      "target": "PS-00284",
+      "weight": 0.63,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00284-PS-00316",
+      "source": "PS-00284",
+      "target": "PS-00316",
+      "weight": 0.51,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00288-PS-00304",
+      "source": "PS-00288",
+      "target": "PS-00304",
+      "weight": 0.83,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00321-PS-00329",
+      "source": "PS-00321",
+      "target": "PS-00329",
+      "weight": 0.48,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00330-PS-00346",
+      "source": "PS-00330",
+      "target": "PS-00346",
+      "weight": 0.8,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00335-PS-00351",
+      "source": "PS-00335",
+      "target": "PS-00351",
+      "weight": 0.58,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00335-PS-00359",
+      "source": "PS-00335",
+      "target": "PS-00359",
+      "weight": 0.46,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00351-PS-00359",
+      "source": "PS-00351",
+      "target": "PS-00359",
+      "weight": 0.65,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00352-PS-00360",
+      "source": "PS-00352",
+      "target": "PS-00360",
+      "weight": 0.78,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00360-PS-00376",
+      "source": "PS-00360",
+      "target": "PS-00376",
+      "weight": 0.78,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00360-PS-00410",
+      "source": "PS-00360",
+      "target": "PS-00410",
+      "weight": 0.62,
+      "reason": "shared-ward"
+    },
+    {
+      "id": "PS-00364-PS-00412",
+      "source": "PS-00364",
+      "target": "PS-00412",
+      "weight": 0.65,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00373-PS-00421",
+      "source": "PS-00373",
+      "target": "PS-00421",
+      "weight": 0.73,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00440-PS-00448",
+      "source": "PS-00440",
+      "target": "PS-00448",
+      "weight": 0.46,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00448-PS-00472",
+      "source": "PS-00448",
+      "target": "PS-00472",
+      "weight": 0.54,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00472-PS-00496",
+      "source": "PS-00472",
+      "target": "PS-00496",
+      "weight": 0.69,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00483-PS-00491",
+      "source": "PS-00483",
+      "target": "PS-00491",
+      "weight": 0.5,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00495-PS-00503",
+      "source": "PS-00495",
+      "target": "PS-00503",
+      "weight": 0.61,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00495-PS-00511",
+      "source": "PS-00495",
+      "target": "PS-00511",
+      "weight": 0.64,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00503-PS-00511",
+      "source": "PS-00503",
+      "target": "PS-00511",
+      "weight": 0.68,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00503-PS-00527",
+      "source": "PS-00503",
+      "target": "PS-00527",
+      "weight": 0.64,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00511-PS-00527",
+      "source": "PS-00511",
+      "target": "PS-00527",
+      "weight": 0.66,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00516-PS-00524",
+      "source": "PS-00516",
+      "target": "PS-00524",
+      "weight": 0.6,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00516-PS-00548",
+      "source": "PS-00516",
+      "target": "PS-00548",
+      "weight": 0.67,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00524-PS-00548",
+      "source": "PS-00524",
+      "target": "PS-00548",
+      "weight": 0.65,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00527-PS-00551",
+      "source": "PS-00527",
+      "target": "PS-00551",
+      "weight": 0.64,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00542-PS-00550",
+      "source": "PS-00542",
+      "target": "PS-00550",
+      "weight": 0.62,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00562-PS-00578",
+      "source": "PS-00562",
+      "target": "PS-00578",
+      "weight": 0.49,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00562-PS-00594",
+      "source": "PS-00562",
+      "target": "PS-00594",
+      "weight": 0.76,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00578-PS-00594",
+      "source": "PS-00578",
+      "target": "PS-00594",
+      "weight": 0.69,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00592-PS-00600",
+      "source": "PS-00592",
+      "target": "PS-00600",
+      "weight": 0.64,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00600-PS-00608",
+      "source": "PS-00600",
+      "target": "PS-00608",
+      "weight": 0.75,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00603-PS-00611",
+      "source": "PS-00603",
+      "target": "PS-00611",
+      "weight": 0.6,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00608-PS-00624",
+      "source": "PS-00608",
+      "target": "PS-00624",
+      "weight": 0.81,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00610-PS-00626",
+      "source": "PS-00610",
+      "target": "PS-00626",
+      "weight": 0.71,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00611-PS-00627",
+      "source": "PS-00611",
+      "target": "PS-00627",
+      "weight": 0.57,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00626-PS-00642",
+      "source": "PS-00626",
+      "target": "PS-00642",
+      "weight": 0.59,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00630-PS-00646",
+      "source": "PS-00630",
+      "target": "PS-00646",
+      "weight": 0.85,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00642-PS-00658",
+      "source": "PS-00642",
+      "target": "PS-00658",
+      "weight": 0.7,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00647-PS-00671",
+      "source": "PS-00647",
+      "target": "PS-00671",
+      "weight": 0.67,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00653-PS-00685",
+      "source": "PS-00653",
+      "target": "PS-00685",
+      "weight": 0.67,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00671-PS-00695",
+      "source": "PS-00671",
+      "target": "PS-00695",
+      "weight": 0.65,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00680-PS-00704",
+      "source": "PS-00680",
+      "target": "PS-00704",
+      "weight": 0.66,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00684-PS-00708",
+      "source": "PS-00684",
+      "target": "PS-00708",
+      "weight": 0.88,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00685-PS-00709",
+      "source": "PS-00685",
+      "target": "PS-00709",
+      "weight": 0.57,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00695-PS-00711",
+      "source": "PS-00695",
+      "target": "PS-00711",
+      "weight": 0.61,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00708-PS-00716",
+      "source": "PS-00708",
+      "target": "PS-00716",
+      "weight": 0.82,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00713-PS-00745",
+      "source": "PS-00713",
+      "target": "PS-00745",
+      "weight": 0.72,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00716-PS-00748",
+      "source": "PS-00716",
+      "target": "PS-00748",
+      "weight": 0.82,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00745-PS-00769",
+      "source": "PS-00745",
+      "target": "PS-00769",
+      "weight": 0.69,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00748-PS-00780",
+      "source": "PS-00748",
+      "target": "PS-00780",
+      "weight": 0.83,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00760-PS-00792",
+      "source": "PS-00760",
+      "target": "PS-00792",
+      "weight": 0.54,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00769-PS-00801",
+      "source": "PS-00769",
+      "target": "PS-00801",
+      "weight": 0.85,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00792-PS-00824",
+      "source": "PS-00792",
+      "target": "PS-00824",
+      "weight": 0.49,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00797-PS-00813",
+      "source": "PS-00797",
+      "target": "PS-00813",
+      "weight": 0.74,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00813-PS-00837",
+      "source": "PS-00813",
+      "target": "PS-00837",
+      "weight": 0.78,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00824-PS-00848",
+      "source": "PS-00824",
+      "target": "PS-00848",
+      "weight": 0.72,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00835-PS-00851",
+      "source": "PS-00835",
+      "target": "PS-00851",
+      "weight": 0.81,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00835-PS-00859",
+      "source": "PS-00835",
+      "target": "PS-00859",
+      "weight": 0.76,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00837-PS-00861",
+      "source": "PS-00837",
+      "target": "PS-00861",
+      "weight": 0.61,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00848-PS-00856",
+      "source": "PS-00848",
+      "target": "PS-00856",
+      "weight": 0.82,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00851-PS-00859",
+      "source": "PS-00851",
+      "target": "PS-00859",
+      "weight": 0.77,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00856-PS-00880",
+      "source": "PS-00856",
+      "target": "PS-00880",
+      "weight": 0.74,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00873-PS-00889",
+      "source": "PS-00873",
+      "target": "PS-00889",
+      "weight": 0.69,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00882-PS-00898",
+      "source": "PS-00882",
+      "target": "PS-00898",
+      "weight": 0.66,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00887-PS-00895",
+      "source": "PS-00887",
+      "target": "PS-00895",
+      "weight": 0.57,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00894-PS-00910",
+      "source": "PS-00894",
+      "target": "PS-00910",
+      "weight": 0.59,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00894-PS-00918",
+      "source": "PS-00894",
+      "target": "PS-00918",
+      "weight": 0.54,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00898-PS-00906",
+      "source": "PS-00898",
+      "target": "PS-00906",
+      "weight": 0.61,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00910-PS-00918",
+      "source": "PS-00910",
+      "target": "PS-00918",
+      "weight": 0.64,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00943-PS-00951",
+      "source": "PS-00943",
+      "target": "PS-00951",
+      "weight": 0.73,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00948-PS-00956",
+      "source": "PS-00948",
+      "target": "PS-00956",
+      "weight": 0.8,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00956-PS-00980",
+      "source": "PS-00956",
+      "target": "PS-00980",
+      "weight": 0.67,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00971-PS-00995",
+      "source": "PS-00971",
+      "target": "PS-00995",
+      "weight": 0.57,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00978-PS-01002",
+      "source": "PS-00978",
+      "target": "PS-01002",
+      "weight": 0.71,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00995-PS-01011",
+      "source": "PS-00995",
+      "target": "PS-01011",
+      "weight": 0.79,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-00997-PS-01021",
+      "source": "PS-00997",
+      "target": "PS-01021",
+      "weight": 0.53,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01011-PS-01043",
+      "source": "PS-01011",
+      "target": "PS-01043",
+      "weight": 0.73,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01023-PS-01055",
+      "source": "PS-01023",
+      "target": "PS-01055",
+      "weight": 0.65,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01046-PS-01054",
+      "source": "PS-01046",
+      "target": "PS-01054",
+      "weight": 0.83,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01054-PS-01078",
+      "source": "PS-01054",
+      "target": "PS-01078",
+      "weight": 0.68,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01057-PS-01073",
+      "source": "PS-01057",
+      "target": "PS-01073",
+      "weight": 0.6,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01057-PS-01081",
+      "source": "PS-01057",
+      "target": "PS-01081",
+      "weight": 0.64,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01073-PS-01081",
+      "source": "PS-01073",
+      "target": "PS-01081",
+      "weight": 0.67,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01127-PS-01143",
+      "source": "PS-01127",
+      "target": "PS-01143",
+      "weight": 0.66,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01130-PS-01146",
+      "source": "PS-01130",
+      "target": "PS-01146",
+      "weight": 0.71,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01143-PS-01183",
+      "source": "PS-01143",
+      "target": "PS-01183",
+      "weight": 0.48,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01143-PS-01191",
+      "source": "PS-01143",
+      "target": "PS-01191",
+      "weight": 0.54,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01183-PS-01191",
+      "source": "PS-01183",
+      "target": "PS-01191",
+      "weight": 0.55,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01197-PS-01213",
+      "source": "PS-01197",
+      "target": "PS-01213",
+      "weight": 0.81,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01210-PS-01218",
+      "source": "PS-01210",
+      "target": "PS-01218",
+      "weight": 0.59,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01228-PS-01236",
+      "source": "PS-01228",
+      "target": "PS-01236",
+      "weight": 0.66,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01231-PS-01247",
+      "source": "PS-01231",
+      "target": "PS-01247",
+      "weight": 0.56,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01246-PS-01254",
+      "source": "PS-01246",
+      "target": "PS-01254",
+      "weight": 0.72,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01247-PS-01263",
+      "source": "PS-01247",
+      "target": "PS-01263",
+      "weight": 0.58,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01260-PS-01268",
+      "source": "PS-01260",
+      "target": "PS-01268",
+      "weight": 0.52,
+      "reason": "shared-county"
+    },
+    {
+      "id": "PS-01268-PS-01276",
+      "source": "PS-01268",
+      "target": "PS-01276",
+      "weight": 0.52,
+      "reason": "shared-county"
+    }
+  ]
+}
