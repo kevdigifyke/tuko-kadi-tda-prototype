@@ -30,7 +30,7 @@ export function EvidencePanel({ cluster }: { cluster: ClusterNode }) {
       <p className="panel-kicker mt-4 text-[#bac9cc]">Review recommendations</p>
       <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[#bac9cc]">{cluster.reviewRecommendations.map((item) => <li key={item}>{item}</li>)}</ul>
 
-      {cluster.relatedClusterIds.length > 0 && <p className="mt-4 text-xs text-[#9eb2ba]">Related clusters: {cluster.relatedClusterIds.join(", ")}</p>}
+      <div className="mt-4 rounded border border-white/10 bg-black/20 p-3 text-xs text-[#b7c7cc]"><p className="panel-kicker text-cyan-200">Topology relationship summary</p><p className="mt-1">Related clusters: {cluster.relatedClusterIds.length ? cluster.relatedClusterIds.join(", ") : "No direct bridges mapped."}</p><p className="mt-1">Position in network: {cluster.riskLevel} risk node connected to {cluster.relatedClusterIds.length} peer links.</p></div>
     </section>
   );
 }
