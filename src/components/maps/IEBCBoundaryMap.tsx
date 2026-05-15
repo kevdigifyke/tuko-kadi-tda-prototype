@@ -1,14 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import {
   MapContainer,
   TileLayer,
   GeoJSON,
+  CircleMarker,
+  Popup,
   LayersControl,
 } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
+
+import { pollingStations } from "@/data/geo/pollingStations";
 
 export default function IEBCBoundaryMap() {
   const [counties, setCounties] = useState<any>(null);
@@ -60,22 +65,6 @@ export default function IEBCBoundaryMap() {
     layer.bindTooltip(name, {
       sticky: true,
     });
-
-    layer.on({
-      mouseover: (e: any) => {
-        e.target.setStyle({
-          weight: 4,
-          fillOpacity: 0.2,
-        });
-      },
-
-      mouseout: (e: any) => {
-        e.target.setStyle({
-          weight: 2,
-          fillOpacity: 0.08,
-        });
-      },
-    });
   };
 
   return (
@@ -92,6 +81,7 @@ export default function IEBCBoundaryMap() {
         />
 
         <LayersControl position="topright">
+
           <LayersControl.Overlay checked name="Counties">
             <>
               {counties && (
@@ -127,6 +117,46 @@ export default function IEBCBoundaryMap() {
               )}
             </>
           </LayersControl.Overlay>
+
+          <LayersControl.Overlay checked name="Polling Stations">
+            <>
+              {pollingStations.map((station) => (
+                <CircleMarker
+                  key={station.id}
+                  center={[station.lat, station.lng]}
+                  radius={Math.max(5, station.turnout / 15)}
+                  pathOptions={{
+                    color:
+                      station.anomalyScore > 0.6
+                        ? "#FF0000"
+                        : station.anomalyScore > 0.3
+                        ? "#FFD700"
+                        : "#00FFAA",
+                    fillOpacity: 0.7,
+                  }}
+                >
+                  <Popup>
+                    <div className="space-y-1">
+                      <h3 className="font-bold text-sm">
+                        {station.name}
+                      </h3>
+
+                      <p>County: {station.county}</p>
+                      <p>Constituency: {station.constituency}</p>
+                      <p>Ward: {station.ward}</p>
+                      <p>Turnout: {station.turnout}%</p>
+
+                      <p>
+                        Anomaly Score:{" "}
+                        {station.anomalyScore}
+                      </p>
+                    </div>
+                  </Popup>
+                </CircleMarker>
+              ))}
+            </>
+          </LayersControl.Overlay>
+
         </LayersControl>
       </MapContainer>
     </div>
