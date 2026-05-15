@@ -1,151 +1,132 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import {
-  GeoJSON,
-  LayersControl,
   MapContainer,
   TileLayer,
+  GeoJSON,
+  LayersControl,
 } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
 
 export default function IEBCBoundaryMap() {
   const [counties, setCounties] = useState<any>(null);
-
-  const [constituencies, setConstituencies] =
-    useState<any>(null);
+  const [constituencies, setConstituencies] = useState<any>(null);
+  const [wards, setWards] = useState<any>(null);
 
   useEffect(() => {
-    fetch("/geojson/counties.geojson")
+    fetch("/geojson/kenya_counties.geojson")
       .then((res) => res.json())
-      .then((data) => {
-        console.log("Loaded counties");
-        setCounties(data);
-      });
+      .then(setCounties);
 
-    fetch("/geojson/constituencies.geojson")
+    fetch("/geojson/kenya_constituencies.geojson")
       .then((res) => res.json())
-      .then((data) => {
-        console.log("Loaded constituencies");
-        setConstituencies(data);
-      });
+      .then(setConstituencies);
+
+    fetch("/geojson/kenya_wards.geojson")
+      .then((res) => res.json())
+      .then(setWards);
   }, []);
 
+  const countyStyle = {
+    color: "#00FFFF",
+    weight: 3,
+    fillOpacity: 0.08,
+  };
+
+  const constituencyStyle = {
+    color: "#FFD700",
+    weight: 2,
+    fillOpacity: 0.05,
+  };
+
+  const wardStyle = {
+    color: "#FF4D6D",
+    weight: 1,
+    fillOpacity: 0.03,
+  };
+
+  const onEachFeature = (feature: any, layer: any) => {
+    const props = feature.properties;
+
+    const name =
+      props.COUNTY ||
+      props.CONSTITUENCY ||
+      props.WARD ||
+      props.name ||
+      "Unknown";
+
+    layer.bindTooltip(name, {
+      sticky: true,
+    });
+
+    layer.on({
+      mouseover: (e: any) => {
+        e.target.setStyle({
+          weight: 4,
+          fillOpacity: 0.2,
+        });
+      },
+
+      mouseout: (e: any) => {
+        e.target.setStyle({
+          weight: 2,
+          fillOpacity: 0.08,
+        });
+      },
+    });
+  };
+
   return (
-    <div className="w-full h-[85vh] rounded-2xl overflow-hidden border border-cyan-500">
+    <div className="h-[85vh] w-full rounded-2xl overflow-hidden border border-zinc-800">
       <MapContainer
         center={[-0.0236, 37.9062]}
         zoom={6}
         scrollWheelZoom={true}
-        className="w-full h-full"
+        className="h-full w-full z-0"
       >
         <TileLayer
-          attribution="&copy; OpenStreetMap contributors"
+          attribution='&copy; OpenStreetMap contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         <LayersControl position="topright">
-
-          {/* COUNTY LAYER */}
-
-          <LayersControl.Overlay
-            checked
-            name="Counties"
-          >
-            <div>
+          <LayersControl.Overlay checked name="Counties">
+            <>
               {counties && (
                 <GeoJSON
                   data={counties}
-                  style={() => ({
-                    color: "#00FFFF",
-                    weight: 2.5,
-                    fillColor: "#00FFFF",
-                    fillOpacity: 0.15,
-                  })}
-                  onEachFeature={(feature: any, layer: any) => {
-                    const countyName =
-                      feature.properties?.name ||
-                      feature.properties?.COUNTY ||
-                      "Unknown County";
-
-                    layer.bindPopup(`
-                      <div>
-                        <strong>${countyName}</strong>
-                      </div>
-                    `);
-
-                    layer.on({
-                      mouseover: () => {
-                        layer.setStyle({
-                          fillOpacity: 0.4,
-                          weight: 4,
-                        });
-                      },
-
-                      mouseout: () => {
-                        layer.setStyle({
-                          fillOpacity: 0.15,
-                          weight: 2.5,
-                        });
-                      },
-                    });
-                  }}
+                  style={countyStyle}
+                  onEachFeature={onEachFeature}
                 />
               )}
-            </div>
+            </>
           </LayersControl.Overlay>
 
-          {/* CONSTITUENCY LAYER */}
-
-          <LayersControl.Overlay
-            checked
-            name="Constituencies"
-          >
-            <div>
+          <LayersControl.Overlay checked name="Constituencies">
+            <>
               {constituencies && (
                 <GeoJSON
                   data={constituencies}
-                  style={() => ({
-                    color: "#FF00AA",
-                    weight: 1,
-                    fillColor: "#FF00AA",
-                    fillOpacity: 0.05,
-                  })}
-                  onEachFeature={(feature: any, layer: any) => {
-                    const constituencyName =
-                      feature.properties?.name ||
-                      feature.properties?.CONSTITUENCY ||
-                      "Unknown Constituency";
-
-                    layer.bindPopup(`
-                      <div>
-                        <strong>${constituencyName}</strong>
-                      </div>
-                    `);
-
-                    layer.on({
-                      mouseover: () => {
-                        layer.setStyle({
-                          fillOpacity: 0.2,
-                          weight: 2,
-                        });
-                      },
-
-                      mouseout: () => {
-                        layer.setStyle({
-                          fillOpacity: 0.05,
-                          weight: 1,
-                        });
-                      },
-                    });
-                  }}
+                  style={constituencyStyle}
+                  onEachFeature={onEachFeature}
                 />
               )}
-            </div>
+            </>
           </LayersControl.Overlay>
 
+          <LayersControl.Overlay checked name="Wards">
+            <>
+              {wards && (
+                <GeoJSON
+                  data={wards}
+                  style={wardStyle}
+                  onEachFeature={onEachFeature}
+                />
+              )}
+            </>
+          </LayersControl.Overlay>
         </LayersControl>
       </MapContainer>
     </div>
