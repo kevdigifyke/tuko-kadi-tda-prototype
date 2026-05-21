@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
+import HeatmapLayer from "./HeatmapLayer";
+import PulseMarker from "./PulseMarker";
+
 import {
   MapContainer,
   TileLayer,
@@ -8,7 +12,11 @@ import {
   LayersControl,
 } from "react-leaflet";
 
+import MarkerClusterGroup from "react-leaflet-cluster";
+
 import "leaflet/dist/leaflet.css";
+
+import { pollingStations } from "../../data/geo/pollingStations";
 
 export default function IEBCBoundaryMap() {
   const [counties, setCounties] = useState<any>(null);
@@ -78,6 +86,12 @@ export default function IEBCBoundaryMap() {
     });
   };
 
+  const heatmapPoints = pollingStations.map((station) => ({
+    lat: station.lat,
+    lng: station.lng,
+    intensity: station.turnout / 100,
+  }));
+
   return (
     <div className="h-[85vh] w-full rounded-2xl overflow-hidden border border-zinc-800">
       <MapContainer
@@ -87,11 +101,14 @@ export default function IEBCBoundaryMap() {
         className="h-full w-full z-0"
       >
         <TileLayer
-          attribution='&copy; OpenStreetMap contributors'
+          attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
+        <HeatmapLayer points={heatmapPoints} />
+
         <LayersControl position="topright">
+
           <LayersControl.Overlay checked name="Counties">
             <>
               {counties && (
@@ -127,6 +144,20 @@ export default function IEBCBoundaryMap() {
               )}
             </>
           </LayersControl.Overlay>
+
+          <LayersControl.Overlay checked name="Polling Station Clusters">
+            <>
+              <MarkerClusterGroup chunkedLoading>
+                {pollingStations.map((station) => (
+                  <PulseMarker
+                    key={station.id}
+                    station={station}
+                  />
+                ))}
+              </MarkerClusterGroup>
+            </>
+          </LayersControl.Overlay>
+
         </LayersControl>
       </MapContainer>
     </div>
