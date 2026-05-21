@@ -18,7 +18,7 @@ import "leaflet/dist/leaflet.css";
 
 import { pollingStations } from "../../data/geo/pollingStations";
 
-export default function IEBCBoundaryMap() {
+export default function IEBCBoundaryMap({ mode = "default" }: { mode?: "default" | "command" }) {
   const [counties, setCounties] = useState<any>(null);
   const [constituencies, setConstituencies] = useState<any>(null);
   const [wards, setWards] = useState<any>(null);
@@ -37,19 +37,34 @@ export default function IEBCBoundaryMap() {
       .then(setWards);
   }, []);
 
-  const countyStyle = {
+  const countyStyle = mode === "command" ? {
+    color: "#00E5FF",
+    weight: 3.2,
+    fillColor: "#00e5ff",
+    fillOpacity: 0.14,
+  } : {
     color: "#00FFFF",
     weight: 3,
     fillOpacity: 0.08,
   };
 
-  const constituencyStyle = {
+  const constituencyStyle = mode === "command" ? {
+    color: "#FFC857",
+    weight: 2.4,
+    fillColor: "#FFC857",
+    fillOpacity: 0.1,
+  } : {
     color: "#FFD700",
     weight: 2,
     fillOpacity: 0.05,
   };
 
-  const wardStyle = {
+  const wardStyle = mode === "command" ? {
+    color: "#FF4D6D",
+    weight: 1.5,
+    fillColor: "#FF4D6D",
+    fillOpacity: 0.08,
+  } : {
     color: "#FF4D6D",
     weight: 1,
     fillOpacity: 0.03,
@@ -102,11 +117,12 @@ export default function IEBCBoundaryMap() {
       >
         <TileLayer
           attribution="&copy; OpenStreetMap contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url={mode === "command" ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
         />
 
         <HeatmapLayer points={heatmapPoints} />
 
+        
         <LayersControl position="topright">
 
           <LayersControl.Overlay checked name="Counties">
