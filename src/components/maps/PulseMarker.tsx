@@ -1,7 +1,7 @@
 "use client";
 
 import { CircleMarker, Popup } from "react-leaflet";
-import { calculateSpatialRisk } from "@/lib/tda/spatialRiskEngine";
+import { calculateSpatialRisk } from "../../lib/tda/spatialRiskEngine";
 
 interface PulseMarkerProps {
   station: any;

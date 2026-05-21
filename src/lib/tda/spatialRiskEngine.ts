@@ -1,21 +1,27 @@
-export function calculateSpatialRisk(station: any) {
-  let risk = 0;
+export function calculateSpatialRisk(station: any): number {
+  const turnoutRisk = station.turnout > 85 ? 30 : 10;
 
-  // turnout anomaly
-  risk += station.anomalyScore * 50;
+  const anomalyRisk =
+    station.anomalyScore * 50;
 
-  // suspicious turnout
-  if (station.turnout > 85) {
-    risk += 25;
-  }
+  const influenceRisk =
+    station.influenceScore
+      ? station.influenceScore * 20
+      : 10;
 
-  // extremely low turnout
-  if (station.turnout < 25) {
-    risk += 10;
-  }
+  const clusterRisk =
+    station.clusterStrength
+      ? station.clusterStrength * 15
+      : 5;
 
-  // random network instability simulation
-  risk += Math.random() * 15;
+  const totalRisk =
+    turnoutRisk +
+    anomalyRisk +
+    influenceRisk +
+    clusterRisk;
 
-  return Math.min(100, Math.round(risk));
+  return Math.min(
+    Math.round(totalRisk),
+    100
+  );
 }

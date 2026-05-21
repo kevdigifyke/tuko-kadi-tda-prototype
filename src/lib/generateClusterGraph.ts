@@ -1,7 +1,7 @@
-import { buildAnomalyExplanation, primaryIssueFromType } from "@/src/lib/anomalyExplanations";
-import { buildStationFeatureVector } from "@/src/lib/anomalyFeatures";
-import { buildReviewRecommendations } from "@/src/lib/reviewRecommendations";
-import type { ClusterEdge, ClusterGraph, ClusterNode, ClusterRiskLevel, PollingStationRecord, ReviewerStatus } from "@/src/types/election";
+import { buildAnomalyExplanation, primaryIssueFromType } from "@/lib/anomalyExplanations";
+import { buildStationFeatureVector } from "@/lib/anomalyFeatures";
+import { buildReviewRecommendations } from "@/lib/reviewRecommendations";
+import type { ClusterEdge, ClusterGraph, ClusterNode, ClusterRiskLevel, PollingStationRecord, ReviewerStatus } from "@/types/election";
 
 const deriveRiskLevel = (severity: number): ClusterRiskLevel => {
   if (severity >= 90) return "critical";

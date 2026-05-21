@@ -1,9 +1,9 @@
-import { AppShell } from "@/src/components/shell/AppShell";
-import { CommandPanel } from "@/src/components/ui/CommandPanel";
-import { StatusChip } from "@/src/components/ui/StatusChip";
-import { WarningStrip } from "@/src/components/ui/WarningStrip";
-import { getElectionSummary, getStationSample } from "@/src/lib/generatedElectionData";
-import { candidates } from "@/src/data/demoElectionData";
+import { AppShell } from "@/components/shell/AppShell";
+import { CommandPanel } from "@/components/ui/CommandPanel";
+import { StatusChip } from "@/components/ui/StatusChip";
+import { WarningStrip } from "@/components/ui/WarningStrip";
+import { getElectionSummary, getStationSample } from "@/lib/generatedElectionData";
+import { candidates } from "@/data/demoElectionData";
 
 export default function Page() {
   const summary = getElectionSummary();

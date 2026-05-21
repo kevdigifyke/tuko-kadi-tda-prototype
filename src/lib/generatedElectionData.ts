@@ -1,10 +1,10 @@
-import type { ClusterGraph, ElectionSummary, StationDetailRecord } from "@/src/types/election";
-import type { ClusterNode as GraphClusterNode, ClusterEdge as GraphClusterEdge } from "@/src/types/graph";
+import type { ClusterGraph, ElectionSummary, StationDetailRecord } from "@/types/election";
+import type { ClusterNode as GraphClusterNode, ClusterEdge as GraphClusterEdge } from "@/types/graph";
 
-import electionSummaryJson from "@/src/data/generated/election-summary.json";
-import clusterGraphJson from "@/src/data/generated/cluster-graph.json";
-import pythonTdaGraphJson from "@/src/data/generated/python-tda-graph.json";
-import stationSampleJson from "@/src/data/generated/station-sample.json";
+import electionSummaryJson from "@/data/generated/election-summary.json";
+import clusterGraphJson from "@/data/generated/cluster-graph.json";
+import pythonTdaGraphJson from "@/data/generated/python-tda-graph.json";
+import stationSampleJson from "@/data/generated/station-sample.json";
 
 const FALLBACK_SUMMARY: ElectionSummary = {
   generatedAt: "2026-01-01T00:00:00.000Z",

@@ -14,7 +14,7 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 
 import { pollingStations } from "../../data/geo/pollingStations";
-import { buildNetworkInfluence } from "@/src/lib/tda/networkInfluenceEngine";
+import { buildNetworkInfluence } from "@/lib/tda/networkInfluenceEngine";
 
 export default function IEBCBoundaryMap() {
   const [counties, setCounties] = useState<any>(null);
