@@ -16,9 +16,9 @@ export default function PulseMarker({
   // =========================
   const riskScore = calculateSpatialRisk(station);
 
-  const isCriticalRisk = riskScore >= 85;
-  const isHighRisk = riskScore >= 70;
-  const isMediumRisk = riskScore >= 45;
+  const isCriticalRisk = station.riskColor === "red" || riskScore >= 85;
+  const isHighRisk = station.riskColor === "orange" || riskScore >= 70;
+  const isMediumRisk = station.riskColor === "yellow" || riskScore >= 45;
 
   // =========================
   // DYNAMIC VISUAL SYSTEM
@@ -26,8 +26,8 @@ export default function PulseMarker({
   let outerRadius = 10;
   let innerRadius = 5;
 
-  let outerColor = "#00ffaa";
-  let innerColor = "#00ffaa";
+  let outerColor = "#00ff66";
+  let innerColor = "#00ff66";
 
   let riskLabel = "STABLE";
 

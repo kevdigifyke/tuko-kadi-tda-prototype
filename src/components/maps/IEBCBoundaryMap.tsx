@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 
 import HeatmapLayer from "./HeatmapLayer";
 import PulseMarker from "./PulseMarker";
@@ -17,8 +17,11 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 
 import { pollingStations } from "../../data/geo/pollingStations";
+import { subscribeToElectionStream, startElectionStream, stopElectionStream } from "@/src/lib/streaming/electionStreamEngine";
+import { useElectionStreamStore } from "@/src/store/electionStreamStore";
 
-export default function IEBCBoundaryMap() {
+function IEBCBoundaryMap() {
+  const { liveStations, updateStation, pushAlert } = useElectionStreamStore();
   const [counties, setCounties] = useState<any>(null);
   const [constituencies, setConstituencies] = useState<any>(null);
   const [wards, setWards] = useState<any>(null);
@@ -36,6 +39,20 @@ export default function IEBCBoundaryMap() {
       .then((res) => res.json())
       .then(setWards);
   }, []);
+
+
+
+  useEffect(() => {
+    const unsub = subscribeToElectionStream((event) => {
+      updateStation(event.station);
+      event.alerts.forEach(pushAlert);
+    });
+    startElectionStream();
+    return () => {
+      unsub();
+      stopElectionStream();
+    };
+  }, [pushAlert, updateStation]);
 
   const countyStyle = {
     color: "#00FFFF",
@@ -86,11 +103,12 @@ export default function IEBCBoundaryMap() {
     });
   };
 
-  const heatmapPoints = pollingStations.map((station) => ({
+  const stationList = useMemo(() => pollingStations.map((s) => liveStations[s.id] ?? { ...s, turnout: 0, anomalyScore: 0, influenceScore: 0, sentimentScore: 0, queuePressure: 0, violenceRisk: 0, ballotVelocity: 0, riskColor: "green", lastUpdated: new Date(0).toISOString() }), [liveStations]);
+  const heatmapPoints = useMemo(() => stationList.map((station) => ({
     lat: station.lat,
     lng: station.lng,
-    intensity: station.turnout / 100,
-  }));
+    intensity: Math.max(0.1, station.turnout / 100),
+  })), [stationList]);
 
   return (
     <div className="h-[85vh] w-full rounded-2xl overflow-hidden border border-zinc-800">
@@ -148,7 +166,7 @@ export default function IEBCBoundaryMap() {
           <LayersControl.Overlay checked name="Polling Station Clusters">
             <>
               <MarkerClusterGroup chunkedLoading>
-                {pollingStations.map((station) => (
+                {stationList.map((station) => (
                   <PulseMarker
                     key={station.id}
                     station={station}
@@ -163,3 +181,5 @@ export default function IEBCBoundaryMap() {
     </div>
   );
 }
+
+export default memo(IEBCBoundaryMap);
