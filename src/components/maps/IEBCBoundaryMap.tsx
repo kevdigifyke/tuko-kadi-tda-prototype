@@ -83,6 +83,12 @@ export default function IEBCBoundaryMap() {
           fillOpacity: 0.08,
         });
       },
+
+      click: () => {
+        window.dispatchEvent(new CustomEvent("map:region-select", {
+          detail: { name },
+        }));
+      },
     });
   };
 
