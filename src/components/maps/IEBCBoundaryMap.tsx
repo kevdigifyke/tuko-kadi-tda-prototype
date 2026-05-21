@@ -6,6 +6,7 @@ import HeatmapLayer from "./HeatmapLayer";
 import PulseMarker from "./PulseMarker";
 import InfluenceLines from "./InfluenceLines";
 import InfluenceLegend from "./InfluenceLegend";
+import AIRiskOverlay from "./AIRiskOverlay";
 
 import { MapContainer, TileLayer, GeoJSON, LayersControl } from "react-leaflet";
 
@@ -90,6 +91,10 @@ export default function IEBCBoundaryMap() {
 
           <LayersControl.Overlay checked name="Network Influence Propagation">
             <InfluenceLines connections={networkResult.connections} stations={networkResult.stations} />
+          </LayersControl.Overlay>
+
+          <LayersControl.Overlay checked name="AI Predictive Risk">
+            <AIRiskOverlay stations={networkResult.stations} />
           </LayersControl.Overlay>
         </LayersControl>
       </MapContainer>
