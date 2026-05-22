@@ -17,6 +17,7 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 
 import { pollingStations } from "../../data/geo/pollingStations";
+import { mockIntegrityAssessment } from "@/src/data/integrity/mockIntegrityData";
 
 export default function IEBCBoundaryMap() {
   const [counties, setCounties] = useState<any>(null);
@@ -37,10 +38,20 @@ export default function IEBCBoundaryMap() {
       .then(setWards);
   }, []);
 
-  const countyStyle = {
-    color: "#00FFFF",
-    weight: 3,
-    fillOpacity: 0.08,
+  const countyScores = Object.fromEntries(mockIntegrityAssessment.countyRankings.map((c) => [c.county.toUpperCase(), c]));
+
+  const countyStyle = (feature: any) => {
+    const countyName = String(feature?.properties?.COUNTY ?? feature?.properties?.name ?? "").toUpperCase();
+    const county = countyScores[countyName];
+    const score = county?.integrityScore ?? 65;
+    const color = score >= 75 ? "#00C853" : score >= 50 ? "#FACC15" : "#F43F5E";
+
+    return {
+      color: "#00FFFF",
+      weight: county && county.volatility > 45 ? 4 : 3,
+      fillColor: color,
+      fillOpacity: 0.22,
+    };
   };
 
   const constituencyStyle = {
@@ -72,19 +83,21 @@ export default function IEBCBoundaryMap() {
     layer.on({
       mouseover: (e: any) => {
         e.target.setStyle({
-          weight: 4,
-          fillOpacity: 0.2,
+          weight: 5,
+          fillOpacity: 0.32,
         });
       },
 
       mouseout: (e: any) => {
         e.target.setStyle({
-          weight: 2,
-          fillOpacity: 0.08,
+          weight: 3,
+          fillOpacity: 0.22,
         });
       },
     });
   };
+
+  const hotspotCounties = new Set(mockIntegrityAssessment.countyRankings.filter((c) => c.volatility > 55).map((c) => c.county.toLowerCase()));
 
   const heatmapPoints = pollingStations.map((station) => ({
     lat: station.lat,
@@ -148,12 +161,10 @@ export default function IEBCBoundaryMap() {
           <LayersControl.Overlay checked name="Polling Station Clusters">
             <>
               <MarkerClusterGroup chunkedLoading>
-                {pollingStations.map((station) => (
-                  <PulseMarker
-                    key={station.id}
-                    station={station}
-                  />
-                ))}
+                {pollingStations.map((station) => {
+                  const isHotspot = hotspotCounties.has(station.county.toLowerCase());
+                  return <PulseMarker key={station.id} station={station} intensity={isHotspot ? "high" : "normal"} />;
+                })}
               </MarkerClusterGroup>
             </>
           </LayersControl.Overlay>

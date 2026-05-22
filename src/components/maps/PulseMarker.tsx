@@ -5,10 +5,12 @@ import { calculateSpatialRisk } from "@/lib/tda/spatialRiskEngine";
 
 interface PulseMarkerProps {
   station: any;
+  intensity?: "normal" | "high";
 }
 
 export default function PulseMarker({
   station,
+  intensity = "normal",
 }: PulseMarkerProps) {
 
   // =========================
@@ -30,6 +32,12 @@ export default function PulseMarker({
   let innerColor = "#00ffaa";
 
   let riskLabel = "STABLE";
+
+  if (intensity === "high") {
+    outerRadius += 3;
+    innerRadius += 1;
+    outerColor = "#ff3355";
+  }
 
   if (isCriticalRisk) {
     outerRadius = 24;
