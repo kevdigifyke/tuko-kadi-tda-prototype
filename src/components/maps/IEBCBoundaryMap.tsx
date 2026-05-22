@@ -10,6 +10,7 @@ import {
   TileLayer,
   GeoJSON,
   LayersControl,
+  CircleMarker,
 } from "react-leaflet";
 
 import MarkerClusterGroup from "react-leaflet-cluster";
@@ -17,6 +18,7 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 
 import { pollingStations } from "../../data/geo/pollingStations";
+import { mockFieldReports } from "@/data/mobile/mockFieldReports";
 
 export default function IEBCBoundaryMap() {
   const [counties, setCounties] = useState<any>(null);
@@ -155,6 +157,45 @@ export default function IEBCBoundaryMap() {
                   />
                 ))}
               </MarkerClusterGroup>
+            </>
+          </LayersControl.Overlay>
+
+        
+          <LayersControl.Overlay checked name="Live Field Reports">
+            <>
+              {mockFieldReports.flatMap((report) => {
+                const severityColor =
+                  report.severity === "critical"
+                    ? "#ef4444"
+                    : report.severity === "high"
+                    ? "#f97316"
+                    : report.severity === "moderate"
+                    ? "#eab308"
+                    : "#22c55e";
+
+                return [
+                    <PulseMarker
+                      key={`${report.id}-pulse`}
+                      station={{
+                        id: report.id,
+                        name: report.pollingStation,
+                        county: report.county,
+                        constituency: report.constituency,
+                        ward: report.ward,
+                        lat: report.coordinates.lat,
+                        lng: report.coordinates.lng,
+                        turnout: report.turnoutPct,
+                        anomalyScore: report.severity === "critical" ? 95 : report.severity === "high" ? 75 : 55,
+                      }}
+                    />,
+                    <CircleMarker
+                      key={`${report.id}-ring`}
+                      center={[report.coordinates.lat, report.coordinates.lng]}
+                      radius={26}
+                      pathOptions={{ color: severityColor, fillOpacity: 0.05, weight: 1 }}
+                    />,
+                  ];
+              })}
             </>
           </LayersControl.Overlay>
 
