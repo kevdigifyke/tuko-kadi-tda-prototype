@@ -30,3 +30,17 @@ body { margin:0; background: radial-gradient(circle at 15% 0%, #132124 0%, var(-
 .panel-kicker { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 
 .command-card { border: 1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(36,43,45,.5), rgba(25,33,34,.9)); border-radius: 14px; }
+
+.fusion-glow {
+  filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.75));
+}
+
+.fusion-pulse {
+  animation: fusionPulse 2.1s ease-in-out infinite;
+}
+
+@keyframes fusionPulse {
+  0% { opacity: 0.45; }
+  50% { opacity: 1; }
+  100% { opacity: 0.45; }
+}
