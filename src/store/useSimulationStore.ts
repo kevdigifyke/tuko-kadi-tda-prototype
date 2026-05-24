@@ -20,6 +20,24 @@ type SimulationState = {
   pause: () => void;
   reset: () => void;
   advance: () => void;
+  telemetryEvents: TelemetryEvent[];
+  activeAlerts: TelemetryEvent[];
+  anomalyLevel: number;
+  liveEventCount: number;
+  pushTelemetryEvent: (event: TelemetryEvent) => void;
+  dismissAlert: (id: string) => void;
+};
+
+export type TelemetrySeverity = "INFO" | "WARNING" | "CRITICAL";
+
+export type TelemetryEvent = {
+  id: string;
+  timestamp: number;
+  title: string;
+  severity: TelemetrySeverity;
+  category: string;
+  county: string;
+  status: "LIVE" | "TRACKING" | "ESCALATED";
 };
 
 export const useSimulationStore = create<SimulationState>((set, get) => ({
@@ -49,4 +67,27 @@ export const useSimulationStore = create<SimulationState>((set, get) => ({
     const nextTick = Math.min(120, tick + speed);
     set({ tick: nextTick, timeline: generateSyntheticTick(nextTick, scenario), isRunning: nextTick < 120 });
   },
+  telemetryEvents: [],
+  activeAlerts: [],
+  anomalyLevel: 12,
+  liveEventCount: 0,
+  pushTelemetryEvent: (event) =>
+    set((state) => {
+      const telemetryEvents = [event, ...state.telemetryEvents].slice(0, 25);
+      const activeAlerts = event.severity === "CRITICAL"
+        ? [event, ...state.activeAlerts].slice(0, 3)
+        : state.activeAlerts;
+      const severityWeight = event.severity === "CRITICAL" ? 12 : event.severity === "WARNING" ? 6 : 2;
+      const anomalyLevel = Math.min(100, Math.max(4, Math.round(state.anomalyLevel * 0.82 + severityWeight)));
+      return {
+        telemetryEvents,
+        activeAlerts,
+        anomalyLevel,
+        liveEventCount: telemetryEvents.length,
+      };
+    }),
+  dismissAlert: (id) =>
+    set((state) => ({
+      activeAlerts: state.activeAlerts.filter((alert) => alert.id !== id),
+    })),
 }));
