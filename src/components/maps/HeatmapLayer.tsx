@@ -2,8 +2,6 @@
 
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
-import L from "leaflet";
-import "leaflet.heat";
 
 interface HeatPoint {
   lat: number;
@@ -11,32 +9,45 @@ interface HeatPoint {
   intensity: number;
 }
 
-interface Props {
+interface HeatmapLayerProps {
   points: HeatPoint[];
 }
 
-export default function HeatmapLayer({ points }: Props) {
+export default function HeatmapLayer({
+  points,
+}: HeatmapLayerProps) {
   const map = useMap();
 
   useEffect(() => {
-    if (!map) return;
+    let heatLayer: any;
 
-    const heatPoints = points.map((p) => [
-      p.lat,
-      p.lng,
-      p.intensity,
-    ]) as [number, number, number][];
+    async function loadHeatmap() {
+      const L = await import("leaflet");
 
-    const heatLayer = (L as any).heatLayer(heatPoints, {
-      radius: 25,
-      blur: 20,
-      maxZoom: 10,
-    });
+      await import("leaflet.heat");
 
-    heatLayer.addTo(map);
+      heatLayer = (L as any).heatLayer(
+        points.map((p) => [
+          p.lat,
+          p.lng,
+          p.intensity,
+        ]),
+        {
+          radius: 25,
+          blur: 15,
+          maxZoom: 10,
+        }
+      );
+
+      heatLayer.addTo(map);
+    }
+
+    loadHeatmap();
 
     return () => {
-      map.removeLayer(heatLayer);
+      if (heatLayer) {
+        map.removeLayer(heatLayer);
+      }
     };
   }, [map, points]);
 
