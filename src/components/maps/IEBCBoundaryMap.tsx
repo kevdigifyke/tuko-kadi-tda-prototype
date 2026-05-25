@@ -6,7 +6,7 @@ import HeatmapLayer from "./HeatmapLayer";
 import PulseMarker from "./PulseMarker";
 
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
-import { type Layer } from "leaflet";
+import { type Layer, type Path } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
 
@@ -14,9 +14,9 @@ import { pollingStations } from "../../data/geo/pollingStations";
 import { useSimulationStore } from "@/src/store/useSimulationStore";
 
 const nameKeyMap = {
-  county: ["COUNTY", "COUNTY_NAM", "county", "name"],
-  constituency: ["CONSTITUENCY", "constituency", "name"],
-  ward: ["WARD", "ward", "name"],
+  county: ["COUNTY", "COUNTY_NAM", "ADM1_EN", "NAME", "name"],
+  constituency: ["CONSTITUENCY", "constituency", "NAME", "name"],
+  ward: ["WARD", "ward", "NAME", "name"],
 } as const;
 
 const zoomOpacity = {
@@ -34,7 +34,12 @@ function getRegionName(props: Record<string, unknown>, layer: keyof typeof nameK
     const value = props?.[key];
     if (typeof value === "string" && value.trim()) return value.trim();
   }
-  return "Unknown Area";
+  const fallback = ["NAME", "name", "ADM1_EN", "county", "constituency", "ward"];
+  for (const key of fallback) {
+    const value = props?.[key];
+    if (typeof value === "string" && value.trim()) return value.trim();
+  }
+  return `${layer.toUpperCase()}-${String(props.id ?? props.OBJECTID ?? props.FID ?? "SECTOR")}`;
 }
 
 function getCenter(latlngs: Array<{ lat: number; lng: number }> | Array<Array<{ lat: number; lng: number }>>): [number, number] {
@@ -110,13 +115,13 @@ export default memo(function IEBCBoundaryMap() {
   }, [counties, constituencies, wards]);
 
   const styleFor = (layer: "county" | "constituency" | "ward") => {
-    const base = layer === "county" ? { color: "#5ed4df", weight: 2, fill: 0.13 } : layer === "constituency" ? { color: "#6ea7bc", weight: 1.3, fill: 0.08 } : { color: "#8b96a0", weight: 0.9, fill: 0.05 };
+    const base = layer === "county" ? { color: "#5ed4df", weight: 2.2, fill: 0.12, dashArray: "9 5" } : layer === "constituency" ? { color: "#6ea7bc", weight: 1.4, fill: 0.07, dashArray: "7 4" } : { color: "#8b96a0", weight: 0.8, fill: 0.03, dashArray: "4 4" };
     const z = zoomOpacity[layer];
     const opacity = clamp((zoom - z.min) / (z.max - z.min), 0, 1);
-    return { color: base.color, weight: base.weight * opacity, opacity, fillColor: base.color, fillOpacity: base.fill * opacity };
+    return { color: base.color, dashArray: base.dashArray, weight: base.weight * opacity, opacity, fillColor: base.color, fillOpacity: base.fill * opacity };
   };
 
-  const popupContent = (regionName: string) => `<div class="space-y-1 min-w-[220px]"><strong>${regionName}</strong><br/>AI Risk Score: ${latestEvent?.aiRiskScore ?? 42}<br/>Turnout Volatility: ${Math.abs((latestEvent?.turnout ?? 57) - 50)}<br/>Telemetry Status: ${latestEvent?.status ?? "LIVE"}<br/>Simulation State: ${latestEvent?.simulationStatus ?? "PREDICTIVE"}<br/>TDA Persistence Stability: ${latestEvent?.tdaStability ?? 70}</div>`;
+  const popupContent = (regionName: string) => `<div class="min-w-[250px] rounded-lg border border-cyan-500/35 bg-black/95 p-2 text-[11px] text-cyan-50"><div class="text-xs font-bold uppercase tracking-[0.14em] text-cyan-300">${regionName}</div><div class="mt-2 grid grid-cols-2 gap-1"><div>AI Risk</div><div class="text-right font-semibold text-rose-300">${latestEvent?.aiRiskScore ?? 42}</div><div>Turnout</div><div class="text-right font-semibold text-emerald-300">${latestEvent?.turnout ?? 57}%</div><div>Telemetry</div><div class="text-right">${latestEvent?.status ?? "LIVE"}</div><div>Propagation</div><div class="text-right text-amber-200">${latestEvent?.tdaStability ? `${latestEvent.tdaStability}% LOCK` : "TRACKING"}</div><div>Simulation</div><div class="text-right">${latestEvent?.simulationStatus ?? "PREDICTIVE"}</div></div></div>`;
 
   const onEachFeature = (layerName: "county" | "constituency" | "ward") => (feature: GeoJSON.Feature, layer: Layer & { setStyle: (s: Record<string, number | string>) => void; bindTooltip: (n: string, o: { sticky: boolean }) => void; bindPopup: (html: string) => void; on: (events: Record<string, () => void>) => void; getLatLngs: () => Array<{ lat: number; lng: number }> | Array<Array<{ lat: number; lng: number }>>; openPopup: () => void; }) => {
     const props = (feature.properties ?? {}) as Record<string, unknown>;
@@ -124,10 +129,11 @@ export default memo(function IEBCBoundaryMap() {
     const key = `${layerName}:${regionName}`.toLowerCase();
     const center = getCenter(layer.getLatLngs());
 
-    layer.bindTooltip(regionName, { sticky: true });
+    const visible = layerName === "county" ? zoom < 7 : layerName === "constituency" ? zoom >= 7 && zoom <= 10 : zoom > 10;
+    layer.bindTooltip(regionName, { sticky: true, permanent: visible, direction: "center", className: "tactical-label" });
     layer.bindPopup(popupContent(regionName));
     layer.on({
-      mouseover: () => layer.setStyle({ fillOpacity: styleFor(layerName).fillOpacity + 0.07, weight: styleFor(layerName).weight + 0.6 }),
+      mouseover: () => layer.setStyle({ fillOpacity: styleFor(layerName).fillOpacity + 0.08, weight: styleFor(layerName).weight + 0.8, opacity: Math.min(1, styleFor(layerName).opacity + 0.18) }),
       mouseout: () => layer.setStyle(styleFor(layerName)),
       click: () => {
         useSimulationStore.getState().setActiveRegion({ id: key, name: regionName, layer: layerName, center, severity: latestEvent?.intelligenceSeverity ?? "GREEN", flashToken: Date.now() });
@@ -136,6 +142,9 @@ export default memo(function IEBCBoundaryMap() {
 
     if (activeRegion?.id?.toLowerCase() === key) {
       layer.openPopup();
+      const path = layer as unknown as Path;
+      path.setStyle({ weight: styleFor(layerName).weight + 1.2, fillOpacity: styleFor(layerName).fillOpacity + 0.12 });
+      setTimeout(() => path.setStyle(styleFor(layerName)), 1200);
     }
   };
 
@@ -157,9 +166,9 @@ export default memo(function IEBCBoundaryMap() {
         <TileLayer attribution="Carto" url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png" />
         {toggles.heatmap && <HeatmapLayer points={heatmapPoints} intensityBoost={0.7 + replayEnergy * 0.7} visible={toggles.heatmap} />}
         {toggles.telemetry && <MarkerClusterGroup chunkedLoading>{pulseStations.map((station) => <PulseMarker key={station.id} station={station} cinematicPulse={toggles.anomalies} />)}</MarkerClusterGroup>}
-        {toggles.topology && counties && <GeoJSON data={counties} style={() => styleFor("county")} onEachFeature={onEachFeature("county")} />}
-        {toggles.simulations && constituencies && <GeoJSON data={constituencies} style={() => styleFor("constituency")} onEachFeature={onEachFeature("constituency")} />}
-        {toggles.propagation && wards && <GeoJSON data={wards} style={() => styleFor("ward")} onEachFeature={onEachFeature("ward")} />}
+        {toggles.topology && counties && zoom < 7.2 && <GeoJSON data={counties} style={() => styleFor("county")} onEachFeature={onEachFeature("county")} />}
+        {toggles.simulations && constituencies && zoom >= 6.8 && zoom <= 10.2 && <GeoJSON data={constituencies} style={() => styleFor("constituency")} onEachFeature={onEachFeature("constituency")} />}
+        {toggles.propagation && wards && zoom > 9.8 && <GeoJSON data={wards} style={() => styleFor("ward")} onEachFeature={onEachFeature("ward")} />}
       </MapContainer>
     </div>
   );
