@@ -4,7 +4,7 @@ import { CircleMarker, Popup } from "react-leaflet";
 import { calculateSpatialRisk } from "../../lib/tda/spatialRiskEngine";
 
 type MarkerStation = { id: string; lat: number; lng: number; name: string; turnout?: number; status?: string; tdaStability?: number; simulationStatus?: string; aiRiskScore?: number; anomalyScore?: number; severity?: "GREEN" | "AMBER" | "RED" | "MAGENTA"; };
-interface PulseMarkerProps { station: MarkerStation; cinematicPulse?: boolean; }
+interface PulseMarkerProps { station: MarkerStation; cinematicPulse?: boolean; isFocused?: boolean; dimmed?: boolean; criticalBoost?: boolean; propagationPulse?: boolean; }
 
 const severityStyles = {
   GREEN: { color: "#22c55e", ring: 9, core: 3.4, opacity: 0.12 },
@@ -13,16 +13,16 @@ const severityStyles = {
   MAGENTA: { color: "#d946ef", ring: 14, core: 4.4, opacity: 0.2 },
 } as const;
 
-export default function PulseMarker({ station, cinematicPulse = true }: PulseMarkerProps) {
+export default function PulseMarker({ station, cinematicPulse = true, isFocused = false, dimmed = false, criticalBoost = false, propagationPulse = false }: PulseMarkerProps) {
   const riskScore = station.aiRiskScore ?? calculateSpatialRisk(station);
   const sev = station.severity ?? (riskScore > 85 ? "RED" : riskScore > 60 ? "AMBER" : "GREEN");
   const style = severityStyles[sev as keyof typeof severityStyles] ?? severityStyles.GREEN;
 
   return (
     <>
-      <CircleMarker center={[station.lat, station.lng]} radius={style.ring} pathOptions={{ color: style.color, fillColor: style.color, fillOpacity: cinematicPulse ? style.opacity * 1.2 : style.opacity, weight: 0.8, className: cinematicPulse ? "anomaly-pulse" : "" }} />
-      <CircleMarker center={[station.lat, station.lng]} radius={style.ring * 0.7} pathOptions={{ color: style.color, fillColor: style.color, fillOpacity: style.opacity * 0.85, weight: 0.5 }} />
-      <CircleMarker center={[station.lat, station.lng]} radius={style.core} pathOptions={{ color: style.color, fillColor: style.color, fillOpacity: 0.9, weight: 1 }}>
+      <CircleMarker center={[station.lat, station.lng]} radius={style.ring * (criticalBoost ? 1.12 : 1)} pathOptions={{ color: style.color, fillColor: style.color, fillOpacity: dimmed ? style.opacity * 0.35 : cinematicPulse ? style.opacity * 1.2 : style.opacity, weight: isFocused ? 1.4 : 0.8, className: `${cinematicPulse ? "anomaly-pulse" : ""} ${criticalBoost ? "anomaly-critical" : ""} ${propagationPulse ? "anomaly-ripple" : ""}` }} />
+      <CircleMarker center={[station.lat, station.lng]} radius={style.ring * (isFocused ? 0.82 : 0.7)} pathOptions={{ color: style.color, fillColor: style.color, fillOpacity: dimmed ? style.opacity * 0.3 : style.opacity * 0.85, weight: 0.5 }} />
+      <CircleMarker center={[station.lat, station.lng]} radius={style.core * (isFocused ? 1.18 : 1)} pathOptions={{ color: style.color, fillColor: style.color, fillOpacity: dimmed ? 0.5 : 0.9, weight: isFocused ? 1.5 : 1 }}>
         <Popup>
           <div className="space-y-1 text-sm min-w-[220px]">
             <div className="font-semibold">{station.name}</div>

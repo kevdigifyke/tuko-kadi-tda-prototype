@@ -21,6 +21,9 @@ export default function TelemetryFeed() {
   const anomalyLevel = useSimulationStore((state) => state.anomalyLevel);
   const setActiveRegion = useSimulationStore((state) => state.setActiveRegion);
   const setTick = useSimulationStore((state) => state.setTick);
+  const setFocusedTelemetryId = useSimulationStore((state) => state.setFocusedTelemetryId);
+  const setReplayFocus = useSimulationStore((state) => state.setReplayFocus);
+  const focusedTelemetryId = useSimulationStore((state) => state.focusedTelemetryId);
   const streamRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,9 +57,11 @@ export default function TelemetryFeed() {
                 const name = layer === "ward" ? event.ward : layer === "constituency" ? event.constituency : event.county;
                 setActiveRegion({ id: `${layer}:${name}`.toLowerCase(), name, layer, center: station ? [station.lat, station.lng] : [-0.0236, 37.9062], severity: event.intelligenceSeverity, flashToken: Date.now() });
                 setTick(Math.min(120, Math.floor((Date.now() - event.timestamp) / 1000) + 35));
+                setFocusedTelemetryId(event.id);
+                setReplayFocus({ clusterKey: `${event.county}:${event.category}`.toLowerCase(), source: "telemetry", lastJumpAt: Date.now() });
               }}
               layout initial={{ opacity: 0, y: -12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.32, ease: "easeOut" }}
-              className={`w-full text-left rounded-xl border p-3 backdrop-blur-sm transition-all hover:border-cyan-400/60 ${severityStyles[event.severity]}`}
+              className={`w-full text-left rounded-xl border p-3 backdrop-blur-sm transition-all hover:border-cyan-400/60 hover:shadow-[0_0_22px_rgba(34,211,238,0.22)] ${focusedTelemetryId === event.id ? "ring-1 ring-cyan-300/65" : ""} ${severityStyles[event.severity]}`}
             >
               <div className="flex items-center justify-between gap-2"><div className="text-[11px] text-zinc-300">{new Date(event.timestamp).toLocaleTimeString()}</div><motion.div className="flex items-center gap-1 text-[10px] font-semibold" animate={event.severity === "CRITICAL" ? { opacity: [1, 0.45, 1] } : {}} transition={{ repeat: Infinity, duration: 1.2 }}><motion.span className="h-2 w-2 rounded-full bg-current" animate={{ scale: [1, 1.6, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} />{event.severity}</motion.div></div>
               <div className="mt-1 text-sm font-semibold text-white">{event.title}</div>

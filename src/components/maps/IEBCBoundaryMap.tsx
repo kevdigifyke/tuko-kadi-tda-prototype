@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 
 import HeatmapLayer from "./HeatmapLayer";
 import PulseMarker from "./PulseMarker";
@@ -64,15 +64,22 @@ function getCenter(latlngs: Array<{ lat: number; lng: number }> | Array<Array<{ 
 function TacticalSync({ regionIndex }: { regionIndex: Record<string, { center: [number, number]; layer: "county" | "constituency" | "ward" }> }) {
   const map = useMap();
   const activeRegion = useSimulationStore((s) => s.activeRegion);
+  const replayFocus = useSimulationStore((s) => s.replayFocus);
+  const lastFlightRef = useRef(0);
 
   useEffect(() => {
     if (!activeRegion) return;
+    const now = Date.now();
+    if (now - lastFlightRef.current < 900 && replayFocus.source === "auto") return;
     const mapped = regionIndex[activeRegion.id.toLowerCase()];
     const target = mapped?.center ?? activeRegion.center;
     const layer = mapped?.layer ?? activeRegion.layer;
-    const zoom = layer === "ward" ? 11.4 : layer === "constituency" ? 9.5 : 7.4;
-    map.flyTo(target, zoom, { duration: 1.5, easeLinearity: 0.22 });
-  }, [activeRegion, map, regionIndex]);
+    const currentZoom = map.getZoom();
+    const targetZoom = layer === "ward" ? 11.4 : layer === "constituency" ? 9.5 : 7.4;
+    const zoom = currentZoom + (targetZoom - currentZoom) * 0.82;
+    map.flyTo(target, zoom, { duration: 1.7, easeLinearity: 0.15, noMoveStart: true });
+    lastFlightRef.current = now;
+  }, [activeRegion, map, regionIndex, replayFocus.source]);
 
   return null;
 }
@@ -86,6 +93,11 @@ export default memo(function IEBCBoundaryMap() {
   const tick = useSimulationStore((s) => s.tick);
   const latestEvent = useSimulationStore((s) => s.telemetryEvents[0]);
   const activeRegion = useSimulationStore((s) => s.activeRegion);
+  const focusedTelemetryId = useSimulationStore((s) => s.focusedTelemetryId);
+  const setActiveRegion = useSimulationStore((s) => s.setActiveRegion);
+  const setReplayFocus = useSimulationStore((s) => s.setReplayFocus);
+  const telemetryEvents = useSimulationStore((s) => s.telemetryEvents);
+  const lastAutoFocus = useRef(0);
 
   useEffect(() => {
     Promise.all([
@@ -162,6 +174,42 @@ export default memo(function IEBCBoundaryMap() {
   };
 
   const pulseStations = useMemo(() => pollingStations.filter((_, idx) => idx % Math.max(2, 10 - Math.floor(replayEnergy * 8)) === 0), [replayEnergy]);
+  const anomalyMarkers = useMemo(() => {
+    const focused = focusedTelemetryId ? telemetryEvents.find((event) => event.id === focusedTelemetryId) : telemetryEvents[0];
+    return pulseStations.map((station) => {
+      const linked = telemetryEvents.find((event) => event.county === station.county || event.constituency === station.constituency || event.ward === station.ward);
+      const isFocused = Boolean(focused && linked?.id === focused.id);
+      const isCritical = linked?.severity === "CRITICAL";
+      return {
+        station: {
+          ...station,
+          severity: linked?.intelligenceSeverity,
+          aiRiskScore: linked?.aiRiskScore,
+          status: linked?.status,
+          simulationStatus: linked?.simulationStatus,
+          tdaStability: linked?.tdaStability,
+          turnout: linked?.turnout,
+        },
+        isFocused,
+        dimmed: Boolean(focused && !isFocused),
+        isCritical,
+      };
+    });
+  }, [focusedTelemetryId, pulseStations, telemetryEvents]);
+
+  useEffect(() => {
+    const highestRisk = telemetryEvents.reduce((best, event) => (event.aiRiskScore > (best?.aiRiskScore ?? -1) ? event : best), telemetryEvents[0]);
+    if (!highestRisk) return;
+    const now = Date.now();
+    if (now - lastAutoFocus.current < 8000) return;
+    if (focusedTelemetryId) return;
+    lastAutoFocus.current = now;
+    setReplayFocus({ clusterKey: `${highestRisk.county}:${highestRisk.category}`.toLowerCase(), source: "auto", lastJumpAt: now });
+    const station = pollingStations.find((s) => s.county === highestRisk.county || s.constituency === highestRisk.constituency || s.ward === highestRisk.ward);
+    const layer = highestRisk.ward ? "ward" : highestRisk.constituency ? "constituency" : "county";
+    const name = layer === "ward" ? highestRisk.ward : layer === "constituency" ? highestRisk.constituency : highestRisk.county;
+    setActiveRegion({ id: `${layer}:${name}`.toLowerCase(), name, layer, center: station ? [station.lat, station.lng] : [-0.0236, 37.9062], severity: highestRisk.intelligenceSeverity, flashToken: now });
+  }, [focusedTelemetryId, setActiveRegion, setReplayFocus, telemetryEvents]);
 
   return (
     <div className="relative h-[85vh] w-full rounded-2xl overflow-hidden border border-zinc-800 shadow-[0_0_35px_rgba(34,211,238,0.12)] tactical-carto-map">
@@ -178,7 +226,7 @@ export default memo(function IEBCBoundaryMap() {
         <TacticalSync regionIndex={regionIndex} />
         <TileLayer attribution="Carto" opacity={0.72} url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png" />
         {toggles.heatmap && <HeatmapLayer points={heatmapPoints} intensityBoost={0.7 + replayEnergy * 0.7} visible={toggles.heatmap} />}
-        {toggles.telemetry && <MarkerClusterGroup chunkedLoading>{pulseStations.map((station) => <PulseMarker key={station.id} station={station} cinematicPulse={toggles.anomalies} />)}</MarkerClusterGroup>}
+        {toggles.telemetry && <MarkerClusterGroup chunkedLoading>{anomalyMarkers.map(({ station, isFocused, dimmed, isCritical }) => <PulseMarker key={station.id} station={station} cinematicPulse={toggles.anomalies} isFocused={isFocused} dimmed={dimmed} criticalBoost={isCritical} propagationPulse={toggles.propagation && isFocused} />)}</MarkerClusterGroup>}
         {toggles.topology && counties && zoom < 7.2 && <GeoJSON data={counties} style={() => styleFor("county")} onEachFeature={onEachFeature("county")} />}
         {toggles.simulations && constituencies && zoom >= 6.8 && zoom <= 10.2 && <GeoJSON data={constituencies} style={() => styleFor("constituency")} onEachFeature={onEachFeature("constituency")} />}
         {toggles.propagation && wards && zoom > 9.8 && <GeoJSON data={wards} style={() => styleFor("ward")} onEachFeature={onEachFeature("ward")} />}

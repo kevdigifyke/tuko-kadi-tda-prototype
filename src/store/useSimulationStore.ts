@@ -28,6 +28,10 @@ type SimulationState = {
   dismissAlert: (id: string) => void;
   activeRegion: ActiveRegion | null;
   setActiveRegion: (region: ActiveRegion | null) => void;
+  focusedTelemetryId: string | null;
+  setFocusedTelemetryId: (id: string | null) => void;
+  replayFocus: ReplayFocusState;
+  setReplayFocus: (focus: Partial<ReplayFocusState>) => void;
 };
 
 export type TelemetrySeverity = "INFO" | "WARNING" | "CRITICAL";
@@ -57,6 +61,12 @@ export type ActiveRegion = {
   center: [number, number];
   severity: IntelligenceSeverity;
   flashToken: number;
+};
+
+export type ReplayFocusState = {
+  clusterKey: string | null;
+  source: "telemetry" | "rail" | "auto" | "map";
+  lastJumpAt: number;
 };
 
 export const useSimulationStore = create<SimulationState>((set, get) => ({
@@ -111,4 +121,14 @@ export const useSimulationStore = create<SimulationState>((set, get) => ({
     })),
   activeRegion: null,
   setActiveRegion: (region) => set({ activeRegion: region }),
+  focusedTelemetryId: null,
+  setFocusedTelemetryId: (id) => set({ focusedTelemetryId: id }),
+  replayFocus: { clusterKey: null, source: "auto", lastJumpAt: 0 },
+  setReplayFocus: (focus) =>
+    set((state) => ({
+      replayFocus: {
+        ...state.replayFocus,
+        ...focus,
+      },
+    })),
 }));
