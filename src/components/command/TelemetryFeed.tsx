@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { useRealtimeTelemetry } from "../../hooks/useRealtimeTelemetry";
 import { useSimulationStore } from "@/src/store/useSimulationStore";
+import { pollingStations } from "@/src/data/geo/pollingStations";
 
 const severityStyles = {
   INFO: "text-cyan-300 border-cyan-500/30 bg-cyan-500/10",
@@ -48,7 +49,8 @@ export default function TelemetryFeed() {
               type="button"
               key={event.id}
               onClick={() => {
-                setActiveRegion({ id: event.id, name: event.county, layer: "county", center: [-0.0236 + (Math.random() - 0.5) * 4, 37.9062 + (Math.random() - 0.5) * 4], severity: event.intelligenceSeverity, flashToken: Date.now() });
+                const station = pollingStations.find((s) => s.county === event.county || s.constituency === event.constituency || s.ward === event.ward);
+                setActiveRegion({ id: `county:${event.county}`.toLowerCase(), name: event.county, layer: "county", center: station ? [station.lat, station.lng] : [-0.0236, 37.9062], severity: event.intelligenceSeverity, flashToken: Date.now() });
                 setTick(Math.min(120, Math.floor((Date.now() - event.timestamp) / 1000) + 35));
               }}
               layout initial={{ opacity: 0, y: -12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.25 }}
