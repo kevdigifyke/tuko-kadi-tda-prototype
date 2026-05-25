@@ -6,7 +6,11 @@ import { useSimulationStore } from "@/src/store/useSimulationStore";
 export default function BottomReplayRail() {
   const tick = useSimulationStore((s) => s.tick);
   const setTick = useSimulationStore((s) => s.setTick);
-  const events = useSimulationStore((s) => s.telemetryEvents.slice(0, 6));
+  const telemetryEvents = useSimulationStore(
+  (s) => s.telemetryEvents
+);
+
+const events = telemetryEvents.slice(0, 6);
 
   return (
     <div className="h-24 border-t border-zinc-800 bg-black px-6 py-4">
