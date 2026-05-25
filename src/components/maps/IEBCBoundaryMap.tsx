@@ -25,21 +25,33 @@ const zoomOpacity = {
   ward: { min: 9.2, max: 14 },
 } as const;
 
+const semanticNameCache = new Map<string, string>();
+
 function clamp(v: number, min: number, max: number) {
   return Math.min(max, Math.max(min, v));
 }
 
 function getRegionName(props: Record<string, unknown>, layer: keyof typeof nameKeyMap) {
+  const cacheKey = `${layer}:${String(props.id ?? props.OBJECTID ?? props.FID ?? props.NAME ?? props.name ?? "na")}`;
+  const cached = semanticNameCache.get(cacheKey);
+  if (cached) return cached;
+
   for (const key of nameKeyMap[layer]) {
     const value = props?.[key];
-    if (typeof value === "string" && value.trim()) return value.trim();
+    if (typeof value === "string" && value.trim()) {
+      semanticNameCache.set(cacheKey, value.trim());
+      return value.trim();
+    }
   }
   const fallback = ["NAME", "name", "ADM1_EN", "county", "constituency", "ward"];
   for (const key of fallback) {
     const value = props?.[key];
-    if (typeof value === "string" && value.trim()) return value.trim();
+    if (typeof value === "string" && value.trim()) {
+      semanticNameCache.set(cacheKey, value.trim());
+      return value.trim();
+    }
   }
-  return `${layer.toUpperCase()}-${String(props.id ?? props.OBJECTID ?? props.FID ?? "SECTOR")}`;
+  return "";
 }
 
 function getCenter(latlngs: Array<{ lat: number; lng: number }> | Array<Array<{ lat: number; lng: number }>>): [number, number] {
@@ -59,7 +71,7 @@ function TacticalSync({ regionIndex }: { regionIndex: Record<string, { center: [
     const target = mapped?.center ?? activeRegion.center;
     const layer = mapped?.layer ?? activeRegion.layer;
     const zoom = layer === "ward" ? 11.4 : layer === "constituency" ? 9.5 : 7.4;
-    map.flyTo(target, zoom, { duration: 1.2, easeLinearity: 0.25 });
+    map.flyTo(target, zoom, { duration: 1.5, easeLinearity: 0.22 });
   }, [activeRegion, map, regionIndex]);
 
   return null;
@@ -115,7 +127,7 @@ export default memo(function IEBCBoundaryMap() {
   }, [counties, constituencies, wards]);
 
   const styleFor = (layer: "county" | "constituency" | "ward") => {
-    const base = layer === "county" ? { color: "#5ed4df", weight: 2.2, fill: 0.12, dashArray: "9 5" } : layer === "constituency" ? { color: "#6ea7bc", weight: 1.4, fill: 0.07, dashArray: "7 4" } : { color: "#8b96a0", weight: 0.8, fill: 0.03, dashArray: "4 4" };
+    const base = layer === "county" ? { color: "#76d8e1", weight: 2.4, fill: 0.1, dashArray: "10 6" } : layer === "constituency" ? { color: "#84a9bb", weight: 1.3, fill: 0.055, dashArray: "6 5" } : { color: "#86919b", weight: 0.7, fill: 0.02, dashArray: "3 5" };
     const z = zoomOpacity[layer];
     const opacity = clamp((zoom - z.min) / (z.max - z.min), 0, 1);
     return { color: base.color, dashArray: base.dashArray, weight: base.weight * opacity, opacity, fillColor: base.color, fillOpacity: base.fill * opacity };
@@ -126,14 +138,15 @@ export default memo(function IEBCBoundaryMap() {
   const onEachFeature = (layerName: "county" | "constituency" | "ward") => (feature: GeoJSON.Feature, layer: Layer & { setStyle: (s: Record<string, number | string>) => void; bindTooltip: (n: string, o: { sticky: boolean }) => void; bindPopup: (html: string) => void; on: (events: Record<string, () => void>) => void; getLatLngs: () => Array<{ lat: number; lng: number }> | Array<Array<{ lat: number; lng: number }>>; openPopup: () => void; }) => {
     const props = (feature.properties ?? {}) as Record<string, unknown>;
     const regionName = getRegionName(props, layerName);
+    if (!regionName) return;
     const key = `${layerName}:${regionName}`.toLowerCase();
     const center = getCenter(layer.getLatLngs());
 
-    const visible = layerName === "county" ? zoom < 7 : layerName === "constituency" ? zoom >= 7 && zoom <= 10 : zoom > 10;
-    layer.bindTooltip(regionName, { sticky: true, permanent: visible, direction: "center", className: "tactical-label" });
+    const visible = layerName === "county" ? zoom < 7.2 : layerName === "constituency" ? zoom >= 7 && zoom <= 10.2 : zoom > 10;
+    layer.bindTooltip(regionName, { sticky: false, permanent: visible, direction: "center", className: `tactical-label tactical-label-${layerName}` });
     layer.bindPopup(popupContent(regionName));
     layer.on({
-      mouseover: () => layer.setStyle({ fillOpacity: styleFor(layerName).fillOpacity + 0.08, weight: styleFor(layerName).weight + 0.8, opacity: Math.min(1, styleFor(layerName).opacity + 0.18) }),
+      mouseover: () => layer.setStyle({ fillOpacity: styleFor(layerName).fillOpacity + 0.06, weight: styleFor(layerName).weight + 0.7, opacity: Math.min(1, styleFor(layerName).opacity + 0.16) }),
       mouseout: () => layer.setStyle(styleFor(layerName)),
       click: () => {
         useSimulationStore.getState().setActiveRegion({ id: key, name: regionName, layer: layerName, center, severity: latestEvent?.intelligenceSeverity ?? "GREEN", flashToken: Date.now() });
@@ -144,14 +157,14 @@ export default memo(function IEBCBoundaryMap() {
       layer.openPopup();
       const path = layer as unknown as Path;
       path.setStyle({ weight: styleFor(layerName).weight + 1.2, fillOpacity: styleFor(layerName).fillOpacity + 0.12 });
-      setTimeout(() => path.setStyle(styleFor(layerName)), 1200);
+      setTimeout(() => path.setStyle(styleFor(layerName)), 1500);
     }
   };
 
   const pulseStations = useMemo(() => pollingStations.filter((_, idx) => idx % Math.max(2, 10 - Math.floor(replayEnergy * 8)) === 0), [replayEnergy]);
 
   return (
-    <div className="relative h-[85vh] w-full rounded-2xl overflow-hidden border border-zinc-800 shadow-[0_0_35px_rgba(34,211,238,0.12)]">
+    <div className="relative h-[85vh] w-full rounded-2xl overflow-hidden border border-zinc-800 shadow-[0_0_35px_rgba(34,211,238,0.12)] tactical-carto-map">
       <div className="absolute left-4 top-4 z-[1000] rounded-xl border border-cyan-500/40 bg-zinc-950/85 p-3 backdrop-blur-md">
         <div className="mb-2 text-[11px] uppercase tracking-[0.18em] text-cyan-300">Tactical Layer Matrix</div>
         <div className="grid grid-cols-2 gap-2 text-xs text-zinc-200">
@@ -163,7 +176,7 @@ export default memo(function IEBCBoundaryMap() {
         e.target.on("zoom", () => setZoom(e.target.getZoom()));
       }}>
         <TacticalSync regionIndex={regionIndex} />
-        <TileLayer attribution="Carto" url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png" />
+        <TileLayer attribution="Carto" opacity={0.72} url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png" />
         {toggles.heatmap && <HeatmapLayer points={heatmapPoints} intensityBoost={0.7 + replayEnergy * 0.7} visible={toggles.heatmap} />}
         {toggles.telemetry && <MarkerClusterGroup chunkedLoading>{pulseStations.map((station) => <PulseMarker key={station.id} station={station} cinematicPulse={toggles.anomalies} />)}</MarkerClusterGroup>}
         {toggles.topology && counties && zoom < 7.2 && <GeoJSON data={counties} style={() => styleFor("county")} onEachFeature={onEachFeature("county")} />}

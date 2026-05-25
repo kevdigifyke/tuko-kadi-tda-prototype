@@ -56,3 +56,23 @@ body { margin:0; background: radial-gradient(circle at 15% 0%, #132124 0%, var(-
   box-shadow: 0 0 16px rgba(34, 211, 238, 0.18);
   transition: opacity 280ms ease, transform 280ms ease;
 }
+
+.tactical-carto-map .leaflet-popup-content-wrapper {
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+
+.tactical-carto-map .tactical-label-county {
+  opacity: 0.94;
+}
+
+.tactical-carto-map .tactical-label-constituency {
+  opacity: 0.82;
+}
+
+.tactical-carto-map .tactical-label-ward {
+  opacity: 0.72;
+}
+
+.tactical-carto-map .leaflet-interactive {
+  transition: opacity 320ms ease, fill-opacity 320ms ease, stroke-width 320ms ease;
+}
