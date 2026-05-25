@@ -50,7 +50,9 @@ export default function TelemetryFeed() {
               key={event.id}
               onClick={() => {
                 const station = pollingStations.find((s) => s.county === event.county || s.constituency === event.constituency || s.ward === event.ward);
-                setActiveRegion({ id: `county:${event.county}`.toLowerCase(), name: event.county, layer: "county", center: station ? [station.lat, station.lng] : [-0.0236, 37.9062], severity: event.intelligenceSeverity, flashToken: Date.now() });
+                const layer = event.ward ? "ward" : event.constituency ? "constituency" : "county";
+                const name = layer === "ward" ? event.ward : layer === "constituency" ? event.constituency : event.county;
+                setActiveRegion({ id: `${layer}:${name}`.toLowerCase(), name, layer, center: station ? [station.lat, station.lng] : [-0.0236, 37.9062], severity: event.intelligenceSeverity, flashToken: Date.now() });
                 setTick(Math.min(120, Math.floor((Date.now() - event.timestamp) / 1000) + 35));
               }}
               layout initial={{ opacity: 0, y: -12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.25 }}
