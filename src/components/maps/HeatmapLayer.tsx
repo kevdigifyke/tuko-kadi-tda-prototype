@@ -12,41 +12,26 @@ interface HeatPoint {
 
 interface HeatmapLayerProps {
   points: HeatPoint[];
+  intensityBoost?: number;
+  visible?: boolean;
 }
 
-export default function HeatmapLayer({
-  points,
-}: HeatmapLayerProps) {
+export default function HeatmapLayer({ points, intensityBoost = 1, visible = true }: HeatmapLayerProps) {
   const map = useMap();
 
   useEffect(() => {
-    let heatLayer: any;
+    if (!visible) return;
+    let heatLayer: { addTo: (m: unknown) => void } | null = null;
 
     const initHeatmap = async () => {
-      // bind leaflet globally
-      (window as any).L = L;
-
-      // dynamically import plugin AFTER binding
+      const heatWindow = window as Window & { L?: typeof L & { heatLayer?: (pts: Array<[number, number, number]>, cfg: Record<string, number>) => { addTo: (m: unknown) => void } } };
+      heatWindow.L = L as typeof L & { heatLayer?: (pts: Array<[number, number, number]>, cfg: Record<string, number>) => { addTo: (m: unknown) => void } };
       await import("leaflet.heat");
+      if (!heatWindow.L?.heatLayer) return;
 
-      // SAFETY CHECK
-      if (!(window as any).L.heatLayer) {
-        console.error("HeatLayer failed to initialize");
-        return;
-      }
-
-      heatLayer = (window as any).L.heatLayer(
-        points.map((p) => [
-          p.lat,
-          p.lng,
-          p.intensity,
-        ]),
-        {
-          radius: 35,
-          blur: 25,
-          maxZoom: 10,
-          minOpacity: 0.4,
-        }
+      heatLayer = heatWindow.L.heatLayer(
+        points.map((p) => [p.lat, p.lng, Math.min(1, p.intensity * intensityBoost)]),
+        { radius: 35 + intensityBoost * 5, blur: 25, maxZoom: 12, minOpacity: 0.33 }
       );
 
       heatLayer.addTo(map);
@@ -55,11 +40,9 @@ export default function HeatmapLayer({
     initHeatmap();
 
     return () => {
-      if (heatLayer) {
-        map.removeLayer(heatLayer);
-      }
+      if (heatLayer) map.removeLayer(heatLayer);
     };
-  }, [map, points]);
+  }, [map, points, intensityBoost, visible]);
 
   return null;
 }
