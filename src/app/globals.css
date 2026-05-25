@@ -38,11 +38,27 @@ body { margin:0; background: radial-gradient(circle at 15% 0%, #132124 0%, var(-
 .anomaly-pulse {
   animation: anomalyPulse 2.2s ease-in-out infinite;
 }
+.anomaly-critical {
+  animation: anomalyCritical 1.4s ease-in-out infinite;
+}
+.anomaly-ripple {
+  animation: anomalyRipple 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
 
 @keyframes anomalyPulse {
   0% { filter: drop-shadow(0 0 0 rgba(244,63,94,0)); }
   50% { filter: drop-shadow(0 0 8px rgba(244,63,94,0.6)); }
   100% { filter: drop-shadow(0 0 0 rgba(244,63,94,0)); }
+}
+@keyframes anomalyCritical {
+  0% { filter: drop-shadow(0 0 3px rgba(239,68,68,0.35)); }
+  50% { filter: drop-shadow(0 0 12px rgba(239,68,68,0.7)); }
+  100% { filter: drop-shadow(0 0 3px rgba(239,68,68,0.35)); }
+}
+@keyframes anomalyRipple {
+  0% { transform: scale(0.92); opacity: 0.65; }
+  70% { transform: scale(1.18); opacity: 0.3; }
+  100% { transform: scale(1.22); opacity: 0.05; }
 }
 
 .tactical-label {
