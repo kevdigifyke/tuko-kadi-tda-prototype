@@ -24,6 +24,7 @@ export default function TelemetryFeed() {
   const setFocusedTelemetryId = useSimulationStore((state) => state.setFocusedTelemetryId);
   const setReplayFocus = useSimulationStore((state) => state.setReplayFocus);
   const focusedTelemetryId = useSimulationStore((state) => state.focusedTelemetryId);
+  const replayFrameAtTick = useSimulationStore((state) => state.getReplayFrameAtTick(state.tick));
   const streamRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,6 +45,7 @@ export default function TelemetryFeed() {
         <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-wider">Live Telemetry</h2>
         <motion.div key={liveEventCount} initial={{ scale: 0.8, opacity: 0.5 }} animate={{ scale: 1, opacity: 1 }} className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200">{liveEventCount} events · L{anomalyLevel}</motion.div>
       </div>
+      {replayFrameAtTick && <div className="mb-2 rounded border border-fuchsia-500/35 bg-fuchsia-500/10 px-2 py-1 text-[10px] uppercase tracking-[0.14em] text-fuchsia-200">Replay focus cue · {replayFrameAtTick.event.title} · T+{replayFrameAtTick.tick}</div>}
       <AnimatePresence>{activeAlerts[0] && <motion.div key={activeAlerts[0].id} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -16, opacity: 0 }} className="mb-3 rounded-lg border border-rose-400/50 bg-rose-500/15 p-2 text-xs text-rose-100">CRITICAL ALERT · {activeAlerts[0].title} — {activeAlerts[0].county}</motion.div>}</AnimatePresence>
       <div ref={streamRef} className="h-[calc(100%-4rem)] overflow-y-auto pr-1 space-y-2 telemetry-shimmer">
         <AnimatePresence initial={false}>

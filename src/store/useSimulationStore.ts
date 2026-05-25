@@ -32,6 +32,11 @@ type SimulationState = {
   setFocusedTelemetryId: (id: string | null) => void;
   replayFocus: ReplayFocusState;
   setReplayFocus: (focus: Partial<ReplayFocusState>) => void;
+  replayFrames: ReplayFrame[];
+  replayCursor: number;
+  setReplayCursor: (cursor: number) => void;
+  recordReplayFrame: (event: TelemetryEvent) => void;
+  getReplayFrameAtTick: (tick: number) => ReplayFrame | null;
 };
 
 export type TelemetrySeverity = "INFO" | "WARNING" | "CRITICAL";
@@ -69,6 +74,16 @@ export type ReplayFocusState = {
   lastJumpAt: number;
 };
 
+export type ReplayFrame = {
+  tick: number;
+  capturedAt: number;
+  event: TelemetryEvent;
+  anomalyLevel: number;
+  activeRegion: ActiveRegion | null;
+  clusterKey: string;
+  ghostTrail: Array<{ lat: number; lng: number; intensity: number }>;
+};
+
 export const useSimulationStore = create<SimulationState>((set, get) => ({
   isRunning: false,
   tick: 0,
@@ -82,7 +97,18 @@ export const useSimulationStore = create<SimulationState>((set, get) => ({
   setSpeed: (speed) => set({ speed }),
   setTick: (tick) => {
     const scenario = simulationScenarios.find((s) => s.id === get().scenario) ?? initialScenario;
-    set({ tick, timeline: generateSyntheticTick(tick, scenario) });
+    const replayFrame = get().getReplayFrameAtTick(tick);
+    set({
+      tick,
+      timeline: generateSyntheticTick(tick, scenario),
+      replayCursor: tick,
+      focusedTelemetryId: replayFrame?.event.id ?? get().focusedTelemetryId,
+      anomalyLevel: replayFrame?.anomalyLevel ?? get().anomalyLevel,
+      activeRegion: replayFrame?.activeRegion ?? get().activeRegion,
+      replayFocus: replayFrame
+        ? { clusterKey: replayFrame.clusterKey, source: "rail", lastJumpAt: Date.now() }
+        : get().replayFocus,
+    });
   },
   start: () => set({ isRunning: true }),
   pause: () => set({ isRunning: false }),
@@ -131,4 +157,35 @@ export const useSimulationStore = create<SimulationState>((set, get) => ({
         ...focus,
       },
     })),
+  replayFrames: [],
+  replayCursor: 0,
+  setReplayCursor: (cursor) => set({ replayCursor: cursor }),
+  recordReplayFrame: (event) =>
+    set((state) => {
+      const tick = Math.min(120, Math.floor((Date.now() - event.timestamp) / 1000) + 35);
+      const clusterKey = `${event.county}:${event.category}`.toLowerCase();
+      const frame: ReplayFrame = {
+        tick,
+        capturedAt: Date.now(),
+        event,
+        anomalyLevel: state.anomalyLevel,
+        activeRegion: state.activeRegion,
+        clusterKey,
+        ghostTrail: [
+          { lat: -0.0236 + (event.aiRiskScore - 50) * 0.002, lng: 37.9062 + (event.turnout - 50) * 0.002, intensity: 0.8 },
+          { lat: -0.0236 + (event.tdaStability - 50) * 0.0015, lng: 37.9062 + (event.aiRiskScore - 50) * 0.0015, intensity: 0.5 },
+        ],
+      };
+      const replayFrames = [frame, ...state.replayFrames.filter((f) => f.event.id !== event.id)].slice(0, 120);
+      return { replayFrames };
+    }),
+  getReplayFrameAtTick: (tick) => {
+    const frames = get().replayFrames;
+    if (!frames.length) return null;
+    return frames.reduce((closest, frame) => {
+      const dist = Math.abs(frame.tick - tick);
+      const best = Math.abs(closest.tick - tick);
+      return dist < best ? frame : closest;
+    }, frames[0]);
+  },
 }));
