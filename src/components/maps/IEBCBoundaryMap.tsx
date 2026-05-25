@@ -97,6 +97,8 @@ export default memo(function IEBCBoundaryMap() {
   const setActiveRegion = useSimulationStore((s) => s.setActiveRegion);
   const setReplayFocus = useSimulationStore((s) => s.setReplayFocus);
   const telemetryEvents = useSimulationStore((s) => s.telemetryEvents);
+  const replayFrames = useSimulationStore((s) => s.replayFrames);
+  const replayFrameAtTick = useSimulationStore((s) => s.getReplayFrameAtTick(s.tick));
   const lastAutoFocus = useRef(0);
 
   useEffect(() => {
@@ -110,6 +112,12 @@ export default memo(function IEBCBoundaryMap() {
   }, []);
 
   const replayEnergy = tick / 120;
+  const ghostTrailStations = useMemo(() => replayFrames.slice(0, 8).map((frame, idx) => ({
+    id: `ghost-${frame.event.id}`,
+    lat: -0.0236 + ((frame.event.aiRiskScore - 50) * 0.02) / 10 + idx * 0.02,
+    lng: 37.9062 + ((frame.event.turnout - 50) * 0.02) / 10 - idx * 0.02,
+    intensity: Math.max(0.2, 1 - idx * 0.12),
+  })), [replayFrames]);
   const heatmapPoints = useMemo(() => pollingStations.map((s, idx) => {
     const wave = (Math.sin((tick + idx) / 9) + 1) / 2;
     const boosted = clamp((s.turnout / 100) * (0.55 + replayEnergy * 0.8) + wave * 0.3, 0.08, 1);
@@ -175,7 +183,8 @@ export default memo(function IEBCBoundaryMap() {
 
   const pulseStations = useMemo(() => pollingStations.filter((_, idx) => idx % Math.max(2, 10 - Math.floor(replayEnergy * 8)) === 0), [replayEnergy]);
   const anomalyMarkers = useMemo(() => {
-    const focused = focusedTelemetryId ? telemetryEvents.find((event) => event.id === focusedTelemetryId) : telemetryEvents[0];
+    const replayFocusedId = replayFrameAtTick?.event.id;
+    const focused = focusedTelemetryId ? telemetryEvents.find((event) => event.id === focusedTelemetryId) : replayFocusedId ? telemetryEvents.find((event) => event.id === replayFocusedId) : telemetryEvents[0];
     return pulseStations.map((station) => {
       const linked = telemetryEvents.find((event) => event.county === station.county || event.constituency === station.constituency || event.ward === station.ward);
       const isFocused = Boolean(focused && linked?.id === focused.id);
@@ -195,7 +204,7 @@ export default memo(function IEBCBoundaryMap() {
         isCritical,
       };
     });
-  }, [focusedTelemetryId, pulseStations, telemetryEvents]);
+  }, [focusedTelemetryId, pulseStations, replayFrameAtTick?.event.id, telemetryEvents]);
 
   useEffect(() => {
     const highestRisk = telemetryEvents.reduce((best, event) => (event.aiRiskScore > (best?.aiRiskScore ?? -1) ? event : best), telemetryEvents[0]);
@@ -225,7 +234,7 @@ export default memo(function IEBCBoundaryMap() {
       }}>
         <TacticalSync regionIndex={regionIndex} />
         <TileLayer attribution="Carto" opacity={0.72} url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png" />
-        {toggles.heatmap && <HeatmapLayer points={heatmapPoints} intensityBoost={0.7 + replayEnergy * 0.7} visible={toggles.heatmap} />}
+        {toggles.heatmap && <HeatmapLayer points={[...heatmapPoints, ...ghostTrailStations]} intensityBoost={0.7 + replayEnergy * 0.7} visible={toggles.heatmap} />}
         {toggles.telemetry && <MarkerClusterGroup chunkedLoading>{anomalyMarkers.map(({ station, isFocused, dimmed, isCritical }) => <PulseMarker key={station.id} station={station} cinematicPulse={toggles.anomalies} isFocused={isFocused} dimmed={dimmed} criticalBoost={isCritical} propagationPulse={toggles.propagation && isFocused} />)}</MarkerClusterGroup>}
         {toggles.topology && counties && zoom < 7.2 && <GeoJSON data={counties} style={() => styleFor("county")} onEachFeature={onEachFeature("county")} />}
         {toggles.simulations && constituencies && zoom >= 6.8 && zoom <= 10.2 && <GeoJSON data={constituencies} style={() => styleFor("constituency")} onEachFeature={onEachFeature("constituency")} />}

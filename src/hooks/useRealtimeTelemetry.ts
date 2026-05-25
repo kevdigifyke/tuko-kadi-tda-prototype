@@ -70,6 +70,7 @@ function buildTelemetryEvent(): TelemetryEvent {
 export function useRealtimeTelemetry() {
   const events = useSimulationStore((state) => state.telemetryEvents);
   const pushTelemetryEvent = useSimulationStore((state) => state.pushTelemetryEvent);
+  const recordReplayFrame = useSimulationStore((state) => state.recordReplayFrame);
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
@@ -79,7 +80,9 @@ export function useRealtimeTelemetry() {
       const delay = 1800 + Math.random() * 2000;
       timeoutId = setTimeout(() => {
         if (!active) return;
-        pushTelemetryEvent(buildTelemetryEvent());
+        const event = buildTelemetryEvent();
+        pushTelemetryEvent(event);
+        recordReplayFrame(event);
         scheduleNextEvent();
       }, delay);
     };
@@ -90,7 +93,7 @@ export function useRealtimeTelemetry() {
       active = false;
       if (timeoutId) clearTimeout(timeoutId);
     };
-  }, [pushTelemetryEvent]);
+  }, [pushTelemetryEvent, recordReplayFrame]);
 
   return events;
 }
