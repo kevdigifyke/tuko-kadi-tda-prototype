@@ -26,9 +26,12 @@ type SimulationState = {
   liveEventCount: number;
   pushTelemetryEvent: (event: TelemetryEvent) => void;
   dismissAlert: (id: string) => void;
+  activeRegion: ActiveRegion | null;
+  setActiveRegion: (region: ActiveRegion | null) => void;
 };
 
 export type TelemetrySeverity = "INFO" | "WARNING" | "CRITICAL";
+export type IntelligenceSeverity = "GREEN" | "AMBER" | "RED" | "MAGENTA";
 
 export type TelemetryEvent = {
   id: string;
@@ -37,7 +40,23 @@ export type TelemetryEvent = {
   severity: TelemetrySeverity;
   category: string;
   county: string;
+  constituency: string;
+  ward: string;
   status: "LIVE" | "TRACKING" | "ESCALATED";
+  intelligenceSeverity: IntelligenceSeverity;
+  turnout: number;
+  aiRiskScore: number;
+  tdaStability: number;
+  simulationStatus: "STABLE" | "PREDICTIVE" | "DIVERGENT";
+};
+
+export type ActiveRegion = {
+  id: string;
+  name: string;
+  layer: "county" | "constituency" | "ward";
+  center: [number, number];
+  severity: IntelligenceSeverity;
+  flashToken: number;
 };
 
 export const useSimulationStore = create<SimulationState>((set, get) => ({
@@ -90,4 +109,6 @@ export const useSimulationStore = create<SimulationState>((set, get) => ({
     set((state) => ({
       activeAlerts: state.activeAlerts.filter((alert) => alert.id !== id),
     })),
+  activeRegion: null,
+  setActiveRegion: (region) => set({ activeRegion: region }),
 }));
