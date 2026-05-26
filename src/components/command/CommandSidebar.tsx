@@ -1,5 +1,7 @@
 "use client";
 
+import CognitiveIntelligencePanel from "./CognitiveIntelligencePanel";
+
 export default function CommandSidebar() {
   return (
     <div className="h-full bg-black border-r border-zinc-800 p-4 space-y-4">
@@ -36,6 +38,8 @@ export default function CommandSidebar() {
           Synthetic election scenario replay active.
         </p>
       </div>
+
+      <CognitiveIntelligencePanel />
     </div>
   );
 }
