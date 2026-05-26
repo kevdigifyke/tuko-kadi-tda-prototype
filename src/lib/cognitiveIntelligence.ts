@@ -46,7 +46,7 @@ export function buildCognitiveSummary(params: {
       replayFocus.clusterKey ? `Replay analysis indicates synchronized anomaly propagation near ${replayFocus.clusterKey}.` : "Replay cognition indicates partial synchronization across anomaly bands.",
     ],
     predictiveSummaries: [
-      `Escalation probability ${forecast.escalationProbability}% with ${simulationStatus.toLowerCase()} simulation posture.`,
+      `Escalation probability ${forecast.escalationProbability}% with ${(simulationStatus || "stable").toLowerCase()} simulation posture.`,
       `Propagation likelihood ${forecast.propagationLikelihood}% centered on ${dominantCategory}.`,
       `Turnout instability risk ${forecast.turnoutInstabilityRisk}% at simulation tick ${simulationTick}.`,
     ],
