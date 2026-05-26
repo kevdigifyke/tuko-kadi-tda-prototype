@@ -24,6 +24,17 @@ type TacticalLayerKey =
   | "environmentalOverlays";
 
 type VisibilityBand = "macro" | "mid" | "deep";
+type GeoEntityType = RegionLayer | "pollingStation" | "telemetryCluster" | "anomalyRegion";
+
+type GeoKnowledgeItem = {
+  id: string;
+  name: string;
+  normalized: string;
+  type: GeoEntityType;
+  center: [number, number];
+  aliases: string[];
+  telemetryIds: string[];
+};
 
 type TacticalLayerState = Record<
   TacticalLayerKey,
@@ -58,6 +69,7 @@ const semanticNameCache = new Map<string, string>();
 
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 const zoomBand = (zoom: number): VisibilityBand => (zoom < 7.2 ? "macro" : zoom < 10.2 ? "mid" : "deep");
+const normalizeSemanticKey = (value: string) => value.toLowerCase().replace(/[^a-z0-9\s-]/g, " ").replace(/\s+/g, " ").trim();
 const layerVisualStyle = (enabled: boolean, intensity: number) =>
   enabled
     ? {
@@ -137,6 +149,8 @@ export default memo(function IEBCBoundaryMap() {
   const [zoom, setZoom] = useState(6);
   const [layers, setLayers] = useState<TacticalLayerState>(defaultLayerState);
   const [hoveredLayer, setHoveredLayer] = useState<TacticalLayerKey | null>(null);
+  const [query, setQuery] = useState("");
+  const [selectedQuery, setSelectedQuery] = useState("");
 
   const tick = useSimulationStore((s) => s.tick);
   const latestEvent = useSimulationStore((s) => s.telemetryEvents[0]);
@@ -145,6 +159,9 @@ export default memo(function IEBCBoundaryMap() {
   const telemetryEvents = useSimulationStore((s) => s.telemetryEvents);
   const replayFrames = useSimulationStore((s) => s.replayFrames);
   const replayFrameAtTick = useSimulationStore((s) => s.getReplayFrameAtTick(s.tick));
+  const setReplayFocus = useSimulationStore((s) => s.setReplayFocus);
+  const setActiveRegion = useSimulationStore((s) => s.setActiveRegion);
+  const setFocusedTelemetryId = useSimulationStore((s) => s.setFocusedTelemetryId);
 
   useEffect(() => {
     Promise.all([
@@ -184,12 +201,73 @@ export default memo(function IEBCBoundaryMap() {
     return index;
   }, [counties, constituencies, wards]);
 
+  const geoKnowledgeIndex = useMemo(() => {
+    const items: GeoKnowledgeItem[] = [];
+    const register = (item: GeoKnowledgeItem) => {
+      items.push({ ...item, normalized: normalizeSemanticKey(item.name) });
+    };
+
+    [{ data: counties, layer: "county" as const }, { data: constituencies, layer: "constituency" as const }, { data: wards, layer: "ward" as const }].forEach(({ data, layer }) => {
+      data?.features.forEach((feature) => {
+        const regionName = getRegionName((feature.properties ?? {}) as Record<string, unknown>, layer);
+        if (!regionName) return;
+        const key = `${layer}:${regionName}`.toLowerCase();
+        const linkedTelemetry = telemetryEvents.filter((event) => event[layer] === regionName).map((event) => event.id);
+        const center = regionIndex[key]?.center;
+        if (!center) return;
+        register({ id: key, name: regionName, type: layer, center, aliases: [regionName, key.split(":")[1]], telemetryIds: linkedTelemetry, normalized: "" });
+      });
+    });
+
+    pollingStations.slice(0, 140).forEach((station) => {
+      const key = `pollingStation:${station.id}`;
+      const linkedTelemetry = telemetryEvents.filter((event) => event.ward === station.ward || event.constituency === station.constituency).map((event) => event.id);
+      register({ id: key, name: station.name, type: "pollingStation", center: [station.lat, station.lng], aliases: [station.ward, station.constituency, station.county], telemetryIds: linkedTelemetry, normalized: "" });
+    });
+
+    telemetryEvents.forEach((event) => {
+      const key = `telemetryCluster:${event.id}`;
+      register({ id: key, name: `${event.county} ${event.category}`, type: event.severity === "CRITICAL" ? "anomalyRegion" : "telemetryCluster", center: activeRegion?.center ?? [-0.0236, 37.9062], aliases: [event.county, event.constituency, event.ward, event.title], telemetryIds: [event.id], normalized: "" });
+    });
+
+    return items;
+  }, [activeRegion?.center, counties, constituencies, regionIndex, telemetryEvents, wards]);
+
+  const semanticSuggestions = useMemo(() => {
+    const needle = normalizeSemanticKey(query);
+    if (!needle) return geoKnowledgeIndex.slice(0, 8);
+    const scored = geoKnowledgeIndex.map((item) => {
+      const aliasHit = item.aliases.some((alias) => normalizeSemanticKey(alias).includes(needle));
+      const starts = item.normalized.startsWith(needle);
+      const contains = item.normalized.includes(needle);
+      const score = starts ? 0 : aliasHit ? 1 : contains ? 2 : 4;
+      return { item, score };
+    }).filter((row) => row.score < 4).sort((a, b) => a.score - b.score).slice(0, 8).map((row) => row.item);
+    return scored;
+  }, [geoKnowledgeIndex, query]);
+
+  const searchTarget = useMemo(() => {
+    const needle = normalizeSemanticKey(selectedQuery || query);
+    if (!needle) return null;
+    return semanticSuggestions.find((item) => item.normalized === needle) ?? semanticSuggestions[0] ?? null;
+  }, [query, selectedQuery, semanticSuggestions]);
+
+  useEffect(() => {
+    if (!searchTarget) return;
+    const regionLayer: RegionLayer = searchTarget.type === "county" || searchTarget.type === "constituency" || searchTarget.type === "ward" ? searchTarget.type : "ward";
+    setActiveRegion({ id: `${regionLayer}:${searchTarget.name}`.toLowerCase(), name: searchTarget.name, layer: regionLayer, center: searchTarget.center, severity: "AMBER", flashToken: Date.now() });
+    const telemetryId = searchTarget.telemetryIds[0] ?? null;
+    setFocusedTelemetryId(telemetryId);
+    if (telemetryId) setReplayFocus({ clusterKey: `${searchTarget.name}:${searchTarget.type}`.toLowerCase(), source: "map", lastJumpAt: Date.now() });
+  }, [searchTarget, setActiveRegion, setFocusedTelemetryId, setReplayFocus]);
+
   const styleFor = useCallback((layer: RegionLayer) => {
     const base = layer === "county" ? { color: "#76d8e1", weight: 2.4, fill: 0.1, dashArray: "10 6" } : layer === "constituency" ? { color: "#84a9bb", weight: 1.3, fill: 0.055, dashArray: "6 5" } : { color: "#86919b", weight: 0.7, fill: 0.02, dashArray: "3 5" };
     const z = zoomOpacity[layer];
     const opacity = clamp((zoom - z.min) / (z.max - z.min), 0, 1);
-    return { color: base.color, dashArray: base.dashArray, weight: base.weight * opacity, opacity, fillColor: base.color, fillOpacity: base.fill * opacity };
-  }, [zoom]);
+    const isSearchHit = searchTarget && layer === (searchTarget.type === "county" || searchTarget.type === "constituency" || searchTarget.type === "ward" ? searchTarget.type : "ward");
+    return { color: base.color, dashArray: base.dashArray, weight: (base.weight + (isSearchHit ? 0.8 : 0)) * opacity, opacity: opacity * (searchTarget && !isSearchHit ? 0.45 : 1), fillColor: base.color, fillOpacity: base.fill * opacity * (searchTarget && !isSearchHit ? 0.3 : isSearchHit ? 2.2 : 1) };
+  }, [searchTarget, zoom]);
 
   const onEachFeature = useCallback((layerName: RegionLayer) => (feature: GeoJSON.Feature, layer: Layer & { setStyle: (s: Record<string, number | string>) => void; bindTooltip: (n: string, o: Record<string, unknown>) => void; bindPopup: (html: string) => void; on: (events: Record<string, () => void>) => void; getLatLngs: () => Array<{ lat: number; lng: number }> | Array<Array<{ lat: number; lng: number }>>; openPopup: () => void; }) => {
     const regionName = getRegionName((feature.properties ?? {}) as Record<string, unknown>, layerName);
@@ -230,6 +308,13 @@ export default memo(function IEBCBoundaryMap() {
             const enabled = layers[name].enabled;
             return <button key={name} onMouseEnter={() => setHoveredLayer(name)} onMouseLeave={() => setHoveredLayer(null)} onClick={() => toggleLayer(name)} className="rounded border px-2 py-1 uppercase tracking-wide transition-all duration-300" style={layerVisualStyle(enabled, hoveredLayer === name ? 1.2 : layers[name].intensity)}>{name.replace(/([A-Z])/g, " $1")}</button>;
           })}
+        </div>
+      </div>
+      <div className="absolute left-1/2 top-4 z-[1001] w-[440px] -translate-x-1/2 rounded-xl border border-cyan-400/40 bg-black/75 p-3 shadow-[0_0_45px_rgba(34,211,238,0.22)] backdrop-blur-md">
+        <div className="mb-2 text-[10px] uppercase tracking-[0.28em] text-cyan-300">Semantic Geo Intelligence Search</div>
+        <input value={query} onChange={(e) => { setQuery(e.target.value); setSelectedQuery(""); }} onKeyDown={(e) => { if (e.key === "Enter" && semanticSuggestions[0]) setSelectedQuery(semanticSuggestions[0].name); }} placeholder="Search county, constituency, ward, station, anomaly cluster..." className="w-full rounded border border-cyan-600/40 bg-zinc-950/80 px-3 py-2 text-sm text-cyan-100 outline-none ring-cyan-500/40 placeholder:text-zinc-500 focus:ring" />
+        <div className="mt-2 grid gap-1 text-xs">
+          {semanticSuggestions.map((item) => <button key={item.id} onClick={() => { setQuery(item.name); setSelectedQuery(item.name); }} className="flex items-center justify-between rounded border border-cyan-900/70 bg-zinc-950/65 px-2 py-1 text-left text-zinc-200 hover:border-cyan-400/60 hover:text-cyan-100"><span>{item.name}</span><span className="uppercase tracking-wider text-cyan-300/80">{item.type}</span></button>)}
         </div>
       </div>
       <EnvironmentalOverlay enabled={layerVisible("environmentalOverlays")} zoom={zoom} />
