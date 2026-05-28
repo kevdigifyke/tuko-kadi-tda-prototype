@@ -16,7 +16,7 @@ export default function CognitiveIntelligencePanel() {
   const anomalyLevel = useSimulationStore((s) => s.anomalyLevel);
   const replayFocus = useSimulationStore((s) => s.replayFocus);
   const tick = useSimulationStore((s) => s.tick);
-  const timeline = useSimulationStore((s) => s.timeline);
+  const timelineRiskEscalation = useSimulationStore((s) => s.timeline.riskEscalation);
   const replayFrame = useSimulationStore((s) => s.getReplayFrameAtTick(s.tick));
 
   const intelligence = useMemo(() => buildCognitiveSummary({
@@ -25,16 +25,16 @@ export default function CognitiveIntelligencePanel() {
     replayFocus,
     replayFrameCategory: replayFrame?.event.category,
     simulationTick: tick,
-    simulationStatus: timeline.status,
-  }), [telemetry, anomalyLevel, replayFocus, replayFrame?.event.category, tick, timeline.status]);
+    simulationStatus: timelineRiskEscalation > 70 ? "DIVERGENT" : timelineRiskEscalation > 45 ? "PREDICTIVE" : "STABLE",
+  }), [telemetry, anomalyLevel, replayFocus, replayFrame?.event.category, tick, timelineRiskEscalation]);
 
   return (
-    <div className="rounded-xl bg-zinc-900/80 border border-zinc-700 p-4 space-y-3 shadow-[0_0_28px_rgba(45,212,191,0.08)]">
-      <h3 className="text-sm font-semibold text-cyan-300 uppercase tracking-[0.14em]">Cognitive Intelligence</h3>
+    <div className="space-y-3 rounded-xl border border-cyan-950/70 bg-zinc-950/58 p-3 opacity-90 shadow-[0_0_22px_rgba(45,212,191,0.05)]">
+      <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-300/90">Cognitive Intelligence</h3>
 
       <div className="space-y-2">
         {intelligence.tacticalBriefings.map((brief, idx) => (
-          <p key={idx} className="text-xs text-zinc-200 border-l-2 border-cyan-500/50 pl-2">{brief}</p>
+          <p key={idx} className="border-l-2 border-cyan-500/35 pl-2 text-[11px] text-zinc-300">{brief}</p>
         ))}
       </div>
 

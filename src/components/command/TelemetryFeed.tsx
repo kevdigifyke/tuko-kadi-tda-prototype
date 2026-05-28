@@ -10,7 +10,7 @@ import { pollingStations } from "@/src/data/geo/pollingStations";
 const severityStyles = {
   INFO: "text-cyan-300 border-cyan-500/30 bg-cyan-500/10",
   WARNING: "text-amber-300 border-amber-500/40 bg-amber-500/10",
-  CRITICAL: "text-rose-300 border-rose-500/50 bg-rose-500/10 shadow-[0_0_24px_rgba(244,63,94,0.28)]",
+  CRITICAL: "text-rose-300 border-rose-500/45 bg-rose-500/10 shadow-[0_0_18px_rgba(244,63,94,0.18)]",
 } as const;
 
 export default function TelemetryFeed() {
@@ -40,9 +40,9 @@ export default function TelemetryFeed() {
   const isEscalated = useMemo(() => activeAlerts.length > 0, [activeAlerts.length]);
 
   return (
-    <motion.div className="relative h-full overflow-hidden p-4 bg-zinc-950 border-l border-zinc-800" animate={isEscalated ? { boxShadow: ["inset 0 0 0 rgba(244,63,94,0)", "inset 0 0 24px rgba(244,63,94,0.24)", "inset 0 0 0 rgba(244,63,94,0)"] } : {}} transition={{ duration: 1.3 }}>
+    <motion.div className="relative h-full overflow-hidden border-l border-cyan-950/60 bg-zinc-950/86 p-3" animate={isEscalated ? { boxShadow: ["inset 0 0 0 rgba(244,63,94,0)", "inset 0 0 24px rgba(244,63,94,0.24)", "inset 0 0 0 rgba(244,63,94,0)"] } : {}} transition={{ duration: 1.3 }}>
       <div className="mb-3 flex items-center justify-between">
-        <h2 className="text-sm font-bold text-cyan-400 uppercase tracking-wider">Live Telemetry</h2>
+        <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-400/90">Live Telemetry</h2>
         <motion.div key={liveEventCount} initial={{ scale: 0.8, opacity: 0.5 }} animate={{ scale: 1, opacity: 1 }} className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200">{liveEventCount} events · L{anomalyLevel}</motion.div>
       </div>
       {replayFrameAtTick && <div className="mb-2 rounded border border-fuchsia-500/35 bg-fuchsia-500/10 px-2 py-1 text-[10px] uppercase tracking-[0.14em] text-fuchsia-200">Replay focus cue · {replayFrameAtTick.event.title} · T+{replayFrameAtTick.tick}</div>}
@@ -63,7 +63,7 @@ export default function TelemetryFeed() {
                 setReplayFocus({ clusterKey: `${event.county}:${event.category}`.toLowerCase(), source: "telemetry", lastJumpAt: Date.now() });
               }}
               layout initial={{ opacity: 0, y: -12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.32, ease: "easeOut" }}
-              className={`w-full text-left rounded-xl border p-3 backdrop-blur-sm transition-all hover:border-cyan-400/60 hover:shadow-[0_0_22px_rgba(34,211,238,0.22)] ${focusedTelemetryId === event.id ? "ring-1 ring-cyan-300/65" : ""} ${severityStyles[event.severity]}`}
+              className={`w-full rounded-xl border p-2.5 text-left opacity-88 backdrop-blur-sm transition-all hover:border-cyan-400/60 hover:opacity-100 hover:shadow-[0_0_18px_rgba(34,211,238,0.18)] ${focusedTelemetryId === event.id ? "ring-1 ring-cyan-300/65" : ""} ${severityStyles[event.severity]}`}
             >
               <div className="flex items-center justify-between gap-2"><div className="text-[11px] text-zinc-300">{new Date(event.timestamp).toLocaleTimeString()}</div><motion.div className="flex items-center gap-1 text-[10px] font-semibold" animate={event.severity === "CRITICAL" ? { opacity: [1, 0.45, 1] } : {}} transition={{ repeat: Infinity, duration: 1.2 }}><motion.span className="h-2 w-2 rounded-full bg-current" animate={{ scale: [1, 1.6, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} />{event.severity}</motion.div></div>
               <div className="mt-1 text-sm font-semibold text-white">{event.title}</div>
