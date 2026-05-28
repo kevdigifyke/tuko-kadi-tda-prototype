@@ -4,12 +4,12 @@ import CognitiveIntelligencePanel from "./CognitiveIntelligencePanel";
 
 export default function CommandSidebar() {
   return (
-    <div className="h-full bg-black border-r border-zinc-800 p-4 space-y-4">
-      <h2 className="text-cyan-400 font-bold uppercase tracking-wider text-sm">
+    <div className="h-full space-y-3 border-r border-cyan-950/60 bg-black/88 p-3 text-zinc-300">
+      <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-400/90">
         National Intelligence
       </h2>
 
-      <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-4">
+      <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
         <h3 className="text-sm font-semibold text-white">
           AI Risk Engine
         </h3>
@@ -19,7 +19,7 @@ export default function CommandSidebar() {
         </p>
       </div>
 
-      <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-4">
+      <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
         <h3 className="text-sm font-semibold text-white">
           TDA Intelligence
         </h3>
@@ -29,7 +29,7 @@ export default function CommandSidebar() {
         </p>
       </div>
 
-      <div className="rounded-xl bg-zinc-900 border border-zinc-800 p-4">
+      <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
         <h3 className="text-sm font-semibold text-white">
           Simulation Engine
         </h3>

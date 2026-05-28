@@ -16,34 +16,38 @@ interface HeatmapLayerProps {
   visible?: boolean;
 }
 
+type LeafletHeatFactory = typeof L & {
+  heatLayer?: (pts: Array<[number, number, number]>, cfg: Record<string, number>) => L.Layer;
+};
+
 export default function HeatmapLayer({ points, intensityBoost = 1, visible = true }: HeatmapLayerProps) {
   const map = useMap();
 
   useEffect(() => {
     if (!visible) return;
-    let heatLayer: { addTo: (m: unknown) => void } | null = null;
+    let heatLayer: L.Layer | null = null;
+    let cancelled = false;
 
     const initHeatmap = async () => {
-      const heatWindow = window as Window & { L?: typeof L & { heatLayer?: (pts: Array<[number, number, number]>, cfg: Record<string, number>) => { addTo: (m: unknown) => void } } };
-      heatWindow.L = L as typeof L & { heatLayer?: (pts: Array<[number, number, number]>, cfg: Record<string, number>) => { addTo: (m: unknown) => void } };
+      const heatWindow = window as Window & { L?: LeafletHeatFactory };
+      heatWindow.L = L as LeafletHeatFactory;
       await import("leaflet.heat");
-      if (!heatWindow.L?.heatLayer) return;
+      if (cancelled || !heatWindow.L?.heatLayer) return;
 
       heatLayer = heatWindow.L.heatLayer(
         points.map((p) => [p.lat, p.lng, Math.min(1, p.intensity * intensityBoost)]),
-        { radius: 35 + intensityBoost * 5, blur: 25, maxZoom: 12, minOpacity: 0.33 }
+        { radius: 35 + intensityBoost * 5, blur: 25, maxZoom: 12, minOpacity: 0.33 },
       );
 
-      if (!map || !heatLayer) return;
-
-requestAnimationFrame(() => {
-  heatLayer?.addTo(map);
-});
+      requestAnimationFrame(() => {
+        if (!cancelled) heatLayer?.addTo(map);
+      });
     };
 
     initHeatmap();
 
     return () => {
+      cancelled = true;
       if (heatLayer) map.removeLayer(heatLayer);
     };
   }, [map, points, intensityBoost, visible]);

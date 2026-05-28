@@ -92,3 +92,21 @@ body { margin:0; background: radial-gradient(circle at 15% 0%, #132124 0%, var(-
 .tactical-carto-map .leaflet-interactive {
   transition: opacity 320ms ease, fill-opacity 320ms ease, stroke-width 320ms ease;
 }
+
+
+.tactical-carto-map .tactical-label-deprioritized {
+  opacity: 0.26 !important;
+  transform: scale(0.88);
+}
+
+.tactical-carto-map .tactical-label-mid {
+  transition-delay: 90ms;
+}
+
+.tactical-carto-map .tactical-label-deep {
+  transition-delay: 160ms;
+}
+
+.tactical-replay-range {
+  accent-color: #22d3ee;
+}
