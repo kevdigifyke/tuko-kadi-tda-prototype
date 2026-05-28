@@ -252,14 +252,66 @@ export default memo(function IEBCBoundaryMap() {
     return semanticSuggestions.find((item) => item.normalized === needle) ?? semanticSuggestions[0] ?? null;
   }, [query, selectedQuery, semanticSuggestions]);
 
-  useEffect(() => {
-    if (!searchTarget) return;
-    const regionLayer: RegionLayer = searchTarget.type === "county" || searchTarget.type === "constituency" || searchTarget.type === "ward" ? searchTarget.type : "ward";
-    setActiveRegion({ id: `${regionLayer}:${searchTarget.name}`.toLowerCase(), name: searchTarget.name, layer: regionLayer, center: searchTarget.center, severity: "AMBER", flashToken: Date.now() });
-    const telemetryId = searchTarget.telemetryIds[0] ?? null;
+   useEffect(() => {
+  if (!searchTarget) return;
+
+  const regionLayer: RegionLayer =
+    searchTarget.type === "county" ||
+    searchTarget.type === "constituency" ||
+    searchTarget.type === "ward"
+      ? searchTarget.type
+      : "ward";
+
+  const nextRegionId =
+    `${regionLayer}:${searchTarget.name}`.toLowerCase();
+
+  const currentState = useSimulationStore.getState();
+
+  // ---- ACTIVE REGION STABILIZATION ----
+  if (
+    !currentState.activeRegion ||
+    currentState.activeRegion.id !== nextRegionId
+  ) {
+    setActiveRegion({
+      id: nextRegionId,
+      name: searchTarget.name,
+      layer: regionLayer,
+      center: searchTarget.center,
+      severity: "AMBER",
+      flashToken: Date.now(),
+    });
+  }
+
+  // ---- TELEMETRY FOCUS STABILIZATION ----
+  const telemetryId =
+    searchTarget.telemetryIds[0] ?? null;
+
+  if (
+    currentState.focusedTelemetryId !== telemetryId
+  ) {
     setFocusedTelemetryId(telemetryId);
-    if (telemetryId) setReplayFocus({ clusterKey: `${searchTarget.name}:${searchTarget.type}`.toLowerCase(), source: "map", lastJumpAt: Date.now() });
-  }, [searchTarget, setActiveRegion, setFocusedTelemetryId, setReplayFocus]);
+  }
+
+  // ---- REPLAY FOCUS STABILIZATION ----
+  if (telemetryId) {
+    const nextClusterKey =
+      `${searchTarget.name}:${searchTarget.type}`.toLowerCase();
+
+    if (
+      currentState.replayFocus?.clusterKey !== nextClusterKey
+    ) {
+      setReplayFocus({
+        clusterKey: nextClusterKey,
+        source: "map",
+        lastJumpAt: Date.now(),
+      });
+    }
+  }
+}, [
+  searchTarget?.id,
+  searchTarget?.name,
+  searchTarget?.type,
+]);
 
   const styleFor = useCallback((layer: RegionLayer) => {
     const base = layer === "county" ? { color: "#76d8e1", weight: 2.4, fill: 0.1, dashArray: "10 6" } : layer === "constituency" ? { color: "#84a9bb", weight: 1.3, fill: 0.055, dashArray: "6 5" } : { color: "#86919b", weight: 0.7, fill: 0.02, dashArray: "3 5" };
@@ -310,7 +362,7 @@ export default memo(function IEBCBoundaryMap() {
           })}
         </div>
       </div>
-      <div className="absolute left-1/2 top-4 z-[1001] w-[440px] -translate-x-1/2 rounded-xl border border-cyan-400/40 bg-black/75 p-3 shadow-[0_0_45px_rgba(34,211,238,0.22)] backdrop-blur-md">
+        <div className="absolute top-4 left-1/2 z-[1200] w-[420px] max-w-[92vw] -translate-x-1/2 rounded-2xl border border-cyan-500/30 bg-black/70 p-3 shadow-[0_0_40px_rgba(0,255,255,0.08)] backdrop-blur-xl transition-all duration-500">
         <div className="mb-2 text-[10px] uppercase tracking-[0.28em] text-cyan-300">Semantic Geo Intelligence Search</div>
         <input value={query} onChange={(e) => { setQuery(e.target.value); setSelectedQuery(""); }} onKeyDown={(e) => { if (e.key === "Enter" && semanticSuggestions[0]) setSelectedQuery(semanticSuggestions[0].name); }} placeholder="Search county, constituency, ward, station, anomaly cluster..." className="w-full rounded border border-cyan-600/40 bg-zinc-950/80 px-3 py-2 text-sm text-cyan-100 outline-none ring-cyan-500/40 placeholder:text-zinc-500 focus:ring" />
         <div className="mt-2 grid gap-1 text-xs">

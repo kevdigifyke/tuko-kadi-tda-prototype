@@ -34,7 +34,11 @@ export default function HeatmapLayer({ points, intensityBoost = 1, visible = tru
         { radius: 35 + intensityBoost * 5, blur: 25, maxZoom: 12, minOpacity: 0.33 }
       );
 
-      heatLayer.addTo(map);
+      if (!map || !heatLayer) return;
+
+requestAnimationFrame(() => {
+  heatLayer?.addTo(map);
+});
     };
 
     initHeatmap();
