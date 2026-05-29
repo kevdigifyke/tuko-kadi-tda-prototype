@@ -2,6 +2,8 @@
 
 import CognitiveIntelligencePanel from "./CognitiveIntelligencePanel";
 import SignalIntelligencePanel from "./SignalIntelligencePanel";
+import TransparencyLayerPanel from "../legitimacy/TransparencyLayerPanel";
+import ResearchReadinessPanel from "../research/ResearchReadinessPanel";
 
 export default function CommandSidebar() {
   return (
@@ -39,6 +41,10 @@ export default function CommandSidebar() {
           Synthetic election scenario replay active.
         </p>
       </div>
+
+      <TransparencyLayerPanel />
+
+      <ResearchReadinessPanel />
 
       <SignalIntelligencePanel />
 
