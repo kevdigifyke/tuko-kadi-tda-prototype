@@ -1,22 +1,56 @@
+import { getOperationalSnapshot } from "@/src/components/operations/OperationalData";
 import { AppShell } from "@/src/components/shell/AppShell";
 import { CommandPanel } from "@/src/components/ui/CommandPanel";
 import { MetricCard } from "@/src/components/ui/MetricCard";
-import { getClusterGraph, getElectionSummary } from "@/src/lib/generatedElectionData";
 
 export default function Analytics() {
-  const summary = getElectionSummary();
-  const anomalyCount = summary.counties.reduce((a, c) => a + c.anomalyCount, 0);
-  const graph = getClusterGraph();
-  const issueCounts = graph.nodes.reduce(
-    (acc, node) => {
-      if (node.primaryIssue === "cross-race mismatch") acc.crossRace += 1;
-      if (node.primaryIssue === "late upload spike") acc.lateUpload += 1;
-      if (node.primaryIssue === "source disagreement") acc.sourceDisagreement += 1;
-      if (node.primaryIssue === "low OCR confidence") acc.lowOcr += 1;
-      return acc;
-    },
-    { crossRace: 0, lateUpload: 0, sourceDisagreement: 0, lowOcr: 0 },
-  );
+  const snapshot = getOperationalSnapshot([]);
+  const anomalyCount = snapshot.summary.counties.reduce((a, c) => a + c.anomalyCount, 0);
+  const topRegions = [...snapshot.summary.counties].sort((a, b) => b.ballotsCast - a.ballotsCast).slice(0, 4);
+  const issueEntries = Object.entries(snapshot.issueCounts).slice(0, 5);
 
-  return <AppShell><div className="space-y-4"><h1 className="text-display">Election Analytics</h1><p className="text-body text-[#bac9cc]">Synthetic anomaly analytics for review prioritization.</p><p className="text-xs text-[#bac9cc]">Synthetic demo data only. Flagged anomalies require human review.</p><div className="grid gap-4 md:grid-cols-4"><MetricCard title="Total votes" value={summary.totalBallotsCast.toLocaleString()} /><MetricCard title="Turnout %" value={`${summary.turnoutPercent}%`} /><MetricCard title="Clusters flagged" value={`${graph.nodes.length}`} tone="salmon" /><MetricCard title="Anomaly count" value={`${anomalyCount}`} tone="salmon" /></div><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4"><MetricCard title="Cross-race mismatch" value={`${issueCounts.crossRace}`} /><MetricCard title="Late upload spike" value={`${issueCounts.lateUpload}`} /><MetricCard title="Source disagreement" value={`${issueCounts.sourceDisagreement}`} /><MetricCard title="Low OCR confidence" value={`${issueCounts.lowOcr}`} /></div><CommandPanel title="Anomaly review posture" active><ul className="space-y-2 text-sm text-[#bac9cc]"><li>Flagged clusters remain synthetic and non-adjudicative.</li><li>Source mismatch and cross-race mismatch signals indicate irregularity only.</li><li>Human review recommended before any escalation decisions.</li></ul></CommandPanel></div></AppShell>;
+  return (
+    <AppShell>
+      <div className="space-y-5">
+        <section className="rounded-2xl border border-cyan-300/15 bg-[#080f11] p-5">
+          <p className="panel-kicker text-cyan-200">Analytics Workspace</p>
+          <h1 className="mt-2 text-display">Election analytics</h1>
+          <p className="mt-2 max-w-3xl text-sm text-[#bac9cc]">Turnout, anomaly, regional comparison, and trend exploration using existing generated election data and cluster telemetry.</p>
+        </section>
+        <div className="grid gap-4 md:grid-cols-4">
+          <MetricCard title="Total votes" value={snapshot.summary.totalBallotsCast.toLocaleString()} />
+          <MetricCard title="Turnout analysis" value={`${snapshot.summary.turnoutPercent}%`} />
+          <MetricCard title="Anomaly analysis" value={`${anomalyCount}`} tone="salmon" />
+          <MetricCard title="Trend clusters" value={`${snapshot.graph.nodes.length}`} tone="yellow" />
+        </div>
+        <div className="grid gap-4 xl:grid-cols-2">
+          <CommandPanel title="Turnout Analysis" active>
+            <div className="space-y-3">
+              {topRegions.map((region) => (
+                <div key={region.county} className="rounded-lg border border-white/10 bg-black/20 p-3">
+                  <div className="flex justify-between text-sm"><span className="text-cyan-100">{region.county}</span><span className="text-[#bac9cc]">{region.turnoutPercent}%</span></div>
+                  <div className="mt-2 h-2 rounded-full bg-white/10"><div className="h-full rounded-full bg-cyan-300" style={{ width: `${Math.min(100, region.turnoutPercent)}%` }} /></div>
+                </div>
+              ))}
+            </div>
+          </CommandPanel>
+          <CommandPanel title="Anomaly Analysis">
+            <div className="space-y-2 text-sm text-[#bac9cc]">
+              {issueEntries.map(([issue, count]) => <p key={issue} className="rounded-lg border border-white/10 bg-black/20 p-3"><span className="capitalize text-cyan-100">{issue}</span> · {count} clusters</p>)}
+            </div>
+          </CommandPanel>
+          <CommandPanel title="Regional Comparison">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {snapshot.highRiskCounties.slice(0, 4).map((county) => <div key={county.county} className="rounded-lg bg-black/20 p-3"><p className="font-semibold text-cyan-100">{county.county}</p><p className="text-xs text-[#bac9cc]">{county.anomalyCount} anomalies · {county.ballotsCast.toLocaleString()} ballots</p></div>)}
+            </div>
+          </CommandPanel>
+          <CommandPanel title="Trend Exploration">
+            <ul className="space-y-2 text-sm text-[#bac9cc]">
+              {snapshot.cognitive.operationalNarrative.map((narrative) => <li key={narrative}>• {narrative}</li>)}
+            </ul>
+          </CommandPanel>
+        </div>
+      </div>
+    </AppShell>
+  );
 }

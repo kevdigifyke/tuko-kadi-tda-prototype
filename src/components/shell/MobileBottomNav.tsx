@@ -1,3 +1,31 @@
-"use client";import Link from "next/link";import { usePathname } from "next/navigation";
-const items=[['/','Home'],['/maps','Maps'],['/anomalies','Anomalies'],['/simulation','Sim'],['/agents/upload','Agents']];
-export function MobileBottomNav(){const p=usePathname();return <nav className="md:hidden fixed bottom-0 inset-x-0 z-20 grid grid-cols-5 border-t border-white/10 bg-[#080f11]">{items.map(([h,l])=><Link key={h} href={h} className={`py-2 text-center text-xs ${p===h?'text-cyan-300':'text-[#bac9cc]'}`}>{l}</Link>)}</nav>}
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { primaryNavigation } from "./navigation";
+
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+export function MobileBottomNav() {
+  const pathname = usePathname();
+
+  return (
+    <nav className="fixed inset-x-0 bottom-0 z-20 flex gap-1 overflow-x-auto border-t border-white/10 bg-[#080f11]/95 px-2 py-2 backdrop-blur md:hidden">
+      {primaryNavigation.map((item) => (
+        <Link
+          key={item.href}
+          href={item.href}
+          className={`min-w-[76px] rounded-lg px-2 py-2 text-center text-[11px] ${
+            isActive(pathname, item.href) ? "bg-cyan-500/15 text-cyan-200" : "text-[#bac9cc]"
+          }`}
+        >
+          {item.shortLabel}
+        </Link>
+      ))}
+    </nav>
+  );
+}
