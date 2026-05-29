@@ -1,3 +1,4 @@
+import type { CivicSignalSummary } from "@/src/lib/geospatialCivicSignals";
 import type { ReplayFocusState, TelemetryEvent } from "@/src/store/useSimulationStore";
 
 export type CognitiveSummary = {
@@ -10,6 +11,7 @@ export type CognitiveSummary = {
     turnoutInstabilityRisk: number;
     propagationLikelihood: number;
     anomalySeverityForecast: number;
+    civicOperationalStress: number;
   };
 };
 
@@ -22,8 +24,9 @@ export function buildCognitiveSummary(params: {
   replayFrameCategory?: string;
   simulationTick: number;
   simulationStatus: "STABLE" | "PREDICTIVE" | "DIVERGENT";
+  civicSignals?: CivicSignalSummary;
 }): CognitiveSummary {
-  const { telemetry, anomalyLevel, replayFocus, replayFrameCategory, simulationTick, simulationStatus } = params;
+  const { telemetry, anomalyLevel, replayFocus, replayFrameCategory, simulationTick, simulationStatus, civicSignals } = params;
   const criticalCount = telemetry.filter((e) => e.severity === "CRITICAL").length;
   const divergentCount = telemetry.filter((e) => e.simulationStatus === "DIVERGENT").length;
   const escalatedCount = telemetry.filter((e) => e.status === "ESCALATED").length;
@@ -37,6 +40,7 @@ export function buildCognitiveSummary(params: {
     turnoutInstabilityRisk: clamp(Math.round(turnoutVolatility * 2.8 + divergentCount * 4)),
     propagationLikelihood: clamp(Math.round(counties * 6.5 + escalatedCount * 4 + meanRisk * 0.4)),
     anomalySeverityForecast: clamp(Math.round(anomalyLevel * 0.8 + criticalCount * 6 + divergentCount * 5)),
+    civicOperationalStress: clamp(Math.round(civicSignals?.operationalStress ?? anomalyLevel * 0.7)),
   };
 
   return {
@@ -44,21 +48,25 @@ export function buildCognitiveSummary(params: {
       criticalCount > 3 ? "Escalation detected across western propagation corridor." : "Localized escalation pockets remain under active observation.",
       turnoutVolatility > 14 ? "Turnout instability increasing in clustered urban constituencies." : "Turnout vectors remain manageable with periodic urban spikes.",
       replayFocus.clusterKey ? `Replay analysis indicates synchronized anomaly propagation near ${replayFocus.clusterKey}.` : "Replay cognition indicates partial synchronization across anomaly bands.",
+      civicSignals ? civicSignals.narrative : "Civic signal simulation layer is ready for environmental and mobility correlation.",
     ],
     predictiveSummaries: [
       `Escalation probability ${forecast.escalationProbability}% with ${(simulationStatus || "stable").toLowerCase()} simulation posture.`,
       `Propagation likelihood ${forecast.propagationLikelihood}% centered on ${dominantCategory}.`,
       `Turnout instability risk ${forecast.turnoutInstabilityRisk}% at simulation tick ${simulationTick}.`,
+      civicSignals ? `Civic operational stress ${forecast.civicOperationalStress}% with accessibility score ${civicSignals.accessibilityScore}%.` : "Civic operational stress unavailable until signal simulation initializes.",
     ],
     operationalNarrative: [
       `Clustered anomalies continue migrating eastward through ${counties} monitored counties.`,
       `Replay cognition suggests increasing propagation density around ${replayFrameCategory ?? dominantCategory}.`,
       `Simulation divergence ${simulationStatus === "DIVERGENT" ? "detected" : "monitored"} in high-turnout regions with severity forecast ${forecast.anomalySeverityForecast}%.`,
+      civicSignals ? `Forecast intelligence correlates ${civicSignals.dominantConstraint} constraints with turnout pressure ${civicSignals.turnoutPressure}% along ${civicSignals.dominantCorridor}.` : "Forecast intelligence awaiting civic flow constraints.",
     ],
     correlations: [
       { id: "linked", label: "Linked Anomalies", strength: clamp(criticalCount * 12 + escalatedCount * 4), detail: `${criticalCount} critical telemetry anomalies linked with replay and simulation traces.` },
       { id: "sync", label: "Synchronized Escalation", strength: clamp(criticalCount * 8 + divergentCount * 5), detail: `${divergentCount} divergent simulation paths align with active escalation clusters.` },
       { id: "geo", label: "Geographic Propagation", strength: clamp(counties * 7 + escalatedCount * 3), detail: `${counties} counties display correlated propagation relationships.` },
+      { id: "civic-flow", label: "Civic Flow Constraint", strength: forecast.civicOperationalStress, detail: civicSignals ? `${civicSignals.dominantCorridor} shows ${civicSignals.dominantConstraint} constraint correlation with ${civicSignals.congestionScore}% congestion.` : "Civic signal model standing by for anomaly correlation." },
     ],
     forecast,
   };

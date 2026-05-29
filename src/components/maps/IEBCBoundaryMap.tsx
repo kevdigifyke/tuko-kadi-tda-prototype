@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
+import { Circle, CircleMarker, GeoJSON, MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { type Layer, type Path } from "leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import "leaflet/dist/leaflet.css";
@@ -9,6 +9,7 @@ import "leaflet/dist/leaflet.css";
 import HeatmapLayer from "./HeatmapLayer";
 import PulseMarker from "./PulseMarker";
 import { pollingStations } from "../../data/geo/pollingStations";
+import { buildGeospatialCivicSignals, type CivicFlowCorridor, type CivicSignalIntelligence } from "@/src/lib/geospatialCivicSignals";
 import { useSimulationStore } from "@/src/store/useSimulationStore";
 
 type RegionLayer = "county" | "constituency" | "ward";
@@ -21,7 +22,11 @@ type TacticalLayerKey =
   | "simulations"
   | "replayTraces"
   | "tacticalOverlays"
-  | "environmentalOverlays";
+  | "environmentalOverlays"
+  | "environmentalSignals"
+  | "mobilitySignals"
+  | "accessibilitySignals"
+  | "turnoutPressure";
 
 type VisibilityBand = "macro" | "mid" | "deep";
 type GeoEntityType = RegionLayer | "pollingStation" | "telemetryCluster" | "anomalyRegion";
@@ -63,6 +68,34 @@ const defaultLayerState: TacticalLayerState = {
   replayTraces: { enabled: true, intensity: 1, bandVisibility: { mid: true, deep: true } },
   tacticalOverlays: { enabled: true, intensity: 1, bandVisibility: { deep: true } },
   environmentalOverlays: { enabled: false, intensity: 0.7, bandVisibility: { macro: true, mid: true, deep: true } },
+  environmentalSignals: { enabled: true, intensity: 0.82, bandVisibility: { macro: true, mid: true } },
+  mobilitySignals: { enabled: true, intensity: 0.86, bandVisibility: { macro: true, mid: true, deep: true } },
+  accessibilitySignals: { enabled: false, intensity: 0.76, bandVisibility: { mid: true, deep: true } },
+  turnoutPressure: { enabled: true, intensity: 0.9, bandVisibility: { macro: true, mid: true, deep: true } },
+};
+
+
+const layerDisplayName: Record<TacticalLayerKey, string> = {
+  telemetry: "Telemetry",
+  topology: "Topology",
+  propagation: "Propagation",
+  anomalies: "Anomalies",
+  turnout: "Turnout Heat",
+  simulations: "Simulations",
+  replayTraces: "Replay Traces",
+  tacticalOverlays: "Tactical Overlays",
+  environmentalOverlays: "API Standby",
+  environmentalSignals: "Environmental Signals",
+  mobilitySignals: "Mobility Signals",
+  accessibilitySignals: "Accessibility Signals",
+  turnoutPressure: "Turnout Pressure",
+};
+
+const corridorColor: Record<CivicFlowCorridor["constraint"], string> = {
+  mobility: "#22d3ee",
+  accessibility: "#34d399",
+  environmental: "#38bdf8",
+  turnout: "#f59e0b",
 };
 
 const semanticNameCache = new Map<string, string>();
@@ -120,20 +153,99 @@ function getCenter(latlngs: Array<{ lat: number; lng: number }> | Array<Array<{ 
   return [lats.reduce((a, b) => a + b, 0) / lats.length, lngs.reduce((a, b) => a + b, 0) / lngs.length];
 }
 
-const EnvironmentalOverlay = memo(function EnvironmentalOverlay({ enabled, zoom }: { enabled: boolean; zoom: number }) {
+const CivicSignalMapOverlays = memo(function CivicSignalMapOverlays({
+  signals,
+  showEnvironmental,
+  showMobility,
+  showAccessibility,
+  showTurnoutPressure,
+}: {
+  signals: CivicSignalIntelligence;
+  showEnvironmental: boolean;
+  showMobility: boolean;
+  showAccessibility: boolean;
+  showTurnoutPressure: boolean;
+}) {
+  return (
+    <>
+      {showEnvironmental && signals.environmentalHotspots.map((station) => (
+        <Circle
+          key={`env-${station.id}`}
+          center={[station.lat, station.lng]}
+          radius={15000 + station.environmentalPressure * 380}
+          pathOptions={{
+            color: "#38bdf8",
+            fillColor: "#0ea5e9",
+            fillOpacity: 0.12,
+            opacity: 0.28,
+            weight: 1,
+            dashArray: "8 10",
+          }}
+        />
+      ))}
+
+      {showMobility && signals.corridors.map((corridor) => (
+        <Polyline
+          key={corridor.id}
+          positions={[corridor.from, corridor.to]}
+          pathOptions={{
+            color: corridorColor[corridor.constraint],
+            opacity: 0.34 + corridor.pressure / 240,
+            weight: 1.5 + corridor.pressure / 28,
+            dashArray: corridor.constraint === "mobility" ? "14 10" : "4 10",
+          }}
+        />
+      ))}
+
+      {showAccessibility && signals.accessibilityConstraints.map((station) => (
+        <CircleMarker
+          key={`access-${station.id}`}
+          center={[station.lat, station.lng]}
+          radius={7 + station.accessibilityFriction / 14}
+          pathOptions={{
+            color: "#34d399",
+            fillColor: "#052e2b",
+            fillOpacity: 0.34,
+            opacity: 0.76,
+            weight: 1.4,
+          }}
+        />
+      ))}
+
+      {showTurnoutPressure && signals.stations.map((station) => (
+        <CircleMarker
+          key={`turnout-pressure-${station.id}`}
+          center={[station.lat, station.lng]}
+          radius={4 + station.turnoutPressure / 18}
+          pathOptions={{
+            color: "#f59e0b",
+            fillColor: "#f97316",
+            fillOpacity: 0.16 + station.queuePressure / 520,
+            opacity: 0.52,
+            weight: 1,
+          }}
+        />
+      ))}
+    </>
+  );
+});
+
+const CivicSignalConsole = memo(function CivicSignalConsole({ enabled, zoom, signals }: { enabled: boolean; zoom: number; signals: CivicSignalIntelligence }) {
   if (!enabled) return null;
   const bands = zoomBand(zoom);
+  const { summary } = signals;
   return (
-    <div className="pointer-events-none absolute right-4 top-4 z-[999] w-[300px] rounded-xl border border-cyan-500/30 bg-black/45 p-3 text-[11px] text-cyan-100 backdrop-blur-sm">
-      <div className="mb-2 text-[10px] uppercase tracking-[0.2em] text-cyan-300">Environmental Overlay Framework</div>
+    <div className="pointer-events-none absolute right-4 top-4 z-[999] w-[315px] rounded-xl border border-emerald-500/30 bg-black/50 p-3 text-[11px] text-emerald-100 backdrop-blur-sm">
+      <div className="mb-2 text-[10px] uppercase tracking-[0.2em] text-emerald-300">Geospatial Civic Signal Intelligence</div>
       <div className="grid grid-cols-2 gap-1 text-zinc-300">
-        <span>Satellite imagery</span><span className="text-right text-cyan-200">standby</span>
-        <span>Traffic intelligence</span><span className="text-right text-cyan-200">standby</span>
-        <span>Weather overlays</span><span className="text-right text-cyan-200">standby</span>
-        <span>Comm outages</span><span className="text-right text-cyan-200">standby</span>
-        <span>Mobility intelligence</span><span className="text-right text-cyan-200">standby</span>
+        <span>Environmental pressure</span><span className="text-right text-sky-200">{summary.environmentalPressure}%</span>
+        <span>Mobility pressure</span><span className="text-right text-cyan-200">{summary.mobilityPressure}%</span>
+        <span>Accessibility score</span><span className="text-right text-emerald-200">{summary.accessibilityScore}%</span>
+        <span>Congestion score</span><span className="text-right text-amber-200">{summary.congestionScore}%</span>
+        <span>Turnout pressure</span><span className="text-right text-orange-200">{summary.turnoutPressure}%</span>
       </div>
-      <div className="mt-2 border-t border-cyan-500/20 pt-2 text-[10px] uppercase tracking-[0.16em] text-cyan-400/90">Visibility band: {bands}</div>
+      <div className="mt-2 rounded border border-emerald-400/20 bg-emerald-400/5 p-2 text-[10px] leading-relaxed text-zinc-300">{summary.narrative}</div>
+      <div className="mt-2 border-t border-emerald-500/20 pt-2 text-[10px] uppercase tracking-[0.16em] text-emerald-400/90">Visibility band: {bands} · simulation-first</div>
     </div>
   );
 });
@@ -219,6 +331,8 @@ export default memo(function IEBCBoundaryMap() {
       return { ...prev, [key]: { ...prev[key], enabled, intensity: enabled ? 1 : 0.4 } };
     });
   }, []);
+
+  const civicSignals = useMemo(() => buildGeospatialCivicSignals({ tick, telemetry: telemetryEvents }), [telemetryEvents, tick]);
 
   const replayEnergy = tick / 120;
   const heatmapPoints = useMemo(() => pollingStations.map((s, idx) => ({ lat: s.lat, lng: s.lng, intensity: clamp((stationTurnoutEstimate(s) / 100) * (0.55 + replayEnergy * 0.8) + ((Math.sin((tick + idx) / 9) + 1) / 2) * 0.3, 0.08, 1) })), [tick, replayEnergy]);
@@ -408,7 +522,7 @@ export default memo(function IEBCBoundaryMap() {
         <div className="grid grid-cols-2 gap-2 text-xs text-zinc-200">
           {(Object.keys(layers) as TacticalLayerKey[]).map((name) => {
             const enabled = layers[name].enabled;
-            return <button key={name} onMouseEnter={() => setHoveredLayer(name)} onMouseLeave={() => setHoveredLayer(null)} onClick={() => toggleLayer(name)} className="rounded border px-2 py-1 uppercase tracking-wide transition-all duration-300" style={layerVisualStyle(enabled, hoveredLayer === name ? 1.2 : layers[name].intensity)}>{name.replace(/([A-Z])/g, " $1")}</button>;
+            return <button key={name} onMouseEnter={() => setHoveredLayer(name)} onMouseLeave={() => setHoveredLayer(null)} onClick={() => toggleLayer(name)} className="rounded border px-2 py-1 uppercase tracking-wide transition-all duration-300" style={layerVisualStyle(enabled, hoveredLayer === name ? 1.2 : layers[name].intensity)}>{layerDisplayName[name]}</button>;
           })}
         </div>
       </div>
@@ -446,12 +560,13 @@ export default memo(function IEBCBoundaryMap() {
           </div>
         )}
       </div>
-      <EnvironmentalOverlay enabled={layerVisible("environmentalOverlays")} zoom={zoom} />
+      <CivicSignalConsole enabled={layerVisible("environmentalOverlays") || layerVisible("environmentalSignals") || layerVisible("mobilitySignals") || layerVisible("accessibilitySignals") || layerVisible("turnoutPressure")} zoom={zoom} signals={civicSignals} />
       <MapContainer center={[-0.0236, 37.9062]} zoom={6} scrollWheelZoom className="h-full w-full z-0">
         <ZoomObserver onZoomChange={handleZoomChange} />
         <TacticalSync regionIndex={regionIndex} />
         <TileLayer attribution="Carto" opacity={0.72} url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png" />
         {layerVisible("turnout") && <HeatmapLayer points={layerVisible("replayTraces") ? [...heatmapPoints, ...ghostTrailStations] : heatmapPoints} intensityBoost={0.8 + replayEnergy * 0.65} visible />}
+        <CivicSignalMapOverlays signals={civicSignals} showEnvironmental={layerVisible("environmentalSignals")} showMobility={layerVisible("mobilitySignals")} showAccessibility={layerVisible("accessibilitySignals")} showTurnoutPressure={layerVisible("turnoutPressure")} />
         {layerVisible("telemetry") && <MarkerClusterGroup chunkedLoading>{anomalyMarkers.map(({ station, isFocused, dimmed, isCritical }) => <PulseMarker key={station.id} station={station} cinematicPulse={layerVisible("anomalies")} isFocused={isFocused} dimmed={dimmed} criticalBoost={isCritical} propagationPulse={layerVisible("propagation") && isFocused} />)}</MarkerClusterGroup>}
         {layerVisible("topology") && counties && band === "macro" && <GeoJSON data={counties} style={() => styleFor("county")} onEachFeature={onEachFeature("county")} />}
         {layerVisible("simulations") && constituencies && band !== "deep" && <GeoJSON data={constituencies} style={() => styleFor("constituency")} onEachFeature={onEachFeature("constituency")} />}
