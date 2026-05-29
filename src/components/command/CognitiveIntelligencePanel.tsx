@@ -4,6 +4,7 @@ import { useMemo } from "react";
 
 import { useSimulationStore } from "@/src/store/useSimulationStore";
 import { buildCognitiveSummary } from "@/src/lib/cognitiveIntelligence";
+import { buildGeospatialCivicSignals } from "@/src/lib/geospatialCivicSignals";
 
 const indicatorTone = (value: number) => {
   if (value >= 75) return "text-rose-200 border-rose-500/40 bg-rose-500/15";
@@ -18,6 +19,7 @@ export default function CognitiveIntelligencePanel() {
   const tick = useSimulationStore((s) => s.tick);
   const timelineRiskEscalation = useSimulationStore((s) => s.timeline.riskEscalation);
   const replayFrame = useSimulationStore((s) => s.getReplayFrameAtTick(s.tick));
+  const civicSignals = useMemo(() => buildGeospatialCivicSignals({ tick, telemetry }).summary, [telemetry, tick]);
 
   const intelligence = useMemo(() => buildCognitiveSummary({
     telemetry,
@@ -26,7 +28,8 @@ export default function CognitiveIntelligencePanel() {
     replayFrameCategory: replayFrame?.event.category,
     simulationTick: tick,
     simulationStatus: timelineRiskEscalation > 70 ? "DIVERGENT" : timelineRiskEscalation > 45 ? "PREDICTIVE" : "STABLE",
-  }), [telemetry, anomalyLevel, replayFocus, replayFrame?.event.category, tick, timelineRiskEscalation]);
+    civicSignals,
+  }), [telemetry, anomalyLevel, replayFocus, replayFrame?.event.category, tick, timelineRiskEscalation, civicSignals]);
 
   return (
     <div className="space-y-3 rounded-xl border border-cyan-950/70 bg-zinc-950/58 p-3 opacity-90 shadow-[0_0_22px_rgba(45,212,191,0.05)]">
@@ -43,6 +46,7 @@ export default function CognitiveIntelligencePanel() {
         <div className={`rounded border px-2 py-1 ${indicatorTone(intelligence.forecast.turnoutInstabilityRisk)}`}>Turnout Risk {intelligence.forecast.turnoutInstabilityRisk}%</div>
         <div className={`rounded border px-2 py-1 ${indicatorTone(intelligence.forecast.propagationLikelihood)}`}>Propagation {intelligence.forecast.propagationLikelihood}%</div>
         <div className={`rounded border px-2 py-1 ${indicatorTone(intelligence.forecast.anomalySeverityForecast)}`}>Severity {intelligence.forecast.anomalySeverityForecast}%</div>
+        <div className={`rounded border px-2 py-1 ${indicatorTone(intelligence.forecast.civicOperationalStress)}`}>Civic Stress {intelligence.forecast.civicOperationalStress}%</div>
       </div>
 
       <div className="space-y-1 border border-zinc-700/80 rounded-lg p-2 bg-zinc-950/60">

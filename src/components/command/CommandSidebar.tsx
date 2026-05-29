@@ -1,10 +1,11 @@
 "use client";
 
 import CognitiveIntelligencePanel from "./CognitiveIntelligencePanel";
+import SignalIntelligencePanel from "./SignalIntelligencePanel";
 
 export default function CommandSidebar() {
   return (
-    <div className="h-full space-y-3 border-r border-cyan-950/60 bg-black/88 p-3 text-zinc-300">
+    <div className="h-full space-y-3 overflow-y-auto border-r border-cyan-950/60 bg-black/88 p-3 text-zinc-300">
       <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-400/90">
         National Intelligence
       </h2>
@@ -38,6 +39,8 @@ export default function CommandSidebar() {
           Synthetic election scenario replay active.
         </p>
       </div>
+
+      <SignalIntelligencePanel />
 
       <CognitiveIntelligencePanel />
     </div>
