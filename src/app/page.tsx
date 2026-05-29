@@ -1,5 +1,10 @@
-import NationalCommandCenter from "../components/command/NationalCommandCenter";
+import { DashboardView } from "@/src/components/operations/DashboardView";
+import { AppShell } from "@/src/components/shell/AppShell";
 
 export default function HomePage() {
-  return <NationalCommandCenter />;
+  return (
+    <AppShell>
+      <DashboardView />
+    </AppShell>
+  );
 }

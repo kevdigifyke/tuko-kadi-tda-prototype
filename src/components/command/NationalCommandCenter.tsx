@@ -10,7 +10,7 @@ import { useSimulationStore } from "@/src/store/useSimulationStore";
 
 const IEBCBoundaryMap = dynamic(() => import("../maps/IEBCBoundaryMap"), { ssr: false });
 
-export default function NationalCommandCenter() {
+export default function NationalCommandCenter({ embedded = false }: { embedded?: boolean }) {
   const events = useSimulationStore((s) => s.telemetryEvents);
   const metrics = useMemo(() => ({
     anomalies: events.filter((e) => e.severity === "CRITICAL").length,
@@ -21,7 +21,7 @@ export default function NationalCommandCenter() {
   }), [events]);
 
   return (
-    <div className="h-screen bg-black text-white flex flex-col overflow-hidden">
+    <div className={`${embedded ? "h-[calc(100svh-8rem)] md:h-[calc(100svh-4rem)] rounded-2xl border border-cyan-300/15" : "h-screen"} bg-black text-white flex flex-col overflow-hidden`}>
       <div className="grid grid-cols-5 gap-2 border-b border-cyan-950/60 bg-zinc-950/82 px-3 py-2 text-[11px] text-zinc-400">
         <div>Live anomalies: <span className="text-rose-300">{metrics.anomalies}</span></div>
         <div>Active telemetry: <span className="text-cyan-300">{metrics.active}</span></div>
