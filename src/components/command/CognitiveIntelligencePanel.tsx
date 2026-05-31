@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 
 import { useSimulationStore } from "@/src/store/useSimulationStore";
+import { simulationScenarios } from "@/src/data/simulation/scenarios";
 import { buildCognitiveSummary } from "@/src/lib/cognitiveIntelligence";
 import { buildGeospatialCivicSignals } from "@/src/lib/geospatialCivicSignals";
 
@@ -17,9 +18,11 @@ export default function CognitiveIntelligencePanel({ compact = false }: { compac
   const anomalyLevel = useSimulationStore((s) => s.anomalyLevel);
   const replayFocus = useSimulationStore((s) => s.replayFocus);
   const tick = useSimulationStore((s) => s.tick);
+  const scenarioId = useSimulationStore((s) => s.scenario);
   const timelineRiskEscalation = useSimulationStore((s) => s.timeline.riskEscalation);
   const replayFrame = useSimulationStore((s) => s.getReplayFrameAtTick(s.tick));
   const civicSignals = useMemo(() => buildGeospatialCivicSignals({ tick, telemetry }).summary, [telemetry, tick]);
+  const activeScenario = useMemo(() => simulationScenarios.find((item) => item.id === scenarioId), [scenarioId]);
 
   const intelligence = useMemo(() => buildCognitiveSummary({
     telemetry,
@@ -29,7 +32,8 @@ export default function CognitiveIntelligencePanel({ compact = false }: { compac
     simulationTick: tick,
     simulationStatus: timelineRiskEscalation > 70 ? "DIVERGENT" : timelineRiskEscalation > 45 ? "PREDICTIVE" : "STABLE",
     civicSignals,
-  }), [telemetry, anomalyLevel, replayFocus, replayFrame?.event.category, tick, timelineRiskEscalation, civicSignals]);
+    activeScenario,
+  }), [telemetry, anomalyLevel, replayFocus, replayFrame?.event.category, tick, timelineRiskEscalation, civicSignals, activeScenario]);
 
   return (
     <div className={compact ? "space-y-3" : "space-y-3 rounded-xl border border-cyan-950/70 bg-zinc-950/58 p-3 opacity-90 shadow-[0_0_22px_rgba(45,212,191,0.05)]"}>
