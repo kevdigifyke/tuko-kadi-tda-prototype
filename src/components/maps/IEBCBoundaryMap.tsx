@@ -230,22 +230,39 @@ const CivicSignalMapOverlays = memo(function CivicSignalMapOverlays({
   );
 });
 
-const CivicSignalConsole = memo(function CivicSignalConsole({ enabled, zoom, signals }: { enabled: boolean; zoom: number; signals: CivicSignalIntelligence }) {
-  if (!enabled) return null;
+const CivicSignalConsole = memo(function CivicSignalConsole({ enabled, zoom, signals, forceCollapsed = false }: { enabled: boolean; zoom: number; signals: CivicSignalIntelligence; forceCollapsed?: boolean }) {
+  const [open, setOpen] = useState(false);
+
+  if (!enabled || forceCollapsed) return null;
   const bands = zoomBand(zoom);
   const { summary } = signals;
   return (
-    <div className="pointer-events-none absolute right-4 top-4 z-[999] w-[315px] rounded-xl border border-emerald-500/30 bg-black/50 p-3 text-[11px] text-emerald-100 backdrop-blur-sm">
-      <div className="mb-2 text-[10px] uppercase tracking-[0.2em] text-emerald-300">Geospatial Civic Signal Intelligence</div>
-      <div className="grid grid-cols-2 gap-1 text-zinc-300">
-        <span>Environmental pressure</span><span className="text-right text-sky-200">{summary.environmentalPressure}%</span>
-        <span>Mobility pressure</span><span className="text-right text-cyan-200">{summary.mobilityPressure}%</span>
-        <span>Accessibility score</span><span className="text-right text-emerald-200">{summary.accessibilityScore}%</span>
-        <span>Congestion score</span><span className="text-right text-amber-200">{summary.congestionScore}%</span>
-        <span>Turnout pressure</span><span className="text-right text-orange-200">{summary.turnoutPressure}%</span>
+    <div className="absolute right-4 top-4 z-[999] w-[min(315px,calc(100%-2rem))] text-[11px] text-emerald-100 transition-all duration-300 ease-out">
+      <button
+        type="button"
+        onClick={() => setOpen((current) => !current)}
+        className="flex w-full items-center justify-between rounded-xl border border-emerald-500/30 bg-black/62 px-3 py-2 text-left text-[10px] uppercase tracking-[0.2em] text-emerald-300 shadow-[0_0_22px_rgba(16,185,129,0.08)] backdrop-blur-md transition hover:border-emerald-300/55 hover:bg-emerald-400/10"
+        aria-expanded={open}
+      >
+        <span>{open ? "▾" : "▸"} Civic Signals</span>
+        <span className="text-[9px] text-emerald-200/70">{summary.turnoutPressure}% pressure</span>
+      </button>
+      <div className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out ${open ? "mt-2 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"}`}>
+        <div className="overflow-hidden rounded-xl border border-emerald-500/30 bg-black/58 backdrop-blur-md">
+          <div className="p-3">
+            <div className="mb-2 text-[10px] uppercase tracking-[0.2em] text-emerald-300">Geospatial Civic Signal Intelligence</div>
+            <div className="grid grid-cols-2 gap-1 text-zinc-300">
+              <span>Environmental pressure</span><span className="text-right text-sky-200">{summary.environmentalPressure}%</span>
+              <span>Mobility pressure</span><span className="text-right text-cyan-200">{summary.mobilityPressure}%</span>
+              <span>Accessibility score</span><span className="text-right text-emerald-200">{summary.accessibilityScore}%</span>
+              <span>Congestion score</span><span className="text-right text-amber-200">{summary.congestionScore}%</span>
+              <span>Turnout pressure</span><span className="text-right text-orange-200">{summary.turnoutPressure}%</span>
+            </div>
+            <div className="mt-2 rounded border border-emerald-400/20 bg-emerald-400/5 p-2 text-[10px] leading-relaxed text-zinc-300">{summary.narrative}</div>
+            <div className="mt-2 border-t border-emerald-500/20 pt-2 text-[10px] uppercase tracking-[0.16em] text-emerald-400/90">Visibility band: {bands} · simulation-first</div>
+          </div>
+        </div>
       </div>
-      <div className="mt-2 rounded border border-emerald-400/20 bg-emerald-400/5 p-2 text-[10px] leading-relaxed text-zinc-300">{summary.narrative}</div>
-      <div className="mt-2 border-t border-emerald-500/20 pt-2 text-[10px] uppercase tracking-[0.16em] text-emerald-400/90">Visibility band: {bands} · simulation-first</div>
     </div>
   );
 });
@@ -287,7 +304,7 @@ function TacticalSync({ regionIndex }: { regionIndex: Record<string, { center: [
   return null;
 }
 
-export default memo(function IEBCBoundaryMap() {
+export default memo(function IEBCBoundaryMap({ focusMode = false }: { focusMode?: boolean }) {
   const [counties, setCounties] = useState<GeoJSON.FeatureCollection | null>(null);
   const [constituencies, setConstituencies] = useState<GeoJSON.FeatureCollection | null>(null);
   const [wards, setWards] = useState<GeoJSON.FeatureCollection | null>(null);
@@ -297,6 +314,7 @@ export default memo(function IEBCBoundaryMap() {
   const [query, setQuery] = useState("");
   const [selectedQuery, setSelectedQuery] = useState("");
   const [searchExpanded, setSearchExpanded] = useState(false);
+  const [layersOpen, setLayersOpen] = useState(false);
 
   const tick = useSimulationStore((s) => s.tick);
   const latestEvent = useSimulationStore((s) => s.telemetryEvents[0]);
@@ -517,15 +535,32 @@ export default memo(function IEBCBoundaryMap() {
 
   return (
     <div className="relative h-[85vh] w-full overflow-hidden rounded-2xl border border-zinc-800 shadow-[0_0_35px_rgba(34,211,238,0.12)] tactical-carto-map">
-      <div className="absolute left-4 top-4 z-[1000] rounded-xl border border-cyan-500/25 bg-zinc-950/52 p-3 opacity-80 backdrop-blur-md transition-all duration-500 hover:opacity-100">
-        <div className="mb-2 text-[10px] uppercase tracking-[0.18em] text-cyan-300/85">Tactical Layer Matrix</div>
-        <div className="grid grid-cols-2 gap-2 text-xs text-zinc-200">
-          {(Object.keys(layers) as TacticalLayerKey[]).map((name) => {
-            const enabled = layers[name].enabled;
-            return <button key={name} onMouseEnter={() => setHoveredLayer(name)} onMouseLeave={() => setHoveredLayer(null)} onClick={() => toggleLayer(name)} className="rounded border px-2 py-1 uppercase tracking-wide transition-all duration-300" style={layerVisualStyle(enabled, hoveredLayer === name ? 1.2 : layers[name].intensity)}>{layerDisplayName[name]}</button>;
-          })}
+      {!focusMode && (
+        <div className="absolute left-4 top-4 z-[1000] w-[min(330px,calc(100%-2rem))] transition-all duration-300 ease-out">
+          <button
+            type="button"
+            onClick={() => setLayersOpen((current) => !current)}
+            className="flex w-full items-center justify-between rounded-xl border border-cyan-500/25 bg-zinc-950/62 px-3 py-2 text-[10px] uppercase tracking-[0.18em] text-cyan-300/85 shadow-[0_0_24px_rgba(34,211,238,0.08)] backdrop-blur-md transition hover:border-cyan-300/55 hover:bg-cyan-400/10"
+            aria-expanded={layersOpen}
+          >
+            <span>☰ Layers</span>
+            <span className="text-[9px] text-zinc-400">{Object.values(layers).filter((layer) => layer.enabled).length} active</span>
+          </button>
+          <div className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out ${layersOpen ? "mt-2 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"}`}>
+            <div className="overflow-hidden rounded-xl border border-cyan-500/25 bg-zinc-950/62 backdrop-blur-md">
+              <div className="p-3">
+                <div className="mb-2 text-[10px] uppercase tracking-[0.18em] text-cyan-300/85">Tactical Layer Matrix</div>
+                <div className="grid grid-cols-2 gap-2 text-xs text-zinc-200">
+                  {(Object.keys(layers) as TacticalLayerKey[]).map((name) => {
+                    const enabled = layers[name].enabled;
+                    return <button key={name} onMouseEnter={() => setHoveredLayer(name)} onMouseLeave={() => setHoveredLayer(null)} onClick={() => toggleLayer(name)} className="rounded border px-2 py-1 uppercase tracking-wide transition-all duration-300" style={layerVisualStyle(enabled, hoveredLayer === name ? 1.2 : layers[name].intensity)}>{layerDisplayName[name]}</button>;
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
       <div className="absolute top-4 left-1/2 z-[1200] max-w-[92vw] -translate-x-1/2 transition-all duration-500">
         {!searchExpanded ? (
           <button
@@ -560,7 +595,7 @@ export default memo(function IEBCBoundaryMap() {
           </div>
         )}
       </div>
-      <CivicSignalConsole enabled={layerVisible("environmentalOverlays") || layerVisible("environmentalSignals") || layerVisible("mobilitySignals") || layerVisible("accessibilitySignals") || layerVisible("turnoutPressure")} zoom={zoom} signals={civicSignals} />
+      <CivicSignalConsole enabled={layerVisible("environmentalOverlays") || layerVisible("environmentalSignals") || layerVisible("mobilitySignals") || layerVisible("accessibilitySignals") || layerVisible("turnoutPressure")} zoom={zoom} signals={civicSignals} forceCollapsed={focusMode} />
       <MapContainer center={[-0.0236, 37.9062]} zoom={6} scrollWheelZoom className="h-full w-full z-0">
         <ZoomObserver onZoomChange={handleZoomChange} />
         <TacticalSync regionIndex={regionIndex} />

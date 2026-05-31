@@ -13,7 +13,7 @@ const severityStyles = {
   CRITICAL: "text-rose-300 border-rose-500/45 bg-rose-500/10 shadow-[0_0_18px_rgba(244,63,94,0.18)]",
 } as const;
 
-export default function TelemetryFeed() {
+export default function TelemetryFeed({ collapsed = false, onToggleCollapsed }: { collapsed?: boolean; onToggleCollapsed?: () => void }) {
   const events = useRealtimeTelemetry();
   const liveEventCount = useSimulationStore((state) => state.liveEventCount);
   const activeAlerts = useSimulationStore((state) => state.activeAlerts);
@@ -40,11 +40,23 @@ export default function TelemetryFeed() {
   const isEscalated = useMemo(() => activeAlerts.length > 0, [activeAlerts.length]);
 
   return (
-    <motion.div className="relative h-full overflow-hidden border-l border-cyan-950/60 bg-zinc-950/86 p-3" animate={isEscalated ? { boxShadow: ["inset 0 0 0 rgba(244,63,94,0)", "inset 0 0 24px rgba(244,63,94,0.24)", "inset 0 0 0 rgba(244,63,94,0)"] } : {}} transition={{ duration: 1.3 }}>
-      <div className="mb-3 flex items-center justify-between">
-        <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-400/90">Live Telemetry</h2>
-        <motion.div key={liveEventCount} initial={{ scale: 0.8, opacity: 0.5 }} animate={{ scale: 1, opacity: 1 }} className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200">{liveEventCount} events · L{anomalyLevel}</motion.div>
+    <motion.div className="relative h-full overflow-hidden border-l border-cyan-950/60 bg-zinc-950/86 p-3 transition-all duration-300 ease-out" animate={isEscalated ? { boxShadow: ["inset 0 0 0 rgba(244,63,94,0)", "inset 0 0 24px rgba(244,63,94,0.24)", "inset 0 0 0 rgba(244,63,94,0)"] } : {}} transition={{ duration: 1.3 }}>
+      <div className={`mb-3 flex items-center ${collapsed ? "h-full flex-col justify-between" : "justify-between"}`}>
+        <h2 className={`${collapsed ? "origin-center rotate-90 whitespace-nowrap text-[10px]" : "text-xs"} font-bold uppercase tracking-[0.18em] text-cyan-400/90 transition-all duration-300`}>Live Telemetry</h2>
+        <div className={`flex items-center gap-2 ${collapsed ? "flex-col" : ""}`}>
+          {!collapsed && <motion.div key={liveEventCount} initial={{ scale: 0.8, opacity: 0.5 }} animate={{ scale: 1, opacity: 1 }} className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-200">{liveEventCount} events · L{anomalyLevel}</motion.div>}
+          <button
+            type="button"
+            onClick={onToggleCollapsed}
+            className="rounded-full border border-cyan-500/30 bg-black/35 px-2 py-1 text-[10px] uppercase tracking-[0.16em] text-cyan-300 transition hover:border-cyan-300/60 hover:bg-cyan-400/10"
+            aria-expanded={!collapsed}
+          >
+            {collapsed ? "⇨" : "⇦ Collapse Feed"}
+          </button>
+        </div>
       </div>
+      {collapsed && <div className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2 py-1 text-[10px] text-cyan-200">{liveEventCount}</div>}
+      <div className={`transition-opacity duration-300 ${collapsed ? "pointer-events-none opacity-0" : "opacity-100"}`}>
       {replayFrameAtTick && <div className="mb-2 rounded border border-fuchsia-500/35 bg-fuchsia-500/10 px-2 py-1 text-[10px] uppercase tracking-[0.14em] text-fuchsia-200">Replay focus cue · {replayFrameAtTick.event.title} · T+{replayFrameAtTick.tick}</div>}
       <AnimatePresence>{activeAlerts[0] && <motion.div key={activeAlerts[0].id} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -16, opacity: 0 }} className="mb-3 rounded-lg border border-rose-400/50 bg-rose-500/15 p-2 text-xs text-rose-100">CRITICAL ALERT · {activeAlerts[0].title} — {activeAlerts[0].county}</motion.div>}</AnimatePresence>
       <div ref={streamRef} className="h-[calc(100%-4rem)] overflow-y-auto pr-1 space-y-2 telemetry-shimmer">
@@ -71,6 +83,7 @@ export default function TelemetryFeed() {
             </motion.button>
           ))}
         </AnimatePresence>
+      </div>
       </div>
     </motion.div>
   );

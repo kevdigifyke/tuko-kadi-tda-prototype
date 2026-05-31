@@ -12,7 +12,7 @@ const indicatorTone = (value: number) => {
   return "text-cyan-200 border-cyan-500/40 bg-cyan-500/10";
 };
 
-export default function CognitiveIntelligencePanel() {
+export default function CognitiveIntelligencePanel({ compact = false }: { compact?: boolean }) {
   const telemetry = useSimulationStore((s) => s.telemetryEvents);
   const anomalyLevel = useSimulationStore((s) => s.anomalyLevel);
   const replayFocus = useSimulationStore((s) => s.replayFocus);
@@ -32,7 +32,7 @@ export default function CognitiveIntelligencePanel() {
   }), [telemetry, anomalyLevel, replayFocus, replayFrame?.event.category, tick, timelineRiskEscalation, civicSignals]);
 
   return (
-    <div className="space-y-3 rounded-xl border border-cyan-950/70 bg-zinc-950/58 p-3 opacity-90 shadow-[0_0_22px_rgba(45,212,191,0.05)]">
+    <div className={compact ? "space-y-3" : "space-y-3 rounded-xl border border-cyan-950/70 bg-zinc-950/58 p-3 opacity-90 shadow-[0_0_22px_rgba(45,212,191,0.05)]"}>
       <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-300/90">Cognitive Intelligence</h3>
 
       <div className="space-y-2">
