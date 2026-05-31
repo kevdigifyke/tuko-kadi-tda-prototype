@@ -21,8 +21,8 @@ export function DashboardView() {
   return (
     <div className="space-y-5">
       <section className="rounded-2xl border border-cyan-300/15 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),rgba(8,15,17,0.88)_42%)] p-5">
-        <p className="panel-kicker text-cyan-200">Phase 29M · Operational Application Layer</p>
-        <h1 className="mt-2 text-display">Executive Dashboard</h1>
+        <p className="panel-kicker text-cyan-200">KuraScope EOIS · Operational Application Layer</p>
+        <h1 className="mt-2 text-display">KuraScope EOIS Dashboard</h1>
         <p className="mt-2 max-w-3xl text-sm text-[#bac9cc]">
           Consolidated operational posture using the existing telemetry engine, cognitive intelligence, civic signal intelligence,
           generated election aggregates, and anomaly cluster graph.

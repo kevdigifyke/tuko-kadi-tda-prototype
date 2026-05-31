@@ -15,8 +15,8 @@ export function Sidebar() {
 
   return (
     <aside className="hidden w-64 flex-col border-r border-cyan-300/10 bg-[#080f11] p-5 md:flex">
-      <p className="text-3xl font-bold tracking-tight text-cyan-300">TUKO_KADI</p>
-      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#bac9cc]">Election Intel Ops</p>
+      <p className="text-3xl font-bold tracking-tight text-cyan-300">KuraScope EOIS</p>
+      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#bac9cc]">Election Observatory Intelligence System</p>
       <nav className="mt-8 space-y-2">
         {primaryNavigation.map((item) => (
           <Link

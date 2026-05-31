@@ -13,7 +13,7 @@ export default function CommandSidebar({ focusMode = false }: { focusMode?: bool
   return (
     <div className="h-full space-y-3 overflow-y-auto border-r border-cyan-950/60 bg-black/88 p-3 text-zinc-300">
       <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-400/90">
-        National Intelligence
+        KuraScope EOIS
       </h2>
 
       <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
@@ -28,7 +28,7 @@ export default function CommandSidebar({ focusMode = false }: { focusMode?: bool
 
       <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
         <h3 className="text-sm font-semibold text-white">
-          TDA Intelligence
+          Observatory Intelligence
         </h3>
 
         <p className="text-xs text-zinc-400 mt-2">
