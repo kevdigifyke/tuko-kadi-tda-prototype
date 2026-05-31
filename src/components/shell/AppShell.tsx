@@ -12,6 +12,10 @@ export function AppShell({ children, fullBleed = false }: { children: React.Reac
           <MobileTopBar />
           <TopCommandBar />
           <main className={fullBleed ? "pb-20 md:pb-0" : "p-4 pb-24 md:p-6 md:pb-6"}>{children}</main>
+          <footer className="border-t border-white/10 px-4 py-4 text-xs text-[#bac9cc] md:px-6">
+            <p className="font-semibold text-cyan-200">KuraScope EOIS</p>
+            <p className="mt-1 uppercase tracking-[0.18em]">Election Observatory Intelligence System</p>
+          </footer>
         </div>
       </div>
       <MobileBottomNav />

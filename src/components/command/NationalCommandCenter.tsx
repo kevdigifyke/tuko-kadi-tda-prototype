@@ -25,6 +25,10 @@ export default function NationalCommandCenter({ embedded = false }: { embedded?:
   return (
     <div className={`${embedded ? "h-[calc(100svh-8rem)] md:h-[calc(100svh-4rem)] rounded-2xl border border-cyan-300/15" : "h-screen"} bg-black text-white flex flex-col overflow-hidden`}>
       <div className="flex items-center gap-3 border-b border-cyan-950/60 bg-zinc-950/82 px-3 py-2 text-[11px] text-zinc-400">
+        <div className="shrink-0 border-r border-cyan-300/15 pr-3">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">KuraScope EOIS Observatory</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Election Observatory Intelligence System</p>
+        </div>
         <div className="grid flex-1 grid-cols-5 gap-2">
           <div>Live anomalies: <span className="text-rose-300">{metrics.anomalies}</span></div>
           <div>Active telemetry: <span className="text-cyan-300">{metrics.active}</span></div>

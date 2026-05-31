@@ -4,8 +4,8 @@ export function Sidebar() {
   return (
     <aside className="tk-sidebar flex h-full w-full flex-col border-r border-cyan-400/20 bg-[#0e171f] px-4 py-6">
       <div>
-        <p className="font-ui text-2xl font-bold text-[#00e5ff]">Tuko Kadi Intel</p>
-        <p className="font-mono mt-2 text-xs text-[#7e8d9a]">V3.42 OMEGA</p>
+        <p className="font-ui text-2xl font-bold text-[#00e5ff]">KuraScope EOIS</p>
+        <p className="font-mono mt-2 text-xs text-[#7e8d9a]">Election Observatory Intelligence System</p>
       </div>
 
       <nav className="mt-8 space-y-1">
