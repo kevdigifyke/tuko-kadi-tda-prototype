@@ -1,5 +1,6 @@
 import type { CivicSignalSummary } from "@/src/lib/geospatialCivicSignals";
 import type { ReplayFocusState, TelemetryEvent } from "@/src/store/useSimulationStore";
+import type { SimulationScenario } from "@/src/types/simulation";
 
 export type CognitiveSummary = {
   tacticalBriefings: string[];
@@ -25,8 +26,9 @@ export function buildCognitiveSummary(params: {
   simulationTick: number;
   simulationStatus: "STABLE" | "PREDICTIVE" | "DIVERGENT";
   civicSignals?: CivicSignalSummary;
+  activeScenario?: SimulationScenario;
 }): CognitiveSummary {
-  const { telemetry, anomalyLevel, replayFocus, replayFrameCategory, simulationTick, simulationStatus, civicSignals } = params;
+  const { telemetry, anomalyLevel, replayFocus, replayFrameCategory, simulationTick, simulationStatus, civicSignals, activeScenario } = params;
   const criticalCount = telemetry.filter((e) => e.severity === "CRITICAL").length;
   const divergentCount = telemetry.filter((e) => e.simulationStatus === "DIVERGENT").length;
   const escalatedCount = telemetry.filter((e) => e.status === "ESCALATED").length;
@@ -35,28 +37,31 @@ export function buildCognitiveSummary(params: {
   const counties = new Set(telemetry.map((e) => e.county)).size;
   const dominantCategory = telemetry[0]?.category ?? "signal propagation";
 
+  const scenarioRiskBoost = activeScenario ? activeScenario.anomalyFrequency * 0.16 : 0;
   const forecast = {
-    escalationProbability: clamp(Math.round(meanRisk * 0.55 + criticalCount * 7 + anomalyLevel * 0.25)),
-    turnoutInstabilityRisk: clamp(Math.round(turnoutVolatility * 2.8 + divergentCount * 4)),
-    propagationLikelihood: clamp(Math.round(counties * 6.5 + escalatedCount * 4 + meanRisk * 0.4)),
-    anomalySeverityForecast: clamp(Math.round(anomalyLevel * 0.8 + criticalCount * 6 + divergentCount * 5)),
-    civicOperationalStress: clamp(Math.round(civicSignals?.operationalStress ?? anomalyLevel * 0.7)),
+    escalationProbability: clamp(Math.round(meanRisk * 0.55 + criticalCount * 7 + anomalyLevel * 0.25 + scenarioRiskBoost)),
+    turnoutInstabilityRisk: clamp(Math.round(turnoutVolatility * 2.8 + divergentCount * 4 + (activeScenario?.turnoutPressure ?? 0) * 0.18)),
+    propagationLikelihood: clamp(Math.round(counties * 6.5 + escalatedCount * 4 + meanRisk * 0.4 + (activeScenario?.propagationIntensity ?? 0) * 0.2)),
+    anomalySeverityForecast: clamp(Math.round(anomalyLevel * 0.8 + criticalCount * 6 + divergentCount * 5 + scenarioRiskBoost)),
+    civicOperationalStress: clamp(Math.round((civicSignals?.operationalStress ?? anomalyLevel * 0.7) + (activeScenario?.civicSignalPressure ?? 0) * 0.12)),
   };
 
   return {
     tacticalBriefings: [
+      activeScenario ? `${activeScenario.label} Scenario Active — ${activeScenario.riskLevel.toLowerCase()} operating posture applied to forecasts and summaries.` : "Manual scenario context pending selection.",
       criticalCount > 3 ? "Escalation detected across western propagation corridor." : "Localized escalation pockets remain under active observation.",
       turnoutVolatility > 14 ? "Turnout instability increasing in clustered urban constituencies." : "Turnout vectors remain manageable with periodic urban spikes.",
       replayFocus.clusterKey ? `Replay analysis indicates synchronized anomaly propagation near ${replayFocus.clusterKey}.` : "Replay cognition indicates partial synchronization across anomaly bands.",
       civicSignals ? civicSignals.narrative : "Civic signal simulation layer is ready for environmental and mobility correlation.",
     ],
     predictiveSummaries: [
-      `Escalation probability ${forecast.escalationProbability}% with ${(simulationStatus || "stable").toLowerCase()} simulation posture.`,
+      `${activeScenario ? `${activeScenario.label} scenario active. ` : ""}Escalation probability ${forecast.escalationProbability}% with ${(simulationStatus || "stable").toLowerCase()} simulation posture.`,
       `Propagation likelihood ${forecast.propagationLikelihood}% centered on ${dominantCategory}.`,
       `Turnout instability risk ${forecast.turnoutInstabilityRisk}% at simulation tick ${simulationTick}.`,
       civicSignals ? `Civic operational stress ${forecast.civicOperationalStress}% with accessibility score ${civicSignals.accessibilityScore}%.` : "Civic operational stress unavailable until signal simulation initializes.",
     ],
     operationalNarrative: [
+      `${activeScenario ? `${activeScenario.label} scenario parameters are shaping telemetry volume ${activeScenario.telemetryVolume}% and civic pressure ${activeScenario.civicSignalPressure}%.` : `Clustered anomalies continue migrating eastward through ${counties} monitored counties.`}`,
       `Clustered anomalies continue migrating eastward through ${counties} monitored counties.`,
       `Replay cognition suggests increasing propagation density around ${replayFrameCategory ?? dominantCategory}.`,
       `Simulation divergence ${simulationStatus === "DIVERGENT" ? "detected" : "monitored"} in high-turnout regions with severity forecast ${forecast.anomalySeverityForecast}%.`,

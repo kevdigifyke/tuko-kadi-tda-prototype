@@ -18,6 +18,10 @@ export function SimulationAnalyticsPanel() {
         <p>Integrity index: <span className="text-data-md">{timeline.integrityIndex}</span></p>
         <p>Risk escalation level: <span className="text-data-md">{timeline.riskEscalation}</span></p>
         <p>Simulation confidence score: <span className="text-data-md">{timeline.confidenceScore}</span></p>
+        <p>Telemetry intensity: <span className="text-data-md">{timeline.telemetryIntensity}</span></p>
+        <p>Propagation intensity: <span className="text-data-md">{timeline.propagationIntensity}</span></p>
+        <p>Turnout pressure: <span className="text-data-md">{timeline.turnoutPressure}</span></p>
+        <p>Civic signal pressure: <span className="text-data-md">{timeline.civicSignalPressure}</span></p>
       </div>
     </div>
   );
