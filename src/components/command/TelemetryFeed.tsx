@@ -6,9 +6,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRealtimeTelemetry } from "../../hooks/useRealtimeTelemetry";
 import { useSimulationStore } from "@/src/store/useSimulationStore";
 import { pollingStations } from "@/src/data/geo/pollingStations";
+import { normalizePlatformStatus } from "../ui/StatusChip";
 
 const severityStyles = {
-  INFO: "text-cyan-300 border-cyan-500/30 bg-cyan-500/10",
+  INFO: "text-emerald-300 border-emerald-500/30 bg-emerald-500/10",
   WARNING: "text-amber-300 border-amber-500/40 bg-amber-500/10",
   CRITICAL: "text-rose-300 border-rose-500/45 bg-rose-500/10 shadow-[0_0_18px_rgba(244,63,94,0.18)]",
 } as const;
@@ -77,9 +78,9 @@ export default function TelemetryFeed({ collapsed = false, onToggleCollapsed }: 
               layout initial={{ opacity: 0, y: -12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.32, ease: "easeOut" }}
               className={`w-full rounded-xl border p-2.5 text-left opacity-88 backdrop-blur-sm transition-all hover:border-cyan-400/60 hover:opacity-100 hover:shadow-[0_0_18px_rgba(34,211,238,0.18)] ${focusedTelemetryId === event.id ? "ring-1 ring-cyan-300/65" : ""} ${severityStyles[event.severity]}`}
             >
-              <div className="flex items-center justify-between gap-2"><div className="text-[11px] text-zinc-300">{new Date(event.timestamp).toLocaleTimeString()}</div><motion.div className="flex items-center gap-1 text-[10px] font-semibold" animate={event.severity === "CRITICAL" ? { opacity: [1, 0.45, 1] } : {}} transition={{ repeat: Infinity, duration: 1.2 }}><motion.span className="h-2 w-2 rounded-full bg-current" animate={{ scale: [1, 1.6, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} />{event.severity}</motion.div></div>
+              <div className="flex items-center justify-between gap-2"><div className="text-[11px] text-zinc-300">{new Date(event.timestamp).toLocaleTimeString()}</div><motion.div className="flex items-center gap-1 text-[10px] font-semibold" animate={event.severity === "CRITICAL" ? { opacity: [1, 0.45, 1] } : {}} transition={{ repeat: Infinity, duration: 1.2 }}><motion.span className="h-2 w-2 rounded-full bg-current" animate={{ scale: [1, 1.6, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} />{normalizePlatformStatus(event.severity)}</motion.div></div>
               <div className="mt-1 text-sm font-semibold text-white">{event.title}</div>
-              <div className="mt-2 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-wide"><span className="rounded border border-zinc-600 px-2 py-0.5 text-zinc-200">{event.category}</span><span className="rounded border border-zinc-600 px-2 py-0.5 text-zinc-200">{event.county}</span><span className="rounded border border-zinc-600 px-2 py-0.5 text-zinc-300">{event.status}</span><span className="rounded border border-cyan-700/40 bg-cyan-400/10 px-2 py-0.5 text-cyan-200">SYNC</span></div>
+              <div className="mt-2 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-wide"><span className="rounded border border-zinc-600 px-2 py-0.5 text-zinc-200">{event.category}</span><span className="rounded border border-zinc-600 px-2 py-0.5 text-zinc-200">{event.county}</span><span className="rounded border border-zinc-600 px-2 py-0.5 text-zinc-300">{normalizePlatformStatus(event.status)}</span><span className="rounded border border-cyan-700/40 bg-cyan-400/10 px-2 py-0.5 text-cyan-200">SYNC</span></div>
             </motion.button>
           ))}
         </AnimatePresence>

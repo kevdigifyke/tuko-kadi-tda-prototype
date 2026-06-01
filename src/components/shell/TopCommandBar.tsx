@@ -9,7 +9,7 @@ export function TopCommandBar() {
         <p className="text-[10px] uppercase tracking-[0.22em] text-[#bac9cc]">Election Observatory Intelligence System</p>
       </div>
       <div className="flex items-center gap-3">
-        <StatusChip label="LIVE STATUS" />
+        <StatusChip status="GREEN" label="GREEN · LIVE" />
         <WarningStrip />
       </div>
     </header>

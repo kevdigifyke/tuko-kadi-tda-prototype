@@ -6,53 +6,76 @@ import CognitiveIntelligencePanel from "./CognitiveIntelligencePanel";
 import SignalIntelligencePanel from "./SignalIntelligencePanel";
 import TransparencyLayerPanel from "../legitimacy/TransparencyLayerPanel";
 import ResearchReadinessPanel from "../research/ResearchReadinessPanel";
+import { StatusChip } from "../ui/StatusChip";
+
+function CollapsibleCard({
+  title,
+  eyebrow,
+  summary,
+  status = "GREEN",
+  defaultOpen = false,
+  children,
+}: {
+  title: string;
+  eyebrow: string;
+  summary: string;
+  status?: "GREEN" | "AMBER" | "RED" | "CRITICAL";
+  defaultOpen?: boolean;
+  children?: React.ReactNode;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <section className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
+      <button type="button" onClick={() => setOpen((value) => !value)} className="flex w-full items-start justify-between gap-3 text-left" aria-expanded={open}>
+        <span>
+          <span className="panel-kicker block text-cyan-300/85">{eyebrow}</span>
+          <span className="mt-1 block text-sm font-semibold text-white">{title}</span>
+        </span>
+        <span className="text-xs text-cyan-200">{open ? "▾" : "▸"}</span>
+      </button>
+      <div className="mt-2 flex items-center justify-between gap-2">
+        <p className="text-xs leading-relaxed text-zinc-400">{summary}</p>
+        <StatusChip status={status} />
+      </div>
+      <div className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+        <div className="overflow-hidden">
+          <div className="mt-3 border-t border-white/10 pt-3 text-xs text-zinc-400">{children}</div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function CommandSidebar({ focusMode = false }: { focusMode?: boolean }) {
   const [intelligenceBriefOpen, setIntelligenceBriefOpen] = useState(false);
 
   return (
     <div className="h-full space-y-3 overflow-y-auto border-r border-cyan-950/60 bg-black/88 p-3 text-zinc-300">
-      <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-400/90">
-        KuraScope EOIS
-      </h2>
-
-      <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
-        <h3 className="text-sm font-semibold text-white">
-          AI Risk Engine
-        </h3>
-
-        <p className="text-xs text-zinc-400 mt-2">
-          Monitoring national anomaly propagation patterns.
-        </p>
+      <div className="flex items-center justify-between gap-3">
+        <div>
+          <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-400/90">Intelligence</h2>
+          <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-zinc-500">Collapsed by default to prioritize map visibility</p>
+        </div>
       </div>
 
-      <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
-        <h3 className="text-sm font-semibold text-white">
-          Observatory Intelligence
-        </h3>
+      <CollapsibleCard title="AI Risk Engine" eyebrow="Telemetry" summary="National anomaly propagation monitor." status="AMBER">
+        Existing telemetry, anomaly, and propagation signals remain active; this panel only summarizes their operational state.
+      </CollapsibleCard>
 
-        <p className="text-xs text-zinc-400 mt-2">
-          Persistent topology structures actively updating.
-        </p>
-      </div>
+      <CollapsibleCard title="Observatory Intelligence" eyebrow="Map layer" summary="Topology structures and civic signal overlays." status="GREEN">
+        Map-first hierarchy keeps geography visible while preserving access to semantic geo and civic intelligence summaries.
+      </CollapsibleCard>
 
-      <div className="rounded-xl border border-zinc-800/80 bg-zinc-950/62 p-3">
-        <h3 className="text-sm font-semibold text-white">
-          Simulation Engine
-        </h3>
-
-        <p className="text-xs text-zinc-400 mt-2">
-          Synthetic election scenario replay active.
-        </p>
-      </div>
+      <CollapsibleCard title="Simulation Engine" eyebrow="Replay" summary="Synthetic election scenario replay active." status="AMBER">
+        Replay cognition, scenario playback, and telemetry evolution continue to use the existing simulation store.
+      </CollapsibleCard>
 
       <TransparencyLayerPanel />
 
       <ResearchReadinessPanel />
 
-      <SignalIntelligencePanel />
-
-      <section className={`rounded-xl border border-cyan-950/70 bg-zinc-950/58 shadow-[0_0_22px_rgba(45,212,191,0.05)] transition-all duration-300 ${focusMode ? "pointer-events-none opacity-0" : "opacity-100"}`}>
+      <section className="rounded-xl border border-cyan-950/70 bg-zinc-950/58 shadow-[0_0_22px_rgba(45,212,191,0.05)]">
         <button
           type="button"
           onClick={() => setIntelligenceBriefOpen((current) => !current)}
@@ -68,6 +91,8 @@ export default function CommandSidebar({ focusMode = false }: { focusMode?: bool
           </div>
         </div>
       </section>
+
+      {!focusMode && <SignalIntelligencePanel />}
     </div>
   );
 }
