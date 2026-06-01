@@ -10,7 +10,7 @@ import HeatmapLayer from "./HeatmapLayer";
 import PulseMarker from "./PulseMarker";
 import { pollingStations } from "../../data/geo/pollingStations";
 import { buildGeospatialCivicSignals, type CivicFlowCorridor, type CivicSignalIntelligence } from "@/src/lib/geospatialCivicSignals";
-import { useSimulationStore } from "@/src/store/useSimulationStore";
+import { useSimulationStore, type TelemetryEvent, type IntelligenceSeverity } from "@/src/store/useSimulationStore";
 
 type RegionLayer = "county" | "constituency" | "ward";
 type TacticalLayerKey =
@@ -45,6 +45,114 @@ type TacticalLayerState = Record<
   TacticalLayerKey,
   { enabled: boolean; intensity: number; bandVisibility: Partial<Record<VisibilityBand, boolean>> }
 >;
+
+type RegionIntelligence = {
+  turnout: number;
+  risk: number;
+  leadingCandidate: string;
+  margin: string;
+  anomalyStatus: string;
+  telemetryEvents: TelemetryEvent[];
+  propagationInfluence: string;
+  simulationConfidence: number;
+  activeAnomalies: number;
+  propagationClusters: number;
+  turnoutPressure: string;
+  lastUpdateTick: number;
+};
+
+const candidateSlate = ["Candidate A", "Candidate B", "Candidate C"];
+const escapeHtml = (value: string | number) => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char] ?? char);
+const hashToRange = (key: string, min: number, max: number) => min + (hashLabelKey(key) % (max - min + 1));
+const avgNumber = (values: number[], fallback: number) => values.length ? Math.round(values.reduce((sum, value) => sum + value, 0) / values.length) : fallback;
+const telemetryMatchesRegion = (event: TelemetryEvent, layer: RegionLayer, regionName: string) => {
+  const normalizedRegion = normalizeSemanticKey(regionName);
+  const exact = normalizeSemanticKey(event[layer]) === normalizedRegion;
+  if (exact) return true;
+  if (layer === "county") return normalizeSemanticKey(event.county).includes(normalizedRegion) || normalizedRegion.includes(normalizeSemanticKey(event.county));
+  if (layer === "constituency") return normalizeSemanticKey(event.constituency).includes(normalizedRegion) || normalizedRegion.includes(normalizeSemanticKey(event.constituency));
+  return normalizeSemanticKey(event.ward).includes(normalizedRegion) || normalizedRegion.includes(normalizeSemanticKey(event.ward));
+};
+const severityFromRisk = (risk: number): IntelligenceSeverity => risk >= 82 ? "RED" : risk >= 58 ? "AMBER" : "GREEN";
+const turnoutPressureLabel = (turnout: number, risk: number) => turnout >= 72 || risk >= 78 ? "High" : turnout >= 60 || risk >= 55 ? "Moderate" : "Low";
+const propagationInfluenceLabel = (events: TelemetryEvent[], risk: number) => events.some((event) => event.category.toLowerCase().includes("tda") || event.category.toLowerCase().includes("propagation")) || risk >= 75 ? "High" : events.length > 1 || risk >= 52 ? "Moderate" : "Low";
+
+function buildRegionIntelligence(params: { layer: RegionLayer; regionName: string; tick: number; telemetryEvents: TelemetryEvent[] }): RegionIntelligence {
+  const { layer, regionName, tick, telemetryEvents } = params;
+  const key = `${layer}:${regionName}:${tick}`;
+  const linkedTelemetry = telemetryEvents.filter((event) => telemetryMatchesRegion(event, layer, regionName));
+  const turnoutFallback = hashToRange(`${key}:turnout`, 48, 82);
+  const riskFallback = hashToRange(`${key}:risk`, 18, 76);
+  const turnout = avgNumber(linkedTelemetry.map((event) => event.turnout), turnoutFallback);
+  const risk = avgNumber(linkedTelemetry.map((event) => event.aiRiskScore), riskFallback);
+  const criticalCount = linkedTelemetry.filter((event) => event.severity === "CRITICAL" || event.simulationStatus === "DIVERGENT").length;
+  const activeAnomalies = criticalCount || (risk >= 70 ? Math.max(1, Math.round(risk / 28)) : 0);
+  const propagationInfluence = propagationInfluenceLabel(linkedTelemetry, risk);
+  const simulationConfidence = Math.min(96, Math.max(64, Math.round(98 - Math.abs(58 - turnout) * 0.28 - risk * 0.12 + linkedTelemetry.length * 2)));
+
+  return {
+    turnout,
+    risk,
+    leadingCandidate: candidateSlate[hashLabelKey(regionName) % candidateSlate.length],
+    margin: `${(2.2 + (hashLabelKey(`${regionName}:margin`) % 96) / 10).toFixed(1)}%`,
+    anomalyStatus: activeAnomalies > 1 ? "Active cluster" : activeAnomalies === 1 ? "Single anomaly" : "Nominal",
+    telemetryEvents: linkedTelemetry,
+    propagationInfluence,
+    simulationConfidence,
+    activeAnomalies,
+    propagationClusters: propagationInfluence === "High" ? Math.max(1, Math.ceil(activeAnomalies / 2)) : propagationInfluence === "Moderate" ? 1 : 0,
+    turnoutPressure: turnoutPressureLabel(turnout, risk),
+    lastUpdateTick: tick,
+  };
+}
+
+function renderTelemetryList(events: TelemetryEvent[]) {
+  if (!events.length) return "<div class='ks-muted'>No linked telemetry in current simulation window</div>";
+  return `<div class='ks-linked'><span>Linked Telemetry:</span><b>${events.length} Events</b></div><ul>${events.slice(0, 3).map((event) => `<li>• ${escapeHtml(event.title)}</li>`).join("")}</ul>`;
+}
+
+function renderRegionPopupHtml(layer: RegionLayer, regionName: string, intel: RegionIntelligence) {
+  const layerLabel = layer === "ward" ? "Ward Intelligence" : layer === "constituency" ? "Constituency Intelligence" : "County Intelligence";
+  const coreRows = layer === "ward"
+    ? [
+        ["Turnout", `${intel.turnout}%`],
+        ["AI Risk", intel.risk],
+        ["Leading Candidate", intel.leadingCandidate],
+        ["Margin", intel.margin],
+        ["Anomaly Status", intel.anomalyStatus],
+        ["Telemetry Events", intel.telemetryEvents.length],
+        ["Propagation Influence", intel.propagationInfluence],
+        ["Simulation Confidence", `${intel.simulationConfidence}%`],
+        ["Last Update", `T+${intel.lastUpdateTick}`],
+      ]
+    : layer === "constituency"
+      ? [
+          ["Turnout", `${intel.turnout}%`],
+          ["Risk", intel.risk],
+          ["Anomaly Count", intel.activeAnomalies],
+          ["Telemetry Count", intel.telemetryEvents.length],
+          ["Simulation Confidence", `${intel.simulationConfidence}%`],
+        ]
+      : [
+          ["County Risk Score", intel.risk],
+          ["Active Anomalies", intel.activeAnomalies],
+          ["Propagation Clusters", intel.propagationClusters],
+          ["Turnout Pressure", intel.turnoutPressure],
+          ["Simulation Confidence", `${intel.simulationConfidence}%`],
+        ];
+
+  return `
+    <div class='ks-intel-card'>
+      <div class='ks-kicker'>${layerLabel}</div>
+      <div class='ks-title'>${escapeHtml(regionName)}</div>
+      <div class='ks-grid'>${coreRows.map(([label, value]) => `<span>${escapeHtml(label)}</span><b>${escapeHtml(value)}</b>`).join("")}</div>
+      <div class='ks-telemetry'>${renderTelemetryList(intel.telemetryEvents)}</div>
+      <div class='ks-actions'>
+        <button type='button' data-action='focus'>Focus Intelligence</button>
+        <button type='button' data-action='replay'>Replay Trace</button>
+      </div>
+    </div>`;
+}
 
 const nameKeyMap = {
   county: ["COUNTY", "COUNTY_NAM", "ADM1_EN", "NAME", "name"],
@@ -113,6 +221,11 @@ const normalizeSemanticKey = (value: string) => value.toLowerCase().replace(/[^a
 const stationTurnoutEstimate = (station: { voters: number; risk: string }) => {
   const riskBias = station.risk === "high" ? 8 : station.risk === "medium" ? 3 : -2;
   return clamp(54 + (station.voters % 19) + riskBias, 42, 82);
+};
+const calculateStationRisk = (station: { id: string; voters: number; risk: string }, tick: number, index: number) => {
+  const riskBias = station.risk === "high" ? 25 : station.risk === "medium" ? 14 : 5;
+  const tickWave = Math.round(((Math.sin((tick + index * 7) / 11) + 1) / 2) * 20);
+  return clamp(28 + riskBias + (station.voters % 17) + tickWave, 18, 94);
 };
 const layerVisualStyle = (enabled: boolean, intensity: number) =>
   enabled
@@ -317,7 +430,6 @@ export default memo(function IEBCBoundaryMap({ focusMode = false }: { focusMode?
   const [layersOpen, setLayersOpen] = useState(false);
 
   const tick = useSimulationStore((s) => s.tick);
-  const latestEvent = useSimulationStore((s) => s.telemetryEvents[0]);
   const activeRegion = useSimulationStore((s) => s.activeRegion);
   const focusedTelemetryId = useSimulationStore((s) => s.focusedTelemetryId);
   const telemetryEvents = useSimulationStore((s) => s.telemetryEvents);
@@ -489,18 +601,36 @@ export default memo(function IEBCBoundaryMap({ focusMode = false }: { focusMode?
     return { color: base.color, dashArray: base.dashArray, weight: (base.weight + (isSearchHit ? 0.8 : 0)) * opacity * bandDamping, opacity: opacity * bandDamping * (searchTarget && !isSearchHit ? 0.36 : 0.86), fillColor: base.color, fillOpacity: base.fill * opacity * bandDamping * (searchTarget && !isSearchHit ? 0.24 : isSearchHit ? 2 : 0.82) };
   }, [searchTarget, zoom]);
 
-  const onEachFeature = useCallback((layerName: RegionLayer) => (feature: GeoJSON.Feature, layer: Layer & { setStyle: (s: Record<string, number | string>) => void; bindTooltip: (n: string, o: Record<string, unknown>) => void; bindPopup: (html: string) => void; on: (events: Record<string, () => void>) => void; getLatLngs: () => Array<{ lat: number; lng: number }> | Array<Array<{ lat: number; lng: number }>>; openPopup: () => void; }) => {
+  const handleMapIntelligenceAction = useCallback((params: { regionName: string; layer: RegionLayer; center: [number, number]; telemetryEvents: TelemetryEvent[]; action: "focus" | "replay"; severity?: IntelligenceSeverity }) => {
+    const regionKey = `${params.layer}:${params.regionName}`.toLowerCase();
+    const telemetryId = params.telemetryEvents[0]?.id ?? null;
+    setActiveRegion({ id: regionKey, name: params.regionName, layer: params.layer, center: params.center, severity: params.severity ?? "AMBER", flashToken: Date.now() });
+    setFocusedTelemetryId(telemetryId);
+    if (params.action === "replay" || telemetryId) {
+      setReplayFocus({ clusterKey: `${params.regionName}:${params.layer}`.toLowerCase(), source: "map", lastJumpAt: Date.now() });
+    }
+  }, [setActiveRegion, setFocusedTelemetryId, setReplayFocus]);
+
+  const onEachFeature = useCallback((layerName: RegionLayer) => (feature: GeoJSON.Feature, layer: Layer & { setStyle: (s: Record<string, number | string>) => void; bindTooltip: (n: string, o: Record<string, unknown>) => void; bindPopup: (html: string, options?: Record<string, unknown>) => void; on: (events: Record<string, (event?: unknown) => void>) => void; getLatLngs: () => Array<{ lat: number; lng: number }> | Array<Array<{ lat: number; lng: number }>>; openPopup: () => void; getPopup?: () => { getElement?: () => HTMLElement | undefined } | undefined; }) => {
     const regionName = getRegionName((feature.properties ?? {}) as Record<string, unknown>, layerName);
     if (!regionName) return;
     const key = `${layerName}:${regionName}`.toLowerCase();
     const center = getCenter(layer.getLatLngs());
+    const intel = buildRegionIntelligence({ layer: layerName, regionName, tick, telemetryEvents });
     const permanent = layerName === "county" ? zoom < 7.4 : layerName === "constituency" ? zoom >= 7.8 && zoom <= 10.4 : zoom > 10.9;
     layer.bindTooltip(regionName, { sticky: false, permanent, direction: "center", opacity: permanent ? 0.82 : 0.65, className: labelClassFor(layerName, zoom, key) });
-    layer.bindPopup(`<div class='text-[11px]'><b>${regionName}</b><div>Risk ${latestEvent?.aiRiskScore ?? 42} | Turnout ${latestEvent?.turnout ?? 57}%</div></div>`);
+    layer.bindPopup(renderRegionPopupHtml(layerName, regionName, intel), { className: "tactical-intel-popup", maxWidth: 310, minWidth: 260 });
     layer.on({
       mouseover: () => layer.setStyle({ fillOpacity: styleFor(layerName).fillOpacity + 0.06, weight: styleFor(layerName).weight + 0.7, opacity: Math.min(1, styleFor(layerName).opacity + 0.16) }),
       mouseout: () => layer.setStyle(styleFor(layerName)),
-      click: () => useSimulationStore.getState().setActiveRegion({ id: key, name: regionName, layer: layerName, center, severity: latestEvent?.intelligenceSeverity ?? "GREEN", flashToken: Date.now() }),
+      click: () => handleMapIntelligenceAction({ regionName, layer: layerName, center, telemetryEvents: intel.telemetryEvents, action: "focus", severity: severityFromRisk(intel.risk) }),
+      popupopen: () => {
+        const popupElement = layer.getPopup?.()?.getElement?.();
+        const focusButton = popupElement?.querySelector<HTMLButtonElement>("[data-action='focus']");
+        const replayButton = popupElement?.querySelector<HTMLButtonElement>("[data-action='replay']");
+        if (focusButton) focusButton.onclick = () => handleMapIntelligenceAction({ regionName, layer: layerName, center, telemetryEvents: intel.telemetryEvents, action: "focus", severity: severityFromRisk(intel.risk) });
+        if (replayButton) replayButton.onclick = () => handleMapIntelligenceAction({ regionName, layer: layerName, center, telemetryEvents: intel.telemetryEvents, action: "replay", severity: severityFromRisk(intel.risk) });
+      },
     });
     if (activeRegion?.id?.toLowerCase() === key) {
       layer.openPopup();
@@ -508,30 +638,38 @@ export default memo(function IEBCBoundaryMap({ focusMode = false }: { focusMode?
       path.setStyle({ weight: styleFor(layerName).weight + 1.2, fillOpacity: styleFor(layerName).fillOpacity + 0.12 });
       setTimeout(() => path.setStyle(styleFor(layerName)), 1500);
     }
-  }, [activeRegion?.id, latestEvent?.aiRiskScore, latestEvent?.intelligenceSeverity, latestEvent?.turnout, styleFor, zoom]);
+  }, [activeRegion?.id, handleMapIntelligenceAction, styleFor, telemetryEvents, tick, zoom]);
 
   const anomalyMarkers = useMemo(() => {
     const replayFocusedId = replayFrameAtTick?.event.id;
     const focused = focusedTelemetryId ? telemetryEvents.find((event) => event.id === focusedTelemetryId) : replayFocusedId ? telemetryEvents.find((event) => event.id === replayFocusedId) : telemetryEvents[0];
-    return pollingStations.filter((_, idx) => idx % Math.max(2, 10 - Math.floor(replayEnergy * 8)) === 0).map((station) => {
-      const linked = telemetryEvents.find((event) => event.county === station.county || event.constituency === station.constituency || event.ward === station.ward);
-      const isFocused = Boolean(focused && linked?.id === focused.id);
+    return pollingStations.filter((_, idx) => idx % Math.max(2, 10 - Math.floor(replayEnergy * 8)) === 0).map((station, idx) => {
+      const linkedEvents = telemetryEvents.filter((event) => event.county === station.county || event.constituency === station.constituency || event.ward === station.ward);
+      const linked = linkedEvents[0];
+      const isFocused = Boolean(focused && linkedEvents.some((event) => event.id === focused.id));
+      const risk = linked?.aiRiskScore ?? calculateStationRisk(station, tick, idx);
       return {
         station: {
           ...station,
           turnout: linked?.turnout ?? stationTurnoutEstimate(station),
           status: linked?.status,
-          tdaStability: linked?.tdaStability,
-          simulationStatus: linked?.simulationStatus,
-          aiRiskScore: linked?.aiRiskScore,
-          severity: linked?.intelligenceSeverity,
+          tdaStability: linked?.tdaStability ?? Math.max(35, 92 - Math.round(risk * 0.48)),
+          simulationStatus: linked?.simulationStatus ?? (risk > 70 ? "DIVERGENT" as const : "PREDICTIVE" as const),
+          aiRiskScore: risk,
+          severity: linked?.intelligenceSeverity ?? severityFromRisk(risk),
         },
+        linkedTelemetry: linkedEvents,
+        affectedStations: Math.max(1, linkedEvents.length * 3 + Math.ceil(risk / 24)),
+        propagationCluster: linkedEvents.some((event) => event.category.toLowerCase().includes("tda")) || risk > 72 ? "TDA cluster" : "Local mesh",
+        turnoutPressure: turnoutPressureLabel(linked?.turnout ?? stationTurnoutEstimate(station), risk),
+        confidence: Math.min(96, Math.max(62, Math.round((risk + (linked?.tdaStability ?? 76)) / 2 + linkedEvents.length * 4))),
+        anomalyType: linked?.category ?? (risk > 70 ? "Simulation Divergence" : "Turnout Pressure"),
         isFocused,
         dimmed: Boolean(focused && !isFocused),
-        isCritical: linked?.severity === "CRITICAL",
+        isCritical: linked?.severity === "CRITICAL" || risk > 82,
       };
     });
-  }, [focusedTelemetryId, replayEnergy, replayFrameAtTick?.event.id, telemetryEvents]);
+  }, [focusedTelemetryId, replayEnergy, replayFrameAtTick?.event.id, telemetryEvents, tick]);
 
   return (
     <div className="relative h-[85vh] w-full overflow-hidden rounded-2xl border border-zinc-800 shadow-[0_0_35px_rgba(34,211,238,0.12)] tactical-carto-map">
@@ -602,10 +740,28 @@ export default memo(function IEBCBoundaryMap({ focusMode = false }: { focusMode?
         <TileLayer attribution="Carto" opacity={0.72} url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png" />
         {layerVisible("turnout") && <HeatmapLayer points={layerVisible("replayTraces") ? [...heatmapPoints, ...ghostTrailStations] : heatmapPoints} intensityBoost={0.8 + replayEnergy * 0.65} visible />}
         <CivicSignalMapOverlays signals={civicSignals} showEnvironmental={layerVisible("environmentalSignals")} showMobility={layerVisible("mobilitySignals")} showAccessibility={layerVisible("accessibilitySignals")} showTurnoutPressure={layerVisible("turnoutPressure")} />
-        {layerVisible("telemetry") && <MarkerClusterGroup chunkedLoading>{anomalyMarkers.map(({ station, isFocused, dimmed, isCritical }) => <PulseMarker key={station.id} station={station} cinematicPulse={layerVisible("anomalies")} isFocused={isFocused} dimmed={dimmed} criticalBoost={isCritical} propagationPulse={layerVisible("propagation") && isFocused} />)}</MarkerClusterGroup>}
-        {layerVisible("topology") && counties && band === "macro" && <GeoJSON data={counties} style={() => styleFor("county")} onEachFeature={onEachFeature("county")} />}
-        {layerVisible("simulations") && constituencies && band !== "deep" && <GeoJSON data={constituencies} style={() => styleFor("constituency")} onEachFeature={onEachFeature("constituency")} />}
-        {layerVisible("tacticalOverlays") && wards && band === "deep" && <GeoJSON data={wards} style={() => styleFor("ward")} onEachFeature={onEachFeature("ward")} />}
+        {layerVisible("telemetry") && <MarkerClusterGroup chunkedLoading>{anomalyMarkers.map(({ station, isFocused, dimmed, isCritical, linkedTelemetry, affectedStations, propagationCluster, turnoutPressure, confidence, anomalyType }) => (
+          <PulseMarker
+            key={station.id}
+            station={station}
+            cinematicPulse={layerVisible("anomalies")}
+            isFocused={isFocused}
+            dimmed={dimmed}
+            criticalBoost={isCritical}
+            propagationPulse={layerVisible("propagation") && isFocused}
+            linkedTelemetry={linkedTelemetry}
+            affectedStations={affectedStations}
+            propagationCluster={propagationCluster}
+            turnoutPressure={turnoutPressure}
+            confidence={confidence}
+            anomalyType={anomalyType}
+            onFocusIntelligence={() => handleMapIntelligenceAction({ regionName: station.ward, layer: "ward", center: [station.lat, station.lng], telemetryEvents: linkedTelemetry, action: "focus", severity: station.severity })}
+            onReplayTrace={() => handleMapIntelligenceAction({ regionName: station.ward, layer: "ward", center: [station.lat, station.lng], telemetryEvents: linkedTelemetry, action: "replay", severity: station.severity })}
+          />
+        ))}</MarkerClusterGroup>}
+        {layerVisible("topology") && counties && band === "macro" && <GeoJSON key={`county-${band}-${telemetryEvents.length}`} data={counties} style={() => styleFor("county")} onEachFeature={onEachFeature("county")} />}
+        {layerVisible("simulations") && constituencies && band !== "deep" && <GeoJSON key={`constituency-${band}-${telemetryEvents.length}`} data={constituencies} style={() => styleFor("constituency")} onEachFeature={onEachFeature("constituency")} />}
+        {layers.tacticalOverlays.enabled && wards && zoom >= zoomOpacity.ward.min && <GeoJSON key={`ward-${band}-${telemetryEvents.length}`} data={wards} style={() => styleFor("ward")} onEachFeature={onEachFeature("ward")} />}
       </MapContainer>
     </div>
   );

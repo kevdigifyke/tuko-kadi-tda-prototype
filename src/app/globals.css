@@ -110,3 +110,121 @@ body { margin:0; background: radial-gradient(circle at 15% 0%, #132124 0%, var(-
 .tactical-replay-range {
   accent-color: #22d3ee;
 }
+
+.tactical-carto-map .tactical-intel-popup .leaflet-popup-content-wrapper {
+  border: 1px solid rgba(34, 211, 238, 0.24);
+  background: linear-gradient(180deg, rgba(8, 15, 17, 0.96), rgba(3, 7, 18, 0.94));
+  color: #dce4e5;
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.13), inset 0 1px 0 rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px);
+}
+
+.tactical-carto-map .tactical-intel-popup .leaflet-popup-content {
+  margin: 10px;
+}
+
+.tactical-carto-map .tactical-intel-popup .leaflet-popup-tip {
+  background: rgba(8, 15, 17, 0.96);
+  border: 1px solid rgba(34, 211, 238, 0.16);
+}
+
+.tactical-carto-map .ks-intel-card {
+  min-width: 255px;
+  color: #dce4e5;
+  font-size: 11px;
+}
+
+.tactical-carto-map .ks-kicker {
+  color: #67e8f9;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.tactical-carto-map .ks-title {
+  margin-top: 4px;
+  color: #ecfeff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tactical-carto-map .ks-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  margin-top: 9px;
+  padding: 8px;
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  border-radius: 10px;
+  background: rgba(34, 211, 238, 0.05);
+}
+
+.tactical-carto-map .ks-grid span,
+.tactical-carto-map .ks-muted {
+  color: #94a3b8;
+}
+
+.tactical-carto-map .ks-grid b {
+  color: #e0f2fe;
+  font-weight: 700;
+  text-align: right;
+}
+
+.tactical-carto-map .ks-telemetry {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid rgba(113, 113, 122, 0.55);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.tactical-carto-map .ks-linked {
+  display: flex;
+  justify-content: space-between;
+  color: #67e8f9;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tactical-carto-map .ks-telemetry ul {
+  margin: 5px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #cbd5e1;
+}
+
+.tactical-carto-map .ks-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tactical-carto-map .ks-actions button {
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  border-radius: 8px;
+  background: rgba(34, 211, 238, 0.1);
+  color: #cffafe;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  padding: 6px 7px;
+  text-transform: uppercase;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.tactical-carto-map .ks-actions button:last-child {
+  border-color: rgba(167, 139, 250, 0.34);
+  background: rgba(124, 58, 237, 0.12);
+  color: #ede9fe;
+}
+
+.tactical-carto-map .ks-actions button:hover {
+  border-color: rgba(165, 243, 252, 0.78);
+  background: rgba(34, 211, 238, 0.18);
+}
