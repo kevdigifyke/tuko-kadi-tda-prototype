@@ -3,19 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { primaryNavigation } from "./navigation";
+import { primaryNavigation, publicDemoNavigation } from "./navigation";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function MobileBottomNav() {
+export function MobileBottomNav({ publicDemo = false }: { publicDemo?: boolean }) {
   const pathname = usePathname();
+  const navItems = publicDemo ? publicDemoNavigation : primaryNavigation;
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-20 flex gap-1 overflow-x-auto border-t border-white/10 bg-[#080f11]/95 px-2 py-2 backdrop-blur md:hidden">
-      {primaryNavigation.map((item) => (
+      {navItems.map((item) => (
         <Link
           key={item.href}
           href={item.href}
